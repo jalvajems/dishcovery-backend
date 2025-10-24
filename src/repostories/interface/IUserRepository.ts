@@ -1,7 +1,8 @@
-import { IUser } from "../../types/user.types";
 import { IUserDocument } from "../../models/users.model";
+import { IUser } from "../../types/user.types";
 
 export  interface IUserRepository{
-    createUser(data: IUser): Promise<IUserDocument>;
-    findByEmail(email:string): Promise<IUserDocument | null>
+    createUser(userData: IUser): Promise<IUserDocument>;
+    findByEmail(email:string): Promise<IUserDocument | null>;
+    update (id:string, userData:IUser): Promise<IUserDocument|null>;
 }

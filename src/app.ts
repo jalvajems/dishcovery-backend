@@ -5,6 +5,8 @@ import {env} from './config/env.config'
 
 
 import demorouter from './routes/demo.routes'
+import authRouter from './routes/auth.routes'
+
 import { requestLogger } from './middlewares/requestLogger'
 import { errorHandler } from './middlewares/errorHandler'
 import { corsOptions } from './config/cors.config'
@@ -19,7 +21,7 @@ app.use(helmet())
 app.use(requestLogger);
 
 
-app.use("/api/v1/demo",demorouter)
+app.use("/api/v1/auth",authRouter)
 
 app.get("/check",(req,res)=>{
     res.status(200).json({
