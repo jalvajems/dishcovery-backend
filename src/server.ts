@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { env } from "./config/env.config";
 import {connectDB} from './config/db.config';
 import {log} from './utils/logger';

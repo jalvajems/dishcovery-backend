@@ -1,13 +1,14 @@
 import { IAuthController } from "../interface/IAuthController";
-import { AuthService } from "../../services/implementation/auth.services";
 import { Request, Response, NextFunction } from "express";
+import { inject, injectable } from "inversify";
+import TYPES from "../../DI/types";
+import { IAuthService } from "../../services/interface/IAuthService";
 
-export class AuthController implements IAuthController{
-    private authService:AuthService;
 
-    constructor(){
-        this.authService=new AuthService();
-    }
+    @injectable()
+    export class AuthController implements IAuthController{
+        constructor(@inject(TYPES.IAuthService)private authService:IAuthService){}
+
 
     async register(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {

@@ -1,16 +1,17 @@
 import bcrypt from 'bcryptjs';
 import { IAuthService } from '../interface/IAuthService';
-import { UserRepository } from '../../repostories/implementation/user.repository';
 import { IUserDocument } from '../../models/users.model';
 import { IUser } from '../../types/user.types';
 import { AppError } from '../../utils/AppError';
+import { inject, injectable } from 'inversify';
+import { IUserRepository } from '../../repostories/interface/IUserRepository';
+import TYPES from '../../DI/types';
 
+@injectable()
 export class AuthService implements IAuthService{
-    private userRepository:UserRepository;
+    constructor(@inject(TYPES.IUserRepository)private userRepository:IUserRepository){}
 
-    constructor(){
-        this.userRepository = new UserRepository()
-    }
+
     async registerUser(userData: IUser): Promise<IUserDocument> {
         const existingUser=await this.userRepository.findByEmail(userData.email);
         if(existingUser)throw new AppError('Email already Registered',400);
@@ -28,5 +29,10 @@ export class AuthService implements IAuthService{
 
         return user;
 
+    }
+    async userListing(email:string):Promise<IUserDocument>{
+        const users=await this.userRepository.findByEmail(email)
+        if(!users)throw new AppError('no users ', 404);
+        return users;
     }
 }

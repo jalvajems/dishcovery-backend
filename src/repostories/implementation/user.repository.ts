@@ -6,13 +6,8 @@ export class UserRepository implements IUserRepository{
     async createUser(userData: IUser):Promise<IUserDocument>{
         return new User (userData).save();
     }
-    async findByEmail(email: string): Promise<IUserDocument
-     | null> {
+    async findByEmail(email: string): Promise<IUserDocument| null> {
     return User.findOne({ email });
-  }
-
-  async update(id: string, data: Partial<IUser>): Promise<IUserDocument | null> {
-    return User.findByIdAndUpdate(id, data, { new: true });
   }
 
   
