@@ -15,7 +15,7 @@ import { IAuthService } from "../../services/interface/IAuthService";
             const user=await this.authService.registerUser(req.body);
             res.status(201).json({success:true, data:user});
         } catch (error) {
-            next(error)          
+            next(error);    
         }
     }
     async login(req: Request, res: Response, next: NextFunction): Promise<void> {
