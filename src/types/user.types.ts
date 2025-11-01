@@ -1,8 +1,13 @@
+export enum Role{
+    USER='user',
+    CHEF='chef',
+    ADMIN='admin'
+}
 export interface IUser{
     name: string;
     email: string;
     password: string;
-    role: "admin"|"chef"|"foodie";
+    role: Role;
     isVarified: boolean;
     createdAt?: Date;
     updatedAt?: Date;
