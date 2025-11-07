@@ -1,13 +1,15 @@
 import { IUserRepository } from "../interface/IUserRepository";
-import { IUser } from "../../types/user.types";
-import { IUserDocument, User } from "../../models/users.model";
+import { IUserDocument, UserModel } from "../../models/users.model";
+import { BaseRepository } from "./base.repository";
 
-export class UserRepository implements IUserRepository{
-    async createUser(userData: IUser):Promise<IUserDocument>{
-        return new User (userData).save();
-    }
-    async findByEmail(email: string): Promise<IUserDocument| null> {
-    return User.findOne({ email });
+export class UserRepository extends BaseRepository<IUserDocument> implements IUserRepository{
+
+  constructor(){
+    super(UserModel)
+  }
+
+  async findByEmail(email: string): Promise<IUserDocument| null> {
+    return UserModel.findOne({ email });
   }
 
   

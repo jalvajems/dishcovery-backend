@@ -8,6 +8,7 @@ const router=Router();
 const authController=container.get<IAuthController>(TYPES.IAuthController);
 
 router.post('/signup',authController.register.bind(authController));
+
 router.post('/login',authController.login.bind(authController));
 
 

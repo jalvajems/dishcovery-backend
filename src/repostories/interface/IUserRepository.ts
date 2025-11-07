@@ -1,7 +1,6 @@
 import { IUserDocument } from "../../models/users.model";
-import { IUser } from "../../types/user.types";
+import { IBaseRepository } from "./IBaseRepository";
 
-export  interface IUserRepository{
-    createUser(userData: IUser): Promise<IUserDocument>;
+export  interface IUserRepository extends IBaseRepository<IUserDocument>{
     findByEmail(email:string): Promise<IUserDocument | null>;
 }
