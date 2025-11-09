@@ -1,8 +1,9 @@
-import "reflect-metadata";
 import { env } from "./config/env.config";
 import {connectDB} from './config/db.config';
 import {log} from './utils/logger';
 import app from './app'
+import { redisClient } from "./config/redis.config";
+
 
 (async ()=>{
     try {
@@ -17,4 +18,16 @@ import app from './app'
         log.error("Server starting failed:", error)
         process.exit(1)
     }
+
+    
 })();
+
+(
+    async()=>{
+        try {
+            await redisClient.connect()
+        } catch (error) {
+            log.error('failed redis connection')
+        }
+    }
+)()

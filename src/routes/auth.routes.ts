@@ -7,9 +7,11 @@ const router=Router();
 
 const authController=container.get<IAuthController>(TYPES.IAuthController);
 
-router.post('/signup',authController.register.bind(authController));
+router.post('/signup',authController.signup.bind(authController));
 
 router.post('/login',authController.login.bind(authController));
+
+router.post('/otp-verify',authController.verifyOtp.bind(authController));
 
 
 export default router;

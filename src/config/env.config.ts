@@ -6,7 +6,8 @@ dotenv.config()
 let envSchema=z.object({
     NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
     PORT: z.string().default("4000"),
-    MONGO_URI: z.string().min(1, "MONGO_URI is required!")
+    MONGO_URI: z.string().min(1, "MONGO_URI is required!"),
+    // REDIS_PORT: z.string().default("6379")
 });
 
 const parsed=envSchema.safeParse(process.env)
@@ -22,7 +23,8 @@ if(!parsed.success){
 export const env={
     NODE_ENV: parsed.data.NODE_ENV,
   PORT: Number(parsed.data.PORT),
-  MONGO_URI: parsed.data.MONGO_URI
+  MONGO_URI: parsed.data.MONGO_URI,
+//   REDIS_PORT:parsed.data.REDIS_PORT
 }
 
 export type Env= typeof env;
