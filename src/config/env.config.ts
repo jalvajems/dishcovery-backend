@@ -7,6 +7,8 @@ let envSchema=z.object({
     NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
     PORT: z.string().default("4000"),
     MONGO_URI: z.string().min(1, "MONGO_URI is required!"),
+    JWT_ACCESS_SECRET:z.string(),
+    JWT_REFRESH_SECRET:z.string(),
     // REDIS_PORT: z.string().default("6379")
 });
 
@@ -22,9 +24,11 @@ if(!parsed.success){
 
 export const env={
     NODE_ENV: parsed.data.NODE_ENV,
-  PORT: Number(parsed.data.PORT),
-  MONGO_URI: parsed.data.MONGO_URI,
+    PORT: Number(parsed.data.PORT),
+    MONGO_URI: parsed.data.MONGO_URI,
+    JWT_ACCESS_SECRET:parsed.data.JWT_ACCESS_SECRET,
+    JWT_REFRESH_SECRET:parsed.data.JWT_REFRESH_SECRET,
 //   REDIS_PORT:parsed.data.REDIS_PORT
 }
 
-export type Env= typeof env;
+export type Env = typeof env;

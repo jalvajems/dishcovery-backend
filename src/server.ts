@@ -7,7 +7,9 @@ import { redisClient } from "./config/redis.config";
 
 (async ()=>{
     try {
+
         await connectDB();
+        await redisClient.connect()
 
         const port=env.PORT;
         
@@ -21,13 +23,3 @@ import { redisClient } from "./config/redis.config";
 
     
 })();
-
-(
-    async()=>{
-        try {
-            await redisClient.connect()
-        } catch (error) {
-            log.error('failed redis connection')
-        }
-    }
-)()

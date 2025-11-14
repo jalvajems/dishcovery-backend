@@ -1,5 +1,5 @@
 
-export interface UserDto{
+export interface IUserDto{
      _id: string;
     name: string;
     email: string;

@@ -1,17 +1,21 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
 import container from "../DI/inversify.config";
 import { IAuthController } from "../controllers/interface/IAuthController";
 import TYPES from "../DI/types";
+import { verifyAccess } from "../middlewares/verifyAccess";
 
-const router=Router();
+const router = Router();
+
 
 const authController=container.get<IAuthController>(TYPES.IAuthController);
 
-router.post('/signup',authController.signup.bind(authController));
-
-router.post('/login',authController.login.bind(authController));
-
-router.post('/otp-verify',authController.verifyOtp.bind(authController));
-
+router.post('/signup',authController.signup.bind(authController))
+.post('/login',authController.login.bind(authController))
+.post('/otp-verify',authController.signupVerifyOtp.bind(authController))
+.post('/forgetPassword',authController.forgetPass.bind(authController))
+.post('/otp-verify',authController.forgetPassOtpVerify.bind(authController))
+.post('/resetPassword',authController.resetPass.bind(authController))
+.post('/refresh',authController.refreshToken.bind(authController))
+.post('/logout',authController.logout.bind(authController))
 
 export default router;

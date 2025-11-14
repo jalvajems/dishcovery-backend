@@ -1,8 +1,8 @@
 import { IUser } from "../../types/user.types";
-import {UserDto} from "../../dtos/user.dtos";
+import {IUserDto} from "../../dtos/user.dtos";
 import { Document } from "mongoose";
 
-export function userMapper(user:IUser & Document):UserDto{
+export function userMapper(user:IUser & Document):IUserDto{
     const obj=user.toObject()
     return {
         _id: obj._id.toString(),

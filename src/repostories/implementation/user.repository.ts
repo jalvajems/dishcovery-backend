@@ -11,6 +11,9 @@ export class UserRepository extends BaseRepository<IUserDocument> implements IUs
   async findByEmail(email: string): Promise<IUserDocument| null> {
     return UserModel.findOne({ email });
   }
+  async updatePasswordByEmail(email: string, hashedPass: string): Promise<void> {
+    await UserModel.updateOne({email},{$set:{password:hashedPass}})
+  }
 
   
 }

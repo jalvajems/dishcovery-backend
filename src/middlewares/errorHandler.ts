@@ -25,6 +25,7 @@ export const errorHandler: ErrorRequestHandler=(err,req, res, next)=>{
 
   const message = err instanceof Error ? err.message : MESSAGES.ERROR;
 
+
   res.status(STATUS_CODE.INTERNAL_SERVER_ERROR).json({
     success: false,
     message,
