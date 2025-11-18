@@ -14,16 +14,21 @@ export const errorHandler: ErrorRequestHandler=(err,req, res, next)=>{
                 console.log(`Field: ${issue.path.join('.')}, Error: ${issue.message}`);
     });
   }
-    
-    if(err instanceof AppError){
-        res.status(err.statusCode).json({
-            success:false,
-            message:err.message,
-        });
-        return;
-    }
+   const statusCode =
+    err instanceof AppError && Number.isInteger(err.statusCode)
+      ? err.statusCode
+      : STATUS_CODE.INTERNAL_SERVER_ERROR;
 
-  const message = err instanceof Error ? err.message : MESSAGES.ERROR;
+  let message = err instanceof AppError || err instanceof Error
+    ? err.message
+    : MESSAGES.ERROR;
+
+  res.status(statusCode).json({
+    success: false,
+    message
+  });
+
+   message = err instanceof Error ? err.message : MESSAGES.ERROR;
 
 
   res.status(STATUS_CODE.INTERNAL_SERVER_ERROR).json({

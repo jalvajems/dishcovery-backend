@@ -1,6 +1,8 @@
-import  { model, Schema } from 'mongoose';
+import  { Document, model, Schema } from 'mongoose';
+import { IFoodie } from '../types/foodie.types';
 
-const foodieSchema=new Schema({
+export interface IFoodieDocument extends IFoodie,Document{}
+const foodieSchema=new Schema<IFoodieDocument>({
     userId:{
         type:Schema.Types.ObjectId,
         ref:"User",
@@ -17,4 +19,4 @@ const foodieSchema=new Schema({
   { timestamps: true }
 );
 
-export default model("Foodie",foodieSchema)
+export const FoodieModel= model<IFoodieDocument>("Foodie",foodieSchema)

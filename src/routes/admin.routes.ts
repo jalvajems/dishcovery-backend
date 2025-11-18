@@ -1,11 +1,17 @@
-import {Router} from 'express';
+import { Router } from 'express';
 import { verifyAccess } from '../middlewares/verifyAccess';
 import { authorizeRole } from '../middlewares/authorizeRole';
-const router=Router();
+import container from '../DI/inversify.config';
+import { IAdminController } from '../controllers/interface/IAdminController';
+import TYPES from '../DI/types';
+const router = Router();
 
-// router.get('/admin-dashboard',verifyAccess,authorizeRole('admin'),  (req, res) => {
-//     res.status(200).json({ message: 'Welcome to the Admin Dashboard' });
-//   })
-// router.get('/user-listing')
+const adminController = container.get<IAdminController>(TYPES.IAdminController);
+router.get('/foodie-management', adminController.getAllFoodies.bind(adminController))
+      .get('/chef-management', adminController.getAllChefs.bind(adminController));
+router.patch('/toggle-block/:id', adminController.blockUser.bind(adminController))
+      .patch('/toggle-unblock/:id',  adminController.unBlockUser.bind(adminController))
+      .patch('/toggle-verify/:id',  adminController.verifyChef.bind(adminController))
+      .patch('/toggle-unVerify/:id', adminController.unVerifyChef.bind(adminController))
 
 export default router;

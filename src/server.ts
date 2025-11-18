@@ -1,19 +1,19 @@
 import { env } from "./config/env.config";
-import {connectDB} from './config/db.config';
-import {log} from './utils/logger';
+import { connectDB } from './config/db.config';
+import { log } from './utils/logger';
 import app from './app'
 import { redisClient } from "./config/redis.config";
 
 
-(async ()=>{
+(async () => {
     try {
 
         await connectDB();
         await redisClient.connect()
 
-        const port=env.PORT;
-        
-        app.listen(port,()=>{
+        const port = env.PORT;
+
+        app.listen(port, () => {
             log.info(`Server running on port ${port} in ${env.NODE_ENV} node`)
         })
     } catch (error) {
@@ -21,5 +21,5 @@ import { redisClient } from "./config/redis.config";
         process.exit(1)
     }
 
-    
+
 })();

@@ -9,7 +9,8 @@ export function userMapper(user:IUser & Document):IUserDto{
         name: obj.name,
         email: obj.email,
         role: obj.role,
-        isVarified: obj.isVarified,
+        isVerified: obj.isVerified,
+        isBlocked:obj.isBlocked,
         createdAt: obj.createdAt,
 
     }

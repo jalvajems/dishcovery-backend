@@ -5,10 +5,8 @@ import TYPES from "../../DI/types";
 import { IAuthService } from "../../services/interface/IAuthService";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { signupSchema, loginSchema } from "../../validations/authValidation";
-import strict from "assert/strict";
 import { env } from "../../config/env.config";
-import { log } from "../../utils/logger";
-import { success } from "zod";
+import { log } from "winston";
 
 
 @injectable()
@@ -20,7 +18,7 @@ export class AuthController implements IAuthController {
         try {
             const userData = signupSchema.parse(req.body)
             const user = await this.authService.signupUser(userData)
-            res.status(STATUS_CODE.CREATED).json({ success: true });
+            res.status(STATUS_CODE.CREATED).json({ success: true,message:'Signup succussfully !!',otp:user.otp });
         } catch (error) {
             next(error);
         }
@@ -36,19 +34,17 @@ export class AuthController implements IAuthController {
                 sameSite: "strict",
                 maxAge: 7 * 24 * 60 * 60 * 1000,
             })
-            console.log("login refresh",req.cookies.refreshToken)
              res.status(STATUS_CODE.SUCCESS).json({ success: true, user, accessToken });
 
         } catch (error) {
-              console.log("login refresh",error)
             next(error);
         }
     }
     async signupVerifyOtp(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
+            
             const OtpVerifyData = req.body
             const result = await this.authService.signupOtp(OtpVerifyData);
-            console.log(result, 'result')
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message: result.msg, data: result.user })
 
         } catch (error) {
@@ -61,7 +57,6 @@ export class AuthController implements IAuthController {
             const { email } = req.body;
             console.log('emailreached in body===', email);
             const result = await this.authService.forgetPass(email);
-            console.log("result-->", result);
             res.status(STATUS_CODE.SUCCESS).json({ success: true })
 
         } catch (error) {
@@ -70,11 +65,10 @@ export class AuthController implements IAuthController {
     }
     async forgetPassOtpVerify(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            console.log('reached forgotpass otpverifty');
 
             const OtpVerifyData = req.body;
             const result = await this.authService.forgetPassOtp(OtpVerifyData);
-            console.log("result-->", result);
+
             res.status(STATUS_CODE.SUCCESS).json({ success: true });
         } catch (error) {
             next(error)
@@ -90,6 +84,15 @@ export class AuthController implements IAuthController {
             next(error)
         }
     }
+    async resendOtp(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const {email}=req.body;
+            const result=await this.authService.resendOtp(email);
+            res.status(STATUS_CODE.SUCCESS).json(result)
+        } catch (error) {
+            next(error)
+        }
+    }
     async refreshToken(req: Request, res: Response, next: NextFunction): Promise<void> {
 
         try {
@@ -101,7 +104,7 @@ export class AuthController implements IAuthController {
                 sameSite: "strict",
                 maxAge: 7 * 24 * 60 * 60 * 1000,
             })
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, accessToken: result.accessToken })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, accessToken: result.accessToken ,role:result.role})
         } catch (error) {
             next(error);
         }
@@ -109,7 +112,6 @@ export class AuthController implements IAuthController {
     }
     async logout(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            console.log('reached logout');
             
             const refreshToken = req.cookies?.refreshToken;
             if (!refreshToken) {
@@ -117,7 +119,7 @@ export class AuthController implements IAuthController {
                 res.status(STATUS_CODE.BAD_REQUEST).json({ message: 'refresh token needed' });
             }
             const result = await this.authService.logout(refreshToken);
-            console.log("checking 1")
+
             res.clearCookie('refreshToken', {
                 httpOnly: true,
                 secure: env.NODE_ENV === "production",
@@ -126,7 +128,6 @@ export class AuthController implements IAuthController {
             res.status(STATUS_CODE.SUCCESS).json({message:result.message})
 
         } catch (error) {
-            console.error(error)
             next(error)
         }
     }

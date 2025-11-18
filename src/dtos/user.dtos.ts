@@ -4,7 +4,8 @@ export interface IUserDto{
     name: string;
     email: string;
     role: string;
-    isVarified: boolean;
+    isVerified: boolean;
+    isBlocked:boolean;
     createdAt?: Date;
     updatedAt?: Date;
 }

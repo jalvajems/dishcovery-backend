@@ -1,7 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { IAuthService } from '../interface/IAuthService';
-import { IUserDocument } from '../../models/users.model';
 import { AppError } from '../../utils/AppError';
 import { inject, injectable } from 'inversify';
 import { IUserRepository } from '../../repostories/interface/IUserRepository';
@@ -13,14 +12,13 @@ import { sendMail } from '../../utils/mailer';
 import { log, logger } from '../../utils/logger';
 import { OtpDto } from '../../dtos/otp.dtos';
 import { IOtpRepository } from '../../repostories/interface/IOtpRepository';
-// import { userMapper } from '../../utils/mapper/user.mapper';
 import { MESSAGES } from '../../constants/Message';
 import { generatTokens, TokenPayload } from '../../utils/jwt';
 import { userMapper } from '../../utils/mapper/user.mapper';
 import { IUserDto } from '../../dtos/user.dtos';
-import { redisClient } from '../../config/redis.config';
 import { env } from '../../config/env.config';
 import { IRefreshtokenRepository } from '../../repostories/interface/IRefreshtokenRepository';
+import { email } from 'zod';
 
 
 @injectable()
@@ -32,43 +30,49 @@ export class AuthService implements IAuthService {
     ) { }
 
 
-    async signupUser(userData: SignupResponseDto): Promise<IUserDocument> {
+    async signupUser(userData: SignupResponseDto): Promise<{ userData: IUserDto, otp: string | null }> {
         try {
             const existingUser = await this.userRepository.findByEmail(userData.email);
-            if (existingUser) throw new AppError('Email already Registered', STATUS_CODE.BAD_REQUEST);
+            if (existingUser) {
+                throw new AppError('Email already Registered', STATUS_CODE.CONFLICT);
+            }
 
             const hashPassword = await bcrypt.hash(userData.password, 10)
             const otp = generateOTP(4)
+
             await this.otpRepository.createOtp(otp, userData.email)
-            console.log("user email is: ", userData.email)
+            const redisOtp = await this.otpRepository.findOtp(String(email))
 
             const createdUser = await this.userRepository.create({
                 ...userData,
                 password: hashPassword,
             });
 
-            sendMail(userData.email, 'Dishcovery: otp for signup', otp)
+            await sendMail(userData.email, 'Dishcovery: otp for signup', otp);
 
-            return createdUser
-        } catch (error) {
-            throw new AppError('Error on singup', STATUS_CODE.INTERNAL_SERVER_ERROR)
+            return { userData: userMapper(createdUser), otp: redisOtp }
+        } catch (error: any) {
+            if (error instanceof AppError) {
+                throw error;
+            }
+
+            throw new AppError(error.message || 'Error in signup', STATUS_CODE.INTERNAL_SERVER_ERROR)
         }
     }
 
     async loginUser(loginData: LoginResponseDto): Promise<{ user: IUserDto, accessToken: string, refreshToken: string }> {
-        console.log("visting 1")
+
         const user = await this.userRepository.findByEmail(loginData.email)
         if (!user) throw new AppError('Invalid email or password', STATUS_CODE.UNAUTHORIZED);
 
         const isMatch = await bcrypt.compare(loginData.password, user.password);
         if (!isMatch) throw new AppError('Invalid credentials', STATUS_CODE.UNAUTHORIZED)
 
-        const payloads = {
-            id: user._id,
+        const payload = {
+            id: user._id as string,
             role: user.role
         }
-        const { accessToken, refreshToken } = generatTokens(payloads)
-        console.log("REFRESH",refreshToken)
+        const { accessToken, refreshToken } = generatTokens(payload)
         await this.refreshTokenRepository.createRefreshToken(user.id, refreshToken);
 
         return { user: userMapper(user), accessToken, refreshToken };
@@ -77,19 +81,15 @@ export class AuthService implements IAuthService {
 
     async signupOtp(OtpVerifyData: OtpDto): Promise<{ msg: string, user: OtpDto }> {
 
-        console.log('reached verify otp');
         const { otp, email } = OtpVerifyData;
 
 
         const redisOtp = await this.otpRepository.findOtp(email)
-        console.log(redisOtp, 'redisotp');
 
         if (!redisOtp || redisOtp != otp) {
-            log.error('otp is not match or not find');
-            throw new AppError('invalide credentials', STATUS_CODE.UNAUTHORIZED);
+            throw new AppError('invalide Otp!!', STATUS_CODE.UNAUTHORIZED);
         } else {
             await this.otpRepository.delOtp(email)
-            log.info(`otp of user:${email} =${otp} is verified!!`)
             return { msg: 'Otp verified', user: OtpVerifyData }
         }
     }
@@ -100,10 +100,8 @@ export class AuthService implements IAuthService {
             if (!existing) {
                 throw new AppError('Email is not exist', STATUS_CODE.NOT_FOUND);
             }
-            logger.info('email exist', existing);
             const otp = generateOTP(4);
             await this.otpRepository.createOtp(otp, email);
-            console.log('email-------', existing);
             sendMail(email, 'Dishcovery: otp for reset password', otp);
             return
 
@@ -114,7 +112,6 @@ export class AuthService implements IAuthService {
 
     async forgetPassOtp(OtpVerifyData: OtpDto): Promise<void> {
         try {
-            console.log('reached on varify otp');
 
             const { otp, email } = OtpVerifyData;
             let redisOtp = await this.otpRepository.findOtp(email);
@@ -128,7 +125,12 @@ export class AuthService implements IAuthService {
             throw new Error('otp varificaton failed');
         }
     }
-
+    async resendOtp(email: string): Promise<object> {
+        const otp = generateOTP(4)
+        await this.otpRepository.createOtp(otp, email);
+        await sendMail(email, 'Your Resend OTP is:', otp);
+        return { message: 'OTP resent successfully!' }
+    }
     async resetPassword(email: string, newPass: string, confirmPass: string): Promise<void> {
         try {
             if (newPass !== confirmPass) {
@@ -145,40 +147,39 @@ export class AuthService implements IAuthService {
         }
     }
 
-    async refreshToken(cookieToken: string): Promise<{ accessToken: string, refreshToken: string }> {
+    async refreshToken(cookieToken: string): Promise<{ accessToken: string, refreshToken: string, role: string }> {
         if (!cookieToken) throw new AppError('token is not exist in cookies', 401);
         try {
-            log.info('reached refresh service')
             const decoded = jwt.verify(cookieToken, env.JWT_REFRESH_SECRET) as TokenPayload
-            const storedToken = await this.refreshTokenRepository.findRefreshTokenById(decoded.userId)
-            log.info(`stored: ${storedToken}`)
-            log.info(`existing: ${cookieToken}`)
-            if (storedToken !== cookieToken) {
-                log.info('checking both token')
-                throw new AppError('Invalid token', 403);
+            const storedToken = await this.refreshTokenRepository.findByUserId(decoded.id)
+            if (!storedToken || storedToken !== cookieToken) {
+                throw new AppError('Invalid token', STATUS_CODE.FORBIDDEN);
             }
-            log.info('creating new token')
-            const { accessToken, refreshToken } = generatTokens({ id: decoded.userId, role: decoded.role });
-            await this.refreshTokenRepository.delRefreshToken(decoded.userId);
-            await this.refreshTokenRepository.createRefreshToken(decoded.userId, refreshToken);
-            return { accessToken: accessToken, refreshToken: refreshToken };
+            if (!decoded.role) {
+                throw new AppError('Invalid role', STATUS_CODE.INTERNAL_SERVER_ERROR)
+            }
+            const { accessToken, refreshToken } = generatTokens({ id: decoded.id, role: decoded.role });
+
+            await this.refreshTokenRepository.deleteByUserId(decoded.id);
+            await this.refreshTokenRepository.createRefreshToken(decoded.id, refreshToken);
+
+            return { accessToken: accessToken, refreshToken: refreshToken, role: decoded.role };
 
         } catch (error) {
-            log.error('refreshtoken failed');
             throw new Error('refresh token creation failed');
         }
     }
     async logout(refreshToken: string): Promise<{ message: string; }> {
         try {
-            const lookup = await this.refreshTokenRepository.findRefreshTokenByLookup(refreshToken)
-            if (lookup) {
-                console.log(lookup)
-            } else {
+            const userId = await this.refreshTokenRepository.findByToken(refreshToken)
+            if (userId == null) {
                 new AppError('lookup is not found', STATUS_CODE.NOT_FOUND)
+            } else {
+
+                await this.refreshTokenRepository.deleteByUserId(userId)
             }
-            return { message: 'Logout failed' }
+            return { message: 'Logout success' }
         } catch (error) {
-            log.error('refreshtoken failed');
             throw new Error('refresh token creation failed');
         }
     }

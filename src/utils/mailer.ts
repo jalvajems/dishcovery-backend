@@ -3,7 +3,7 @@ import { logger } from "./logger";
 
 const transporter=nodemailer.createTransport({
     secure:true,
-    host:'smtp.gmail.com',
+    host:process.env.SMTP_HOST,
     port:465,
     auth:{
         user:'pjalva90@gmail.com',

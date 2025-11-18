@@ -2,23 +2,50 @@ import { NextFunction, Request, Response } from 'express'
 import jwt from 'jsonwebtoken'
 import { env } from '../config/env.config';
 import { log } from '../utils/logger';
- 
+import { IUserRepository } from '../repostories/interface/IUserRepository';
+import TYPES from '../DI/types';
+import container from '../DI/inversify.config';
+import { STATUS_CODE } from '../constants/StatusCode';
+import { AppError } from '../utils/AppError';
 
 
-export const verifyAccess=async(req:Request,res:Response,next:NextFunction)=>{
 
-    console.log("middleware 1")
-    const authHeader=req.headers['authorization'];
-    const token=authHeader && authHeader.split(' ')[1];
+export const   verifyAccess = async (req: Request, res: Response, next: NextFunction) => {
 
-    if(!token){
-        return res.status(401).json({message:'Accesss token is missing'})
+    log.info("middleware 1")
+
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+
+    console.log('token in verify',token);
+    
+    if (!token) {
+        log.info('no token , so no access!')
+        return res.status(401).json({ message: 'Accesss token is missing' })
     }
+
     try {
-        const decoded = jwt.verify(token,env.JWT_ACCESS_SECRET);
-        req.user = decoded as {id:string,role:string};
+        const decoded = jwt.verify(token, env.JWT_ACCESS_SECRET) as { id: string, role: string };
+        req.user = decoded
+        console.log('user', decoded)
+
+        const userRepo = container.get<IUserRepository>(TYPES.IUserRepository)
+        const user = await userRepo.findById(decoded.id)
+        if (!user) {
+            log.info('user id is not found!')
+            return res.status(STATUS_CODE.NOT_FOUND).json({ message: "No user id found!" })
+        }
+        if (user.isBlocked) {
+            console.log('user is blocked', user.email)
+            log.info('Your account is blocked by admin!!');
+            return res.status(STATUS_CODE.FORBIDDEN).json({
+                message: 'Your account is blocked by admin!!'
+            });
+        }
+
         next()
     } catch (error) {
+        log.info('Error on checking token and admin block!', error);
         return res.status(401).json({ message: 'Invalid or expired access token' });
 
     }

@@ -30,13 +30,13 @@ const errorRotateTransport = new DailyRotateFile({
   datePattern: 'YYYY-MM-DD',
   zippedArchive: true,
   maxSize: '20m',
-  maxFiles: '30d', 
+  maxFiles: '30d',
 });
 
 export const logger = createLogger({
   level: env.NODE_ENV === "development" ? "debug" : "info",
   format: env.NODE_ENV === "development" ? devFormat : profFormat,
- transports: [
+  transports: [
     new transports.Console(),
     combinedRotateTransport,
     errorRotateTransport,

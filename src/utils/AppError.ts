@@ -1,4 +1,3 @@
-import { STATUS_CODE } from "../constants/StatusCode";
 
 export class AppError extends Error{
     public readonly statusCode: number;
