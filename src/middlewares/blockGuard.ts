@@ -19,6 +19,6 @@ export const blockGuard = async (req: Request, res: Response, next: NextFunction
         }
         next()
     } catch (error) {
-        return res.status(401).json({ message: 'Invalid or expired access token' });
+        return res.status(STATUS_CODE.UNAUTHORIZED).json({ message: 'Invalid or expired access token' });
     }
 }

@@ -9,18 +9,18 @@ import { IFoodieDto } from "../../dtos/foodie.dtos";
 @injectable()
 export class FoodieService implements IFoodieService {
     constructor(
-        @inject(TYPES.IFoodieRepository) private foodieRepository: IFoodieRepository,
+        @inject(TYPES.IFoodieRepository) private _foodieRepository: IFoodieRepository,
     ) { }
 
 
     async editFoodieProfile(userId: string, foodieData: IFoodieDto): Promise<{ message: string; foodieData: IFoodieDto | IFoodie | null; }> {
         try {
-            const existingFoodie = await this.foodieRepository.findByUserId(userId);
+            const existingFoodie = await this._foodieRepository.findByUserId(userId);
             if (!existingFoodie) {
-                const newFoodie = await this.foodieRepository.create(foodieData);
+                const newFoodie = await this._foodieRepository.create(foodieData);
                 return { message: 'foodie profile data created', foodieData: foodieMapper(newFoodie) };
             }
-            const updateFoodie = await this.foodieRepository.findOneUpdateFoodie(userId, foodieData);
+            const updateFoodie = await this._foodieRepository.findOneUpdateFoodie(userId, foodieData);
             return { message: 'foodie profile updated', foodieData: updateFoodie }
 
         } catch (error) {

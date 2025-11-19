@@ -11,7 +11,6 @@ import { generateOTP } from '../../utils/cryptoOtp';
 import { sendMail } from '../../utils/mailer';
 import { log, logger } from '../../utils/logger';
 import { OtpDto } from '../../dtos/otp.dtos';
-import { IOtpRepository } from '../../repostories/interface/IOtpRepository';
 import { MESSAGES } from '../../constants/Message';
 import { generatTokens, TokenPayload } from '../../utils/jwt';
 import { userMapper } from '../../utils/mapper/user.mapper';
@@ -19,20 +18,20 @@ import { IUserDto } from '../../dtos/user.dtos';
 import { env } from '../../config/env.config';
 import { IRefreshtokenRepository } from '../../repostories/interface/IRefreshtokenRepository';
 import { email } from 'zod';
+import { redisClient } from '../../config/redis.config';
 
 
 @injectable()
 export class AuthService implements IAuthService {
     constructor(
-        @inject(TYPES.IUserRepository) private userRepository: IUserRepository,
-        @inject(TYPES.IOtpRepository) private otpRepository: IOtpRepository,
-        @inject(TYPES.IRefreshRepository) private refreshTokenRepository: IRefreshtokenRepository
+        @inject(TYPES.IUserRepository) private _userRepository: IUserRepository,
+        @inject(TYPES.IRefreshRepository) private _refreshTokenRepository: IRefreshtokenRepository
     ) { }
 
 
     async signupUser(userData: SignupResponseDto): Promise<{ userData: IUserDto, otp: string | null }> {
         try {
-            const existingUser = await this.userRepository.findByEmail(userData.email);
+            const existingUser = await this._userRepository.findByEmail(userData.email);
             if (existingUser) {
                 throw new AppError('Email already Registered', STATUS_CODE.CONFLICT);
             }
@@ -40,10 +39,13 @@ export class AuthService implements IAuthService {
             const hashPassword = await bcrypt.hash(userData.password, 10)
             const otp = generateOTP(4)
 
-            await this.otpRepository.createOtp(otp, userData.email)
-            const redisOtp = await this.otpRepository.findOtp(String(email))
+            const key=`otp:${userData.email}`
+            const otpData= await redisClient.setEx(key,Number(process.env.OTP_EXP),otp)
 
-            const createdUser = await this.userRepository.create({
+            const redisOtp=await redisClient.get(key)
+
+
+            const createdUser = await this._userRepository.create({
                 ...userData,
                 password: hashPassword,
             });
@@ -62,7 +64,7 @@ export class AuthService implements IAuthService {
 
     async loginUser(loginData: LoginResponseDto): Promise<{ user: IUserDto, accessToken: string, refreshToken: string }> {
 
-        const user = await this.userRepository.findByEmail(loginData.email)
+        const user = await this._userRepository.findByEmail(loginData.email)
         if (!user) throw new AppError('Invalid email or password', STATUS_CODE.UNAUTHORIZED);
 
         const isMatch = await bcrypt.compare(loginData.password, user.password);
@@ -73,7 +75,9 @@ export class AuthService implements IAuthService {
             role: user.role
         }
         const { accessToken, refreshToken } = generatTokens(payload)
-        await this.refreshTokenRepository.createRefreshToken(user.id, refreshToken);
+        // await this._refreshTokenRepository.createRefreshToken(user.id, refreshToken);
+       await redisClient.set(`refreshKey:${user.id}`,refreshToken,{EX:Number(process.env.REDIS_REFRESH_EXP)})
+       await redisClient.set(`refreshLookup:${refreshToken}`,user.id,{EX:Number(process.env.REDIS_REFRESH_EXP)})
 
         return { user: userMapper(user), accessToken, refreshToken };
 
@@ -84,42 +88,49 @@ export class AuthService implements IAuthService {
         const { otp, email } = OtpVerifyData;
 
 
-        const redisOtp = await this.otpRepository.findOtp(email)
+        const key=`otp:${email}`
+        const redisOtp=await redisClient.get(key);
 
         if (!redisOtp || redisOtp != otp) {
             throw new AppError('invalide Otp!!', STATUS_CODE.UNAUTHORIZED);
         } else {
-            await this.otpRepository.delOtp(email)
+            await redisClient.del(key);
             return { msg: 'Otp verified', user: OtpVerifyData }
         }
     }
 
     async forgetPass(email: string): Promise<void> {
         try {
-            const existing = await this.userRepository.findByEmail(email)
+            const existing = await this._userRepository.findByEmail(email)
             if (!existing) {
                 throw new AppError('Email is not exist', STATUS_CODE.NOT_FOUND);
             }
             const otp = generateOTP(4);
-            await this.otpRepository.createOtp(otp, email);
+
+            const key=`otp:${email}`
+            const otpData= await redisClient.set(key,otp,{EX:Number(process.env.OTP_EXP)})
+            
+            
             sendMail(email, 'Dishcovery: otp for reset password', otp);
             return
-
+            
         } catch (error) {
             throw Error('no user found')
         }
     }
-
+    
     async forgetPassOtp(OtpVerifyData: OtpDto): Promise<void> {
         try {
-
+            
             const { otp, email } = OtpVerifyData;
-            let redisOtp = await this.otpRepository.findOtp(email);
+            
+            const key=`otp:${email}`
+            const redisOtp=await redisClient.get(key)
             if (!redisOtp && redisOtp !== otp) {
                 throw new AppError('Otp is not found or not match', STATUS_CODE.NOT_FOUND)
             }
-            await this.otpRepository.delOtp(email);
-
+            await redisClient.del(key);
+            
         } catch (error) {
             log.error(MESSAGES.ERROR.INTERNAL_SERVER_ERROR, error)
             throw new Error('otp varificaton failed');
@@ -127,7 +138,9 @@ export class AuthService implements IAuthService {
     }
     async resendOtp(email: string): Promise<object> {
         const otp = generateOTP(4)
-        await this.otpRepository.createOtp(otp, email);
+        
+        const key=`otp:${email}`
+        await redisClient.set(key,otp,{EX:Number(process.env.OTP_EXP)})
         await sendMail(email, 'Your Resend OTP is:', otp);
         return { message: 'OTP resent successfully!' }
     }
@@ -137,7 +150,7 @@ export class AuthService implements IAuthService {
                 throw new AppError('confirm password is not matching', STATUS_CODE.INTERNAL_SERVER_ERROR)
             }
             const hashedPass = await bcrypt.hash(newPass, 10)
-            await this.userRepository.updatePasswordByEmail(email, hashedPass)
+            await this._userRepository.updatePasswordByEmail(email, hashedPass)
             logger.info('password reseted successfuly!!');
 
         } catch (error) {
@@ -151,7 +164,10 @@ export class AuthService implements IAuthService {
         if (!cookieToken) throw new AppError('token is not exist in cookies', 401);
         try {
             const decoded = jwt.verify(cookieToken, env.JWT_REFRESH_SECRET) as TokenPayload
-            const storedToken = await this.refreshTokenRepository.findByUserId(decoded.id)
+            // const storedToken = await this._refreshTokenRepository.findByUserId(decoded.id)
+            const key = `refreshKey:${decoded.id}`;
+            const storedToken=await redisClient.get(key);
+
             if (!storedToken || storedToken !== cookieToken) {
                 throw new AppError('Invalid token', STATUS_CODE.FORBIDDEN);
             }
@@ -160,8 +176,16 @@ export class AuthService implements IAuthService {
             }
             const { accessToken, refreshToken } = generatTokens({ id: decoded.id, role: decoded.role });
 
-            await this.refreshTokenRepository.deleteByUserId(decoded.id);
-            await this.refreshTokenRepository.createRefreshToken(decoded.id, refreshToken);
+            await this._refreshTokenRepository.deleteByUserId(decoded.id);
+            await this._refreshTokenRepository.createRefreshToken(decoded.id, refreshToken);
+
+            const old=await this._userRepository.findByEmail(decoded.id);
+            if(old)await redisClient.del(`refreshLookup:${old}`);
+            await redisClient.del(`refreshKey:${decoded.id}`);
+
+            await redisClient.set(`refreshKey:${decoded.id}`,refreshToken,{EX:Number(process.env.REDIS_REFRESH_EXP)})
+            await redisClient.set(`refreshLookup:${refreshToken}`,decoded.id,{EX:Number(process.env.REDIS_REFRESH_EXP)})
+
 
             return { accessToken: accessToken, refreshToken: refreshToken, role: decoded.role };
 
@@ -171,12 +195,12 @@ export class AuthService implements IAuthService {
     }
     async logout(refreshToken: string): Promise<{ message: string; }> {
         try {
-            const userId = await this.refreshTokenRepository.findByToken(refreshToken)
+            const userId = await this._refreshTokenRepository.findByToken(refreshToken)
             if (userId == null) {
-                new AppError('lookup is not found', STATUS_CODE.NOT_FOUND)
+                new AppError('user is not found', STATUS_CODE.NOT_FOUND)
             } else {
 
-                await this.refreshTokenRepository.deleteByUserId(userId)
+                await this._refreshTokenRepository.deleteByUserId(userId)
             }
             return { message: 'Logout success' }
         } catch (error) {

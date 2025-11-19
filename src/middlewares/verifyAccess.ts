@@ -21,7 +21,7 @@ export const   verifyAccess = async (req: Request, res: Response, next: NextFunc
     
     if (!token) {
         log.info('no token , so no access!')
-        return res.status(401).json({ message: 'Accesss token is missing' })
+        return res.status(STATUS_CODE.UNAUTHORIZED).json({ message: 'Accesss token is missing' })
     }
 
     try {
@@ -46,7 +46,7 @@ export const   verifyAccess = async (req: Request, res: Response, next: NextFunc
         next()
     } catch (error) {
         log.info('Error on checking token and admin block!', error);
-        return res.status(401).json({ message: 'Invalid or expired access token' });
+        return res.status(STATUS_CODE.UNAUTHORIZED).json({ message: 'Invalid or expired access token' });
 
     }
 };

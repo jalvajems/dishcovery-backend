@@ -12,7 +12,7 @@ import { IPaginationDto } from "../../dtos/IPaginationDto";
 @injectable()
 export class AdminService implements IAdminService {
     constructor(
-        @inject(TYPES.IUserRepository) private userRepository: IUserRepository,
+        @inject(TYPES.IUserRepository) private _userRepository: IUserRepository,
     ) { }
 
     async getAllFoodies(query: IPaginationDto): Promise<{ data: IUserDto[]; currentPage: number; totalPages: number }> {
@@ -31,8 +31,8 @@ export class AdminService implements IAdminService {
 
         const skip = (page - 1) * limit;
 
-        const users = await this.userRepository.findByRole(filter, skip, limit)
-        const totalCount = await this.userRepository.countDocuments(filter)
+        const users = await this._userRepository.findByRole(filter, skip, limit)
+        const totalCount = await this._userRepository.countDocuments(filter)
 
         let total = Math.ceil(totalCount / limit)
 
@@ -61,8 +61,8 @@ export class AdminService implements IAdminService {
         if (isVerified === "false") filter.isVerified = false;
 
 
-        const users = await this.userRepository.findByRole(filter, skip, limit)
-        const totalCount = await this.userRepository.countDocuments(filter)
+        const users = await this._userRepository.findByRole(filter, skip, limit)
+        const totalCount = await this._userRepository.countDocuments(filter)
         return {
             data: usersMapper(users),
             currentPage: page,
@@ -70,24 +70,24 @@ export class AdminService implements IAdminService {
         }
     }
     async blockUserById(id: string): Promise<IUserDto> {
-        const result = await this.userRepository.blockById(id);
+        const result = await this._userRepository.blockById(id);
         if (!result) throw new AppError('result is empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
         return userMapper(result);
 
     }
     async unBlockUserById(id: string): Promise<IUserDto> {
-        const result = await this.userRepository.unblockById(id);
+        const result = await this._userRepository.unblockById(id);
         if (!result) throw new AppError('result is empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
         return userMapper(result);
 
     }
     async verifyChef(id: string): Promise<IUserDto> {
-        const result = await this.userRepository.verifyById(id);
+        const result = await this._userRepository.verifyById(id);
         if (!result) throw new AppError('user in empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
         return userMapper(result)
     }
     async unVerifyChef(id: string): Promise<IUserDto> {
-        const result = await this.userRepository.unVerifyById(id);
+        const result = await this._userRepository.unVerifyById(id);
         if (!result) throw new AppError('user is empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
         return userMapper(result);
     }

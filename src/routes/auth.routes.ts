@@ -12,6 +12,7 @@ const authController = container.get<IAuthController>(TYPES.IAuthController);
 
 router.post('/signup', authController.signup.bind(authController))
     .post('/login', blockGuard, authController.login.bind(authController))
+    .post('/admin-login',blockGuard,authController.login.bind(authController))
     .post('/signup-otp-verify', authController.signupVerifyOtp.bind(authController))
     .post('/forgetPassword', authController.forgetPass.bind(authController))
     .post('/forget-otp-verify', authController.forgetPassOtpVerify.bind(authController))

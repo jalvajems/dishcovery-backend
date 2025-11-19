@@ -9,7 +9,7 @@ import { query } from "winston";
 @injectable()
 export class AdminController implements IAdminController{
     constructor(
-        @inject(TYPES.IAdminService) private adminService:IAdminService,
+        @inject(TYPES.IAdminService) private _adminService:IAdminService,
     ){}
     async getAllFoodies(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
@@ -18,7 +18,7 @@ export class AdminController implements IAdminController{
             const search=(req.query.search as string)||"";
             const isBlocked=req.query.isBlocked as string;
 
-            const result=await this.adminService.getAllFoodies({
+            const result=await this._adminService.getAllFoodies({
                 page,limit,search,isBlocked,
             })
 
@@ -34,7 +34,7 @@ export class AdminController implements IAdminController{
             const search=(req.query.search as string)||"";
             const isBlocked=req.query.isBlocked as string;
             const isVerified=req.query.isVerified as string;
-            const result=await this.adminService.getAllChefs({
+            const result=await this._adminService.getAllChefs({
                 page,limit,search,isBlocked,isVerified
             })
             res.status(STATUS_CODE.SUCCESS).json(result)
@@ -45,7 +45,7 @@ export class AdminController implements IAdminController{
     async blockUser(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const id=req.params.id;
-            const restult=await this.adminService.blockUserById(id)
+            const restult=await this._adminService.blockUserById(id)
             res.status(STATUS_CODE.SUCCESS).json({restult})
         } catch (error) {
             next(error);
@@ -54,7 +54,7 @@ export class AdminController implements IAdminController{
     async unBlockUser(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const id=req.params.id;
-            const restult=await this.adminService.unBlockUserById(id)
+            const restult=await this._adminService.unBlockUserById(id)
             res.status(STATUS_CODE.SUCCESS).json({restult})
         } catch (error) {
             next(error)
@@ -63,7 +63,7 @@ export class AdminController implements IAdminController{
     async verifyChef(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const id=req.params.id;
-            const result=await this.adminService.verifyChef(id);
+            const result=await this._adminService.verifyChef(id);
             res.status(STATUS_CODE.SUCCESS).json({result});
         } catch (error) {
             next(error);
@@ -72,7 +72,7 @@ export class AdminController implements IAdminController{
     async unVerifyChef(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const id=req.params.id;
-            const result=await this.adminService.unVerifyChef(id);
+            const result=await this._adminService.unVerifyChef(id);
             res.status(STATUS_CODE.SUCCESS).json({result});
         } catch (error) {
             next(error);

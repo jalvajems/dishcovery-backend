@@ -7,8 +7,8 @@ import TYPES from '../DI/types';
 const router = Router();
 
 const adminController = container.get<IAdminController>(TYPES.IAdminController);
-router.get('/foodie-management', adminController.getAllFoodies.bind(adminController))
-      .get('/chef-management', adminController.getAllChefs.bind(adminController));
+router.get('/foodie-management',verifyAccess, adminController.getAllFoodies.bind(adminController))
+      .get('/chef-management',verifyAccess, adminController.getAllChefs.bind(adminController));
 router.patch('/toggle-block/:id', adminController.blockUser.bind(adminController))
       .patch('/toggle-unblock/:id',  adminController.unBlockUser.bind(adminController))
       .patch('/toggle-verify/:id',  adminController.verifyChef.bind(adminController))

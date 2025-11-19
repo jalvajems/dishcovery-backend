@@ -3,7 +3,7 @@ import { IRefreshtokenRepository } from "../interface/IRefreshtokenRepository";
 
 export class RefreshTokenRepository implements IRefreshtokenRepository {
 
-    private getTTL() {
+    private _getTTL() {
         const ttl = Number(process.env.REDIS_REFRESH_EXP);
         if (!ttl || isNaN(ttl)) {
             throw new Error("Invalid REFRESH_EXP value, must be a number in seconds");
@@ -12,8 +12,8 @@ export class RefreshTokenRepository implements IRefreshtokenRepository {
     }
 
    async createRefreshToken(userId: string, refreshToken: string): Promise<void> {
-       await redisClient.set(`refreshKey:${userId}`,refreshToken,{EX:this.getTTL()})
-       await redisClient.set(`refreshLookup:${refreshToken}`,userId,{EX:this.getTTL()})
+       await redisClient.set(`refreshKey:${userId}`,refreshToken,{EX:this._getTTL()})
+       await redisClient.set(`refreshLookup:${refreshToken}`,userId,{EX:this._getTTL()})
    }
 
     async findByUserId(userId: string): Promise<string | null> {
