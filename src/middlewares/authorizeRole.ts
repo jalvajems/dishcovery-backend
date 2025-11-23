@@ -5,7 +5,6 @@ import { STATUS_CODE } from "../constants/StatusCode"
 export const authorizeRole=(...allowedRoles:string[])=>{
     return(req:Request,res:Response,next:NextFunction)=>{
 
-        console.log("this section is working")
         if(!req.user){
             throw new AppError('user not authenticated',STATUS_CODE.UNAUTHORIZED);
         }

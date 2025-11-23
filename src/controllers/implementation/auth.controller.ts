@@ -54,7 +54,6 @@ export class AuthController implements IAuthController {
         try {
 
             const { email } = req.body;
-            console.log('emailreached in body===', email);
             const result = await this._authService.forgetPass(email);
             res.status(STATUS_CODE.SUCCESS).json({ success: true })
 
@@ -114,7 +113,6 @@ export class AuthController implements IAuthController {
             
             const refreshToken = req.cookies?.refreshToken;
             if (!refreshToken) {
-                console.log("checking 1")
                 res.status(STATUS_CODE.BAD_REQUEST).json({ message: 'refresh token needed' });
             }
             const result = await this._authService.logout(refreshToken);

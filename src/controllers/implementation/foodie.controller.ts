@@ -30,7 +30,6 @@ export class FoodieController implements IFoodieController {
             }
             const foodieData = req.body;
             const result = await this._foodieService.editFoodieProfile(userId, foodieData)
-            console.log('result in foodieprofile controller:--->', result)
             res.status(STATUS_CODE.SUCCESS).json('profile updated successfully')
 
         } catch (error) {

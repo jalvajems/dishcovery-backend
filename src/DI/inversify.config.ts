@@ -4,6 +4,7 @@ import userModule from "./module/user";
 import { foodieModule } from "./module/foodie";
 import { adminModule } from "./module/admin";
 import chefModule from "./module/chef";
+import recipeModule from "./module/recipe";
 
 
 
@@ -13,6 +14,7 @@ authModule(container);
 userModule(container);
 foodieModule(container);
 adminModule(container);
-chefModule(container)
+chefModule(container);
+recipeModule(container);
 
 export default container;

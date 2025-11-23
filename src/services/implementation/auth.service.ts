@@ -17,7 +17,6 @@ import { userMapper } from '../../utils/mapper/user.mapper';
 import { IUserDto } from '../../dtos/user.dtos';
 import { env } from '../../config/env.config';
 import { IRefreshtokenRepository } from '../../repostories/interface/IRefreshtokenRepository';
-import { email } from 'zod';
 import { redisClient } from '../../config/redis.config';
 
 

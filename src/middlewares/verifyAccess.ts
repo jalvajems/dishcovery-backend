@@ -17,7 +17,6 @@ export const   verifyAccess = async (req: Request, res: Response, next: NextFunc
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
 
-    console.log('token in verify',token);
     
     if (!token) {
         log.info('no token , so no access!')
@@ -27,7 +26,6 @@ export const   verifyAccess = async (req: Request, res: Response, next: NextFunc
     try {
         const decoded = jwt.verify(token, env.JWT_ACCESS_SECRET) as { id: string, role: string };
         req.user = decoded
-        console.log('user', decoded)
 
         const userRepo = container.get<IUserRepository>(TYPES.IUserRepository)
         const user = await userRepo.findById(decoded.id)
@@ -36,7 +34,6 @@ export const   verifyAccess = async (req: Request, res: Response, next: NextFunc
             return res.status(STATUS_CODE.NOT_FOUND).json({ message: "No user id found!" })
         }
         if (user.isBlocked) {
-            console.log('user is blocked', user.email)
             log.info('Your account is blocked by admin!!');
             return res.status(STATUS_CODE.FORBIDDEN).json({
                 message: 'Your account is blocked by admin!!'

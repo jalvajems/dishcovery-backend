@@ -12,8 +12,7 @@ export const blockGuard = async (req: Request, res: Response, next: NextFunction
         const userData = await userRepository.findByEmail(email)
 
         if (userData?.isBlocked) {
-            console.log("userblocked")
-            log.info('Your account is blocked by admin!!');
+            
             res.clearCookie('refreshToken')
             return res.status(STATUS_CODE.FORBIDDEN).json({message: 'Your account is blocked by admin!!'});
         }
