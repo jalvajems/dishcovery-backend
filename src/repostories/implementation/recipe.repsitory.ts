@@ -6,5 +6,9 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
     constructor(){
         super(RecipeModel);
     }
+    async findRecipesById(id: string, skip: number, limit: number): Promise<IRecipeDocument[]> {
+        return RecipeModel.find({chefId:id}).skip(skip).limit(limit);
+    }
+
     
 }

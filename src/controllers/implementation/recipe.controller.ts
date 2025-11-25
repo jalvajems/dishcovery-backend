@@ -25,9 +25,14 @@ export class RecipeController implements IRecipeController{
         }
     }
     async editRecipe(req: Request, res: Response, next: NextFunction): Promise<void> {
+        console.log('reached edit recipe');
+        
         try {
-            const {id,newData}=req.body
-            const result=await this._recipeService.editRecipe(id,newData)
+            const {recipeId,recipeData}=req.body
+            console.log('id',recipeId);
+            console.log('data',recipeData);
+            
+            const result=await this._recipeService.editRecipe(recipeId,recipeData)
             res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,message:result.message})
         } catch (error) {
             throw error;
@@ -36,9 +41,12 @@ export class RecipeController implements IRecipeController{
     async getAllRecipes(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const id=req.query.chefId;
+            const page=Number(req.query.page)
+            const limit=Number(req.query.limit)
             if(!id)throw new AppError('user id is not found',STATUS_CODE.NOT_FOUND)
-            const result=await this._recipeService.getAllRecipes(String(id));
-            res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,message:result.message})
+            const result=await this._recipeService.getAllRecipes(String(id),page,limit);
+
+            res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,currentPage:result.currentPage,totalPages:result.totalPages,message:result.message})
         } catch (error) {
             throw error
         }
@@ -51,6 +59,16 @@ export class RecipeController implements IRecipeController{
             res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,message:result.message})
         } catch (error) {
             throw error
+        }
+    }
+    async deletRecipe(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const id=req.params.id;
+            if(!id)throw new AppError('Recipe id is not found',STATUS_CODE.NOT_FOUND)
+            const result=await this._recipeService.deleteRecipe(String(id))
+            res.status(STATUS_CODE.SUCCESS).json({message:result.message})
+        } catch (error) {
+            throw error;
         }
     }
 }

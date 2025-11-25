@@ -33,6 +33,9 @@ export class BaseRepository <T extends Document> implements IBaseRepository<T>{
   async deleteByFilter(filter: mongoose.FilterQuery<T>): Promise<mongoose.DeleteResult> {
       return await this.model.deleteOne(filter)
   }
+  async countDocument(filter: object): Promise<number> {
+    return await this.model.countDocuments(filter);
+  }
 
 
 }
