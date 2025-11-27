@@ -5,7 +5,11 @@ import { IRecipeDto } from "../../dtos/recipe.dtos";
 export function recipeMapper(recipe:IRecipe&Document ):IRecipeDto{
     const obj=recipe.toObject()
     return{
-        chefId:obj.chefId.toString(),
+        chefId: {
+            id: obj.chefId?._id,
+            name: obj.chefId?.name
+        }
+,
         _id:obj._id.toString(),
         title:obj.title,
         cuisine:obj.cuisine,

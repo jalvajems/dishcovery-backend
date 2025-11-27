@@ -40,19 +40,29 @@ export class RecipeService implements IRecipeService{
             throw error;   
         }
     }
-    async getAllRecipes(chefId: string,page:number,limit:number): Promise<{ data: IRecipeDto[];currentPage:number; totalPages:number; message: string; }> {
+    async getAllRecipesChef(chefId: string,page:number,limit:number,search:string): Promise<{ data: IRecipeDto[];currentPage:number; totalPages:number; message: string; }> {
         try {
             const skip=(page-1)*limit;
-            const recipes=await this._recipeRepository.findRecipesById(chefId,skip,limit)
-            const totalCount=await this._recipeRepository.countDocument({chefId:chefId})
-            const total=Math.ceil(totalCount/limit)
-            console.log('RECIPES:::',recipes)
-            return {data:allRecipesMapper(recipes),
+            const result=await this._recipeRepository.findRecipesById(chefId,skip,limit,search)
+            const total=Math.ceil(result.totalCount/limit)
+            log.info('data in search',result.datas)
+            log.info('data in srvs',search)
+            return {data:allRecipesMapper(result.datas),
                 currentPage:page,
                 totalPages:total,
                 message:'all recipes got successfully!!'}
         } catch (error) {
             throw error   
+        }
+    }
+    async getAllRecipes(page: number, limit: number, search:string): Promise<{ datas: IRecipeDto[]; currentPage: number; totalPage: number; }> {
+        try {
+            const skip=(page-1)*limit
+            const result=await this._recipeRepository.findAllByPagination(search,skip,limit)
+            let total=Math.ceil(result.totalCount/limit)
+            return {datas:allRecipesMapper(result.datas),currentPage:page,totalPage:total}
+        } catch (error) {
+            throw error;
         }
     }
     async getRecipeDetail(id: string): Promise<{ data: IRecipeDto; message: string; }> {
@@ -68,6 +78,16 @@ export class RecipeService implements IRecipeService{
         try {
             await this._recipeRepository.deleteById(id);
             return {message:'Recipe deleted successfully!'};
+        } catch (error) {
+            throw error;
+        }
+    }
+    async getRelatedRecipes(cuisine: string): Promise<{ datas: IRecipeDto[]; message: string; }> {
+        try {
+            const result= await this._recipeRepository.findByCuisine(cuisine);
+            if(!result)throw new AppError('No related datas',STATUS_CODE.NOT_FOUND)
+
+            return {datas:allRecipesMapper(result),message:'related data fetched successfuly'}
         } catch (error) {
             throw error;
         }

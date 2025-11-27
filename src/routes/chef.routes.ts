@@ -10,7 +10,7 @@ const chefController = container.get<IChefController>(TYPES.IChefController)
 const recipeController = container.get<IRecipeController>(TYPES.IRecipeController)
 
 router.get('/dashboard', verifyAccess, chefController.getChefDashboard.bind(chefController))
-      .get('/recipes-list', recipeController.getAllRecipes.bind(recipeController))
+      .get('/recipes-list', recipeController.getAllRecipesChef.bind(recipeController))
       .get('/recipe-detail/:id',recipeController.getRecipeDetail.bind(recipeController))
       
 router.post('/recipe-add', recipeController.addRecipe.bind(recipeController))

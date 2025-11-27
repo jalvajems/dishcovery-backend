@@ -6,17 +6,18 @@ import TYPES from "../../DI/types";
 import { IFoodieService } from "../../services/interface/IFoodieService";
 import { AppError } from "../../utils/AppError";
 import { STATUS_CODE } from "../../constants/StatusCode";
-import { log } from "../../utils/logger";
 
 @injectable()
 export class FoodieController implements IFoodieController {
-
+    
     constructor(
         @inject(TYPES.IFoodieService) private _foodieService: IFoodieService,
     ) { }
-
+    
     async getFoodieDashboard(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
+            console.log('reached dashboard');
+            
             res.status(STATUS_CODE.SUCCESS).json({ message: 'Entered into foodie dashboard!!' })
         } catch (error) {
             next(error);
@@ -34,6 +35,29 @@ export class FoodieController implements IFoodieController {
 
         } catch (error) {
             next(error);
+        }
+    }
+    async getAllRecipes(req: Request, res: Response, next: NextFunction): Promise<void> {
+        console.log('reached controller');
+        console.log('reached fr cntrlr');
+        try {
+            const result=await this._foodieService.getAllRecipes();
+            res.status(STATUS_CODE.SUCCESS).json({success:true,recipeData:result.data,message:result.message})
+        } catch (error) {
+            throw error;
+        }
+    }//remove this========================^
+    async getRecipeDetail(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+                        console.log('reached');
+
+            const id=req.params.id;
+            if(!id)throw new AppError('recipe id is not found!',STATUS_CODE.NOT_FOUND);
+            const result=await this._foodieService.getRecipeDetail(id);
+            res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,message:result.message})
+
+        } catch (error) {
+            throw error;
         }
     }
 }

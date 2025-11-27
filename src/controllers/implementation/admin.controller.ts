@@ -5,6 +5,7 @@ import TYPES from "../../DI/types";
 import { IAdminService } from "../../services/interface/IAdminService";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { query } from "winston";
+import { json, success } from "zod";
 
 @injectable()
 export class AdminController implements IAdminController{
@@ -76,6 +77,20 @@ export class AdminController implements IAdminController{
             res.status(STATUS_CODE.SUCCESS).json({result});
         } catch (error) {
             next(error);
+        }
+    }
+    async getAllRecipes(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const page=Number(req.query.page)||1;
+            const limit=Number(req.query.limit)||10;
+            const search=(req.query.search as string)||"";
+            const isBlocked=req.query.isBlocked as string;
+
+            const result= await this._adminService.getAllRecipes({page,limit,search,isBlocked})
+            res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,currentPage:result.currentPage,totalPages:result.totalPages})
+
+        } catch (error) {
+            throw error;
         }
     }
 }

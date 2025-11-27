@@ -7,5 +7,6 @@ export interface IAdminController{
     unBlockUser(req:Request,res:Response,next:NextFunction):Promise<void>;
     verifyChef(req:Request,res:Response,next:NextFunction):Promise<void>;
     unVerifyChef(req:Request,res:Response,next:NextFunction):Promise<void>;
+    getAllRecipes(req:Request,res:Response,next:NextFunction):Promise<void>;
 
 }

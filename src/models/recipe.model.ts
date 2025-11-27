@@ -8,7 +8,7 @@ const recipeSchema = new Schema<IRecipeDocument>(
   {
     chefId: {
       type: Schema.Types.ObjectId,
-      ref: "Chef",
+      ref: "User",
       required: true,
     },
 
