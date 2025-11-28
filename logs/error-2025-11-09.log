@@ -1,0 +1,189 @@
+[2025-11-09 12:21:08] [31merror[39m: 	otp is not match or not find
+[2025-11-09 12:21:08] [31merror[39m: Error: 	invalide credentials
+    at AuthService.verifyOtp (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.verifyOtp (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:37:26)
+[2025-11-09 12:21:09] [31merror[39m: 	otp is not match or not find
+[2025-11-09 12:21:09] [31merror[39m: Error: 	invalide credentials
+    at AuthService.verifyOtp (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:66:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.verifyOtp (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:37:26)
+[2025-11-09 12:34:31] [31merror[39m: 	otp is not match or not find
+[2025-11-09 12:34:31] [31merror[39m: Error: 	invalide credentials
+    at AuthService.verifyOtp (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:65:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.verifyOtp (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:37:26)
+[2025-11-09 12:36:44] [31merror[39m: 	otp is not match or not find
+[2025-11-09 12:36:44] [31merror[39m: Error: 	invalide credentials
+    at AuthService.verifyOtp (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:67:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.verifyOtp (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:37:26)
+[2025-11-09 12:42:47] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be at least 8 characters long"
+  }
+]
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:17:41)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-09 12:46:57] [31merror[39m: Error: 	Email already Registered
+    at AuthService.signupUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:30:33)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:18:26)
+[2025-11-09 15:09:51] [31merror[39m: Error: No recipients defined
+    at SMTPConnection._formatError (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:809:19)
+    at SMTPConnection._setEnvelope (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:1047:34)
+    at SMTPConnection.send (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:631:14)
+    at sendMessage (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-transport\index.js:228:28)
+    at D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-transport\index.js:286:25
+    at SMTPConnection._actionAUTHComplete (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:1609:9)
+    at SMTPConnection.<anonymous> (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:556:26)
+    at SMTPConnection._processResponse (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:993:20)
+    at SMTPConnection._onData (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:774:14)
+    at TLSSocket.SMTPConnection._onSocketData (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:195:44)
+[2025-11-09 15:15:01] [31merror[39m: Error: No recipients defined
+    at SMTPConnection._formatError (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:809:19)
+    at SMTPConnection._setEnvelope (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:1047:34)
+    at SMTPConnection.send (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:631:14)
+    at sendMessage (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-transport\index.js:228:28)
+    at D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-transport\index.js:286:25
+    at SMTPConnection._actionAUTHComplete (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:1609:9)
+    at SMTPConnection.<anonymous> (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:556:26)
+    at SMTPConnection._processResponse (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:993:20)
+    at SMTPConnection._onData (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:774:14)
+    at TLSSocket.SMTPConnection._onSocketData (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:195:44)
+[2025-11-09 15:15:42] [31merror[39m: Error: No recipients defined
+    at SMTPConnection._formatError (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:809:19)
+    at SMTPConnection._setEnvelope (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:1047:34)
+    at SMTPConnection.send (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:631:14)
+    at sendMessage (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-transport\index.js:228:28)
+    at D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-transport\index.js:286:25
+    at SMTPConnection._actionAUTHComplete (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:1609:9)
+    at SMTPConnection.<anonymous> (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:556:26)
+    at SMTPConnection._processResponse (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:993:20)
+    at SMTPConnection._onData (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:774:14)
+    at TLSSocket.SMTPConnection._onSocketData (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:195:44)
+[2025-11-09 15:19:31] [31merror[39m: Error: No recipients defined
+    at SMTPConnection._formatError (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:809:19)
+    at SMTPConnection._setEnvelope (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:1047:34)
+    at SMTPConnection.send (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:631:14)
+    at sendMessage (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-transport\index.js:228:28)
+    at D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-transport\index.js:286:25
+    at SMTPConnection._actionAUTHComplete (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:1609:9)
+    at SMTPConnection.<anonymous> (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:556:26)
+    at SMTPConnection._processResponse (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:993:20)
+    at SMTPConnection._onData (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:774:14)
+    at TLSSocket.SMTPConnection._onSocketData (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:195:44)
+[2025-11-09 17:36:31] [31merror[39m: Error: 	Invalid credentials
+    at AuthService.loginUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:51:29)
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:27:26)
+[2025-11-09 18:05:56] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "invalid_format",
+    "format": "email",
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid email address"
+  },
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be at least 8 characters long"
+  }
+]
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:17:41)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-09 18:06:31] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "invalid_format",
+    "format": "email",
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid email address"
+  },
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be at least 8 characters long"
+  }
+]
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:17:41)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-09 18:06:32] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "invalid_format",
+    "format": "email",
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid email address"
+  },
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be at least 8 characters long"
+  }
+]
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:17:41)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)

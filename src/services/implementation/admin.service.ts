@@ -116,34 +116,34 @@ export class AdminService implements IAdminService {
             throw error;
         }
     }
-    async getAllRecipes(query: IPaginationDto): Promise<{ data: IRecipeDto[]; currentPage: number; totalPages: number; }> {
-        try {
-            const {page,limit,search,isBlocked}=query;
-            const filter:any={}
-            if(search){
-                filter.$or=[
-                    {title:{ $regex:search, $option:"i"}}
-                ]
-            }
-            if(isBlocked==="true")filter.isBlocked=true;
-            if(isBlocked==="false")filter.isBlocked=false;
+    // async getAllRecipes(query: IPaginationDto): Promise<{ data: IRecipeDto[]; currentPage: number; totalPages: number; }> {
+    //     try {
+    //         const {page,limit,search,isBlocked}=query;
+    //         const filter:any={}
+    //         if(search){
+    //             filter.$or=[
+    //                 {title:{ $regex:search, $option:"i"}}
+    //             ]
+    //         }
+    //         if(isBlocked==="true")filter.isBlocked=true;
+    //         if(isBlocked==="false")filter.isBlocked=false;
 
-            const skip=(page-1)*limit;
+    //         const skip=(page-1)*limit;
 
-            const recipes=await this._recipeRepository.findAllByPagination(filter,skip,limit)
-            const totalCount=await this._recipeRepository.countDocument(filter)
+    //         const recipes=await this._recipeRepository.findAllByPagination(filter,skip,limit)
+    //         const totalCount=await this._recipeRepository.countDocument(filter)
 
-            let total=Math.ceil(totalCount/limit)
+    //         let total=Math.ceil(totalCount/limit)
 
-            return {
-                data:allRecipesMapper(recipes),
-                currentPage:page,
-                totalPages:total
-            }
-        } catch (error) {
-            throw error;
-        }
-    }
+    //         return {
+    //             data:allRecipesMapper(recipes),
+    //             currentPage:page,
+    //             totalPages:total
+    //         }
+    //     } catch (error) {
+    //         throw error;
+    //     }
+    // }
     // async blockRecipe(id: string): Promise<IRecipeDto> {
     //     try {
     //         const result=this._recipeRepository.blockById(id)

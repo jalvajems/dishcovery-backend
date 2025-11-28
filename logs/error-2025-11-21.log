@@ -1,0 +1,16 @@
+[2025-11-21 19:02:51] [31merror[39m: Error: 	error in updated recipe
+    at RecipeService.editRecipe (D:\brototype\Dishcovery\server\src\services\implementation\recipe.service.ts:32:36)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at RecipeController.editRecipe (D:\brototype\Dishcovery\server\src\controllers\implementation\recipe.controller.ts:29:26)
+[2025-11-21 19:53:41] [31merror[39m: Error: 	error in updated recipe
+    at RecipeService.editRecipe (D:\brototype\Dishcovery\server\src\services\implementation\recipe.service.ts:32:36)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at RecipeController.editRecipe (D:\brototype\Dishcovery\server\src\controllers\implementation\recipe.controller.ts:29:26)
+[2025-11-21 19:58:32] [31merror[39m: Error: 	error in updated recipe
+    at RecipeService.editRecipe (D:\brototype\Dishcovery\server\src\services\implementation\recipe.service.ts:32:36)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at RecipeController.editRecipe (D:\brototype\Dishcovery\server\src\controllers\implementation\recipe.controller.ts:29:26)
+[2025-11-21 19:59:51] [31merror[39m: Error: 	error in updated recipe
+    at RecipeService.editRecipe (D:\brototype\Dishcovery\server\src\services\implementation\recipe.service.ts:32:36)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at RecipeController.editRecipe (D:\brototype\Dishcovery\server\src\controllers\implementation\recipe.controller.ts:29:26)

@@ -1,0 +1,394 @@
+[2025-11-08 00:01:19] [31merror[39m: Error: The client is closed
+    at Class.sendCommand (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:912:29)
+    at fn (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:866:36)
+    at Class._executeCommand (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:871:27)
+    at Class.set (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:232:25)
+    at AuthService.signupUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:26:16)
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:18:26)
+[2025-11-08 00:01:19] [31merror[39m: Error: The client is closed
+    at Class.sendCommand (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:912:29)
+    at fn (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:866:36)
+    at Class._executeCommand (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:871:27)
+    at Class.get (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:232:25)
+    at AuthService.signupUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:27:43)
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:18:26)
+[2025-11-08 00:02:43] [31merror[39m: ReferenceError: redisClient is not defined
+    at D:\brototype\Dishcovery\server\src\config\redis.config.ts:9:3
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\redis.config.ts:10:3)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-035243580369549665.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-035243580369549665.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-035243580369549665.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+[2025-11-08 00:02:46] [31merror[39m: ReferenceError: cl is not defined
+    at D:\brototype\Dishcovery\server\src\config\redis.config.ts:9:3
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\redis.config.ts:10:3)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-035243580369549665.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-035243580369549665.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-035243580369549665.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+[2025-11-08 00:02:47] [31merror[39m: AggregateError: 
+    at internalConnectMultiple (node:net:1121:18)
+    at afterConnectMultiple (node:net:1688:7)
+[2025-11-08 00:28:48] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:28:49] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:28:57] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:28:57] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:28:57] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:28:58] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:28:58] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:28:59] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:01] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:03] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:05] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:07] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:09] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:11] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:13] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:16] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:18] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:20] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:22] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:24] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:26] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:28] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:30] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:32] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:35] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:37] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:39] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:41] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:43] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:45] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:47] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:49] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:51] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:53] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:56] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:29:58] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:00] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:02] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:04] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:08] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:08] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:08] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:09] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:09] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:10] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:14] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:14] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:14] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:14] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:15] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:16] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:17] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:19] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:21] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:23] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:29] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:29] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:29] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:29] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:30] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:31] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:32] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:34] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:36] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:38] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:42] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:43] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:43] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:43] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:44] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:45] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:46] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:48] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:51] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:53] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:55] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:57] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:30:59] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:06] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:06] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:06] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:07] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:07] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:08] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:10] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:13] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:13] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:13] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:13] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:14] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:15] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:16] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:18] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:20] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:23] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:25] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:27] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:29] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:31] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:33] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:35] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:37] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:39] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:42] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:44] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:46] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:48] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:50] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:52] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:54] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:56] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:31:58] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:00] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:03] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:05] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:07] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:09] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:11] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:13] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:15] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:17] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:20] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:22] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:24] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:26] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:28] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:30] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:32] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:34] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:36] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:38] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:41] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:44] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:46] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:49] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:51] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:53] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:55] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:57] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:32:59] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:01] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:04] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:06] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:08] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:10] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:12] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:14] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:16] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:18] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:21] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:23] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:25] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:27] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:29] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:31] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:33] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:35] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:37] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:39] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:41] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:43] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:46] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:48] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:50] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:52] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:54] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:56] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:33:58] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:00] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:02] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:04] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:06] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:09] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:11] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:13] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:15] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:17] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:19] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:21] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:23] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:25] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:28] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:30] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:32] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:34] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:36] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:38] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:40] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:42] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:45] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:47] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:49] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:51] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:53] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:55] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:57] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:34:59] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:01] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:03] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:06] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:08] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:10] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:12] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:14] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:16] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:18] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:20] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:22] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:24] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:27] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:29] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:31] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:33] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:35] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:37] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:39] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:41] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:43] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:45] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:47] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:49] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:51] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:53] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:56] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 00:35:58] [31merror[39m: 	Redis Client error: Error: connect ECONNREFUSED 127.0.0.1:6379
+[2025-11-08 10:31:22] [31merror[39m: ReferenceError: to is not defined
+    at D:\brototype\Dishcovery\server\src\server.ts:23:9
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\server.ts:25:2)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5884532747194609.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5884532747194609.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5884532747194609.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+[2025-11-08 10:31:27] [31merror[39m: ReferenceError: tryc is not defined
+    at D:\brototype\Dishcovery\server\src\server.ts:23:9
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\server.ts:25:2)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5884532747194609.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5884532747194609.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5884532747194609.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+[2025-11-08 10:31:29] [31merror[39m: ReferenceError: trycc is not defined
+    at D:\brototype\Dishcovery\server\src\server.ts:23:9
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\server.ts:25:2)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5884532747194609.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5884532747194609.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5884532747194609.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+[2025-11-08 12:56:22] [31merror[39m: 	failed redis connection
+[2025-11-08 12:58:34] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "invalid_format",
+    "format": "email",
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid email address"
+  }
+]
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:17:41)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-08 12:59:42] [31merror[39m: 	failed redis connection
+[2025-11-08 12:59:44] [31merror[39m: 	failed redis connection
+[2025-11-08 12:59:48] [31merror[39m: 	failed redis connection
+[2025-11-08 12:59:49] [31merror[39m: 	failed redis connection
+[2025-11-08 12:59:52] [31merror[39m: 	failed redis connection
+[2025-11-08 12:59:53] [31merror[39m: 	failed redis connection
+[2025-11-08 12:59:54] [31merror[39m: 	failed redis connection
+[2025-11-08 19:51:45] [31merror[39m: 	otp is not match or not find
+[2025-11-08 19:52:37] [31merror[39m: 	otp is not match or not find
+[2025-11-08 19:53:31] [31merror[39m: 	otp is not match or not find
+[2025-11-08 19:54:53] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be at least 8 characters long"
+  }
+]
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:20:41)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-08 19:57:26] [31merror[39m: 	otp is not match or not find
+[2025-11-08 20:00:06] [31merror[39m: 	otp is not match or not find
+[2025-11-08 20:06:19] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be at least 8 characters long"
+  }
+]
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:20:41)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-08 20:06:28] [31merror[39m: Error: 	Email already Registered
+    at AuthService.signupUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:29:33)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:21:26)
+[2025-11-08 20:06:38] [31merror[39m: Error: 	Email already Registered
+    at AuthService.signupUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:29:33)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:21:26)
+[2025-11-08 20:07:09] [31merror[39m: Error: 	Email already Registered
+    at AuthService.signupUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:29:33)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:21:26)
+[2025-11-08 20:07:46] [31merror[39m: 	otp is not match or not find
+[2025-11-08 20:08:33] [31merror[39m: 	otp is not match or not find
+[2025-11-08 20:08:33] [31merror[39m: Error: 	invalide credentials
+    at AuthService.verifyOtp (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:67:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.verifyOtp (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:40:26)

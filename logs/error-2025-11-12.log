@@ -1,0 +1,417 @@
+[2025-11-12 00:43:36] [31merror[39m: 	refreshtoken failed
+[2025-11-12 00:43:36] [31merror[39m: Error: 	refresh token creation failed
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:159:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:97:26)
+[2025-11-12 11:28:10] [31merror[39m: 	refreshtoken failed
+[2025-11-12 11:28:10] [31merror[39m: Error: 	refresh token creation failed
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:159:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:97:26)
+[2025-11-12 11:29:14] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:140:32)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:97:49)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-12 11:29:14] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:140:32)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:97:49)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-12 11:29:14] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:140:32)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:97:49)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-12 11:29:14] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:140:32)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:97:49)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-12 11:29:54] [31merror[39m: Error: 	Invalid credentials
+    at AuthService.loginUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:57:29)
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:31:53)
+[2025-11-12 11:30:46] [31merror[39m: 	refreshtoken failed
+[2025-11-12 11:30:46] [31merror[39m: Error: 	refresh token creation failed
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:159:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:97:26)
+[2025-11-12 11:42:39] [31merror[39m: 	refreshtoken failed
+[2025-11-12 11:42:39] [31merror[39m: Error: 	refresh token creation failed
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:159:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:97:26)
+[2025-11-12 11:42:39] [31merror[39m: 	refreshtoken failed
+[2025-11-12 11:42:39] [31merror[39m: Error: 	refresh token creation failed
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:159:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:97:26)
+[2025-11-12 11:42:40] [31merror[39m: 	refreshtoken failed
+[2025-11-12 11:42:40] [31merror[39m: Error: 	refresh token creation failed
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:159:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:97:26)
+[2025-11-12 11:42:40] [31merror[39m: 	refreshtoken failed
+[2025-11-12 11:42:40] [31merror[39m: Error: 	refresh token creation failed
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:159:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:97:26)
+[2025-11-12 11:42:40] [31merror[39m: 	refreshtoken failed
+[2025-11-12 11:42:40] [31merror[39m: Error: 	refresh token creation failed
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:159:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:97:26)
+[2025-11-12 11:42:40] [31merror[39m: 	refreshtoken failed
+[2025-11-12 11:42:40] [31merror[39m: Error: 	refresh token creation failed
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:159:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:97:26)
+[2025-11-12 13:08:26] [31merror[39m: Error: 	Invalid email or password
+    at AuthService.loginUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:54:26)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:31:53)
+[2025-11-12 13:08:27] [31merror[39m: Error: 	Invalid email or password
+    at AuthService.loginUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:54:26)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:31:53)
+[2025-11-12 13:08:33] [31merror[39m: Error: 	Invalid email or password
+    at AuthService.loginUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:54:26)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:31:53)
+[2025-11-12 13:15:43] [31merror[39m: Error: 	no user found
+    at AuthService.forgetPass (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:104:19)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.forgetPass (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:62:22)
+[2025-11-12 13:16:07] [31merror[39m: Error: 	Invalid email or password
+    at AuthService.loginUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:54:26)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:31:53)
+[2025-11-12 13:22:40] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be consist atleast 8 characters long"
+  }
+]
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:30:43)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-12 14:22:00] [31merror[39m: Error: 	Invalid email or password
+    at AuthService.loginUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:54:26)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:31:53)
+[2025-11-12 14:33:32] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "invalid_format",
+    "format": "email",
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid email address"
+  }
+]
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:30:43)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-12 17:35:50] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "invalid_format",
+    "format": "email",
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid email address"
+  },
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be consist atleast 8 characters long"
+  }
+]
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:30:43)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-12 17:35:51] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "invalid_format",
+    "format": "email",
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid email address"
+  },
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be consist atleast 8 characters long"
+  }
+]
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:30:43)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-12 17:35:53] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "invalid_format",
+    "format": "email",
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid email address"
+  },
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be consist atleast 8 characters long"
+  }
+]
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:30:43)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-12 17:38:52] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "invalid_format",
+    "format": "email",
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid email address"
+  },
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be consist atleast 8 characters long"
+  }
+]
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:30:43)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-12 17:38:53] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "invalid_format",
+    "format": "email",
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid email address"
+  },
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be consist atleast 8 characters long"
+  }
+]
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:30:43)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-12 17:38:53] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "invalid_format",
+    "format": "email",
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid email address"
+  },
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be consist atleast 8 characters long"
+  }
+]
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:30:43)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-12 17:38:53] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "invalid_format",
+    "format": "email",
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid email address"
+  },
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be consist atleast 8 characters long"
+  }
+]
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:30:43)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-12 18:47:39] [31merror[39m: ZodError: 	[
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be consist atleast 8 characters long"
+  }
+]
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:30:43)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-12 18:48:44] [31merror[39m: SyntaxError: Expected double-quoted property name in JSON at position 59 (line 5 column 1)
+    at JSON.parse (<anonymous>)
+    at parse (D:\brototype\Dishcovery\server\node_modules\body-parser\lib\types\json.js:77:19)
+    at D:\brototype\Dishcovery\server\node_modules\body-parser\lib\read.js:123:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)
+    at invokeCallback (D:\brototype\Dishcovery\server\node_modules\raw-body\index.js:238:16)
+    at done (D:\brototype\Dishcovery\server\node_modules\raw-body\index.js:227:7)
+    at IncomingMessage.onEnd (D:\brototype\Dishcovery\server\node_modules\raw-body\index.js:287:7)
+    at IncomingMessage.emit (node:events:518:28)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at processTicksAndRejections (node:internal/process/task_queues:90:21)

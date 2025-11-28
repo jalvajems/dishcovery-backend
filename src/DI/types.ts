@@ -14,7 +14,10 @@ const TYPES={
     IRecipeController:Symbol.for("IRecipeController"),
     IReviewRepository:Symbol.for("IReviewRepository"),
     IReviewService:Symbol.for("IReviewService"),
-    IReviewController:Symbol.for("IReviewController")
+    IReviewController:Symbol.for("IReviewController"),
+    IBlogRepository:Symbol.for("IBlogRepository"),
+    IBlogService:Symbol.for("IBlogService"),
+    IBlogController:Symbol.for("IBlogController")
 }
 
 export default TYPES;

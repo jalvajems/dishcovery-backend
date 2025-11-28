@@ -1,0 +1,76 @@
+[2025-11-24 15:08:43] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:163:33)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:98:52)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-24 15:08:43] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:163:33)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:98:52)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-24 15:08:47] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:163:33)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:98:52)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-24 15:08:47] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:163:33)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:98:52)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-24 15:08:53] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:163:33)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:98:52)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-24 15:08:53] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:163:33)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:98:52)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-24 18:34:59] [31merror[39m: ValidationError: 	Recipe validation failed: cookingTime: Path `cookingTime` is required., cuisine: Path `cuisine` is required., title: Path `title` is required.
+    at model.Document.invalidate (D:\brototype\Dishcovery\server\node_modules\mongoose\lib\document.js:3362:32)
+    at D:\brototype\Dishcovery\server\node_modules\mongoose\lib\document.js:3123:17
+    at D:\brototype\Dishcovery\server\node_modules\mongoose\lib\schemaType.js:1420:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+[2025-11-24 18:39:34] [31merror[39m: ValidationError: 	Recipe validation failed: title: Path `title` is required., cuisine: Path `cuisine` is required.
+    at model.Document.invalidate (D:\brototype\Dishcovery\server\node_modules\mongoose\lib\document.js:3362:32)
+    at D:\brototype\Dishcovery\server\node_modules\mongoose\lib\document.js:3123:17
+    at D:\brototype\Dishcovery\server\node_modules\mongoose\lib\schemaType.js:1420:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)

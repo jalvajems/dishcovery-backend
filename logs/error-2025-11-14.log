@@ -1,0 +1,185 @@
+[2025-11-14 11:23:51] [31merror[39m: Error: ERR value is not an integer or out of range
+    at Decoder.#decodeSimpleError (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:648:7)
+    at Decoder.#decodeTypeValue (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:789:29)
+    at RedisSocket.emit (node:events:518:28)
+    at Socket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\socket.ts:297:32)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Socket.Readable.push (node:internal/streams/readable:392:5)
+[2025-11-14 11:26:44] [31merror[39m: Error: ERR value is not an integer or out of range
+    at Decoder.#decodeSimpleError (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:648:7)
+    at Decoder.#decodeTypeValue (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:789:29)
+    at RedisSocket.emit (node:events:518:28)
+    at Socket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\socket.ts:297:32)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Socket.Readable.push (node:internal/streams/readable:392:5)
+[2025-11-14 11:33:43] [31merror[39m: Error: ERR value is not an integer or out of range
+    at Decoder.#decodeSimpleError (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:648:7)
+    at Decoder.#decodeTypeValue (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:789:29)
+    at RedisSocket.emit (node:events:518:28)
+    at Socket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\socket.ts:297:32)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Socket.Readable.push (node:internal/streams/readable:392:5)
+[2025-11-14 11:36:41] [31merror[39m: Error: ERR value is not an integer or out of range
+    at Decoder.#decodeSimpleError (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:648:7)
+    at Decoder.#decodeTypeValue (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:789:29)
+    at RedisSocket.emit (node:events:518:28)
+    at Socket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\socket.ts:297:32)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Socket.Readable.push (node:internal/streams/readable:392:5)
+[2025-11-14 11:38:57] [31merror[39m: Error: ERR value is not an integer or out of range
+    at Decoder.#decodeSimpleError (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:648:7)
+    at Decoder.#decodeTypeValue (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:789:29)
+    at RedisSocket.emit (node:events:518:28)
+    at Socket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\socket.ts:297:32)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Socket.Readable.push (node:internal/streams/readable:392:5)
+[2025-11-14 11:41:37] [31merror[39m: Error: ERR value is not an integer or out of range
+    at Decoder.#decodeSimpleError (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:648:7)
+    at Decoder.#decodeTypeValue (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:789:29)
+    at RedisSocket.emit (node:events:518:28)
+    at Socket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\socket.ts:297:32)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Socket.Readable.push (node:internal/streams/readable:392:5)
+[2025-11-14 11:45:23] [31merror[39m: Error: ERR value is not an integer or out of range
+    at Decoder.#decodeSimpleError (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:648:7)
+    at Decoder.#decodeTypeValue (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:789:29)
+    at RedisSocket.emit (node:events:518:28)
+    at Socket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\socket.ts:297:32)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Socket.Readable.push (node:internal/streams/readable:392:5)
+[2025-11-14 11:49:21] [31merror[39m: Error: ERR value is not an integer or out of range
+    at Decoder.#decodeSimpleError (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:648:7)
+    at Decoder.#decodeTypeValue (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:789:29)
+    at RedisSocket.emit (node:events:518:28)
+    at Socket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\socket.ts:297:32)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Socket.Readable.push (node:internal/streams/readable:392:5)
+[2025-11-14 11:50:23] [31merror[39m: Error: ERR value is not an integer or out of range
+    at Decoder.#decodeSimpleError (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:648:7)
+    at Decoder.#decodeTypeValue (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:789:29)
+    at RedisSocket.emit (node:events:518:28)
+    at Socket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\socket.ts:297:32)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Socket.Readable.push (node:internal/streams/readable:392:5)
+[2025-11-14 11:53:00] [31merror[39m: Error: Invalid email or password
+    at AuthService.loginUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:61:26)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:31:57)
+[2025-11-14 11:54:19] [31merror[39m: Error: ERR value is not an integer or out of range
+    at Decoder.#decodeSimpleError (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:648:7)
+    at Decoder.#decodeTypeValue (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:171:34)
+    at Decoder.write (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\RESP\decoder.ts:90:32)
+    at RedisSocket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\index.ts:789:29)
+    at RedisSocket.emit (node:events:518:28)
+    at Socket.<anonymous> (D:\brototype\Dishcovery\server\node_modules\@redis\client\lib\client\socket.ts:297:32)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Socket.Readable.push (node:internal/streams/readable:392:5)
+[2025-11-14 11:57:50] [31merror[39m: Error: Invalid REFRESH_EXP value, must be a number in seconds
+    at RefreshTokenRepository.getTTL (D:\brototype\Dishcovery\server\src\repostories\implementation\refreshToken.repository.ts:9:19)
+    at RefreshTokenRepository.createRefreshToken (D:\brototype\Dishcovery\server\src\repostories\implementation\refreshToken.repository.ts:16:61)
+    at AuthService.loginUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:72:43)
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:31:57)
+[2025-11-14 12:49:07] [31merror[39m: ZodError: [
+  {
+    "origin": "string",
+    "code": "invalid_format",
+    "format": "email",
+    "pattern": "/^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$/",
+    "path": [
+      "email"
+    ],
+    "message": "Invalid email address"
+  },
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be consist atleast 8 characters long"
+  }
+]
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:30:43)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-14 22:20:30] [31merror[39m: ZodError: [
+  {
+    "origin": "string",
+    "code": "too_small",
+    "minimum": 8,
+    "inclusive": true,
+    "path": [
+      "password"
+    ],
+    "message": "Password must be consist atleast 8 characters long"
+  }
+]
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:30:43)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-14 22:21:02] [31merror[39m: Error: Connection timeout
+    at SMTPConnection._formatError (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:809:19)
+    at SMTPConnection._onError (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:795:20)
+    at Timeout.<anonymous> (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:237:22)
+    at listOnTimeout (node:internal/timers:594:17)
+    at processTimers (node:internal/timers:529:7)
+[2025-11-14 22:32:45] [31merror[39m: Error: Connection timeout
+    at SMTPConnection._formatError (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:809:19)
+    at SMTPConnection._onError (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:795:20)
+    at Timeout.<anonymous> (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:237:22)
+    at listOnTimeout (node:internal/timers:594:17)
+    at processTimers (node:internal/timers:529:7)

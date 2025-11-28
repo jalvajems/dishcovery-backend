@@ -1,0 +1,37 @@
+[2025-11-13 12:01:14] [31merror[39m: Error: 	Invalid credentials
+    at AuthService.loginUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:60:29)
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:31:53)
+[2025-11-13 12:01:16] [31merror[39m: Error: 	Invalid credentials
+    at AuthService.loginUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:60:29)
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:31:53)
+[2025-11-13 12:05:16] [31merror[39m: Error: 	Invalid credentials
+    at AuthService.loginUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:60:29)
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:31:53)
+[2025-11-13 12:32:02] [31merror[39m: ZodError: 	[
+  {
+    "expected": "string",
+    "code": "invalid_type",
+    "path": [
+      "confrimPassword"
+    ],
+    "message": "Invalid input: expected string, received undefined"
+  }
+]
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:21:41)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+    at Function.handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:186:3)
+[2025-11-13 16:24:00] [31merror[39m: Error: 	Error on singup
+    at AuthService.signupUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:54:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:22:26)
+[2025-11-13 16:24:06] [31merror[39m: Error: 	Error on singup
+    at AuthService.signupUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:54:15)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at AuthController.signup (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:22:26)

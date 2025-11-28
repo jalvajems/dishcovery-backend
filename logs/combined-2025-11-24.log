@@ -1,0 +1,712 @@
+[2025-11-24 10:32:14] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795 from  REQLOGGER
+[2025-11-24 10:32:14] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795 from  REQLOGGER
+[2025-11-24 10:33:27] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795 from  REQLOGGER
+[2025-11-24 10:33:27] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795 from  REQLOGGER
+[2025-11-24 10:34:00] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795 from  REQLOGGER
+[2025-11-24 10:35:18] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795 from  REQLOGGER
+[2025-11-24 10:35:18] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795 from  REQLOGGER
+[2025-11-24 10:35:39] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795 from  REQLOGGER
+[2025-11-24 10:35:39] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795 from  REQLOGGER
+[2025-11-24 10:35:56] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795 from  REQLOGGER
+[2025-11-24 10:35:56] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795 from  REQLOGGER
+[2025-11-24 10:41:54] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 10:41:54] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 10:48:01] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:48:01] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:48:01] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:48:07] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:48:07] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:48:07] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:48:23] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:48:23] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:48:23] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:48:28] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:48:28] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:48:28] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:48:30] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:48:30] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:48:30] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:48:45] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:48:45] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:48:45] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:48:47] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:48:47] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:48:47] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:48:54] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:48:54] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:48:54] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:48:58] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:48:58] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:48:58] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:49:04] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:49:04] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:49:04] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:49:07] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:49:07] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:49:07] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:49:10] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:49:10] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:49:10] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:49:14] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:49:14] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:49:14] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:49:17] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:49:17] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:49:17] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:49:21] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:49:21] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:49:21] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:49:24] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:49:24] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:49:24] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:49:28] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:49:28] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:49:28] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:49:32] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:49:32] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:49:32] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:49:35] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:49:35] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:49:35] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:50:03] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 10:50:03] [32minfo[39m: 	page and limit
+[2025-11-24 10:50:03] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 10:50:03] [32minfo[39m: 	page and limit
+[2025-11-24 10:52:46] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:52:46] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:52:46] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:52:49] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:52:49] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:52:49] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:53:01] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 10:53:01] [32minfo[39m: 	page and limit
+[2025-11-24 10:53:01] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 10:53:01] [32minfo[39m: 	page and limit
+[2025-11-24 10:58:35] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:58:35] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:58:35] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:58:47] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:58:47] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:58:47] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 10:58:52] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 10:58:52] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 10:58:52] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:02:10] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 11:02:10] [32minfo[39m: 	page and limit
+[2025-11-24 11:02:10] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 11:02:10] [32minfo[39m: 	page and limit
+[2025-11-24 11:03:44] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:03:44] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:03:44] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:03:47] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:03:47] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:03:47] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:03:49] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:03:49] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:03:49] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:03:53] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:03:53] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:03:53] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:03:56] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:03:56] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:03:56] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:04:02] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 11:04:02] [32minfo[39m: 	page and limit
+[2025-11-24 11:04:02] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 11:04:02] [32minfo[39m: 	page and limit
+[2025-11-24 11:04:17] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:04:17] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:04:17] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:04:21] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:04:21] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:04:21] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:04:27] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 11:04:27] [32minfo[39m: 	page and limit
+[2025-11-24 11:04:27] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 11:04:27] [32minfo[39m: 	page and limit
+[2025-11-24 11:04:38] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:04:38] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:04:38] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:04:44] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:04:44] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:04:44] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:04:48] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 11:04:48] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 11:05:45] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:05:45] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:05:45] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:05:47] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:05:47] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:05:47] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:05:52] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:05:52] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:05:52] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:06:24] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:06:24] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:06:24] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:06:28] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:06:28] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:06:28] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:06:42] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:06:42] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:06:42] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:06:44] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:06:44] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:06:44] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:06:47] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:06:47] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:06:47] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:06:50] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:06:50] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:06:50] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 11:06:56] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 11:06:56] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 11:06:56] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 12:16:41] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 12:16:41] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 12:21:35] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 12:21:35] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:21:08] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:21:08] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:31:32] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:31:32] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:31:32] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:32:16] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:32:16] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:32:16] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:32:27] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:32:27] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:32:27] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:32:31] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:32:31] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:32:31] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:32:35] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:32:35] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:32:35] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:32:37] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:32:37] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:32:37] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:34:27] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:34:27] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:34:27] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:34:34] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:34:34] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:34:34] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:34:37] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:34:37] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:34:37] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:35:06] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:35:06] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:35:06] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:35:10] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:35:10] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:35:10] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:37:45] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:37:45] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:37:45] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:37:57] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:37:57] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:37:57] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:37:59] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:37:59] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:37:59] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:02] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:02] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:02] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:04] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:04] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:04] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:07] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:07] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:07] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:14] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:14] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:14] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:16] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:16] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:16] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:18] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:18] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:18] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:22] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:22] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:22] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:24] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:24] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:24] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:37] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:37] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:37] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:41] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:41] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:41] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:43] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:44] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:44] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:48] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:48] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:51] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:51] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:51] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:53] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:53] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:53] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:38:59] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:38:59] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:38:59] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:39:04] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:39:04] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:39:04] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:39:06] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:39:06] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:39:06] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:39:08] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:39:08] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:39:08] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:39:10] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:39:10] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:39:10] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:39:14] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:39:14] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:39:14] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:39:21] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:39:21] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:39:21] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:39:30] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:39:30] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:39:30] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:39:38] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:39:38] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:39:38] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:39:43] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:39:43] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:39:43] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:39:46] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:39:46] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:39:46] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:39:53] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:39:53] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:39:53] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:40:04] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:40:04] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:40:04] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:40:09] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:40:09] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:40:09] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:40:13] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:40:13] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:40:13] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:40:15] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:40:15] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:40:15] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:40:21] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:40:21] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:40:21] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:40:52] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:40:52] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:40:52] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:40:57] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:40:57] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:40:57] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:41:02] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:41:03] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:41:03] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:41:08] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:41:08] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:41:08] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:41:12] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:41:13] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:41:13] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:41:18] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:41:18] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:41:18] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:41:22] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:41:22] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:41:22] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:41:27] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:41:27] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:41:27] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:41:43] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:41:44] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:41:44] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:42:51] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:42:51] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:42:51] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:42:54] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:42:54] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:42:54] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:42:56] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:42:56] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:42:56] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:43:00] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:43:00] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:43:00] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:43:05] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:43:05] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:43:06] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:43:11] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:43:11] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:43:11] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:43:20] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:43:20] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:43:20] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:43:25] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:43:25] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:43:25] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:43:29] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:43:29] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:43:29] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:43:33] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:43:33] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:43:33] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:43:37] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:43:37] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:43:37] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:44:05] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:44:05] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:44:05] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:44:07] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:44:07] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:44:07] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:44:10] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:44:10] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:44:10] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:44:14] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:44:14] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:44:14] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:44:18] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:44:18] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:44:18] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:44:20] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:44:20] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:44:20] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:44:39] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:44:39] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:44:39] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:44:42] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:44:42] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:44:42] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:44:46] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:44:46] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:44:46] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:44:59] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:44:59] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:44:59] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:46:03] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:46:03] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:46:03] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:46:05] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:46:05] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:46:05] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:46:10] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:46:10] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:46:10] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:46:12] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:46:12] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:46:12] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:46:30] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:46:30] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:46:30] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:46:34] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:46:34] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:46:34] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:46:49] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:46:49] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:46:49] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:47:48] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:47:48] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:47:48] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:48:06] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:48:06] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:48:06] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:48:16] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:48:16] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:48:16] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:48:20] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:48:20] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:48:20] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:48:39] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:48:39] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:48:39] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:49:10] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:49:10] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:49:10] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:49:38] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:49:38] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:49:38] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:49:45] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:49:45] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:49:45] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:49:50] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:49:50] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:49:50] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:49:52] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:49:52] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:49:52] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:50:18] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:50:18] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:50:18] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:50:34] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:50:35] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:51:12] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:51:12] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:51:34] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:51:35] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:51:35] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:51:36] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:52:19] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:52:19] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:52:24] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:52:24] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:52:28] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=NaN&limit=3 from  REQLOGGER
+[2025-11-24 14:52:33] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 14:58:18] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:58:18] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:58:18] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:58:23] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:58:23] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:58:23] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:58:26] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:58:26] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:58:26] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:58:29] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:58:29] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:58:29] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 14:58:32] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 14:58:32] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 14:58:32] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 15:01:09] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 15:01:09] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 15:01:09] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 15:01:28] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 15:01:28] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 15:01:28] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 15:01:31] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 15:01:31] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 15:01:31] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 15:01:51] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 15:01:51] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 15:01:51] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 15:02:46] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 15:02:46] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 15:02:52] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=2&limit=3 from  REQLOGGER
+[2025-11-24 15:02:59] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 15:03:06] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 15:03:06] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 15:03:08] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:03:08] [32minfo[39m: 	middleware 1
+[2025-11-24 15:03:08] [32minfo[39m: TokenExpiredError: jwt expired
+    at D:\brototype\Dishcovery\server\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\brototype\Dishcovery\server\node_modules\jsonwebtoken\verify.js:97:14)
+    at Object.module.exports [as verify] (D:\brototype\Dishcovery\server\node_modules\jsonwebtoken\verify.js:101:10)
+    at verifyAccess (D:\brototype\Dishcovery\server\src\middlewares\verifyAccess.ts:27:29)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+[2025-11-24 15:03:08] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:03:08] [32minfo[39m: 	middleware 1
+[2025-11-24 15:03:08] [32minfo[39m: TokenExpiredError: jwt expired
+    at D:\brototype\Dishcovery\server\node_modules\jsonwebtoken\verify.js:190:21
+    at getSecret (D:\brototype\Dishcovery\server\node_modules\jsonwebtoken\verify.js:97:14)
+    at Object.module.exports [as verify] (D:\brototype\Dishcovery\server\node_modules\jsonwebtoken\verify.js:101:10)
+    at verifyAccess (D:\brototype\Dishcovery\server\src\middlewares\verifyAccess.ts:27:29)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+[2025-11-24 15:03:08] [32minfo[39m: 	Incoming request: POST /api/auth/refresh from  REQLOGGER
+[2025-11-24 15:03:09] [32minfo[39m: 	Incoming request: POST /api/auth/refresh from  REQLOGGER
+[2025-11-24 15:03:09] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:03:09] [32minfo[39m: 	middleware 1
+[2025-11-24 15:03:09] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:03:09] [32minfo[39m: 	middleware 1
+[2025-11-24 15:06:58] [32minfo[39m: 	Incoming request: POST /api/auth/login from  REQLOGGER
+[2025-11-24 15:06:58] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:06:58] [32minfo[39m: 	middleware 1
+[2025-11-24 15:06:58] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:06:58] [32minfo[39m: 	middleware 1
+[2025-11-24 15:06:58] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:06:58] [32minfo[39m: 	middleware 1
+[2025-11-24 15:07:01] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 15:07:01] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 15:07:07] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=2&limit=3 from  REQLOGGER
+[2025-11-24 15:07:10] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 15:08:35] [32minfo[39m: 	Incoming request: POST /api/auth/logout from  REQLOGGER
+[2025-11-24 15:08:43] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:08:43] [32minfo[39m: 	middleware 1
+[2025-11-24 15:08:43] [32minfo[39m: 	no token , so no access!
+[2025-11-24 15:08:43] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:08:43] [32minfo[39m: 	middleware 1
+[2025-11-24 15:08:43] [32minfo[39m: 	no token , so no access!
+[2025-11-24 15:08:43] [32minfo[39m: 	Incoming request: POST /api/auth/refresh from  REQLOGGER
+[2025-11-24 15:08:43] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:163:33)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:98:52)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-24 15:08:43] [32minfo[39m: 	Incoming request: POST /api/auth/refresh from  REQLOGGER
+[2025-11-24 15:08:43] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:163:33)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:98:52)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-24 15:08:47] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:08:47] [32minfo[39m: 	middleware 1
+[2025-11-24 15:08:47] [32minfo[39m: 	no token , so no access!
+[2025-11-24 15:08:47] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:08:47] [32minfo[39m: 	middleware 1
+[2025-11-24 15:08:47] [32minfo[39m: 	no token , so no access!
+[2025-11-24 15:08:47] [32minfo[39m: 	Incoming request: POST /api/auth/refresh from  REQLOGGER
+[2025-11-24 15:08:47] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:163:33)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:98:52)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-24 15:08:47] [32minfo[39m: 	Incoming request: POST /api/auth/refresh from  REQLOGGER
+[2025-11-24 15:08:47] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:163:33)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:98:52)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-24 15:08:53] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:08:53] [32minfo[39m: 	middleware 1
+[2025-11-24 15:08:53] [32minfo[39m: 	no token , so no access!
+[2025-11-24 15:08:53] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:08:53] [32minfo[39m: 	middleware 1
+[2025-11-24 15:08:53] [32minfo[39m: 	no token , so no access!
+[2025-11-24 15:08:53] [32minfo[39m: 	Incoming request: POST /api/auth/refresh from  REQLOGGER
+[2025-11-24 15:08:53] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:163:33)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:98:52)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-24 15:08:53] [32minfo[39m: 	Incoming request: POST /api/auth/refresh from  REQLOGGER
+[2025-11-24 15:08:53] [31merror[39m: Error: 	token is not exist in cookies
+    at AuthService.refreshToken (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:163:33)
+    at AuthController.refreshToken (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:98:52)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\brototype\Dishcovery\server\node_modules\router\lib\route.js:117:3)
+    at handle (D:\brototype\Dishcovery\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\brototype\Dishcovery\server\node_modules\router\lib\layer.js:152:17)
+    at D:\brototype\Dishcovery\server\node_modules\router\index.js:295:15
+    at processParams (D:\brototype\Dishcovery\server\node_modules\router\index.js:582:12)
+    at next (D:\brototype\Dishcovery\server\node_modules\router\index.js:291:5)
+[2025-11-24 15:09:12] [32minfo[39m: 	Incoming request: POST /api/auth/login from  REQLOGGER
+[2025-11-24 15:09:12] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:09:12] [32minfo[39m: 	middleware 1
+[2025-11-24 15:09:12] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:09:12] [32minfo[39m: 	middleware 1
+[2025-11-24 15:09:12] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:09:12] [32minfo[39m: 	middleware 1
+[2025-11-24 15:09:19] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 15:09:19] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 15:09:25] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:09:25] [32minfo[39m: 	middleware 1
+[2025-11-24 15:09:25] [32minfo[39m: 	Incoming request: GET /api/chef/dashboard from  REQLOGGER
+[2025-11-24 15:09:25] [32minfo[39m: 	middleware 1
+[2025-11-24 15:10:16] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 15:10:16] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 18:33:59] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 18:33:59] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 18:34:25] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 18:34:25] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 18:34:59] [32minfo[39m: 	Incoming request: POST /api/chef/recipe-add from  REQLOGGER
+[2025-11-24 18:34:59] [32minfo[39m: 	recipedata got on controller ==>
+[2025-11-24 18:34:59] [31merror[39m: ValidationError: 	Recipe validation failed: cookingTime: Path `cookingTime` is required., cuisine: Path `cuisine` is required., title: Path `title` is required.
+    at model.Document.invalidate (D:\brototype\Dishcovery\server\node_modules\mongoose\lib\document.js:3362:32)
+    at D:\brototype\Dishcovery\server\node_modules\mongoose\lib\document.js:3123:17
+    at D:\brototype\Dishcovery\server\node_modules\mongoose\lib\schemaType.js:1420:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+[2025-11-24 18:39:34] [32minfo[39m: 	Incoming request: POST /api/chef/recipe-add from  REQLOGGER
+[2025-11-24 18:39:34] [32minfo[39m: 	recipedata got on controller ==>
+[2025-11-24 18:39:34] [31merror[39m: ValidationError: 	Recipe validation failed: title: Path `title` is required., cuisine: Path `cuisine` is required.
+    at model.Document.invalidate (D:\brototype\Dishcovery\server\node_modules\mongoose\lib\document.js:3362:32)
+    at D:\brototype\Dishcovery\server\node_modules\mongoose\lib\document.js:3123:17
+    at D:\brototype\Dishcovery\server\node_modules\mongoose\lib\schemaType.js:1420:9
+    at processTicksAndRejections (node:internal/process/task_queues:85:11)
+[2025-11-24 18:43:40] [32minfo[39m: 	Incoming request: POST /api/chef/recipe-add from  REQLOGGER
+[2025-11-24 18:43:40] [32minfo[39m: 	recipedata got on controller ==>
+[2025-11-24 18:43:40] [32minfo[39m: 	recipe created
+[2025-11-24 18:44:06] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 18:44:06] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 18:44:10] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=2&limit=3 from  REQLOGGER
+[2025-11-24 18:44:20] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/69245a04c98c70bb5057782c from  REQLOGGER
+[2025-11-24 18:44:21] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/69245a04c98c70bb5057782c from  REQLOGGER
+[2025-11-24 18:45:41] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 18:45:41] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 18:47:23] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 18:47:23] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 18:47:28] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 18:47:28] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 18:47:32] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 18:47:32] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:04:20] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:04:20] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:15:37] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:15:37] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:15:59] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:15:59] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:16:00] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:16:00] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:16:03] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:16:03] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:17:12] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:17:12] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:20:32] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:20:32] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:20:51] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:20:51] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:21:56] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:21:56] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:22:15] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:22:15] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/692075b01f4ffaa74687421e from  REQLOGGER
+[2025-11-24 19:22:17] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 19:22:17] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=1&limit=3 from  REQLOGGER
+[2025-11-24 19:22:22] [32minfo[39m: 	Incoming request: GET /api/chef/recipes-list?chefId=691efde8ee71f931e509e795&page=2&limit=3 from  REQLOGGER
+[2025-11-24 19:22:23] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/69245a04c98c70bb5057782c from  REQLOGGER
+[2025-11-24 19:22:23] [32minfo[39m: 	Incoming request: GET /api/chef/recipe-detail/69245a04c98c70bb5057782c from  REQLOGGER
+[2025-11-24 19:29:05] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 19:29:05] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 19:29:05] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 19:29:10] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 19:29:10] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 19:29:10] [32minfo[39m: 	Server running on port 4000 in development node
+[2025-11-24 19:29:40] [32minfo[39m: 	MongoDB is connected successfully
+[2025-11-24 19:29:40] [32minfo[39m: 	redis connected succefuly
+[2025-11-24 19:29:40] [32minfo[39m: 	Server running on port 4000 in development node

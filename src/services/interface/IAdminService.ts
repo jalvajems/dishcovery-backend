@@ -10,8 +10,8 @@ export interface IAdminService{
     unBlockUserById(id:string):Promise<IUserDto>; 
     verifyChef(id:string):Promise<IUserDto>;
     unVerifyChef(id:string):Promise<IUserDto>;
-    getAllRecipes(query:IPaginationDto):Promise<{data:IRecipeDto[],currentPage:number,totalPages:number}>;
-    getAllRecipes(query:IPaginationDto):Promise<{data:IRecipeDto[],currentPage:number,totalPages:number}>;
-    blockRecipe(id:string):Promise<IRecipeDto>;
-    unblockRecipe(id:string):Promise<IRecipeDto>;
+    // getAllRecipes(query:IPaginationDto):Promise<{data:IRecipeDto[],currentPage:number,totalPages:number}>;
+    // getAllRecipes(query:IPaginationDto):Promise<{data:IRecipeDto[],currentPage:number,totalPages:number}>;
+    // blockRecipe(id:string):Promise<IRecipeDto>;
+    // unblockRecipe(id:string):Promise<IRecipeDto>;
 }

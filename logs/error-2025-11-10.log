@@ -1,0 +1,3 @@
+[2025-11-10 21:54:27] [31merror[39m: Error: 	Invalid credentials
+    at AuthService.loginUser (D:\brototype\Dishcovery\server\src\services\implementation\auth.services.ts:52:29)
+    at AuthController.login (D:\brototype\Dishcovery\server\src\controllers\implementation\auth.controller.ts:29:53)
