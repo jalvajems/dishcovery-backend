@@ -1,13 +1,12 @@
-import  { model, Schema } from "mongoose";
+import  { Document, model, Schema } from "mongoose";
+import { IChef } from "../types/chef.types";
 
-const chefSchema = new Schema(
+export interface IChefDocument extends IChef,Document{}
+
+const chefSchema = new Schema<IChefDocument>(
   {
-    userId: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-      unique: true,
-    },
+chefId: { type: Schema.Types.ObjectId, ref: "User", required: true, unique: true },
+
 
     phone: {
       type: String,
@@ -19,8 +18,8 @@ const chefSchema = new Schema(
       required: true,
     },
 
-    speciality: {
-      type: String,
+    specialities: {
+      type: [String],
       required: true,
     },
 
@@ -42,4 +41,4 @@ const chefSchema = new Schema(
   { timestamps: true }
 );
 
-export default model("Chef", chefSchema);
+export const ChefModel= model<IChefDocument> ("Chef", chefSchema);

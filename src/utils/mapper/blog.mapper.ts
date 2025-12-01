@@ -18,5 +18,7 @@ export function blogMapper(blog:IBlog&Document):IBlogDto{
         isDraft:obj.isDraft,
         status:obj.status,
         slug:obj.slug,
+        createdAt:obj.createdAt,
+        updatedAt:obj.updatedAt
     }
 }

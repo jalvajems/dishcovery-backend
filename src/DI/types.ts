@@ -8,7 +8,6 @@ const TYPES={
     IFoodieController:Symbol.for("IFoodieController"),
     IAdminService:Symbol.for("IAdminService"),
     IAdminController:Symbol.for("IAdminController"),
-    IChefController:Symbol.for("IChefController"),
     IRecipeRepository:Symbol.for("IRecipeRepository"),
     IRecipeService:Symbol.for("IRecipeService"),
     IRecipeController:Symbol.for("IRecipeController"),
@@ -17,7 +16,10 @@ const TYPES={
     IReviewController:Symbol.for("IReviewController"),
     IBlogRepository:Symbol.for("IBlogRepository"),
     IBlogService:Symbol.for("IBlogService"),
-    IBlogController:Symbol.for("IBlogController")
+    IBlogController:Symbol.for("IBlogController"),
+    IChefRepository:Symbol.for("IChefRepository"),
+    IChefService:Symbol.for("IChefService"),
+    IChefController:Symbol.for("IChefController"),
 }
 
 export default TYPES;

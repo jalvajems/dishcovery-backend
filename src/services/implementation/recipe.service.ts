@@ -43,10 +43,14 @@ export class RecipeService implements IRecipeService{
     async getAllRecipesChef(chefId: string,page:number,limit:number,search:string): Promise<{ data: IRecipeDto[];currentPage:number; totalPages:number; message: string; }> {
         try {
             const skip=(page-1)*limit;
+            console.log('=>id',chefId);
+            
             const result=await this._recipeRepository.findRecipesById(chefId,skip,limit,search)
             const total=Math.ceil(result.totalCount/limit)
-            log.info('data in search',result.datas)
-            log.info('data in srvs',search)
+            console.log('data in search',chefId)
+            console.log('data in srvs',search)
+            console.log('result',result);
+            
             return {data:allRecipesMapper(result.datas),
                 currentPage:page,
                 totalPages:total,

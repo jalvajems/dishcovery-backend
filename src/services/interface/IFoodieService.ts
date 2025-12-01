@@ -3,7 +3,9 @@ import { IRecipeDto } from "../../dtos/recipe.dtos";
 import { IFoodie } from "../../types/foodie.types";
 
 export interface IFoodieService{
-    editFoodieProfile(userId:string,foodieData:IFoodieDto):Promise<{message:string,foodieData:IFoodieDto|IFoodie|null}>;
     getAllRecipes():Promise<{data:IRecipeDto[],message:string}>;
     getRecipeDetail(id:string):Promise<{data:IRecipeDto,message:string}>;
+    createProfile(userId:string,data:object):Promise<{data:IFoodieDto}>
+    updateProfile(userId:string,data:object):Promise<{data:IFoodieDto}>
+    getProfile(userId:string):Promise<{data:IFoodieDto}>
 }

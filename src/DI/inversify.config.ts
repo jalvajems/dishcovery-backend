@@ -1,7 +1,7 @@
 import { Container } from "inversify";
-import { authModule } from "./module/auth.di";
+import { authModule } from "./module/auth";
 import userModule from "./module/user.di";
-import { foodieModule } from "./module/foodie.di";
+import { foodieModule } from "./module/foodie";
 import { adminModule } from "./module/admin.di";
 import chefModule from "./module/chef.di";
 import recipeModule from "./module/recipe.di";

@@ -5,6 +5,7 @@ import { IBaseRepository } from "./IBaseRepository";
 
 export  interface IUserRepository extends IBaseRepository<IUserDocument>{
     findByEmail(email:string): Promise<IUserDocument | null>;
+    findByIdAndUpdate(userId:string,data:object):Promise<IUserDocument|null>
     findById(id:string|null):Promise<IUserDocument|null>;
     updatePasswordByEmail(email:string,hashedPass:string):Promise<void>;
     findByRole(filter:object,skip:number,limit:number):Promise<IUserDocument[]>;

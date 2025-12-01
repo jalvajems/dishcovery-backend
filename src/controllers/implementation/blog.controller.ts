@@ -58,15 +58,39 @@ export class BlogController implements IBlogController{
             next(error)
         }
     }
+
     async getBlogDetails(req: Request, res: Response, next: NextFunction): Promise<void> {
         console.log('------1');
         
         try {
-            const blogId=req.params.id;
+            const blogId=req.params.blogId;
             const result=await this._blogService.getBlog(blogId);
             res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,message:result.message})
         } catch (error) {
             next(error)
+        }
+    }
+    async getAllBlogs(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const page=Number(req.query.page)||1;
+            const limit=Number(req.query.limit)||5;
+            const search=String(req.query.search)||"";
+            
+            const result=await this._blogService.getAllblogs(page,limit,search);
+            
+            res.status(STATUS_CODE.SUCCESS).json({success:true, datas:result.datas, totalCount:result.totalCount, message:'blogs fetch successfully'})
+        } catch (error) {
+            next(error)
+        }
+    }
+    async getRelatedBlogs(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const tag=req.params.tag;
+            if(!tag)throw new AppError("no tag found in req",STATUS_CODE.BAD_REQUEST)
+            const result=await this._blogService.getRelatedBlogs(tag)
+        res.status(STATUS_CODE.SUCCESS).json({success:true,relatedDatas:result.datas,message:'related datas got successfully!'})
+        } catch (error) {
+            next(error);
         }
     }
 

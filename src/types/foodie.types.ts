@@ -1,8 +1,10 @@
+import { Types } from "mongoose";
+
 export interface IFoodie {
-    userId: object;
+    userId: Types.ObjectId | string;
     phone: string;
     location: string;
-    preferences: string;
+    preferences: string[];
     bio: string;
     image: string;
     status: string;

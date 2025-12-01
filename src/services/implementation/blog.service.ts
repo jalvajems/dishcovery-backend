@@ -65,5 +65,29 @@ export class BlogService implements IBlogService{
             throw error;
         }
     }
+    async getAllblogs(page: number, limit: number, search: string): Promise<{ datas: IBlogDto[]; totalCount: number; }> {
+        try {
+            console.log('reached getallblog');
+            const skip=(page-1)*limit
+            const result=await this._blogRepositoy.getAllBlogs(search,skip,limit)
+            if(!result.datas)throw new AppError('no blogs found',STATUS_CODE.NOT_FOUND);
+            const total=Math.ceil(result.totalCount/limit)
+            console.log('total',total);
+            
+            return {datas:allBlogsMapper(result.datas),totalCount:total}
+            
+        } catch (error) {
+            throw error;
+        }
+    }
+    async getRelatedBlogs(tag: string): Promise<{ datas: IBlogDto[]; }> {
+        try {
+            const result=await this._blogRepositoy.getRelatedBlog(tag)
+            if(!result)throw new AppError("no related blogs found",STATUS_CODE.NOT_FOUND)
+            return {datas:allBlogsMapper(result)}
+        } catch (error) {
+         throw error;   
+        }
+    }
 
 }

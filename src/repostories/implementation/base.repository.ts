@@ -36,6 +36,4 @@ export class BaseRepository <T extends Document> implements IBaseRepository<T>{
   async countDocument(filter: object): Promise<number> {
     return await this.model.countDocuments(filter);
   }
-
-
 }

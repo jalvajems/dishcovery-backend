@@ -7,5 +7,6 @@ export interface IBlogService {
     getBlog(blogId:string):Promise<{data:IBlogDto,message:string}>;
     deleteBlog(blogId:string):Promise<{message:string}>;
     getBlogOfChef(chefId:string,page:number,limit:number):Promise<{datas:IBlogDto[],totalCount:number,message:string}>;
-
+    getAllblogs(page:number,limit:number,search:string):Promise<{datas:IBlogDto[],totalCount:number}>
+    getRelatedBlogs(tag:string):Promise<{datas:IBlogDto[]}>
 }

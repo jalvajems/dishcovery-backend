@@ -7,6 +7,7 @@ import { log } from "../../utils/logger";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { success } from "zod";
 import { AppError } from "../../utils/AppError";
+import { Types } from "mongoose";
 
 @injectable()
 export class RecipeController implements IRecipeController{
@@ -40,12 +41,13 @@ export class RecipeController implements IRecipeController{
     }
     async getAllRecipesChef(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id=req.query.chefId;
+            const id=req.query.id;
             const page=Number(req.query.page)||1
             const limit=Number(req.query.limit)||5
             const search=String(req.query.search)||""
-            if(!id)throw new AppError('user id is not found',STATUS_CODE.NOT_FOUND)
-            const result=await this._recipeService.getAllRecipesChef(String(id),page,limit,search);
+      
+            // if(!id)throw new AppError('user id is not found',STATUS_CODE.NOT_FOUND)
+            const result=await this._recipeService.getAllRecipesChef(id as string,page,limit,search);
             log.info('resldata:',result.data)
             res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,currentPage:result.currentPage,totalPages:result.totalPages,message:result.message})
         } catch (error) {

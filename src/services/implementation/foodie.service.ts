@@ -11,29 +11,18 @@ import { AppError } from "../../utils/AppError";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { allRecipesMapper } from "../../utils/mapper/allRecipes.mapper";
 import { recipeMapper } from "../../utils/mapper/recipe.mapper";
+import { Types } from "mongoose";
+import { IUserRepository } from "../../repostories/interface/IUserRepository";
 
 @injectable()
 export class FoodieService implements IFoodieService {
     constructor(
         @inject(TYPES.IFoodieRepository) private _foodieRepository: IFoodieRepository,
         @inject(TYPES.IRecipeRepository) private _recipeRepository: IRecipeRepository,
+        @inject(TYPES.IUserRepository) private _userRepository: IUserRepository
     ) { }
 
 
-    async editFoodieProfile(userId: string, foodieData: IFoodieDto): Promise<{ message: string; foodieData: IFoodieDto | IFoodie | null; }> {
-        try {
-            const existingFoodie = await this._foodieRepository.findByUserId(userId);
-            if (!existingFoodie) {
-                const newFoodie = await this._foodieRepository.create(foodieData);
-                return { message: 'foodie profile data created', foodieData: foodieMapper(newFoodie) };
-            }
-            const updateFoodie = await this._foodieRepository.findOneUpdateFoodie(userId, foodieData);
-            return { message: 'foodie profile updated', foodieData: updateFoodie }
-
-        } catch (error) {
-            throw new Error('Error in edit foodie profile service:');
-        }
-    }
     async getAllRecipes(): Promise<{ data: IRecipeDto[]; message: string; }> {
         try {
             const result=await this._recipeRepository.findAll({})
@@ -55,5 +44,46 @@ export class FoodieService implements IFoodieService {
         } catch (error) {
             throw error;
         }
+    }
+
+    async createProfile(userId:string,data: object): Promise<{ data: IFoodieDto; }> {
+        try {
+            console.log('userid',userId);
+            
+            const exist=await this._foodieRepository.getByUserId(userId)
+            if(exist)throw new AppError("profile already exist",STATUS_CODE.NOT_FOUND);
+            console.log('1')
+            const result=await this._foodieRepository.create({userId,...data})
+        return {data:foodieMapper(result)}
+        } catch (error) {
+            throw error;
+        }
+    }
+    async updateProfile(userId: string, data: object): Promise<{ data: IFoodieDto; }> {
+        try {
+            const {name,phone,location,preferences,bio,image}:any=data;
+            
+            await this._userRepository.findByIdAndUpdate(userId,{name})
+            const updateData: any = { phone, location, preferences, bio };
+            if (image) updateData.image = image;
+            const result=await this._foodieRepository.findOneUpdateFoodie(userId,updateData)
+            if(!result)throw new AppError("Updated data not found",STATUS_CODE.NOT_FOUND)
+                console.log('result in fodieservice',result);
+                
+            return {data:foodieMapper(result)}
+        } catch (error) {
+            throw error;
+        }
+    }
+    async getProfile(userId: string): Promise<{ data: IFoodieDto; }> {
+    try {
+        const result=await this._foodieRepository.getByUserId(userId)
+        console.log('profildata',result);
+        ;
+        if(!result)throw new AppError("foodie profile data not found",STATUS_CODE.NOT_FOUND)
+            return{data:foodieMapper(result)}
+    } catch (error) {
+        throw error;
+    }
     }
 }

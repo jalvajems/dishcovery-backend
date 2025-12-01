@@ -6,4 +6,6 @@ export interface IBlogController{
     getBlogDetails(req:Request,res:Response,next:NextFunction):Promise<void>;
     getMyBlogs(req:Request,res:Response,next:NextFunction):Promise<void>;
     deletBlog(req:Request,res:Response,next:NextFunction):Promise<void>;
+    getAllBlogs(req:Request,res:Response,next:NextFunction):Promise<void>;
+    getRelatedBlogs(req:Request,res:Response,next:NextFunction):Promise<void>;
 }

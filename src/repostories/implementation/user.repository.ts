@@ -37,7 +37,9 @@ export class UserRepository extends BaseRepository<IUserDocument> implements IUs
   async unVerifyById(id: string): Promise<(IUser & Document) |null> {
     return await UserModel.findByIdAndUpdate({_id:id},{$set:{isVerified:false}},{new:true})
   }
-
+  async findByIdAndUpdate(userId: string, data: object): Promise<IUserDocument | null> {
+    return await UserModel.findByIdAndUpdate(userId,data,{new:true,runValidators:true})
+  }
 
   
 }

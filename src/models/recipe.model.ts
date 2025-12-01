@@ -1,6 +1,7 @@
 import { model, Schema } from "mongoose";
 import { IRecipe } from "../types/recipe.types";
 import { Document } from "mongoose";
+import { string } from "zod";
 
 export interface IRecipeDocument extends IRecipe,Document{};
 
@@ -62,7 +63,7 @@ const recipeSchema = new Schema<IRecipeDocument>(
 
     isBlock: {
       type:Boolean,
-      default:true,
+      default:false,
     },
 
     status: {

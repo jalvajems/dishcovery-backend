@@ -12,5 +12,7 @@ _id:string;
   status: "active" | "blocked";
 
   slug?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 
 }
