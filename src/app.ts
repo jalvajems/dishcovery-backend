@@ -9,6 +9,8 @@ import authRouter from './routes/auth.routes'
 import adminRouter from './routes/admin.routes'
 import foodieRouter from './routes/foodie.routes'
 import chefRouter from './routes/chef.routes'
+import fileRouter from './routes/file.routes'
+
 
 import { requestLogger } from './middlewares/requestLogger'
 import { errorHandler } from './middlewares/errorHandler'
@@ -31,6 +33,7 @@ app.use("/api/auth", authRouter)
 app.use("/api/admin", adminRouter)
 app.use("/api/foodie", foodieRouter)
 app.use("/api/chef", chefRouter)
+app.use("/api/file",fileRouter)
 
 app.get("/check", (req, res) => {
     res.status(STATUS_CODE.SUCCESS).json({

@@ -10,7 +10,21 @@ const userSchema= new Schema<IUserDocument>(
         password:{type:String, required:true},
         role:{type:String,enum: Object.values(Role), default:Role.USER},
         isVerified:{type:Boolean, default:false},
-        isBlocked:{type:Boolean,default:false}
+        isBlocked:{type:Boolean,default:false},
+        savedRecipes:[
+            {
+                type:Schema.Types.ObjectId,
+                ref:"Recipe",
+                default:[],
+            },
+        ],
+        savedBlogs:[
+            {
+                type:Schema.Types.ObjectId,
+                ref:"Blog",
+                default:[],
+        }
+        ]
     },
     {timestamps:true}
 );

@@ -12,12 +12,18 @@ import { IRecipeDto } from "../../dtos/recipe.dtos";
 import { IRecipeRepository } from "../../repostories/interface/IRecipeRepository";
 import { allRecipesMapper } from "../../utils/mapper/allRecipes.mapper";
 import { recipeMapper } from "../../utils/mapper/recipe.mapper";
+import { IBlogRepository } from "../../repostories/interface/IBlogRepository";
+import { allBlogsMapper } from "../../utils/mapper/allBlogs.mapper";
+import { IBlogDto } from "../../dtos/blog.dto";
+import { IChefRepository } from "../../repostories/interface/IChefRepository";
 
 @injectable()
 export class AdminService implements IAdminService {
     constructor(
         @inject(TYPES.IUserRepository) private _userRepository: IUserRepository,
-        @inject(TYPES.IRecipeRepository) private _recipeRepository: IRecipeRepository
+        @inject(TYPES.IChefRepository) private _chefRepository: IChefRepository,
+        @inject(TYPES.IRecipeRepository) private _recipeRepository: IRecipeRepository,
+        @inject(TYPES.IBlogRepository) private _blogRepository: IBlogRepository,
     ) { }
 
     async getAllFoodies(query: IPaginationDto): Promise<{ data: IUserDto[]; currentPage: number; totalPages: number }> {
@@ -102,10 +108,12 @@ export class AdminService implements IAdminService {
         }
 
     }
-    async verifyChef(id: string): Promise<IUserDto> {
+    async verifyChef(id: string): Promise<object> {
         const result = await this._userRepository.verifyById(id);
+        console.log('verifeid data chef',result);
+        
         if (!result) throw new AppError('user in empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
-        return userMapper(result)
+        return result
     }
     async unVerifyChef(id: string): Promise<IUserDto> {
         try {
@@ -116,52 +124,93 @@ export class AdminService implements IAdminService {
             throw error;
         }
     }
-    // async getAllRecipes(query: IPaginationDto): Promise<{ data: IRecipeDto[]; currentPage: number; totalPages: number; }> {
-    //     try {
-    //         const {page,limit,search,isBlocked}=query;
-    //         const filter:any={}
-    //         if(search){
-    //             filter.$or=[
-    //                 {title:{ $regex:search, $option:"i"}}
-    //             ]
-    //         }
-    //         if(isBlocked==="true")filter.isBlocked=true;
-    //         if(isBlocked==="false")filter.isBlocked=false;
+    async getAllRecipes(query: IPaginationDto): Promise<{ data: IRecipeDto[]; currentPage: number; totalPages: number; }> {
+        try {
+            const {page,limit,search,isBlocked}=query;
+            const filter:any={}
+            if(search){
+                filter.$or=[
+                    {title:{ $regex:search, $option:"i"}}
+                ]
+            }
+            if(isBlocked==="true")filter.isBlocked=true;
+            if(isBlocked==="false")filter.isBlocked=false;
 
-    //         const skip=(page-1)*limit;
-
-    //         const recipes=await this._recipeRepository.findAllByPagination(filter,skip,limit)
-    //         const totalCount=await this._recipeRepository.countDocument(filter)
-
-    //         let total=Math.ceil(totalCount/limit)
-
-    //         return {
-    //             data:allRecipesMapper(recipes),
-    //             currentPage:page,
-    //             totalPages:total
-    //         }
-    //     } catch (error) {
-    //         throw error;
-    //     }
-    // }
-    // async blockRecipe(id: string): Promise<IRecipeDto> {
-    //     try {
-    //         const result=this._recipeRepository.blockById(id)
-    //         if(!result)throw new AppError('recipe is not fount',STATUS_CODE.INTERNAL_SERVER_ERROR);
-    //         return recipeMapper(result)
-    //     } catch (error) {
-    //         throw error
-    //     }
-    // }
-    // async unblockRecipe(id: string): Promise<IRecipeDto> {
-    //     try {
-    //         const result=this._recipeRepository.unblockById(id)
-    //         if(!result)throw new AppError('recipe is not fount',STATUS_CODE.INTERNAL_SERVER_ERROR);
-    //         return recipeMapper(result)
+            const skip=(page-1)*limit;
             
-    //     } catch (error) {
-    //         throw error
-    //     }
-    // }
+            const recipes=await this._recipeRepository.findAllByPagination(filter,skip,limit,'admin')
+            const totalCount=await this._recipeRepository.countDocument(filter)
+            console.log('recipes=========',recipes.datas);
+            
+            let total=Math.ceil(totalCount/limit)
+            
+            return {
+                data:allRecipesMapper(recipes.datas),
+                currentPage:page,
+                totalPages:total
+            }
+        } catch (error) {
+            throw error;
+        }
+    }
+    async blockRecipe(id: string): Promise<void> {
+        try {
+            const result=this._recipeRepository.blockById(id)
+            if(!result)throw new AppError('recipe is not fount',STATUS_CODE.INTERNAL_SERVER_ERROR);
+        } catch (error) {
+            throw error
+        }
+    }
+    async unblockRecipe(id: string): Promise<void> {
+        try {
+            const result=this._recipeRepository.unblockById(id)
+            if(!result)throw new AppError('recipe is not fount',STATUS_CODE.INTERNAL_SERVER_ERROR);
+            
+        } catch (error) {
+            throw error
+        }
+    }
+    async getAllBlogs(query: IPaginationDto): Promise<{ data: IBlogDto[]; currentPage: number; totalPages: number; }> {
+        try {
+            const {page,limit,search,isBlocked}=query;
+            const filter:any={}
+            if(search){
+                filter.$or=[
+                    {title:{ $regex:search, $option:"i"}}
+                ]
+            }
+            if(isBlocked==="true")filter.isBlocked=true;
+            if(isBlocked==="false")filter.isBlocked=false;
+        
+            const skip=(page-1)*limit;
+
+            const blogs=await this._blogRepository.getAllBlogs(search,skip,limit,'admin')
+            if(!blogs.datas)throw new AppError('blog data not found',STATUS_CODE.NOT_FOUND)
+            const total=Math.ceil(blogs.totalCount/limit)
+            return {
+                data:allBlogsMapper(blogs.datas),currentPage:page,totalPages:total
+            }
+            
+        } catch (error) {
+            throw error
+        }
+    }
+    async blockBlog(id: string): Promise<void> {
+        try {
+            const result=await this._blogRepository.blockById(id)
+            if(!result)throw new AppError("updated blog not found",STATUS_CODE.NOT_FOUND)
+            } catch (error) {
+        throw error
+    }
+    
+}
+async unblockBlog(id: string): Promise<void> {
+    try {
+        const result=await this._blogRepository.unblockById(id)
+        if(!result)throw new AppError("updated blog not found",STATUS_CODE.NOT_FOUND)
+        } catch (error) {
+            throw error
+        }    
+    }
 
 }

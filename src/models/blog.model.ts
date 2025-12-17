@@ -46,6 +46,11 @@ const blogSchema = new Schema(
       default: true,
       index:true,
     },
+    isBlocked: {
+      type: Boolean,
+      default: false,
+      index:true,
+    },
 
     status: {
       type: String,

@@ -8,5 +8,10 @@ export interface IAdminController{
     verifyChef(req:Request,res:Response,next:NextFunction):Promise<void>;
     unVerifyChef(req:Request,res:Response,next:NextFunction):Promise<void>;
     getAllRecipes(req:Request,res:Response,next:NextFunction):Promise<void>;
+    blockRecipe(req:Request,res:Response,next:NextFunction):Promise<void>;
+    unBlockRecipe(req:Request,res:Response,next:NextFunction):Promise<void>;
+    getAllBlogs(req:Request,res:Response,next:NextFunction):Promise<void>;
+    blockBlog(req:Request,res:Response,next:NextFunction):Promise<void>;
+    unBlockBlog(req:Request,res:Response,next:NextFunction):Promise<void>;
 
 }

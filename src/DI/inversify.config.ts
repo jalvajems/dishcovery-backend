@@ -7,6 +7,7 @@ import chefModule from "./module/chef.di";
 import recipeModule from "./module/recipe.di";
 import { reviewModule } from "./module/review.di";
 import blogModule from "./module/blog.di";
+import fileModule from "./module/file.di";
 
 
 
@@ -20,6 +21,7 @@ chefModule(container);
 recipeModule(container);
 reviewModule(container)
 blogModule(container);
+fileModule(container)
 
 
 export default container;

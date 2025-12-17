@@ -37,6 +37,10 @@ chefId: { type: Schema.Types.ObjectId, ref: "User", required: true, unique: true
       enum: ["active", "blocked"],
       default: "active",
     },
+     isVerified: {
+        type: Boolean,
+        default: false,
+    },
   },
   { timestamps: true }
 );

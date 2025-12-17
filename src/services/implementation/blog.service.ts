@@ -44,10 +44,10 @@ export class BlogService implements IBlogService{
             throw error;
         }
     }
-    async getBlogOfChef(chefId: string, page: number, limit: number): Promise<{ datas: IBlogDto[];totalCount:number; message: string; }> {
+    async getBlogOfChef(chefId: string, page: number, limit: number,search:string): Promise<{ datas: IBlogDto[];totalCount:number; message: string; }> {
         try {
             const skip=(page-1)*limit
-            const result=await this._blogRepositoy.getBlogByChef(chefId,skip,limit)    
+            const result=await this._blogRepositoy.getBlogByChef(chefId,skip,limit,search)    
             if(!result.datas)throw new AppError('No blogs found',STATUS_CODE.NOT_FOUND)
             const total=Math.ceil(result.totalCount/limit)
             return {datas:allBlogsMapper(result.datas),totalCount:total,message:'blog fetch successfuly'}        
@@ -69,7 +69,7 @@ export class BlogService implements IBlogService{
         try {
             console.log('reached getallblog');
             const skip=(page-1)*limit
-            const result=await this._blogRepositoy.getAllBlogs(search,skip,limit)
+            const result=await this._blogRepositoy.getAllBlogs(search,skip,limit,'foodie')
             if(!result.datas)throw new AppError('no blogs found',STATUS_CODE.NOT_FOUND);
             const total=Math.ceil(result.totalCount/limit)
             console.log('total',total);

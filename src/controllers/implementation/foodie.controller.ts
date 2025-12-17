@@ -10,39 +10,50 @@ import { success } from "zod";
 
 @injectable()
 export class FoodieController implements IFoodieController {
-    
+
     constructor(
         @inject(TYPES.IFoodieService) private _foodieService: IFoodieService,
     ) { }
-    
+
     async getFoodieDashboard(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            console.log('reached dashboard');
-            
-            res.status(STATUS_CODE.SUCCESS).json({ message: 'Entered into foodie dashboard!!' })
+            console.log('foodiedashboard========')
+            const id=req.user?.id;
+            if(!id)throw new AppError('not authenticated',STATUS_CODE.UNAUTHORIZED)
+                const result=await this._foodieService.getProfile(id)
+            let hasProfile=true;
+            if(!result.data){
+                hasProfile=false
+            }
+            res.status(STATUS_CODE.SUCCESS).json({success:true,hasProfile, message: 'Entered into foodie dashboard!!' })
         } catch (error) {
             next(error);
         }
     }
-    
+
     async getAllRecipes(req: Request, res: Response, next: NextFunction): Promise<void> {
         console.log('reached controller');
         console.log('reached fr cntrlr');
         try {
-            const result=await this._foodieService.getAllRecipes();
-            res.status(STATUS_CODE.SUCCESS).json({success:true,recipeData:result.data,message:result.message})
+            const result = await this._foodieService.getAllRecipes();
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, recipeData: result.data, message: result.message })
         } catch (error) {
             throw error;
         }
     }//remove this========================^
     async getRecipeDetail(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-                        console.log('reached');
+            ;
 
-            const id=req.params.id;
-            if(!id)throw new AppError('recipe id is not found!',STATUS_CODE.NOT_FOUND);
-            const result=await this._foodieService.getRecipeDetail(id);
-            res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,message:result.message})
+            const userId = req.user?.id;
+            const id = req.params.id;
+
+            if (!id) throw new AppError('recipe id is not found!', STATUS_CODE.NOT_FOUND);
+            if (!userId) throw new AppError('id is not found!', STATUS_CODE.UNAUTHORIZED);
+            const result = await this._foodieService.getRecipeDetail(id, userId);
+            console.log('recipedetail=========', result);
+
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, isSaved: result.isSaved, message: result.message })
 
         } catch (error) {
             throw error;
@@ -51,11 +62,11 @@ export class FoodieController implements IFoodieController {
 
     async createProfile(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const userId=req.user?.id
-            const data=req.body;
-            if(!userId)throw new AppError("user not authorized",STATUS_CODE.UNAUTHORIZED)
-                const result=await this._foodieService.createProfile(userId,data)
-            res.status(STATUS_CODE.SUCCESS).json({success:true,data:result,message:"profile created"})
+            const userId = req.user?.id
+            const data = req.body;
+            if (!userId) throw new AppError("user not authorized", STATUS_CODE.UNAUTHORIZED)
+            const result = await this._foodieService.createProfile(userId, data)
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result, message: "profile created" })
         } catch (error) {
             next(error)
         }
@@ -63,21 +74,21 @@ export class FoodieController implements IFoodieController {
     async updateProfile(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const userId = req.user?.id;
-        if(!userId)throw new AppError("user not authorized",STATUS_CODE.UNAUTHORIZED)
+            if (!userId) throw new AppError("user not authorized", STATUS_CODE.UNAUTHORIZED)
             const result = await this._foodieService.updateProfile(userId, req.body);
-        res.status(STATUS_CODE.SUCCESS).json({success:true,data:result,message:"profile updated"})
-    } catch (error) {
-        next(error);
-    }
-}
-async getProfile(req: Request, res: Response, next: NextFunction): Promise<void> {
-    try {
-        const userId=req.user?.id
-        if(!userId)throw new AppError("user not authorized",STATUS_CODE.UNAUTHORIZED)
-        const result=await this._foodieService.getProfile(userId)
-        res.status(STATUS_CODE.SUCCESS).json({success:true,data:result,message:"fetched profile successfully"})
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result, message: "profile updated" })
         } catch (error) {
-         next(error)   
+            next(error);
+        }
+    }
+    async getProfile(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const userId = req.user?.id
+            if (!userId) throw new AppError("user not authorized", STATUS_CODE.UNAUTHORIZED)
+            const result = await this._foodieService.getProfile(userId)
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result, message: "fetched profile successfully" })
+        } catch (error) {
+            next(error)
         }
     }
 }

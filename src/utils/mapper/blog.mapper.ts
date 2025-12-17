@@ -16,6 +16,7 @@ export function blogMapper(blog:IBlog&Document):IBlogDto{
         coverImage:obj.coverImage,
         tags:obj.tags,
         isDraft:obj.isDraft,
+        isBlocked:obj.isBlocked,
         status:obj.status,
         slug:obj.slug,
         createdAt:obj.createdAt,

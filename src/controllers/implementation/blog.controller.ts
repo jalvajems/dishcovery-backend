@@ -25,7 +25,7 @@ export class BlogController implements IBlogController{
     async updateBlog(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const blogId=req.params.id;
-            const {newData}=req.body;
+            const newData=req.body;
             const result=await this._blogService.updateBlog(blogId,newData)
             res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,message:result.message});
         } catch (error) {
@@ -44,15 +44,18 @@ export class BlogController implements IBlogController{
             }
     }
     async getMyBlogs(req: Request, res: Response, next: NextFunction): Promise<void> {
-        console.log('reached1');
+        console.log('reached1============');
         try {
             
             const chefId=req.user?.id;
+            console.log('chef id here11111111111',chefId);
+            
             
             const page=Number(req.query.page)||1;
             const limit=Number(req.query.limit)||5;
+            const search=String(req.query.search)||'';
             if(!chefId)throw new AppError('unauthorized',STATUS_CODE.UNAUTHORIZED)
-            const result=await this._blogService.getBlogOfChef(chefId,page,limit)
+            const result=await this._blogService.getBlogOfChef(chefId,page,limit,search)
         res.status(STATUS_CODE.SUCCESS).json({success:true,datas:result.datas,totalCount:result.totalCount,message:result.message})
         } catch (error) {
             next(error)

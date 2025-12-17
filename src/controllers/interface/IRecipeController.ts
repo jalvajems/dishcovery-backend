@@ -8,4 +8,8 @@ export interface IRecipeController {
     getRecipeDetail(req:Request,res:Response,next:NextFunction):Promise<void>;
     deletRecipe(req:Request,res:Response,next:NextFunction):Promise<void>;
     getRelatedRecipes(req:Request,res:Response,next:NextFunction):Promise<void>;
+    toggleSaveRecipe(req:Request,res:Response,next:NextFunction):Promise<void>;
+    unsaveRecipe(req:Request,res:Response,next:NextFunction):Promise<void>;
+    getSavedRecipes(req:Request,res:Response,next:NextFunction):Promise<void>;
+
 }

@@ -20,6 +20,9 @@ const TYPES={
     IChefRepository:Symbol.for("IChefRepository"),
     IChefService:Symbol.for("IChefService"),
     IChefController:Symbol.for("IChefController"),
+    IFileService:Symbol.for("IFindService"),
+    IFileController:Symbol.for("IFileController"),
+    ISaveRepository:Symbol.for("ISaveRepository"),
 }
 
 export default TYPES;

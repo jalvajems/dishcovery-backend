@@ -9,4 +9,5 @@ export interface IChef{
     bio: string;
     image: string;
     status: string;
+    isVerified:boolean;
 }

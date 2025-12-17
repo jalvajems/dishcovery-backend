@@ -14,4 +14,5 @@ export interface IRecipeDto{
     images:object;
     isDraft:boolean;
     isBlock:boolean;
+    createdAt?:Date;
 }

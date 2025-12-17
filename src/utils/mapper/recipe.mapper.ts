@@ -21,5 +21,6 @@ export function recipeMapper(recipe:IRecipe&Document ):IRecipeDto{
         images:obj.images,
         isDraft:obj.isDraft,
         isBlock:obj.isBlock,
+        createdAt:obj.createdAt,
     }
 }

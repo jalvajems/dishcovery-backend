@@ -9,6 +9,7 @@ export interface IBlog {
   tags?: string[];
 
   isDraft: boolean;
+  isBlocked:boolean;
   status: "active" | "blocked";
 
   slug?: string;

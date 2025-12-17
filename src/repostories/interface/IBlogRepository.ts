@@ -4,8 +4,10 @@ import { IBaseRepository } from "./IBaseRepository";
 
 export interface IBlogRepository extends IBaseRepository<IBlogDocument>{
     getBlogById(id:string):Promise<IBlogDocument|null>;
-    getBlogByChef(chefId:string, skip:number, limit:number):Promise<{datas:IBlogDocument[]|null,totalCount:number}>
-    getAllBlogs(search:string,skip:number, limit:number):Promise<{datas:IBlogDocument[]|null,totalCount:number}>;
+    getBlogByChef(chefId:string, skip:number, limit:number,search:string):Promise<{datas:IBlogDocument[]|null,totalCount:number}>
+    getAllBlogs(search:string,skip:number, limit:number,from:string):Promise<{datas:IBlogDocument[]|null,totalCount:number}>;
     getRelatedBlog(tag:string):Promise<IBlogDocument[]|null>
+    blockById(id:string):Promise<IBlogDocument|null>;
+    unblockById(id:string):Promise<IBlogDocument|null>;
 
 }

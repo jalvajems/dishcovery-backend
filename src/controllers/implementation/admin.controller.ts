@@ -46,6 +46,7 @@ export class AdminController implements IAdminController{
     async blockUser(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const id=req.params.id;
+            
             const restult=await this._adminService.blockUserById(id)
             res.status(STATUS_CODE.SUCCESS).json({restult})
         } catch (error) {
@@ -85,12 +86,66 @@ export class AdminController implements IAdminController{
             const limit=Number(req.query.limit)||10;
             const search=(req.query.search as string)||"";
             const isBlocked=req.query.isBlocked as string;
-
+            
             const result= await this._adminService.getAllRecipes({page,limit,search,isBlocked})
             res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,currentPage:result.currentPage,totalPages:result.totalPages})
-
+            
         } catch (error) {
             throw error;
+        }
+    }
+    async blockRecipe(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const id=req.params.id
+            console.log('id',id);
+            await this._adminService.blockRecipe(id)
+            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'userblock updated'})
+        } catch (error) {
+            next(error)
+        }
+    }
+    async unBlockRecipe(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const id=req.params.id;
+            await this._adminService.unblockRecipe(id)
+            res.status(STATUS_CODE.SUCCESS).json()
+        } catch (error) {
+            
+        }
+    }
+    async getAllBlogs(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            console.log('reach');
+            
+            const page=Number(req.query.page)||1;
+            const limit=Number(req.query.limit)||10;
+            const search=(req.query.search as string)||"";
+            const isBlocked=req.query.isBlocked as string;
+
+            const result=await this._adminService.getAllBlogs({page,limit,search,isBlocked})
+            console.log('reslt=-==',result);
+            
+            res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,currentPage:result.currentPage,totalPages:result.totalPages})
+        } catch (error) {
+            next(error)
+        }
+    }
+    async blockBlog(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const id=req.params.id;
+            await this._adminService.blockBlog(id)
+            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'blog block updated'})
+        } catch (error) {
+            next(error)
+        }
+    }
+    async unBlockBlog(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const id=req.params.id;
+            await this._adminService.unblockBlog(id)
+            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'blog block updated'})
+        } catch (error) {
+            next(error)
         }
     }
 }
