@@ -6,6 +6,7 @@ import { IAdminService } from "../../services/interface/IAdminService";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { query } from "winston";
 import { json, success } from "zod";
+import { logger } from "../../utils/logger";
 
 @injectable()
 export class AdminController implements IAdminController{
@@ -143,6 +144,59 @@ export class AdminController implements IAdminController{
         try {
             const id=req.params.id;
             await this._adminService.unblockBlog(id)
+            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'blog block updated'})
+        } catch (error) {
+            next(error)
+        }
+    }
+    async getAllFoodSpots(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const page=Number(req.query.page)||1;
+            const limit=Number(req.query.limit)||10;
+            const search=(req.query.search as string)||"";
+            const isBlocked=req.query.isBlocked as string;
+            const isApproved=req.query.isApproved as string;
+
+            const result=await this._adminService.getAllFoodSpot({page,limit,search,isApproved,isBlocked})
+            console.log('====controler',result);
+            
+            res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,currentPage:result.currentPage,totalPages:result.totalPages})
+
+        } catch (error) {
+            next(error)
+        }
+    }
+    async blockSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const id=req.params.id;
+            await this._adminService.blockSpot(id)
+            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'blog block updated'})
+        } catch (error) {
+            next(error)
+        }
+    }
+    async unblockSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const id=req.params.id;
+            await this._adminService.unblockSpot(id)
+            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'blog block updated'})
+        } catch (error) {
+            next(error)
+        }
+    }
+    async approveSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const id=req.params.id;
+            await this._adminService.approveSpot(id)
+            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'blog block updated'})
+        } catch (error) {
+            next(error)
+        }
+    }
+    async unApproveSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const id=req.params.id;
+            await this._adminService.unapproveSpot(id)
             res.status(STATUS_CODE.SUCCESS).json({success:true,message:'blog block updated'})
         } catch (error) {
             next(error)

@@ -47,9 +47,7 @@ export class BlogController implements IBlogController{
         console.log('reached1============');
         try {
             
-            const chefId=req.user?.id;
-            console.log('chef id here11111111111',chefId);
-            
+            const chefId=req.user?.id;            
             
             const page=Number(req.query.page)||1;
             const limit=Number(req.query.limit)||5;

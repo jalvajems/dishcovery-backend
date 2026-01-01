@@ -23,6 +23,9 @@ const TYPES={
     IFileService:Symbol.for("IFindService"),
     IFileController:Symbol.for("IFileController"),
     ISaveRepository:Symbol.for("ISaveRepository"),
+    IFoodSpotRepository:Symbol.for("IFoodSpotRepository"),
+    IFoodSpotService:Symbol.for("IFoodSpotService"),
+    IFoodSpotController:Symbol.for("IFoodSpotController"),
 }
 
 export default TYPES;

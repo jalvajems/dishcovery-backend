@@ -1,4 +1,6 @@
+import { STATUS_CODE } from "../../constants/StatusCode";
 import { BlogModel, IBlogDocument } from "../../models/blog.model";
+import { AppError } from "../../utils/AppError";
 import { IBlogRepository } from "../interface/IBlogRepository";
 import { BaseRepository } from "./base.repository";
 import { Types } from "mongoose";
@@ -29,7 +31,7 @@ export class BlogRepository extends BaseRepository<IBlogDocument> implements IBl
         const totalCount=await BlogModel.countDocuments({chefId:chefId})
         return {datas:blogs,totalCount:totalCount}
     }
-    async getAllBlogs(search: string, skip: number, limit: number,from:string): Promise<{ datas: IBlogDocument[] | null; totalCount: number; }> {
+    async getAllBlogs(search: string, skip: number, limit: number,from:string):Promise<{ datas: IBlogDocument[] | null, totalCount: number }> {
         if(from=='admin'){
             const query:any={}
             if(search){
@@ -55,7 +57,9 @@ export class BlogRepository extends BaseRepository<IBlogDocument> implements IBl
             const blogs=await BlogModel.find(query).skip(skip).limit(limit).populate("chefId","name")
             const totalCount=await BlogModel.countDocuments(query);
             return {datas:blogs,totalCount:totalCount}
-        }
+        }else{
+                                throw new AppError('error in db',STATUS_CODE.INTERNAL_SERVER_ERROR)
+                            }
     }
     async getRelatedBlog(tag: string): Promise<IBlogDocument[] | null> {
         return await BlogModel.find({tags:tag})

@@ -1,0 +1,76 @@
+import { inject, injectable } from "inversify";
+import { IFoodSpotService } from "../interface/IFoodSpotService";
+import TYPES from "../../DI/types";
+import { IFoodSpotRepository } from "../../repostories/interface/IFoodSportRepository";
+import { IFoodSpotResDto } from "../../dtos/foodSpot.dtos";
+import { AppError } from "../../utils/AppError";
+import { STATUS_CODE } from "../../constants/StatusCode";
+import { foodSpotResponseMapper } from "../../utils/mapper/foodSpot.mapper";
+import { allFoodSpotsMapper } from "../../utils/mapper/allFoodSpot. mapper";
+
+@injectable()
+export class FoodSpotService implements IFoodSpotService{
+    constructor(
+        @inject(TYPES.IFoodSpotRepository) private _foodSpotRepository:IFoodSpotRepository
+    ){}
+    async createFoodSpot(data: object): Promise<{ data: IFoodSpotResDto; }> {
+        
+        const result=await this._foodSpotRepository.create(data);
+        if(!result)throw new AppError('failed to create foodspot',STATUS_CODE.INTERNAL_SERVER_ERROR)
+        return {data:foodSpotResponseMapper(result)}
+    }
+    async updateFoodSpot(id: string, data: object): Promise<void> {
+        try {
+            console.log('========',data);
+            
+            const result=await this._foodSpotRepository.updateById(id,data);
+            if(!result) throw new AppError('failed to updated',STATUS_CODE.INTERNAL_SERVER_ERROR);
+        } catch (error) {
+            throw error;
+        }
+    }
+    async getFoodSpot(id: string): Promise<{ data: IFoodSpotResDto; }> {
+        try {
+            const result=await this._foodSpotRepository.findFoodSpot(id);
+            if(!result) throw new AppError('failed to get food spot',STATUS_CODE.INTERNAL_SERVER_ERROR);
+            console.log('food=========1',result);
+            
+            return {data:foodSpotResponseMapper(result)}
+        } catch (error) {
+            throw error;
+        }
+    }
+    async getNearByFoodSpot(lat: number, lng: number, distance: number): Promise<{ data: IFoodSpotResDto[]; }> {
+        try {
+            const spots=await this._foodSpotRepository.findNearByFoodSpot(lat,lng,distance)
+            if(!spots)throw new AppError('spot is not found',STATUS_CODE.NOT_FOUND)
+            
+            return {data:allFoodSpotsMapper(spots)}
+        } catch (error) {
+            throw error;
+        }
+    }
+    async getAllFoodSpots(page:number,limit:number,search:string): Promise<{ data: IFoodSpotResDto[],totalCount:number }> {
+        try {
+            const skip=(page-1)*limit;
+            const spots=await this._foodSpotRepository.findAllFoodSpots(search,skip,limit,'foodie')
+            console.log('00000000000',spots);
+            
+            if(!spots.datas)throw new AppError('spots are not found',STATUS_CODE.NOT_FOUND)
+                return {data:allFoodSpotsMapper(spots.datas),totalCount:spots.totalCount}
+        } catch (error) {
+            throw error;
+        }
+    }
+    async getAllFoodSpotsByFoodie(id: string,page:number,limit:number,search:string): Promise<{ data: IFoodSpotResDto[],totalCount:number }> {
+        try {
+            const skip=(page-1)*limit;
+            const spots=await this._foodSpotRepository.findAllFoodSpotsByFoodie(id,search,skip,limit)
+            if(!spots.datas)throw new AppError('spots are not found',STATUS_CODE.NOT_FOUND)
+                return {data:allFoodSpotsMapper(spots.datas),totalCount:spots.totalCount}
+
+        } catch (error) {
+            throw  error;
+        }
+    }
+}

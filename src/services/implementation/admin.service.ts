@@ -16,6 +16,10 @@ import { IBlogRepository } from "../../repostories/interface/IBlogRepository";
 import { allBlogsMapper } from "../../utils/mapper/allBlogs.mapper";
 import { IBlogDto } from "../../dtos/blog.dto";
 import { IChefRepository } from "../../repostories/interface/IChefRepository";
+import { IFoodSpotResDto } from "../../dtos/foodSpot.dtos";
+import { IFoodSpotRepository } from "../../repostories/interface/IFoodSportRepository";
+import { allFoodSpotsMapper } from "../../utils/mapper/allFoodSpot. mapper";
+import { logger } from "../../utils/logger";
 
 @injectable()
 export class AdminService implements IAdminService {
@@ -24,6 +28,8 @@ export class AdminService implements IAdminService {
         @inject(TYPES.IChefRepository) private _chefRepository: IChefRepository,
         @inject(TYPES.IRecipeRepository) private _recipeRepository: IRecipeRepository,
         @inject(TYPES.IBlogRepository) private _blogRepository: IBlogRepository,
+        @inject(TYPES.IFoodSpotRepository) private _foodspotRepository: IFoodSpotRepository,
+        
     ) { }
 
     async getAllFoodies(query: IPaginationDto): Promise<{ data: IUserDto[]; currentPage: number; totalPages: number }> {
@@ -212,5 +218,76 @@ async unblockBlog(id: string): Promise<void> {
             throw error
         }    
     }
+
+    async getAllFoodSpot(query: IPaginationDto): Promise<{ data: IFoodSpotResDto[]; currentPage: number; totalPages: number; }> {
+        try {
+            const {page,limit,search,isBlocked,isApproved}=query;
+            console.log('inside query',query);
+            
+            const skip=(page-1)*limit;
+            const filter:any={}
+            if(search){
+                filter.$or = [
+                      { name: { $regex: search, $options: "i" } },
+                  ]
+            }
+            console.log('isblocked ',isBlocked);
+            console.log('isaprove ',isApproved);
+            
+            if (isBlocked === "blocked") filter.isBlocked = true;
+            if (isBlocked === "active") filter.isBlocked = false;
+            if (isApproved === "approved") filter.isApproved = true;
+            if (isApproved === "pending") filter.isApproved = false;
+
+            const spots=await this._foodspotRepository.findAllFoodSpotsAdmin(filter,skip,limit)
+                        logger.info('====spotcont',spots)
+
+            if(!spots.datas)throw new AppError('spot not found',STATUS_CODE.NOT_FOUND)
+
+            return {data:allFoodSpotsMapper(spots.datas),currentPage:page,totalPages:Math.ceil(spots.totalCount / limit)}
+
+        } catch (error) {
+            throw error;
+        }
+        
+    }
+    async blockSpot(id: string): Promise<void> {
+        try {
+            const result=await this._foodspotRepository.blockById(id)
+            if(!result)throw new AppError("updated blog not found",STATUS_CODE.NOT_FOUND)
+
+        } catch (error) {
+            throw error;
+        }
+    }
+    async unblockSpot(id: string): Promise<void> {
+        try {
+            const result=await this._foodspotRepository.unblockById(id)
+            if(!result)throw new AppError("updated blog not found",STATUS_CODE.NOT_FOUND)
+
+        } catch (error) {
+            throw error;
+        }
+    }
+    async approveSpot(id: string): Promise<void> {
+        try {
+            const result=await this._foodspotRepository.approveById(id)
+            if(!result)throw new AppError("updated blog not found",STATUS_CODE.NOT_FOUND)
+
+        } catch (error) {
+            throw error;
+        }
+    }
+    async unapproveSpot(id: string): Promise<void> {
+        try {
+            const result=await this._foodspotRepository.unAproveById(id)
+            if(!result)throw new AppError("updated blog not found",STATUS_CODE.NOT_FOUND)
+
+        } catch (error) {
+            throw error;
+        }
+    }
+
+
 
 }

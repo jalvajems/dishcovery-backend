@@ -8,12 +8,14 @@ import { IRecipeController } from '../controllers/interface/IRecipeController';
 import { IBlogController } from '../controllers/interface/IBlogController';
 import { validate } from '../middlewares/zod.middleware';
 import { createFoodieProfileSchema, updateFoodieProfileSchema } from '../validations/foodieProfileValidation';
+import { IFoodSpotController } from '../controllers/interface/IFoodSpotController';
 const router = Router();
 
 const foodieController = container.get<IFoodieController>(TYPES.IFoodieController);
 const ReviewController= container.get<IReviewController>(TYPES.IReviewController);
 const RecipeController= container.get<IRecipeController>(TYPES.IRecipeController);
 const BlogController= container.get<IBlogController>(TYPES.IBlogController);
+const FoodSpotController= container.get<IFoodSpotController>(TYPES.IFoodSpotController);
 
 console.log('reached router');
 
@@ -36,5 +38,12 @@ router.get("/blog-listing",verifyAccess,BlogController.getAllBlogs.bind(BlogCont
 router.post("/profile",validate(createFoodieProfileSchema),verifyAccess,foodieController.createProfile.bind(foodieController))
 router.put("/profile",validate(updateFoodieProfileSchema),verifyAccess,foodieController.updateProfile.bind(foodieController))
 router.get("/profile",verifyAccess,foodieController.getProfile.bind(foodieController))
+
+router.post("/foodspot",verifyAccess,FoodSpotController.createFoodSpot.bind(FoodSpotController))
+router.put("/foodspot",verifyAccess,FoodSpotController.updateFoodSpot.bind(FoodSpotController))
+router.get("/foodspot/:id",verifyAccess,FoodSpotController.getFoodSpot.bind(FoodSpotController))
+      .get('/nearby',verifyAccess,FoodSpotController.getNearByFoodSpots.bind(FoodSpotController))
+      .get('/foodspots',verifyAccess,FoodSpotController.getAllFoodSpots.bind(FoodSpotController))
+      .get('/myfoodspots',verifyAccess,FoodSpotController.getAllFoodSpotsByFoodie.bind(FoodSpotController))
       
 export default router;

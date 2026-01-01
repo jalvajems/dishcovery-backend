@@ -4,6 +4,7 @@ import { IRecipe } from "../../types/recipe.types";
 import { IRecipeRepository } from "../interface/IRecipeRepository";
 import { BaseRepository } from "./base.repository";
 import { UserModel } from "../../models/users.model";
+import { error } from "console";
 
 export class RecipeRepository extends BaseRepository<IRecipeDocument> implements IRecipeRepository {
     constructor() {
@@ -77,6 +78,8 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
    
            const totalCount = await RecipeModel.countDocuments(query)
            return { datas: recipes, totalCount: totalCount }
+       }else{
+        throw error;
        }
     }
     async blockById(id: string): Promise<IRecipe & Document | null> {
