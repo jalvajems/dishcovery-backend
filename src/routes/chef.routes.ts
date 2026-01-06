@@ -8,13 +8,15 @@ import { IBlogController } from '../controllers/interface/IBlogController';
 import { validate } from '../middlewares/zod.middleware';
 import { createChefProfileSchema, updateChefProfileSchema } from '../validations/chefProfileValidation';
 import { createRecipeSchema, editRecipeRequestSchema, updateRecipeSchema } from '../validations/recipeValidation';
-import { createBlogSchema, updateBlogRequestSchema, updateBlogSchema } from '../validations/blogValidation';
+import { createBlogSchema, updateBlogSchema } from '../validations/blogValidation';
 import { isVerifyChef } from '../middlewares/isVerifyChef';
+import { IWorkshopController } from '../controllers/interface/IWorkshopController';
 const router = Router();
 
 const chefController = container.get<IChefController>(TYPES.IChefController)
 const recipeController = container.get<IRecipeController>(TYPES.IRecipeController)
 const BlogController=container.get<IBlogController>(TYPES.IBlogController)
+const WorkshopController=container.get<IWorkshopController>(TYPES.IWorkshopController)
 
 console.log('reach router');
 
@@ -35,4 +37,9 @@ router.delete('/blog-delete/:blogId',verifyAccess,BlogController.deletBlog.bind(
 router.get('/blog-details/:blogId',verifyAccess,BlogController.getBlogDetails.bind(BlogController))
       .get('/blog-listing',verifyAccess,BlogController.getMyBlogs.bind(BlogController))
 
+router.post('/workshop',WorkshopController.createWorkshop.bind(WorkshopController))
+router.patch('/workshop-schedule',WorkshopController.markWorkshopAsScheduled.bind(WorkshopController))
+      .patch('/workshop-start',WorkshopController.startWorkshop.bind(WorkshopController))
+      .patch('/workshop-end',WorkshopController.endWorkshop.bind(WorkshopController))
+      .patch('/workshop-cancel',WorkshopController.cancelWorkshopByChef.bind(WorkshopController))
 export default router

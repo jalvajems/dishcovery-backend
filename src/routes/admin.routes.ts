@@ -4,9 +4,11 @@ import { authorizeRole } from '../middlewares/authorizeRole';
 import container from '../DI/inversify.config';
 import { IAdminController } from '../controllers/interface/IAdminController';
 import TYPES from '../DI/types';
+import { IWorkshopController } from '../controllers/interface/IWorkshopController';
 const router = Router();
 
 const adminController = container.get<IAdminController>(TYPES.IAdminController);
+const WorkshopController=container.get<IWorkshopController>(TYPES.IWorkshopController);
 router.get('/foodie-management',authorizeRole('admin'),verifyAccess, adminController.getAllFoodies.bind(adminController))
       .get('/chef-management',authorizeRole('admin'),verifyAccess, adminController.getAllChefs.bind(adminController))
       .get('/recipe-management',authorizeRole('admin'),adminController.getAllRecipes.bind(adminController))
@@ -25,5 +27,8 @@ router.patch('/toggle-block/:id',authorizeRole('admin'), adminController.blockUs
       .patch('/foodspot-unblock/:id',authorizeRole('admin'),adminController.unblockSpot.bind(adminController))
       .patch('/foodspot-approve/:id',authorizeRole('admin'),adminController.approveSpot.bind(adminController))
       .patch('/foodspot-unapprove/:id',authorizeRole('admin'),adminController.unApproveSpot.bind(adminController))
-
+      .patch('/workshop-approve',WorkshopController.appproveWorkshop.bind(WorkshopController))
+      .patch('/workshop-reject',WorkshopController.rejectWorkshop.bind(WorkshopController))
+      .patch('/workshop-cancel',WorkshopController.cancelWorkshopByAdmin.bind(WorkshopController))
+      
 export default router;

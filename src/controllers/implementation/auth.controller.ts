@@ -6,7 +6,6 @@ import { IAuthService } from "../../services/interface/IAuthService";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { signupSchema, loginSchema } from "../../validations/authValidation";
 import { env } from "../../config/env.config";
-import { log } from "winston";
 
 
 @injectable()

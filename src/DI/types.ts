@@ -26,6 +26,9 @@ const TYPES={
     IFoodSpotRepository:Symbol.for("IFoodSpotRepository"),
     IFoodSpotService:Symbol.for("IFoodSpotService"),
     IFoodSpotController:Symbol.for("IFoodSpotController"),
+    IWorkshopController:Symbol.for("IWorkshopController"),
+    IWorkshopService:Symbol.for("IWorkshopService"),
+    IWorkshopRepository:Symbol.for("IWorkshopRepository"),
 }
 
 export default TYPES;

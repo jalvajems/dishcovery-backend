@@ -9,6 +9,7 @@ import { reviewModule } from "./module/review.di";
 import blogModule from "./module/blog.di";
 import fileModule from "./module/file.di";
 import { foodSpotModule } from "./module/foodSpot.di";
+import { workshopModule } from "./module/workshop.di";
 
 
 
@@ -23,7 +24,8 @@ recipeModule(container);
 reviewModule(container)
 blogModule(container);
 fileModule(container);
-foodSpotModule(container)
+foodSpotModule(container);
+workshopModule(container);
 
 
 export default container;
