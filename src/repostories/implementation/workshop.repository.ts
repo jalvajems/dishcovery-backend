@@ -26,5 +26,20 @@ export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implem
     async findAndCancelWorkshop(workshopId: string, ): Promise<IWorkshopDocument | null> {
         return await WorkshopModel.findByIdAndUpdate({_id:workshopId},{$set:{status:WorkshopStatus.CANCELLED,isSessionActive:false}})
     }
- 
+    async incrementBooking(workshopId: string): Promise<IWorkshopDocument | null> {
+        return WorkshopModel.findByIdAndUpdate(workshopId,{$inc:{totalBookings:1}},{new:true})
+    }
+    async decrementBooking(workshopId: string): Promise<IWorkshopDocument | null> {
+        return WorkshopModel.findByIdAndUpdate(workshopId,{$inc:{totalBookings:-1}},{new:true})
+    }
+      async reserveSlotIfAvailable(workshopId: string): Promise<IWorkshopDocument | null> {
+        return WorkshopModel.findByIdAndUpdate(
+            {
+                _id:workshopId,
+                $expr:{$lt:["$totalBookings","$participantLimit"]}
+            },
+            {$inc:{totalBookings:1}},
+            {new:true}
+        )
+    }
 }

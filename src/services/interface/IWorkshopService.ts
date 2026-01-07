@@ -1,4 +1,5 @@
 import { IWorkshopResponseDTO } from "../../dtos/workshopResponse.dtos";
+import { IWorkshopDocument } from "../../models/workshop.model";
 
 export interface IWorkshopService {
     createWorkshop(payload:object):Promise<{data:IWorkshopResponseDTO}>;

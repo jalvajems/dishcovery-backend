@@ -2,7 +2,6 @@ import { inject, injectable } from "inversify";
 import { IReviewService } from "../interface/IReviewService";
 import TYPES from "../../DI/types";
 import { IReviewRepostory } from "../../repostories/interface/IReviewRepository";
-import { IReview } from "../../types/review.types";
 import { AppError } from "../../utils/AppError";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { IReviewDocument } from "../../models/review.model";

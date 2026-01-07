@@ -29,6 +29,10 @@ const TYPES={
     IWorkshopController:Symbol.for("IWorkshopController"),
     IWorkshopService:Symbol.for("IWorkshopService"),
     IWorkshopRepository:Symbol.for("IWorkshopRepository"),
+    IBookingRepository:Symbol.for("IBookingRepository"),
+    IBookingService:Symbol.for("IBookingService"),
+    IBookingController:Symbol.for("IBookingController"),
+    IPaymentService:Symbol.for("IPaymentService"),
 }
 
 export default TYPES;
