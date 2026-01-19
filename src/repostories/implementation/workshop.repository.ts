@@ -1,45 +1,24 @@
-import {Types} from "mongoose"
-import { IWorkshopDocument, WorkshopModel, WorkshopStatus,  } from "../../models/workshop.model";
-import { IWorkshopRepository } from "../interface/IWorkshopRepository";
-import { BaseRepository } from "./base.repository";
+import { injectable } from 'inversify';
+import { WorkshopModel } from '../../models/workshop.model';
+import { IWorkshopDocument } from '../../types/workshop.types';
+import { IWorkshopRepository } from '../interface/IWorkshopRepository';
+import { BaseRepository } from './base.repository';
 
-export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implements IWorkshopRepository{
-    constructor(){
-        super(WorkshopModel)
+@injectable()
+export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implements IWorkshopRepository {
+    constructor() {
+        super(WorkshopModel);
     }
-    async findAndUpdateToApprove(workshopId: string, adminId: string): Promise<IWorkshopDocument | null> {
-        return await WorkshopModel.findByIdAndUpdate({_id:workshopId},{$set:{status:WorkshopStatus.APPROVED,approvedAt:new Date(),approvedBy:new Types.ObjectId(adminId)}},{new:true})
+
+    async findWithChef(id: string): Promise<IWorkshopDocument | null> {
+        return await this.model.findById(id).populate('chefId', 'name email');
     }
-    async findAndReject(workshopId: string, rejectionReason: string): Promise<IWorkshopDocument | null> {
-        return await WorkshopModel.findByIdAndUpdate({_id:workshopId},{$set:{status:WorkshopStatus.REJECTED,rejectionReason:rejectionReason}},{new:true})
+
+    async incrementParticipants(id: string): Promise<void> {
+        await this.model.findByIdAndUpdate(id, { $inc: { participantsCount: 1 } });
     }
-    async findAndScheduled(workshopId: string): Promise<IWorkshopDocument | null> {
-        return await WorkshopModel.findByIdAndUpdate({_id:workshopId},{$set:{status:WorkshopStatus.SCHEDULED}},{new:true})
-    }
-    async findAndStartWorkshop(workshopId: string): Promise<IWorkshopDocument | null> {
-        const workshop=await WorkshopModel.findById(workshopId)
-        return await WorkshopModel.findByIdAndUpdate({_id:workshopId},{$set:{status:WorkshopStatus.LIVE,isSessionActive:workshop?.mode==='online',sessionStartedAt:new Date()}},{new:true})
-    }
-    async findAndEndWorkshop(workshopId: string): Promise<IWorkshopDocument | null> {
-        return await WorkshopModel.findByIdAndUpdate({_id:workshopId},{$set:{status:WorkshopStatus.COMPLETED,isSessionActive:false,sessionEndedAt:new Date()}})
-    }
-    async findAndCancelWorkshop(workshopId: string, ): Promise<IWorkshopDocument | null> {
-        return await WorkshopModel.findByIdAndUpdate({_id:workshopId},{$set:{status:WorkshopStatus.CANCELLED,isSessionActive:false}})
-    }
-    async incrementBooking(workshopId: string): Promise<IWorkshopDocument | null> {
-        return WorkshopModel.findByIdAndUpdate(workshopId,{$inc:{totalBookings:1}},{new:true})
-    }
-    async decrementBooking(workshopId: string): Promise<IWorkshopDocument | null> {
-        return WorkshopModel.findByIdAndUpdate(workshopId,{$inc:{totalBookings:-1}},{new:true})
-    }
-      async reserveSlotIfAvailable(workshopId: string): Promise<IWorkshopDocument | null> {
-        return WorkshopModel.findByIdAndUpdate(
-            {
-                _id:workshopId,
-                $expr:{$lt:["$totalBookings","$participantLimit"]}
-            },
-            {$inc:{totalBookings:1}},
-            {new:true}
-        )
+
+    async decrementParticipants(id: string): Promise<void> {
+        await this.model.findByIdAndUpdate(id, { $inc: { participantsCount: -1 } });
     }
 }

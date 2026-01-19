@@ -112138,3 +112138,584 @@ src/services/interface/IBookingService.ts(4,96): error TS1110: Type expected.
     at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
     at Module.load (node:internal/modules/cjs/loader:1318:32)
     at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-08 15:51:45] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/implementation/workshop.repository.ts(44,14): error TS1109: Expression expected.
+src/repostories/implementation/workshop.repository.ts(45,9): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\workshop.repository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-19871983010468974.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-19871983010468974.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-19871983010468974.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-08 15:51:45] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/implementation/workshop.repository.ts(44,14): error TS1109: Expression expected.
+src/repostories/implementation/workshop.repository.ts(45,9): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\workshop.repository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5117122312682825.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5117122312682825.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5117122312682825.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-08 15:53:30] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/implementation/workshop.repository.ts(53,13): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\workshop.repository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5117122312682825.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5117122312682825.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5117122312682825.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-08 15:53:30] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/implementation/workshop.repository.ts(53,13): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\workshop.repository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-19871983010468974.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-19871983010468974.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-19871983010468974.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-08 15:54:22] [31merror[39m: ReferenceError: WorkshopController is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\routes\foodie.routes.ts:48:40)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5117122312682825.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5117122312682825.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5117122312682825.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-08 15:54:22] [31merror[39m: ReferenceError: WorkshopController is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\routes\foodie.routes.ts:48:40)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-19871983010468974.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-19871983010468974.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-19871983010468974.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-08 16:16:19] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-09 10:23:16] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-09 10:24:41] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-09 10:24:56] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-09 10:25:32] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-09 10:25:37] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-09 10:25:41] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-09 10:51:27] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-09 10:51:30] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-09 10:52:03] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-09 10:52:06] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-09 10:52:15] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-09 11:09:09] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-13 20:06:22] [31merror[39m: ReferenceError: container is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\inversify.config.ts:12:12)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7295273891301364.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7295273891301364.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7295273891301364.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-13 20:08:33] [31merror[39m: Error: No bindings found for service: "Symbol(IWorkshopController)".
+
+Trying to resolve bindings for "Symbol(IWorkshopController) (Root service)".
+
+Binding constraints:
+- service identifier: Symbol(IWorkshopController)
+- name: -
+    at throwBindingNotFoundError (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:59:9)
+    at throwErrorWhenMultipleUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:72:7)
+    at throwErrorWhenUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:26:5)
+    at checkServiceNodeSingleInjectionBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\checkServiceNodeSingleInjectionBindings.ts:35:46)
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildPlanServiceNode.ts:63:46
+    at plan (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\plan.ts:103:42)
+    at ServiceResolutionManager.#buildPlanResult (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\ServiceResolutionManager.ts:260:40)
+    at ServiceResolutionManager.get (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\ServiceResolutionManager.ts:80:57)
+    at Container.get (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\Container.ts:111:43)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\routes\admin.routes.ts:11:38)
+[2026-01-13 20:14:04] [31merror[39m: Error: No bindings found for service: "Symbol(IWorkshopController)".
+
+Trying to resolve bindings for "Symbol(IWorkshopController) (Root service)".
+
+Binding constraints:
+- service identifier: Symbol(IWorkshopController)
+- name: -
+    at throwBindingNotFoundError (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:59:9)
+    at throwErrorWhenMultipleUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:72:7)
+    at throwErrorWhenUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:26:5)
+    at checkServiceNodeSingleInjectionBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\checkServiceNodeSingleInjectionBindings.ts:35:46)
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildPlanServiceNode.ts:63:46
+    at plan (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\plan.ts:103:42)
+    at ServiceResolutionManager.#buildPlanResult (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\ServiceResolutionManager.ts:260:40)
+    at ServiceResolutionManager.get (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\ServiceResolutionManager.ts:80:57)
+    at Container.get (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\Container.ts:111:43)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\routes\admin.routes.ts:11:38)
+[2026-01-13 20:25:50] [31merror[39m: Error: Unexpected undefined service id type
+    at stringifyServiceIdentifier (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\common\src\services\calculations\stringifyServiceIdentifier.ts:13:13)
+    at throwBindingNotFoundError (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:55:93)
+    at throwErrorWhenMultipleUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:72:7)
+    at throwErrorWhenUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:26:5)
+    at checkServiceNodeSingleInjectionBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\checkServiceNodeSingleInjectionBindings.ts:35:46)
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildPlanServiceNode.ts:63:46
+    at plan (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\plan.ts:103:42)
+    at ServiceResolutionManager.#buildPlanResult (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\ServiceResolutionManager.ts:260:40)
+    at ServiceResolutionManager.get (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\ServiceResolutionManager.ts:80:57)
+    at Container.get (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\Container.ts:111:43)
+[2026-01-13 20:27:14] [31merror[39m: Error: Unexpected undefined service id type
+    at stringifyServiceIdentifier (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\common\src\services\calculations\stringifyServiceIdentifier.ts:13:13)
+    at throwBindingNotFoundError (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:55:93)
+    at throwErrorWhenMultipleUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:72:7)
+    at throwErrorWhenUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:26:5)
+    at checkServiceNodeSingleInjectionBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\checkServiceNodeSingleInjectionBindings.ts:35:46)
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildPlanServiceNode.ts:63:46
+    at plan (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\plan.ts:103:42)
+    at ServiceResolutionManager.#buildPlanResult (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\ServiceResolutionManager.ts:260:40)
+    at ServiceResolutionManager.get (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\ServiceResolutionManager.ts:80:57)
+    at Container.get (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\Container.ts:111:43)
+[2026-01-13 20:27:30] [31merror[39m: Error: Unexpected undefined service id type
+    at stringifyServiceIdentifier (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\common\src\services\calculations\stringifyServiceIdentifier.ts:13:13)
+    at throwBindingNotFoundError (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:55:93)
+    at throwErrorWhenMultipleUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:72:7)
+    at throwErrorWhenUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:26:5)
+    at checkServiceNodeSingleInjectionBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\checkServiceNodeSingleInjectionBindings.ts:35:46)
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildPlanServiceNode.ts:63:46
+    at plan (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\plan.ts:103:42)
+    at ServiceResolutionManager.#buildPlanResult (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\ServiceResolutionManager.ts:260:40)
+    at ServiceResolutionManager.get (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\ServiceResolutionManager.ts:80:57)
+    at Container.get (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\container\src\container\services\Container.ts:111:43)
+[2026-01-13 20:28:45] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/routes/admin.routes.ts(7,7): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\routes\admin.routes.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7751152521769071.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7751152521769071.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7751152521769071.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-13 20:28:45] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/routes/admin.routes.ts(7,7): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\routes\admin.routes.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-2817091571748098.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-2817091571748098.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-2817091571748098.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-13 20:28:58] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-13 20:29:13] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 09:50:39] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 09:50:39] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 09:50:56] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 09:50:56] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 09:51:06] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 09:51:06] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:36:03] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:36:03] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:36:12] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:36:12] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:36:52] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:36:52] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:37:06] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:37:06] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:37:49] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:37:49] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:39:32] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:39:32] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:42:15] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:42:15] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:42:25] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:42:25] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:42:39] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:42:39] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:45:39] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:45:39] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:46:30] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:46:30] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:47:11] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 10:47:11] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-14 18:36:58] [31merror[39m: Error: Cannot find module 'socket.io'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\socket.service.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\socket.service.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-41865935740413884.js:69:33)
+[2026-01-14 18:37:18] [31merror[39m: Error: Cannot find module 'socket.io'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\socket.service.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\socket.service.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-41865935740413884.js:69:33)
+[2026-01-14 18:39:15] [31merror[39m: Error: Cannot find module 'socket.io'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\socket.service.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\socket.service.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-41865935740413884.js:69:33)
+[2026-01-14 18:39:23] [31merror[39m: Error [ERR_REQUIRE_ESM]: require() of ES Module D:\brototype\Dishcovery\server\node_modules\uuid\dist-node\index.js from D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts not supported.
+Instead change the require of index.js in D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-41865935740413884.js:114:20)
+    at Object.nodeDevHook [as .js] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts:30:16)
+[2026-01-14 18:39:58] [31merror[39m: Error [ERR_REQUIRE_ESM]: require() of ES Module D:\brototype\Dishcovery\server\node_modules\uuid\dist-node\index.js from D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts not supported.
+Instead change the require of index.js in D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-41865935740413884.js:114:20)
+    at Object.nodeDevHook [as .js] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts:30:16)
+[2026-01-14 18:40:04] [31merror[39m: Error [ERR_REQUIRE_ESM]: require() of ES Module D:\brototype\Dishcovery\server\node_modules\uuid\dist-node\index.js from D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts not supported.
+Instead change the require of index.js in D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-41865935740413884.js:114:20)
+    at Object.nodeDevHook [as .js] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts:30:16)
+[2026-01-14 18:43:53] [31merror[39m: Error [ERR_REQUIRE_ESM]: require() of ES Module D:\brototype\Dishcovery\server\node_modules\uuid\dist-node\index.js from D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts not supported.
+Instead change the require of index.js in D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-41865935740413884.js:114:20)
+    at Object.nodeDevHook [as .js] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts:30:16)
+[2026-01-14 18:46:59] [31merror[39m: Error [ERR_REQUIRE_ESM]: require() of ES Module D:\brototype\Dishcovery\server\node_modules\uuid\dist-node\index.js from D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts not supported.
+Instead change the require of index.js in D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-01703420319410931.js:114:20)
+    at Object.nodeDevHook [as .js] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts:30:16)
+[2026-01-15 18:18:49] [31merror[39m: Error [ERR_REQUIRE_ESM]: require() of ES Module D:\brototype\Dishcovery\server\node_modules\uuid\dist-node\index.js from D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts not supported.
+Instead change the require of index.js in D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5877003738717648.js:114:20)
+    at Object.nodeDevHook [as .js] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts:30:16)
+[2026-01-15 18:26:19] [31merror[39m: Error [ERR_REQUIRE_ESM]: require() of ES Module D:\brototype\Dishcovery\server\node_modules\uuid\dist-node\index.js from D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts not supported.
+Instead change the require of index.js in D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5877003738717648.js:114:20)
+    at Object.nodeDevHook [as .js] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts:30:16)
+[2026-01-15 18:27:06] [31merror[39m: Error [ERR_REQUIRE_ESM]: require() of ES Module D:\brototype\Dishcovery\server\node_modules\uuid\dist-node\index.js from D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts not supported.
+Instead change the require of index.js in D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5877003738717648.js:114:20)
+    at Object.nodeDevHook [as .js] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts:30:16)
+[2026-01-15 18:28:05] [31merror[39m: Error [ERR_REQUIRE_ESM]: require() of ES Module D:\brototype\Dishcovery\server\node_modules\uuid\dist-node\index.js from D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts not supported.
+Instead change the require of index.js in D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5877003738717648.js:114:20)
+    at Object.nodeDevHook [as .js] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts:30:16)
+[2026-01-15 18:29:11] [31merror[39m: Error [ERR_REQUIRE_ESM]: require() of ES Module D:\brototype\Dishcovery\server\node_modules\uuid\dist-node\index.js from D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts not supported.
+Instead change the require of index.js in D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5877003738717648.js:114:20)
+    at Object.nodeDevHook [as .js] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts:30:16)
+[2026-01-15 18:29:22] [31merror[39m: Error [ERR_REQUIRE_ESM]: require() of ES Module D:\brototype\Dishcovery\server\node_modules\uuid\dist-node\index.js from D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts not supported.
+Instead change the require of index.js in D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5877003738717648.js:114:20)
+    at Object.nodeDevHook [as .js] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts:30:16)
+[2026-01-16 00:15:42] [31merror[39m: Error [ERR_REQUIRE_ESM]: require() of ES Module D:\brototype\Dishcovery\server\node_modules\uuid\dist-node\index.js from D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts not supported.
+Instead change the require of index.js in D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5100759234044288.js:114:20)
+    at Object.nodeDevHook [as .js] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshopSession.service.ts:30:16)
+[2026-01-16 11:34:11] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:24:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-01-16 11:52:05] [31merror[39m: TypeError: argument handler must be a function
+    at Function.use (D:\brototype\Dishcovery\server\node_modules\router\index.js:392:13)
+    at Function.<anonymous> (D:\brototype\Dishcovery\server\node_modules\express\lib\application.js:222:21)
+    at Array.forEach (<anonymous>)
+    at Function.use (D:\brototype\Dishcovery\server\node_modules\express\lib\application.js:219:7)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\app.ts:25:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-003225856388589854.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-003225856388589854.js:114:20)

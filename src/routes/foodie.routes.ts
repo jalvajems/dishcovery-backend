@@ -12,38 +12,38 @@ import { IFoodSpotController } from '../controllers/interface/IFoodSpotControlle
 const router = Router();
 
 const foodieController = container.get<IFoodieController>(TYPES.IFoodieController);
-const ReviewController= container.get<IReviewController>(TYPES.IReviewController);
-const RecipeController= container.get<IRecipeController>(TYPES.IRecipeController);
-const BlogController= container.get<IBlogController>(TYPES.IBlogController);
-const FoodSpotController= container.get<IFoodSpotController>(TYPES.IFoodSpotController);
+const ReviewController = container.get<IReviewController>(TYPES.IReviewController);
+const RecipeController = container.get<IRecipeController>(TYPES.IRecipeController);
+const BlogController = container.get<IBlogController>(TYPES.IBlogController);
+const FoodSpotController = container.get<IFoodSpotController>(TYPES.IFoodSpotController);
 
 console.log('reached router');
 
 router.get('/dashboard', verifyAccess, foodieController.getFoodieDashboard.bind(foodieController))
-      .get('/recipe-listing',verifyAccess,RecipeController.getAllRecipes.bind(RecipeController))
-      .get('/recipe-detail/:id',verifyAccess,foodieController.getRecipeDetail.bind(foodieController))
-      .get('/related-recipes/:cuisine',verifyAccess,RecipeController.getRelatedRecipes.bind(RecipeController))
-      .get('/saved-recipes',verifyAccess,RecipeController.getSavedRecipes.bind(RecipeController))
-router.post('/toggle-save-recipe',verifyAccess,RecipeController.toggleSaveRecipe.bind(RecipeController))
-      .post('/unsave-recipe',verifyAccess,RecipeController.unsaveRecipe.bind(RecipeController))
+      .get('/recipe-listing', verifyAccess, RecipeController.getAllRecipes.bind(RecipeController))
+      .get('/recipe-detail/:id', verifyAccess, foodieController.getRecipeDetail.bind(foodieController))
+      .get('/related-recipes/:cuisine', verifyAccess, RecipeController.getRelatedRecipes.bind(RecipeController))
+      .get('/saved-recipes', verifyAccess, RecipeController.getSavedRecipes.bind(RecipeController))
+router.post('/toggle-save-recipe', verifyAccess, RecipeController.toggleSaveRecipe.bind(RecipeController))
+      .post('/unsave-recipe', verifyAccess, RecipeController.unsaveRecipe.bind(RecipeController))
 
-router.post("/review",verifyAccess, ReviewController.createReview.bind(ReviewController));
-router.get("/review",verifyAccess ,ReviewController.getReviews.bind(ReviewController));
-router.put("/review/like/:reviewId",verifyAccess,ReviewController.likeReview.bind(ReviewController));
-router.put("/review/dislike/:reviewId",verifyAccess, ReviewController.dislikeReview.bind(ReviewController));
+router.post("/review", verifyAccess, ReviewController.createReview.bind(ReviewController));
+router.get("/review", verifyAccess, ReviewController.getReviews.bind(ReviewController));
+router.put("/review/like/:reviewId", verifyAccess, ReviewController.likeReview.bind(ReviewController));
+router.put("/review/dislike/:reviewId", verifyAccess, ReviewController.dislikeReview.bind(ReviewController));
 
-router.get("/blog-listing",verifyAccess,BlogController.getAllBlogs.bind(BlogController))
-      .get("/blog-detail/:blogId",verifyAccess,BlogController.getBlogDetails.bind(BlogController))
+router.get("/blog-listing", verifyAccess, BlogController.getAllBlogs.bind(BlogController))
+      .get("/blog-detail/:blogId", verifyAccess, BlogController.getBlogDetails.bind(BlogController))
 
-router.post("/profile",validate(createFoodieProfileSchema),verifyAccess,foodieController.createProfile.bind(foodieController))
-router.put("/profile",validate(updateFoodieProfileSchema),verifyAccess,foodieController.updateProfile.bind(foodieController))
-router.get("/profile",verifyAccess,foodieController.getProfile.bind(foodieController))
+router.post("/profile", validate(createFoodieProfileSchema), verifyAccess, foodieController.createProfile.bind(foodieController))
+router.put("/profile", validate(updateFoodieProfileSchema), verifyAccess, foodieController.updateProfile.bind(foodieController))
+router.get("/profile", verifyAccess, foodieController.getProfile.bind(foodieController))
 
-router.post("/foodspot",verifyAccess,FoodSpotController.createFoodSpot.bind(FoodSpotController))
-router.put("/foodspot",verifyAccess,FoodSpotController.updateFoodSpot.bind(FoodSpotController))
-router.get("/foodspot/:id",verifyAccess,FoodSpotController.getFoodSpot.bind(FoodSpotController))
-      .get('/nearby',verifyAccess,FoodSpotController.getNearByFoodSpots.bind(FoodSpotController))
-      .get('/foodspots',verifyAccess,FoodSpotController.getAllFoodSpots.bind(FoodSpotController))
-      .get('/myfoodspots',verifyAccess,FoodSpotController.getAllFoodSpotsByFoodie.bind(FoodSpotController))
-      
+router.post("/foodspot", verifyAccess, FoodSpotController.createFoodSpot.bind(FoodSpotController))
+router.put("/foodspot", verifyAccess, FoodSpotController.updateFoodSpot.bind(FoodSpotController))
+router.get("/foodspot/:id", verifyAccess, FoodSpotController.getFoodSpot.bind(FoodSpotController))
+      .get('/nearby', verifyAccess, FoodSpotController.getNearByFoodSpots.bind(FoodSpotController))
+      .get('/foodspots', verifyAccess, FoodSpotController.getAllFoodSpots.bind(FoodSpotController))
+      .get('/myfoodspots', verifyAccess, FoodSpotController.getAllFoodSpotsByFoodie.bind(FoodSpotController))
+
 export default router;

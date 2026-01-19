@@ -9,14 +9,10 @@ import { reviewModule } from "./module/review.di";
 import blogModule from "./module/blog.di";
 import fileModule from "./module/file.di";
 import { foodSpotModule } from "./module/foodSpot.di";
-import { workshopModule } from "./module/workshop.di";
-import { bookingModule } from "./module/booking.di";
-import { paymentModule } from "./module/payment.di";
+import workshopModule from "./module/workshop.di";
 
+const container = new Container();
 
-
-const container=new Container();
- 
 authModule(container);
 userModule(container);
 foodieModule(container);
@@ -28,8 +24,5 @@ blogModule(container);
 fileModule(container);
 foodSpotModule(container);
 workshopModule(container);
-bookingModule(container);
-paymentModule(container);
-
 
 export default container;

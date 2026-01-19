@@ -1,12 +1,15 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response, NextFunction } from 'express';
 
-export interface IWorkshopController{
-    createWorkshop(req:Request,res:Response,next:NextFunction):Promise<void>;
-    appproveWorkshop(req:Request,res:Response,next:NextFunction):Promise<void>;
-    rejectWorkshop(req:Request,res:Response,next:NextFunction):Promise<void>;
-    markWorkshopAsScheduled(req:Request,res:Response,next:NextFunction):Promise<void>;
-    startWorkshop(req:Request,res:Response,next:NextFunction):Promise<void>;
-    endWorkshop(req:Request,res:Response,next:NextFunction):Promise<void>;
-    cancelWorkshopByAdmin(req:Request,res:Response,next:NextFunction):Promise<void>;
-    cancelWorkshopByChef(req:Request,res:Response,next:NextFunction):Promise<void>;
+export interface IWorkshopController {
+    createWorkshop(req: Request, res: Response, next: NextFunction): Promise<void>;
+    updateWorkshop(req: Request, res: Response, next: NextFunction): Promise<void>;
+    getWorkshopById(req: Request, res: Response, next: NextFunction): Promise<void>;
+    getChefWorkshops(req: Request, res: Response, next: NextFunction): Promise<void>;
+    getAllWorkshops(req: Request, res: Response, next: NextFunction): Promise<void>;
+    getApprovedWorkshops(req: Request, res: Response, next: NextFunction): Promise<void>;
+    approveWorkshop(req: Request, res: Response, next: NextFunction): Promise<void>;
+    rejectWorkshop(req: Request, res: Response, next: NextFunction): Promise<void>;
+    startWorkshop(req: Request, res: Response, next: NextFunction): Promise<void>;
+    endWorkshop(req: Request, res: Response, next: NextFunction): Promise<void>;
+    submitWorkshop(req: Request, res: Response, next: NextFunction): Promise<void>;
 }

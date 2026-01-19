@@ -1,55 +1,57 @@
-import { Document, Schema, model } from "mongoose";
-import { IBooking } from "../types/IBooking.types";
+import mongoose, { Schema } from 'mongoose';
+import { IBookingDocument, BookingStatus, BookingType } from '../types/booking.types';
 
-export interface IBookingDocument extends IBooking,Document{} 
-
-
-const BookingSchema = new Schema<IBookingDocument>(
-  {
-    workshopId: {
-      type: Schema.Types.ObjectId,
-      ref: "Workshop",
-      required: true,
+const BookingSchema: Schema = new Schema(
+    {
+        workshopId: {
+            type: Schema.Types.ObjectId,
+            ref: 'Workshop',
+            required: true
+        },
+        foodieId: {
+            type: Schema.Types.ObjectId,
+            ref: 'User', // Assuming Foodie is a role within User
+            required: true
+        },
+        status: {
+            type: String,
+            enum: Object.values(BookingStatus),
+            default: BookingStatus.PENDING
+        },
+        bookingType: {
+            type: String,
+            enum: Object.values(BookingType),
+            required: true
+        },
+        amount: {
+            type: Number,
+            required: true,
+            default: 0
+        },
+        paymentIntentId: {
+            type: String,
+            unique: true,
+            sparse: true
+        },
+        stripeEventId: {
+            type: String,
+            unique: true,
+            sparse: true
+        },
+        bookedAt: {
+            type: Date,
+            default: Date.now
+        },
+        cancelledAt: {
+            type: Date
+        }
     },
-
-    userId: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
-
-    bookingStatus: {
-      type: String,
-      enum: ["pending", "confirmed", "cancelled"],
-      default: "pending",
-    },
-
-    paymentStatus: {
-      type: String,
-      enum: ["not_required", "pending", "paid", "refunded"],
-      default: "not_required",
-    },
-
-    paymentIntentId: String,
-
-    amountPaid: Number,
-    currency: String,
-
-    cancelledAt: Date,
-    refundedAt: Date,
-    attended: {
-  type: Boolean,
-  default: false,
-},
-
-
-
-  },
-  { timestamps: true }
+    {
+        timestamps: true
+    }
 );
-BookingSchema.index(
-  { workshopId: 1, userId: 1 },
-  { unique: true }
-);
 
-export const BookingModel=model("Booking",BookingSchema)
+// Index for checking duplicate bookings
+BookingSchema.index({ workshopId: 1, foodieId: 1 }, { unique: true });
+
+export const BookingModel = mongoose.model<IBookingDocument>('Booking', BookingSchema);

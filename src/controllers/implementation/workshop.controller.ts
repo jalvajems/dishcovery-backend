@@ -1,103 +1,138 @@
-import { inject, injectable } from "inversify";
-import { IWorkshopController } from "../interface/IWorkshopController";
-import TYPES from "../../DI/types";
-import { IWorkshopService } from "../../services/interface/IWorkshopService";
-import { Request, Response, NextFunction } from "express";
-import { STATUS_CODE } from "../../constants/StatusCode";
-import { success } from "zod";
-import { AppError } from "../../utils/AppError";
+import { Request, Response, NextFunction } from 'express';
+import { inject, injectable } from 'inversify';
+import TYPES from '../../DI/types';
+import { IWorkshopController } from '../interface/IWorkshopController';
+import { IWorkshopService } from '../../services/interface/IWorkshopService';
+import { STATUS_CODE } from '../../constants/StatusCode';
+import { AppError } from '../../utils/AppError';
 
 @injectable()
-export class WorkshopController implements IWorkshopController{
+export class WorkshopController implements IWorkshopController {
     constructor(
-        @inject(TYPES.IWorkshopService) private _workshopService:IWorkshopService,
-    ){}
+        @inject(TYPES.IWorkshopService) private _workshopService: IWorkshopService
+    ) { }
+
     async createWorkshop(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const payload=req.body;
-            const result= await this._workshopService.createWorkshop(payload)
-            res.status(STATUS_CODE.CREATED).json({success:true, data:result.data, message:'workshop created successfully!'})
-            
+            const chefId = req.user?.id;
+            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            const workshop = await this._workshopService.createWorkshop(chefId, req.body);
+            res.status(STATUS_CODE.CREATED).json({ success: true, data: workshop, message: 'Workshop created successfully' });
         } catch (error) {
-            next(error)
+            next(error);
         }
     }
-    async appproveWorkshop(req: Request, res: Response, next: NextFunction): Promise<void> {
+
+    async updateWorkshop(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const {workshopId}=req.body;
-            const adminId=process.env.ADMIN_ID;
-            if(!adminId)throw new AppError('admin id is not found',STATUS_CODE.NOT_FOUND);
-            const result=await this._workshopService.approveWorkshop(workshopId,adminId)
-            res.status(STATUS_CODE.SUCCESS).json({success:true, message:'workshop approved successfully!'})
+            const chefId = req.user?.id;
+            const { id } = req.params;
+            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            const workshop = await this._workshopService.updateWorkshop(id, chefId, req.body);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop updated successfully' });
         } catch (error) {
-            next(error)
+            next(error);
         }
-        
     }
+
+    async getWorkshopById(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const { id } = req.params;
+            const workshop = await this._workshopService.getWorkshopById(id);
+            if (!workshop) throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getChefWorkshops(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const chefId = req.user?.id;
+            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            const workshops = await this._workshopService.getChefWorkshops(chefId);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshops });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getAllWorkshops(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const workshops = await this._workshopService.getAllWorkshopsForAdmin();
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshops });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getApprovedWorkshops(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const workshops = await this._workshopService.getApprovedWorkshops();
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshops });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async approveWorkshop(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const adminId = req.user?.id;
+            const { id } = req.params;
+            if (!adminId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            const workshop = await this._workshopService.approveWorkshop(id, adminId);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop approved successfully' });
+        } catch (error) {
+            next(error);
+        }
+    }
+
     async rejectWorkshop(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const {workshopId,reason}=req.body;
-            const result = await this._workshopService.rejectWorkshop(workshopId,reason)
-            res.status(STATUS_CODE.SUCCESS).json({success:true, message:'workshop rejected successfully!'})
+            const adminId = req.user?.id;
+            const { id } = req.params;
+            const { rejectionReason } = req.body;
+            if (!adminId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            const workshop = await this._workshopService.rejectWorkshop(id, adminId, rejectionReason);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop rejected successfully' });
         } catch (error) {
-            next(error)
+            next(error);
         }
-        
     }
-    async markWorkshopAsScheduled(req: Request, res: Response, next: NextFunction): Promise<void> {
-        try {
-            const {workshopId}=req.body;
-            const result = await this._workshopService.markWorkshopAsScheduled(workshopId)
-            res.status(STATUS_CODE.SUCCESS).json({success:true, message:'workshop scheduled successfully!'})
-            
-        } catch (error) {
-            next(error)
-        }
-        
-    }
+
     async startWorkshop(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const {workshopId,chefId}=req.body;
-            const result = await this._workshopService.startWorkshop(workshopId,chefId)
-            res.status(STATUS_CODE.SUCCESS).json({success:true, message:'workshop marked started successfully!'})
-            
+            const chefId = req.user?.id;
+            const { id } = req.params;
+            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            const workshop = await this._workshopService.startSession(id, chefId);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop session started' });
         } catch (error) {
-            next(error)
+            next(error);
         }
-        
     }
+
     async endWorkshop(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const {workshopId,chefId}=req.body;
-            const result = await this._workshopService.endWorkshop(workshopId,chefId)
-            res.status(STATUS_CODE.SUCCESS).json({success:true, message:'workshop marked ended successfully!'})
-            
+            const chefId = req.user?.id;
+            const { id } = req.params;
+            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            const workshop = await this._workshopService.endSession(id, chefId);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop session ended' });
         } catch (error) {
-            next(error)
+            next(error);
         }
-        
     }
-    async cancelWorkshopByAdmin(req: Request, res: Response, next: NextFunction): Promise<void> {
+
+    async submitWorkshop(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            
-            const {workshopId}=req.body;
-            const result = await this._workshopService.cancelWorkshop(workshopId,'admin')
-            res.status(STATUS_CODE.SUCCESS).json({success:true, message:'workshop scheduled successfully!'})
-            
+            const chefId = req.user?.id;
+            const { id } = req.params;
+            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            const workshop = await this._workshopService.submitForApproval(id, chefId);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop submitted for approval' });
         } catch (error) {
-            next(error)
+            next(error);
         }
-        
-    }
-    async cancelWorkshopByChef(req: Request, res: Response, next: NextFunction): Promise<void> {
-        try {
-            const {workshopId}=req.body;
-            const result = await this._workshopService.cancelWorkshop(workshopId,'chef')
-            res.status(STATUS_CODE.SUCCESS).json({success:true, message:'workshop scheduled successfully!'})
-            
-        } catch (error) {
-            next(error)
-        }
-        
     }
 }

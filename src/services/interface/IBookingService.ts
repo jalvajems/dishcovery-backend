@@ -1,7 +1,9 @@
-import { IBookingDocument } from "../../models/booking.model";
+import { IBookingDocument } from '../../types/booking.types';
 
 export interface IBookingService {
-    bookWorkshop(workshopId:string,foodieId:string):Promise<{bookingId:string,paymentIntentId?:string}>;
-    confirmPayment(paymentIntentId: string) :Promise<void>;
-    refundBooking(paymentIntentId: string) :Promise<void>;
+    createBooking(workshopId: string, foodieId: string): Promise<{ booking: IBookingDocument; clientSecret?: string }>;
+    handleStripeWebhook(payload: any, signature: string): Promise<void>;
+    getMyBookings(foodieId: string): Promise<IBookingDocument[]>;
+    getWorkshopParticipants(workshopId: string, chefId: string): Promise<IBookingDocument[]>;
+    cancelBooking(bookingId: string, foodieId: string): Promise<void>;
 }
