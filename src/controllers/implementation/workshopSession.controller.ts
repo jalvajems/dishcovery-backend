@@ -5,6 +5,7 @@ import { IWorkshopSessionController } from '../interface/IWorkshopSessionControl
 import { IWorkshopSessionService } from '../../services/interface/IWorkshopSessionService';
 import { STATUS_CODE } from '../../constants/StatusCode';
 import { AppError } from '../../utils/AppError';
+import { log } from 'console';
 
 @injectable()
 export class WorkshopSessionController implements IWorkshopSessionController {
@@ -14,6 +15,8 @@ export class WorkshopSessionController implements IWorkshopSessionController {
 
     async startSession(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
+            console.log('reached start session==============');
+            
             const { workshopId } = req.params;
             const chefId = req.user?.id;
             if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
@@ -82,6 +85,8 @@ export class WorkshopSessionController implements IWorkshopSessionController {
         try {
             const { workshopId } = req.params;
             const session = await this._sessionService.getSessionInfo(workshopId);
+            console.log('---------',session);
+            
             res.status(STATUS_CODE.SUCCESS).json({
                 success: true,
                 data: session
@@ -98,6 +103,8 @@ export class WorkshopSessionController implements IWorkshopSessionController {
                 success: true,
                 data: sessions
             });
+
+            
         } catch (error) {
             next(error);
         }

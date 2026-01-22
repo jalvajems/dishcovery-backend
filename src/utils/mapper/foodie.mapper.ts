@@ -1,7 +1,6 @@
 import { Document } from "mongoose";
 import { IFoodieDto } from "../../dtos/foodie.dtos";
 import { IFoodie } from "../../types/foodie.types";
-import { email } from "zod";
 
 export default function foodieMapper(foodie: IFoodie & Document): IFoodieDto {
     const obj = foodie.toObject()

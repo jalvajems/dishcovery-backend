@@ -31,26 +31,21 @@ export interface IWorkshop {
     tags?: string[];
     chefId: string | Types.ObjectId;
 
-    // Schedule
     date: Date;
-    startTime: string; // HH:mm
-    duration: number; // in minutes
+    startTime: string; 
+    duration: number; 
     participantLimit: number;
 
-    // Mode & Pricing
     mode: WorkshopMode;
     isFree: boolean;
     price: number;
 
-    // Offline Specific
     location?: ILocation;
 
-    // Online Specific
     sessionRoomId?: string;
     hostId?: string | Types.ObjectId;
     isLive?: boolean;
 
-    // Admin Metadata
     status: WorkshopStatus;
     approvedAt?: Date;
     approvedBy?: string | Types.ObjectId;
@@ -58,7 +53,6 @@ export interface IWorkshop {
 
     participantsCount: number;
 
-    // System Fields
     createdAt?: Date;
     updatedAt?: Date;
 }

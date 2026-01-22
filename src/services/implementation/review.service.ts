@@ -71,7 +71,6 @@ console.log('uriddd',reviewId);
         const uId = userId?.toString();
         if (!uId) throw new AppError("Invalid user id", STATUS_CODE.BAD_REQUEST);
 
-        // Clean invalid entries
         review.dislikes = review.dislikes.filter(id => id);
         review.likes = review.likes.filter(id => id);
 

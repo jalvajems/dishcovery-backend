@@ -36,6 +36,12 @@ const TYPES = {
     WorkshopSessionRepository: Symbol.for("WorkshopSessionRepository"),
     WorkshopSessionService: Symbol.for("WorkshopSessionService"),
     WorkshopSessionController: Symbol.for("WorkshopSessionController"),
+    ITransactionRepository: Symbol.for("ITransactionRepository"),
+    IWalletTransactionService: Symbol.for("IWalletTransactionService"),
+    IWalletController: Symbol.for("IWalletController"),
+    IFollowRepository: Symbol.for("IFollowRepository"),
+    IFollowService: Symbol.for("IFollowService"),
+    IFollowController: Symbol.for("IFollowController"),
 }
 
 export default TYPES;

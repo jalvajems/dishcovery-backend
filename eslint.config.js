@@ -23,8 +23,9 @@ export default tseslint.config(
     rules: {
       "@typescript-eslint/no-unused-vars": "warn",
       "no-console": "off",
-      "semi": ["error", "always"],
-      "quotes": ["error", "single"],
+
+      "semi":"off",
+      "quotes": "off",
     },
   }
 );

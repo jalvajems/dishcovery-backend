@@ -1,3 +1,5 @@
+import { IWorkshopSessionResponseDTO } from '../../dtos/session.dtos';
+import { IWorkshopResponseDTO } from '../../dtos/workshop.dtos';
 import { IWorkshopDocument, WorkshopStatus } from '../../types/workshop.types';
 
 export interface IWorkshopService {
@@ -6,10 +8,11 @@ export interface IWorkshopService {
     getWorkshopById(id: string): Promise<IWorkshopDocument | null>;
     getChefWorkshops(chefId: string): Promise<IWorkshopDocument[]>;
     getAllWorkshopsForAdmin(): Promise<IWorkshopDocument[]>;
-    getApprovedWorkshops(): Promise<IWorkshopDocument[]>;
+    getApprovedWorkshops(page: number, limit: number, search: string, filter?: string): Promise<{ datas: IWorkshopDocument[], totalCount: number }>;
     approveWorkshop(workshopId: string, adminId: string): Promise<IWorkshopDocument>;
     rejectWorkshop(workshopId: string, adminId: string, reason: string): Promise<IWorkshopDocument>;
-    startSession(workshopId: string, chefId: string): Promise<IWorkshopDocument>;
+    startSession(workshopId: string, chefId: string): Promise<{ workshop: IWorkshopResponseDTO, session: IWorkshopSessionResponseDTO }>;
     endSession(workshopId: string, chefId: string): Promise<IWorkshopDocument>;
     submitForApproval(workshopId: string, chefId: string): Promise<IWorkshopDocument>;
+    getWorkshopsByChef(chefId: string, page: number, limit: number): Promise<{ datas: IWorkshopDocument[], totalCount: number }>;
 }

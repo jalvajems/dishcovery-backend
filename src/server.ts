@@ -18,7 +18,6 @@ import { socketService } from "./services/implementation/socket.service";
 
         const httpServer = createServer(app);
 
-        // Initialize Socket.io
         socketService.init(httpServer);
 
         httpServer.listen(port, () => {

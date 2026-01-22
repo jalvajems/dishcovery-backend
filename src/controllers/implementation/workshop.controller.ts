@@ -68,8 +68,13 @@ export class WorkshopController implements IWorkshopController {
 
     async getApprovedWorkshops(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const workshops = await this._workshopService.getApprovedWorkshops();
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshops });
+            const page = Number(req.query.page) || 1;
+            const limit = Number(req.query.limit) || 6;
+            const search = String(req.query.search) || "";
+            const filter = String(req.query.filter) || "";
+
+            const result = await this._workshopService.getApprovedWorkshops(page, limit, search, filter);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.datas, totalCount: result.totalCount });
         } catch (error) {
             next(error);
         }
@@ -102,6 +107,8 @@ export class WorkshopController implements IWorkshopController {
 
     async startWorkshop(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
+            console.log('reached start workshiop ctr');
+
             const chefId = req.user?.id;
             const { id } = req.params;
             if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
@@ -131,6 +138,24 @@ export class WorkshopController implements IWorkshopController {
             if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
             const workshop = await this._workshopService.submitForApproval(id, chefId);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop submitted for approval' });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getWorkshopsByChef(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const { chefId } = req.params;
+            const page = Number(req.query.page) || 1;
+            const limit = Number(req.query.limit) || 6;
+            const result = await this._workshopService.getWorkshopsByChef(chefId, page, limit);
+            res.status(STATUS_CODE.SUCCESS).json({
+                success: true,
+                datas: result.datas,
+                totalCount: result.totalCount,
+                currentPage: page,
+                totalPages: Math.ceil(result.totalCount / limit)
+            });
         } catch (error) {
             next(error);
         }

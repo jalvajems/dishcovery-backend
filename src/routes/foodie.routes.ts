@@ -9,6 +9,9 @@ import { IBlogController } from '../controllers/interface/IBlogController';
 import { validate } from '../middlewares/zod.middleware';
 import { createFoodieProfileSchema, updateFoodieProfileSchema } from '../validations/foodieProfileValidation';
 import { IFoodSpotController } from '../controllers/interface/IFoodSpotController';
+import { IWalletController } from '../controllers/interface/IWalletController';
+import { IChefController } from '../controllers/interface/IChefController';
+import { IWorkshopController } from '../controllers/interface/IWorkshopController';
 const router = Router();
 
 const foodieController = container.get<IFoodieController>(TYPES.IFoodieController);
@@ -16,6 +19,9 @@ const ReviewController = container.get<IReviewController>(TYPES.IReviewControlle
 const RecipeController = container.get<IRecipeController>(TYPES.IRecipeController);
 const BlogController = container.get<IBlogController>(TYPES.IBlogController);
 const FoodSpotController = container.get<IFoodSpotController>(TYPES.IFoodSpotController);
+const WalletController = container.get<IWalletController>(TYPES.IWalletController);
+const ChefController = container.get<IChefController>(TYPES.IChefController);
+const WorkshopController = container.get<IWorkshopController>(TYPES.IWorkshopController);
 
 console.log('reached router');
 
@@ -45,5 +51,13 @@ router.get("/foodspot/:id", verifyAccess, FoodSpotController.getFoodSpot.bind(Fo
       .get('/nearby', verifyAccess, FoodSpotController.getNearByFoodSpots.bind(FoodSpotController))
       .get('/foodspots', verifyAccess, FoodSpotController.getAllFoodSpots.bind(FoodSpotController))
       .get('/myfoodspots', verifyAccess, FoodSpotController.getAllFoodSpotsByFoodie.bind(FoodSpotController))
+
+      .get('/wallet', verifyAccess, WalletController.foodieWallet.bind(WalletController))
+
+router.get('/chefs', verifyAccess, ChefController.getAllChefs.bind(ChefController))
+      .get('/chef/:id', verifyAccess, ChefController.getChefDetails.bind(ChefController))
+      .get('/chef/:chefId/recipes', verifyAccess, RecipeController.getRecipesByChef.bind(RecipeController))
+      .get('/chef/:chefId/blogs', verifyAccess, BlogController.getBlogsByChef.bind(BlogController))
+      .get('/chef/:chefId/workshops', verifyAccess, WorkshopController.getWorkshopsByChef.bind(WorkshopController));
 
 export default router;

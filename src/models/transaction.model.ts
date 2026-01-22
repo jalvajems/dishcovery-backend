@@ -1,4 +1,5 @@
-import { Schema, model } from 'mongoose';
+import { Document, Schema, model } from 'mongoose';
+import { ITransaction } from '../types/transaction.types';
 
 export enum WalletTransactionType {
   DEBIT = 'DEBIT',     
@@ -12,7 +13,8 @@ export enum WalletTransactionStatus {
   FAILED = 'FAILED',
 }
 
-const walletTransactionSchema = new Schema(
+export interface ITransactionDocument extends ITransaction,Document{}
+const TransactionSchema = new Schema<ITransactionDocument>(
   {
     userId: {
       type: Schema.Types.ObjectId,
@@ -68,7 +70,7 @@ const walletTransactionSchema = new Schema(
   { timestamps: true }
 );
 
-export const WalletTransactionModel = model(
-  'WalletTransaction',
-  walletTransactionSchema
+export const TransactionModel = model(
+  'Transaction',
+  TransactionSchema
 );

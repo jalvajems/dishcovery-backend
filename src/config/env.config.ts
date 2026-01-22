@@ -9,7 +9,6 @@ let envSchema=z.object({
     MONGO_URI: z.string().min(1, "MONGO_URI is required!"),
     JWT_ACCESS_SECRET:z.string(),
     JWT_REFRESH_SECRET:z.string(),
-    // REDIS_PORT: z.string().default("6379")
 });
 
 const parsed=envSchema.safeParse(process.env)
@@ -28,7 +27,6 @@ export const env={
     MONGO_URI: parsed.data.MONGO_URI,
     JWT_ACCESS_SECRET:parsed.data.JWT_ACCESS_SECRET,
     JWT_REFRESH_SECRET:parsed.data.JWT_REFRESH_SECRET,
-//   REDIS_PORT:parsed.data.REDIS_PORT
 }
 
 export type Env = typeof env;

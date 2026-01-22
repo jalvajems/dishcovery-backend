@@ -1,4 +1,4 @@
-import { email, z } from "zod";
+import { z } from "zod";
 
 
 export const createChefProfileSchema = z.object({
@@ -24,6 +24,9 @@ export const createChefProfileSchema = z.object({
   status: z
     .enum(["active", "inactive"])
     .optional(),
+  certificates: z.array(z.string()).optional(),
+  achievements: z.array(z.string()).optional(),
+  skills: z.array(z.string()).optional(),
 });
 
 
@@ -52,6 +55,9 @@ export const updateChefProfileSchema = z.object({
   status: z
     .enum(["active", "inactive"])
     .optional(),
+  certificates: z.array(z.string()).optional(),
+  achievements: z.array(z.string()).optional(),
+  skills: z.array(z.string()).optional(),
 });
 
 export type CreateChefProfileDto = z.infer<

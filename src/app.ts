@@ -13,6 +13,7 @@ import fileRouter from './routes/file.routes'
 import workshopRouter from './routes/workshop.routes'
 import bookingRouter, { webhookRouter } from './routes/booking.routes'
 import sessionRouter from './routes/session.routes'
+import followRouter from './routes/follow.routes'
 
 
 import { requestLogger } from './middlewares/requestLogger'
@@ -21,7 +22,6 @@ import { STATUS_CODE } from './constants/StatusCode'
 
 const app = express();
 
-// Stripe Webhook needs raw body - must be before express.json()
 app.use('/api/bookings', webhookRouter);
 
 app.use(express.json());
@@ -43,6 +43,7 @@ app.use("/api/file", fileRouter)
 app.use("/api/workshop", workshopRouter)
 app.use("/api/bookings", bookingRouter)
 app.use("/api/sessions", sessionRouter)
+app.use("/api/follow", followRouter)
 
 app.get("/check", (req, res) => {
     res.status(STATUS_CODE.SUCCESS).json({

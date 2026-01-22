@@ -3,7 +3,7 @@ import { WorkshopSessionModel } from '../../models/workshopSession.model';
 import { IWorkshopSessionDocument } from '../../types/workshopSession.types';
 import { IWorkshopSessionRepository } from '../interface/IWorkshopSessionRepository';
 import { BaseRepository } from './base.repository';
-import { Types } from 'mongoose';
+import  { Types } from 'mongoose';
 
 @injectable()
 export class WorkshopSessionRepository extends BaseRepository<IWorkshopSessionDocument> implements IWorkshopSessionRepository {
@@ -12,7 +12,9 @@ export class WorkshopSessionRepository extends BaseRepository<IWorkshopSessionDo
     }
 
     async findByWorkshopId(workshopId: string | Types.ObjectId): Promise<IWorkshopSessionDocument | null> {
-        return await this.model.findOne({ workshopId, isLive: true }).populate('participants.foodieId', 'name email');
+        const res= await WorkshopSessionModel.findOne({ workshopId:workshopId }).populate('participants.foodieId', 'name email');
+        
+        return res
     }
 
     async findByRoomId(roomId: string): Promise<IWorkshopSessionDocument | null> {

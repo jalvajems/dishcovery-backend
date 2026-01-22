@@ -27,7 +27,7 @@ const workshopSchema = new Schema<IWorkshopDocument>(
             required: true
         },
 
-        // Schedule
+        
         date: {
             type: Date,
             required: true
@@ -47,7 +47,7 @@ const workshopSchema = new Schema<IWorkshopDocument>(
             min: 1
         },
 
-        // Mode & Pricing
+        
         mode: {
             type: String,
             enum: Object.values(WorkshopMode),
@@ -64,7 +64,7 @@ const workshopSchema = new Schema<IWorkshopDocument>(
             default: 0
         },
 
-        // Offline Specific
+        
         location: {
             venueName: { type: String },
             address: { type: String },
@@ -73,12 +73,10 @@ const workshopSchema = new Schema<IWorkshopDocument>(
             longitude: { type: Number },
         },
 
-        // Online Specific
         sessionRoomId: { type: String },
         hostId: { type: Schema.Types.ObjectId, ref: 'User' },
         isLive: { type: Boolean, default: false },
 
-        // Admin Metadata
         status: {
             type: String,
             enum: Object.values(WorkshopStatus),
@@ -94,7 +92,6 @@ const workshopSchema = new Schema<IWorkshopDocument>(
     }
 );
 
-// Indexes for common queries
 workshopSchema.index({ status: 1, date: 1 });
 workshopSchema.index({ chefId: 1 });
 

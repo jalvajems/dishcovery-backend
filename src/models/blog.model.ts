@@ -59,7 +59,7 @@ const blogSchema = new Schema(
       index:true
     },
 
-    // Optional SEO fields if needed later
+    
     slug: {
       type: String,
       unique: true,
@@ -79,12 +79,6 @@ const blogSchema = new Schema(
   },
   { timestamps: true }
 );
-// blogSchema.pre("save", function (next) {
-//   if (this.isModified("title")) {
-//     this.slug = slugify(this.title, { lower: true, strict: true });
-//   }
-//   next();
-// });
 
 
 export const BlogModel= model<IBlogDocument>("Blog", blogSchema);

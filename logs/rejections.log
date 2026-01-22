@@ -318,3 +318,14 @@
     at SMTPConnection._processResponse (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:993:20)
     at SMTPConnection._onData (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:774:14)
     at TLSSocket.SMTPConnection._onSocketData (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:195:44)
+[2026-01-22 09:25:01] [31merror[39m: Error: No recipients defined
+    at SMTPConnection._formatError (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:809:19)
+    at SMTPConnection._setEnvelope (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:1047:34)
+    at SMTPConnection.send (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:631:14)
+    at sendMessage (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-transport\index.js:228:28)
+    at D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-transport\index.js:286:25
+    at SMTPConnection._actionAUTHComplete (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:1609:9)
+    at SMTPConnection.<anonymous> (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:556:26)
+    at SMTPConnection._processResponse (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:993:20)
+    at SMTPConnection._onData (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:774:14)
+    at TLSSocket.SMTPConnection._onSocketData (D:\brototype\Dishcovery\server\node_modules\nodemailer\lib\smtp-connection\index.js:195:44)

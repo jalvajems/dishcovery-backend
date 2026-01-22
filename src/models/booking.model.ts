@@ -10,7 +10,7 @@ const BookingSchema: Schema = new Schema(
         },
         foodieId: {
             type: Schema.Types.ObjectId,
-            ref: 'User', // Assuming Foodie is a role within User
+            ref: 'User', 
             required: true
         },
         status: {
@@ -51,7 +51,7 @@ const BookingSchema: Schema = new Schema(
     }
 );
 
-// Index for checking duplicate bookings
+
 BookingSchema.index({ workshopId: 1, foodieId: 1 }, { unique: true });
 
 export const BookingModel = mongoose.model<IBookingDocument>('Booking', BookingSchema);

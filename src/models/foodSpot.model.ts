@@ -29,14 +29,7 @@ const FoodSpotSchema = new Schema<IFoodSpotDocument>(
     },
 
    
-    // images: {
-    //   type: [String],
-    //   required: true,
-    //   default:[]
-    // //   validate: [(val: string[]) => val.length > 0, "At least one image required"],
-    // },
-
-    // GeoJSON location
+    
     location: {
       type: {
         type: String,
@@ -44,7 +37,7 @@ const FoodSpotSchema = new Schema<IFoodSpotDocument>(
         required: true,
       },
       coordinates: {
-        type: [Number], // [longitude, latitude]
+        type: [Number],
         required: true,
       },
     },
@@ -75,8 +68,8 @@ const FoodSpotSchema = new Schema<IFoodSpotDocument>(
       index: true,
     },
      openingHours: {
-      open: String,  // "10:00 AM"
-      close: String, // "10:00 PM"
+      open: String,  
+      close: String,
       isOpenNow: Boolean,
     },
 

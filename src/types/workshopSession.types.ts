@@ -31,6 +31,8 @@ export interface IWorkshopSession {
     endedAt?: Date;
     participants: ISessionParticipant[];
     logs: ISessionLog[];
+    createdAt:Date;
+    updatedAt:Date;
 }
 
 export interface IWorkshopSessionDocument extends IWorkshopSession, Document { }

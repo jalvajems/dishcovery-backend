@@ -10,6 +10,8 @@ import blogModule from "./module/blog.di";
 import fileModule from "./module/file.di";
 import { foodSpotModule } from "./module/foodSpot.di";
 import workshopModule from "./module/workshop.di";
+import { transactionModule } from "./module/transaction.di";
+import { followModule } from "./module/follow.di";
 
 const container = new Container();
 
@@ -24,5 +26,7 @@ blogModule(container);
 fileModule(container);
 foodSpotModule(container);
 workshopModule(container);
+transactionModule(container);
+followModule(container);
 
 export default container;

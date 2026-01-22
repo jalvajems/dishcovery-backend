@@ -7,7 +7,7 @@ import { stripe } from '../../config/stripe.config';
 export class StripeService implements IStripeService {
     async createPaymentIntent(amount: number, metadata: Record<string, string>): Promise<Stripe.PaymentIntent> {
         return await stripe.paymentIntents.create({
-            amount: Math.round(amount * 100), // convert to cents/paise
+            amount: Math.round(amount * 100), 
             currency: 'inr',
             metadata,
             payment_method_types: ['card'],

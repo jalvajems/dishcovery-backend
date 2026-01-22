@@ -1,13 +1,17 @@
 import { Types } from "mongoose";
 
-export interface IChef{
- chefId: string | Types.ObjectId;
-    phone: string;
+export interface IChef {
+    chefId: string | Types.ObjectId;
+    phone?: string;
     location: string;
-    specialities:string[]
-    preferences: string;
-    bio: string;
-    image: string;
-    status: string;
-    isVerified:boolean;
+    specialities: string[];
+    bio?: string;
+    image?: string;
+    status: "active" | "blocked";
+    isVerified: boolean;
+    certificates?: string[];
+    achievements?: string[];
+    skills?: string[];
+    createdAt?: Date;
+    updatedAt?: Date;
 }

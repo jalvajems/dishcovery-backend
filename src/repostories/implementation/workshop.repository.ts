@@ -21,4 +21,39 @@ export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implem
     async decrementParticipants(id: string): Promise<void> {
         await this.model.findByIdAndUpdate(id, { $inc: { participantsCount: -1 } });
     }
+
+    async findAllByChefId(chefId: string, skip: number, limit: number): Promise<{ datas: IWorkshopDocument[]; totalCount: number }> {
+        const query = { chefId };
+        const workshops = await this.model.find(query).skip(skip).limit(limit);
+        const totalCount = await this.model.countDocuments(query);
+        return { datas: workshops, totalCount };
+    }
+
+    async findAllApprovedWithFilters(skip: number, limit: number, search: string, filter?: string): Promise<{ datas: IWorkshopDocument[]; totalCount: number }> {
+        const query: any = {
+            status: { $in: ['APPROVED', 'UPCOMING', 'LIVE'] }
+        };
+
+        if (search) {
+            query.$or = [
+                { title: new RegExp(search, "i") },
+                { description: new RegExp(search, "i") }
+            ];
+        }
+
+        if (filter && filter !== 'all') {
+            query.$or = [
+                { category: new RegExp(filter, "i") },
+                { mode: new RegExp(filter, "i") }
+            ];
+        }
+
+        const workshops = await this.model.find(query)
+            .populate('chefId', 'name image')
+            .sort({ date: 1 })
+            .skip(skip)
+            .limit(limit);
+        const totalCount = await this.model.countDocuments(query);
+        return { datas: workshops, totalCount };
+    }
 }

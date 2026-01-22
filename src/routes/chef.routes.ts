@@ -10,11 +10,13 @@ import { createChefProfileSchema, updateChefProfileSchema } from '../validations
 import { createRecipeSchema, editRecipeRequestSchema, updateRecipeSchema } from '../validations/recipeValidation';
 import { createBlogSchema, updateBlogSchema } from '../validations/blogValidation';
 import { isVerifyChef } from '../middlewares/isVerifyChef';
+import { IWalletController } from '../controllers/interface/IWalletController';
 const router = Router();
 
 const chefController = container.get<IChefController>(TYPES.IChefController)
 const recipeController = container.get<IRecipeController>(TYPES.IRecipeController)
 const BlogController = container.get<IBlogController>(TYPES.IBlogController)
+const WalletController = container.get<IWalletController>(TYPES.IWalletController)
 
 console.log('reach router');
 
@@ -35,4 +37,5 @@ router.delete('/blog-delete/:blogId', verifyAccess, BlogController.deletBlog.bin
 router.get('/blog-details/:blogId', verifyAccess, BlogController.getBlogDetails.bind(BlogController))
       .get('/blog-listing', verifyAccess, BlogController.getMyBlogs.bind(BlogController))
 
+      router.get('/wallet',verifyAccess,WalletController.chefWallet.bind(WalletController))
 export default router

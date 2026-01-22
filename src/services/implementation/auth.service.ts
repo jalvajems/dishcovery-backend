@@ -100,6 +100,7 @@ export class AuthService implements IAuthService {
 
     async forgetPass(email: string): Promise<void> {
         try {
+            console.log("hi2")
             const existing = await this._userRepository.findByEmail(email)
             if (!existing) {
                 throw new AppError('Email is not exist', STATUS_CODE.NOT_FOUND);
@@ -121,11 +122,16 @@ export class AuthService implements IAuthService {
     async forgetPassOtp(OtpVerifyData: OtpDto): Promise<void> {
         try {
             
+            console.log("hi")
             const { otp, email } = OtpVerifyData;
-            
             const key=`otp:${email}`
             const redisOtp=await redisClient.get(key)
-            if (!redisOtp && redisOtp !== otp) {
+            console.log('redis otp------',redisOtp);
+            console.log('otp------',otp);
+            
+            if (!redisOtp || redisOtp !== otp) {
+                console.log('incorect');
+                
                 throw new AppError('Otp is not found or not match', STATUS_CODE.NOT_FOUND)
             }
             await redisClient.del(key);
@@ -136,6 +142,7 @@ export class AuthService implements IAuthService {
         }
     }
     async resendOtp(email: string): Promise<object> {
+        console.log("hi1")
         const otp = generateOTP(4)
         
         const key=`otp:${email}`
