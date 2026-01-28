@@ -11,6 +11,7 @@ export class BaseRepository <T extends Document> implements IBaseRepository<T>{
     }
     
     async create(data: Partial<T>): Promise<T> {
+      
         return await this.model.create(data)
     }
     async findAll(filter: FilterQuery<T>): Promise<T[]> {

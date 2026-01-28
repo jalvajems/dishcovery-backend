@@ -136,10 +136,10 @@ export class WorkshopService implements IWorkshopService {
         if (workshop.mode !== WorkshopMode.ONLINE) {
             throw new AppError('Only online workshops can be started', STATUS_CODE.BAD_REQUEST);
         }
+        const session = await this._sessionService.startSession(workshopId, chefId)
         console.log('rech start sesion wsrvs4');
 
         console.log('rech start sesion wsrvs8');
-        const session = await this._sessionService.startSession(workshopId, chefId)
         const updated = await this._workshopRepository.updateById(workshopId, {
             status: WorkshopStatus.LIVE,
             isLive: true,
@@ -150,7 +150,7 @@ export class WorkshopService implements IWorkshopService {
         if (!updated) throw new AppError('Failed to start session BC OF WORKSHOP', STATUS_CODE.INTERNAL_SERVER_ERROR);
         console.log('rech start sesion wsrvs5');
         if (!session) throw new AppError('Failed to start session BC OF SESSION', STATUS_CODE.INTERNAL_SERVER_ERROR);
-        console.log('rech start sesion wsrvs6');
+        console.log('rech start sesion wsrvs6',updated.id);
         return { workshop: workshopMapper(updated), session: WorkshopSessionMapper.toResponse(session) };
     }
 
