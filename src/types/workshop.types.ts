@@ -28,12 +28,13 @@ export interface IWorkshop {
     title: string;
     description: string;
     category: string;
+    banner?: string;
     tags?: string[];
     chefId: string | Types.ObjectId;
 
     date: Date;
-    startTime: string; 
-    duration: number; 
+    startTime: string;
+    duration: number;
     participantLimit: number;
 
     mode: WorkshopMode;
@@ -50,11 +51,14 @@ export interface IWorkshop {
     approvedAt?: Date;
     approvedBy?: string | Types.ObjectId;
     rejectionReason?: string;
+    cancellationReason?: string;
 
     participantsCount: number;
 
     createdAt?: Date;
     updatedAt?: Date;
+
+    isBooked?: boolean;
 }
 
 export interface IWorkshopDocument extends IWorkshop, Document { }

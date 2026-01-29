@@ -57,7 +57,6 @@ export class ChefService implements IChefService {
             console.log("chefId", chefId);
 
             let result = await this._chefRepository.findByChefId(chefId);
-            console.log('resultin get profile===', result);
 
             let reviews: any[] = [];
             if (result) {

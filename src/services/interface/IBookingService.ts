@@ -6,4 +6,5 @@ export interface IBookingService {
     getMyBookings(foodieId: string): Promise<IBookingDocument[]>;
     getWorkshopParticipants(workshopId: string, chefId: string): Promise<IBookingDocument[]>;
     cancelBooking(bookingId: string, foodieId: string): Promise<void>;
+    processWorkshopCancellation(workshopId: string): Promise<void>;
 }

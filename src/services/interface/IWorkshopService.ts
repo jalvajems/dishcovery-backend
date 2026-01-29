@@ -5,14 +5,15 @@ import { IWorkshopDocument, WorkshopStatus } from '../../types/workshop.types';
 export interface IWorkshopService {
     createWorkshop(chefId: string, data: any): Promise<IWorkshopDocument>;
     updateWorkshop(workshopId: string, chefId: string, data: any): Promise<IWorkshopDocument>;
-    getWorkshopById(id: string): Promise<IWorkshopDocument | null>;
+    getWorkshopById(id: string, userId?: string): Promise<IWorkshopDocument | null>;
     getChefWorkshops(chefId: string): Promise<IWorkshopDocument[]>;
     getAllWorkshopsForAdmin(): Promise<IWorkshopDocument[]>;
-    getApprovedWorkshops(page: number, limit: number, search: string, filter?: string): Promise<{ datas: IWorkshopDocument[], totalCount: number }>;
+    getApprovedWorkshops(page: number, limit: number, search: string, filter?: string, userId?: string): Promise<{ datas: IWorkshopDocument[], totalCount: number }>;
     approveWorkshop(workshopId: string, adminId: string): Promise<IWorkshopDocument>;
     rejectWorkshop(workshopId: string, adminId: string, reason: string): Promise<IWorkshopDocument>;
     startSession(workshopId: string, chefId: string): Promise<{ workshop: IWorkshopResponseDTO, session: IWorkshopSessionResponseDTO }>;
     endSession(workshopId: string, chefId: string): Promise<IWorkshopDocument>;
     submitForApproval(workshopId: string, chefId: string): Promise<IWorkshopDocument>;
-    getWorkshopsByChef(chefId: string, page: number, limit: number): Promise<{ datas: IWorkshopDocument[], totalCount: number }>;
+    getWorkshopsByChef(chefId: string, page: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopDocument[], totalCount: number }>;
+    cancelWorkshop(workshopId: string, chefId: string, reason: string): Promise<IWorkshopDocument>;
 }

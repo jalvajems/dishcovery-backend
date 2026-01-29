@@ -13,10 +13,11 @@ const workshopController = container.get<IWorkshopController>(TYPES.IWorkshopCon
 
 router.post('/chef', verifyAccess, isVerifyChef, validate(createWorkshopSchema), workshopController.createWorkshop.bind(workshopController));
 router.put('/chef/:id', verifyAccess, isVerifyChef, validate(updateWorkshopSchema), workshopController.updateWorkshop.bind(workshopController));
-router.get('/chef', verifyAccess, isVerifyChef, workshopController.getChefWorkshops.bind(workshopController));
+router.get('/chef', verifyAccess, isVerifyChef, workshopController.getWorkshopsByChef.bind(workshopController));
 router.patch('/chef/:id/submit', verifyAccess, isVerifyChef, workshopController.submitWorkshop.bind(workshopController));
 router.post('/chef/:id/start', verifyAccess, isVerifyChef, workshopController.startWorkshop.bind(workshopController));
 router.post('/chef/:id/end', verifyAccess, isVerifyChef, workshopController.endWorkshop.bind(workshopController));
+router.patch('/:id/cancel', verifyAccess, isVerifyChef, workshopController.cancelWorkshop.bind(workshopController)); // Added this line
 
 router.get('/admin', verifyAccess, authorizeRole('admin'), workshopController.getAllWorkshops.bind(workshopController));
 router.patch('/admin/:id/approve', verifyAccess, authorizeRole('admin'), workshopController.approveWorkshop.bind(workshopController));

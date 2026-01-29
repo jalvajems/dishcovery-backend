@@ -13,9 +13,9 @@ export function walletTransactionMapper(
     userId: obj.userId
       ? typeof obj.userId === "object" && "_id" in obj.userId
         ? {
-            id: obj.userId._id,
-            name: obj.userId.name
-          }
+          id: obj.userId._id,
+          name: obj.userId.name
+        }
         : obj.userId
       : null,
 
@@ -23,16 +23,20 @@ export function walletTransactionMapper(
 
     bookingId: obj.bookingId
       ? typeof obj.bookingId === "object" && "_id" in obj.bookingId
-        ? obj.bookingId._id.toString()
+        ? {
+          id: obj.bookingId._id,
+          foodieId: (obj.bookingId as any).foodieId
+        }
         : obj.bookingId.toString()
       : null,
 
     workshopId: obj.workshopId
       ? typeof obj.workshopId === "object" && "_id" in obj.workshopId
         ? {
-            id: obj.workshopId._id,
-            title: obj.workshopId.title
-          }
+          id: obj.workshopId._id,
+          title: (obj.workshopId as any).title,
+          chefId: (obj.workshopId as any).chefId
+        }
         : obj.workshopId
       : null,
 

@@ -10,12 +10,14 @@ import { IWorkshopResponseDTO } from '../../dtos/workshop.dtos';
 import { IWorkshopSessionResponseDTO } from '../../dtos/session.dtos';
 import { workshopMapper } from '../../utils/mapper/workshop.mapper';
 import { WorkshopSessionMapper } from '../../utils/mapper/session.mapper';
+import { IBookingService } from '../interface/IBookingService';
 
 @injectable()
 export class WorkshopService implements IWorkshopService {
     constructor(
         @inject(TYPES.IWorkshopRepository) private _workshopRepository: IWorkshopRepository,
         @inject(TYPES.WorkshopSessionService) private _sessionService: IWorkshopSessionService,
+        @inject(TYPES.IBookingService) private _bookingService: IBookingService
     ) { }
 
     async createWorkshop(chefId: string, data: any): Promise<IWorkshopDocument> {
@@ -46,8 +48,21 @@ export class WorkshopService implements IWorkshopService {
         return updated;
     }
 
-    async getWorkshopById(id: string): Promise<IWorkshopDocument | null> {
-        return await this._workshopRepository.findWithChef(id);
+    async getWorkshopById(id: string, userId?: string): Promise<IWorkshopDocument | null> {
+        const workshop = await this._workshopRepository.findWithChef(id);
+        if (!workshop) return null;
+
+        if (userId) {
+            const bookings = await this._bookingService.getMyBookings(userId);
+            const isBooked = bookings.some(b =>
+                b.workshopId.toString() === (workshop._id as any).toString() &&
+                (b.status === 'CONFIRMED' || b.status === 'PENDING')
+            );
+            const workshopObj = workshop.toObject ? workshop.toObject() : workshop;
+            return { ...workshopObj, isBooked } as any;
+        }
+
+        return workshop;
     }
 
     async getChefWorkshops(chefId: string): Promise<IWorkshopDocument[]> {
@@ -58,9 +73,27 @@ export class WorkshopService implements IWorkshopService {
         return await this._workshopRepository.findAll({});
     }
 
-    async getApprovedWorkshops(page: number, limit: number, search: string, filter?: string): Promise<{ datas: IWorkshopDocument[], totalCount: number }> {
+    async getApprovedWorkshops(page: number, limit: number, search: string, filter?: string, userId?: string): Promise<{ datas: IWorkshopDocument[], totalCount: number }> {
         const skip = (page - 1) * limit;
-        return await this._workshopRepository.findAllApprovedWithFilters(skip, limit, search, filter);
+        const result = await this._workshopRepository.findAllApprovedWithFilters(skip, limit, search, filter);
+
+        if (userId) {
+            const bookings = await this._bookingService.getMyBookings(userId);
+            const bookedWorkshopIds = new Set(
+                bookings
+                    .filter(b => b.status === 'CONFIRMED' || b.status === 'PENDING')
+                    .map(b => b.workshopId.toString())
+            );
+
+            const workshopsWithStatus = result.datas.map(w => {
+                const wObj = w.toObject ? w.toObject() : w;
+                return { ...wObj, isBooked: bookedWorkshopIds.has((w._id as any).toString()) };
+            });
+
+            return { datas: workshopsWithStatus as any[], totalCount: result.totalCount };
+        }
+
+        return result;
     }
 
     async approveWorkshop(workshopId: string, adminId: string): Promise<IWorkshopDocument> {
@@ -136,6 +169,15 @@ export class WorkshopService implements IWorkshopService {
         if (workshop.mode !== WorkshopMode.ONLINE) {
             throw new AppError('Only online workshops can be started', STATUS_CODE.BAD_REQUEST);
         }
+
+        // Validate time
+        const workshopDate = new Date(workshop.date);
+        const [hours, minutes] = workshop.startTime.split(':').map(Number);
+        workshopDate.setHours(hours, minutes, 0, 0);
+
+        if (new Date() < workshopDate) {
+            throw new AppError('Workshop cannot be started before scheduled time', STATUS_CODE.BAD_REQUEST);
+        }
         const session = await this._sessionService.startSession(workshopId, chefId)
         console.log('rech start sesion wsrvs4');
 
@@ -150,7 +192,7 @@ export class WorkshopService implements IWorkshopService {
         if (!updated) throw new AppError('Failed to start session BC OF WORKSHOP', STATUS_CODE.INTERNAL_SERVER_ERROR);
         console.log('rech start sesion wsrvs5');
         if (!session) throw new AppError('Failed to start session BC OF SESSION', STATUS_CODE.INTERNAL_SERVER_ERROR);
-        console.log('rech start sesion wsrvs6',updated.id);
+        console.log('rech start sesion wsrvs6', updated.id);
         return { workshop: workshopMapper(updated), session: WorkshopSessionMapper.toResponse(session) };
     }
 
@@ -177,15 +219,77 @@ export class WorkshopService implements IWorkshopService {
         return updated;
     }
 
-    async getWorkshopsByChef(chefId: string, page: number, limit: number): Promise<{ datas: IWorkshopDocument[], totalCount: number }> {
+    async getWorkshopsByChef(chefId: string, page: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopDocument[], totalCount: number }> {
         try {
             const skip = (page - 1) * limit;
-            const res = await this._workshopRepository.findAllByChefId(chefId, skip, limit);
-            console.log('ressssss', res);
-
+            const res = await this._workshopRepository.findAllByChefId(chefId, skip, limit, search, status);
+            console.log('res=====?',res);
+            
             return res
         } catch (error) {
             throw error;
         }
+    }
+    //             return res
+    //         } catch (error) {
+    //     throw error;
+    // }
+    //     }
+
+    async cancelWorkshop(workshopId: string, chefId: string, reason: string): Promise<IWorkshopDocument> {
+        const workshop = await this._workshopRepository.findById(workshopId);
+        if (!workshop) {
+            throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
+        }
+
+        if (workshop.chefId.toString() !== chefId) {
+            throw new AppError('Unauthorized: You are not the owner of this workshop', STATUS_CODE.FORBIDDEN);
+        }
+
+        if (workshop.status === WorkshopStatus.COMPLETED || workshop.status === WorkshopStatus.CANCELLED) {
+            throw new AppError(`Cannot cancel workshop in ${workshop.status} status`, STATUS_CODE.BAD_REQUEST);
+        }
+
+        // 1. Update Workshop Status
+        const updated = await this._workshopRepository.updateById(workshopId, {
+            status: WorkshopStatus.CANCELLED,
+            rejectionReason: reason // Using availability of this field or we could add cancellationReason to Workshop model
+        });
+
+        if (!updated) throw new AppError('Failed to cancel workshop', STATUS_CODE.INTERNAL_SERVER_ERROR);
+
+        // 2. Process Refunds for Bookings (Async)
+        // We use immediate execution but don't await the full completion to return response faster? 
+        // OR better await it to ensure consistency if it's not too slow. 
+        // Given Stripe rate limits, if many bookings validation is needed. For now, await is safer.
+
+        // We need to inject BookingService here, but circular dependency might occur.
+        // If BookingService depends on WorkshopService (it does), we cannot inject BookingService into WorkshopService directly if using constructor injection in some containers without lazy loading.
+        // In Inversify we can use LazyServiceIdentifer or just resolve it.
+        // However, BookingService already depends on WorkshopService.
+        // To avoid Circular Dependency:
+        // Option A: Move cancellation logic to a coordination service (e.g. WorkshopOrchestrator).
+        // Option B: Emit an event (EventBus).
+        // Option C: Use property injection or lazy injection.
+
+        // For simplicity in this architecture, let's try strict layering or just direct call if DI allows.
+        // But since I need to modify the file now, I will add the method assuming I can add the dependency.
+        // Wait, I see `_workshopRepository` and `_sessionService` injected. I need to add `IBookingService`.
+
+        // Let's check `types.ts` for IBookingService symbol.
+        // If circular dependency is an issue, we might need a different approach.
+        // BookingService uses WorkshopRepository, not WorkshopService. So it MIGHT be fine if I inject BookingService here.
+        // Let's check BookingService imports: it imports IWorkshopRepository, NOT IWorkshopService. 
+        // So NO circular dependency between Services!
+        // BookingService -> WorkshopRepository
+        // WorkshopService -> BookingService (Proposed)
+        // This is valid.
+
+        // I will add the dependency in a separate step to the constructor.
+
+        // For now, let's write the method body, I'll update the constructor next.
+        await this._bookingService.processWorkshopCancellation(workshopId);
+
+        return updated;
     }
 }

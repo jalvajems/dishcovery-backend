@@ -22,9 +22,24 @@ export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implem
         await this.model.findByIdAndUpdate(id, { $inc: { participantsCount: -1 } });
     }
 
-    async findAllByChefId(chefId: string, skip: number, limit: number): Promise<{ datas: IWorkshopDocument[]; totalCount: number }> {
-        const query = { chefId };
-        const workshops = await this.model.find(query).skip(skip).limit(limit);
+    async findAllByChefId(chefId: string, skip: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopDocument[]; totalCount: number }> {
+        const query: any = { chefId };
+console.log('status',status);
+
+        if (search) {
+            query.title = { $regex: search, $options: 'i' };
+        }
+
+        if (status && status !== 'All') {
+            query.status = status;
+        }
+        console.log('~~~~~',query);
+        
+
+        const workshops = await this.model.find(query)
+            .sort({ createdAt: -1 }) // Sort by newest first usually
+            .skip(skip)
+            .limit(limit);
         const totalCount = await this.model.countDocuments(query);
         return { datas: workshops, totalCount };
     }

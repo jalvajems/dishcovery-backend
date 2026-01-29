@@ -119189,3 +119189,342 @@ src/services/implementation/workshop.service.ts(153,56): error TS1003: Identifie
     at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
     at Module.load (node:internal/modules/cjs/loader:1318:32)
     at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-28 19:41:21] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(191,13): error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+src/services/implementation/workshop.service.ts(192,9): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(192,11): error TS1005: 'try' expected.
+src/services/implementation/workshop.service.ts(195,5): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(197,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/workshop.service.ts(197,36): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(197,52): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(197,68): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(197,77): error TS1005: ';' expected.
+src/services/implementation/workshop.service.ts(198,11): error TS1005: ':' expected.
+src/services/implementation/workshop.service.ts(198,73): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(199,8): error TS1003: Identifier expected.
+src/services/implementation/workshop.service.ts(203,9): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(203,20): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(203,49): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(203,51): error TS1136: Property assignment expected.
+src/services/implementation/workshop.service.ts(252,5): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(253,1): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-47888855142303854.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-47888855142303854.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-47888855142303854.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-28 19:41:27] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(192,13): error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+src/services/implementation/workshop.service.ts(193,9): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(193,11): error TS1005: 'try' expected.
+src/services/implementation/workshop.service.ts(196,5): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(198,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/workshop.service.ts(198,36): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(198,52): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(198,68): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(198,77): error TS1005: ';' expected.
+src/services/implementation/workshop.service.ts(199,11): error TS1005: ':' expected.
+src/services/implementation/workshop.service.ts(199,73): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(200,8): error TS1003: Identifier expected.
+src/services/implementation/workshop.service.ts(204,9): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(204,20): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(204,49): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(204,51): error TS1136: Property assignment expected.
+src/services/implementation/workshop.service.ts(253,5): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(254,1): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-47888855142303854.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-47888855142303854.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-47888855142303854.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-28 19:41:41] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(193,13): error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+src/services/implementation/workshop.service.ts(194,9): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(194,11): error TS1005: 'try' expected.
+src/services/implementation/workshop.service.ts(197,5): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(199,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/workshop.service.ts(199,36): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(199,52): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(199,68): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(199,77): error TS1005: ';' expected.
+src/services/implementation/workshop.service.ts(200,11): error TS1005: ':' expected.
+src/services/implementation/workshop.service.ts(200,73): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(201,8): error TS1003: Identifier expected.
+src/services/implementation/workshop.service.ts(205,9): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(205,20): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(205,49): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(205,51): error TS1136: Property assignment expected.
+src/services/implementation/workshop.service.ts(254,5): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(255,1): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-47888855142303854.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-47888855142303854.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-47888855142303854.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-28 19:47:27] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(193,13): error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+src/services/implementation/workshop.service.ts(194,9): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(194,11): error TS1005: 'try' expected.
+src/services/implementation/workshop.service.ts(197,5): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(199,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/workshop.service.ts(199,36): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(199,52): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(199,68): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(199,77): error TS1005: ';' expected.
+src/services/implementation/workshop.service.ts(200,11): error TS1005: ':' expected.
+src/services/implementation/workshop.service.ts(200,73): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(201,8): error TS1003: Identifier expected.
+src/services/implementation/workshop.service.ts(205,9): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(205,20): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(205,49): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(205,51): error TS1136: Property assignment expected.
+src/services/implementation/workshop.service.ts(254,5): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(255,1): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-28 19:48:03] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(193,13): error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+src/services/implementation/workshop.service.ts(194,9): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(194,11): error TS1005: 'try' expected.
+src/services/implementation/workshop.service.ts(199,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/workshop.service.ts(199,36): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(199,52): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(199,68): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(199,77): error TS1005: ';' expected.
+src/services/implementation/workshop.service.ts(200,11): error TS1005: ':' expected.
+src/services/implementation/workshop.service.ts(200,73): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(201,8): error TS1003: Identifier expected.
+src/services/implementation/workshop.service.ts(205,9): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(205,20): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(205,49): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(205,51): error TS1136: Property assignment expected.
+src/services/implementation/workshop.service.ts(254,5): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(255,1): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-28 19:48:04] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(193,13): error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+src/services/implementation/workshop.service.ts(194,9): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(194,11): error TS1005: 'try' expected.
+src/services/implementation/workshop.service.ts(197,5): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(199,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/workshop.service.ts(199,36): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(199,52): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(199,68): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(199,77): error TS1005: ';' expected.
+src/services/implementation/workshop.service.ts(200,11): error TS1005: ':' expected.
+src/services/implementation/workshop.service.ts(200,73): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(201,8): error TS1003: Identifier expected.
+src/services/implementation/workshop.service.ts(205,9): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(205,20): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(205,49): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(205,51): error TS1136: Property assignment expected.
+src/services/implementation/workshop.service.ts(254,5): error TS1128: Declaration or statement expected.
+src/services/implementation/workshop.service.ts(255,1): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-28 20:19:36] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/booking.service.ts(40,85): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\booking.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-28 20:19:45] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/booking.service.ts(40,127): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\booking.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7084013559161297.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-29 09:36:26] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/implementation/transaction.repository.ts(11,13): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\transaction.repository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-14091316535399923.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-14091316535399923.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-14091316535399923.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-29 15:07:29] [31merror[39m: TypeError: Cannot read properties of undefined (reading 'bind')
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\routes\workshop.routes.ts:16:72)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-29 15:09:27] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(226,25): error TS1005: ')' expected.
+src/services/implementation/workshop.service.ts(226,26): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/workshop.service.ts(226,27): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-29 15:27:01] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/implementation/workshop.controller.ts(155,41): error TS1005: ',' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\implementation\workshop.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-29 15:27:07] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/implementation/workshop.controller.ts(155,33): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\implementation\workshop.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-29 15:27:12] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/implementation/workshop.controller.ts(155,38): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\implementation\workshop.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-29 19:16:11] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/implementation/workshop.controller.ts(162,16): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\implementation\workshop.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-29 19:16:13] [31merror[39m: D:\brototype\Dishcovery\server\src\controllers\implementation\workshop.controller.ts:180
+                const result = await this._workshopService.getWorkshopsByChef(chefId, page, limit, search, status);
+                ^^^^^
+
+SyntaxError: Unexpected token 'const'
+    at wrapSafe (node:internal/modules/cjs/loader:1469:18)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1491:20)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-29 19:16:17] [31merror[39m: D:\brototype\Dishcovery\server\src\controllers\implementation\workshop.controller.ts:180
+                const result = await this._workshopService.getWorkshopsByChef(chefId, page, limit, search, status);
+                ^^^^^
+
+SyntaxError: Unexpected token 'const'
+    at wrapSafe (node:internal/modules/cjs/loader:1469:18)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1491:20)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-29 19:16:36] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/implementation/workshop.controller.ts(162,23): error TS1434: Unexpected keyword or identifier.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\implementation\workshop.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-21188260393940106.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)

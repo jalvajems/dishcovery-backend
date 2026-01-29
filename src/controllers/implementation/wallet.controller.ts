@@ -8,29 +8,35 @@ import { STATUS_CODE } from "../../constants/StatusCode";
 import { success } from "zod";
 
 @injectable()
-export class WalletController implements IWalletController{
+export class WalletController implements IWalletController {
     constructor(
-        @inject(TYPES.IWalletTransactionService) private _walletTransactionService:WalletTransactionService,
-    ){}
+        @inject(TYPES.IWalletTransactionService) private _walletTransactionService: WalletTransactionService,
+    ) { }
 
     async chefWallet(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            
-            const chefId=req.user?.id;
+
+            const chefId = req.user?.id;
+            const page = parseInt(req.query.page as string) || 1;
+            const limit = parseInt(req.query.limit as string) || 10;
+
             console.log('reached chef walcontr');
-            if(!chefId)throw new AppError('user is not authenticated',STATUS_CODE.UNAUTHORIZED)
-                const data=await this._walletTransactionService.getUserWallet(chefId,'chef');
-            res.json({success:true,data})
+            if (!chefId) throw new AppError('user is not authenticated', STATUS_CODE.UNAUTHORIZED)
+            const data = await this._walletTransactionService.getUserWallet(chefId, 'chef', page, limit);
+            res.json({ success: true, data })
         } catch (error) {
             next(error)
         }
     }
     async foodieWallet(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const userId=req.user?.id;
-            if(!userId)throw new AppError('user is not authenticated',STATUS_CODE.UNAUTHORIZED)
-            const data=await this._walletTransactionService.getUserWallet(userId,'user');
-            res.json({success:true,data})
+            const userId = req.user?.id;
+            const page = parseInt(req.query.page as string) || 1;
+            const limit = parseInt(req.query.limit as string) || 10;
+
+            if (!userId) throw new AppError('user is not authenticated', STATUS_CODE.UNAUTHORIZED)
+            const data = await this._walletTransactionService.getUserWallet(userId, 'user', page, limit);
+            res.json({ success: true, data })
         } catch (error) {
             next(error);
         }

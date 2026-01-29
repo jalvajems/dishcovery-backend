@@ -10,7 +10,7 @@ const BookingSchema: Schema = new Schema(
         },
         foodieId: {
             type: Schema.Types.ObjectId,
-            ref: 'User', 
+            ref: 'User',
             required: true
         },
         status: {
@@ -44,6 +44,12 @@ const BookingSchema: Schema = new Schema(
         },
         cancelledAt: {
             type: Date
+        },
+        cancellationReason: {
+            type: String
+        },
+        refundId: {
+            type: String
         }
     },
     {

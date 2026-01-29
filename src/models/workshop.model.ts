@@ -18,6 +18,9 @@ const workshopSchema = new Schema<IWorkshopDocument>(
             type: String,
             required: true
         },
+        banner: {
+            type: String
+        },
         tags: [{
             type: String
         }],
@@ -27,7 +30,7 @@ const workshopSchema = new Schema<IWorkshopDocument>(
             required: true
         },
 
-        
+
         date: {
             type: Date,
             required: true
@@ -47,7 +50,7 @@ const workshopSchema = new Schema<IWorkshopDocument>(
             min: 1
         },
 
-        
+
         mode: {
             type: String,
             enum: Object.values(WorkshopMode),
@@ -64,7 +67,7 @@ const workshopSchema = new Schema<IWorkshopDocument>(
             default: 0
         },
 
-        
+
         location: {
             venueName: { type: String },
             address: { type: String },
@@ -85,6 +88,7 @@ const workshopSchema = new Schema<IWorkshopDocument>(
         approvedAt: { type: Date },
         approvedBy: { type: Schema.Types.ObjectId, ref: 'User' },
         rejectionReason: { type: String },
+        cancellationReason: { type: String },
         participantsCount: { type: Number, default: 0 }
     },
     {

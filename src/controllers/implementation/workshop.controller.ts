@@ -5,6 +5,7 @@ import { IWorkshopController } from '../interface/IWorkshopController';
 import { IWorkshopService } from '../../services/interface/IWorkshopService';
 import { STATUS_CODE } from '../../constants/StatusCode';
 import { AppError } from '../../utils/AppError';
+import { log } from '../../utils/logger';
 
 @injectable()
 export class WorkshopController implements IWorkshopController {
@@ -38,7 +39,8 @@ export class WorkshopController implements IWorkshopController {
     async getWorkshopById(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const { id } = req.params;
-            const workshop = await this._workshopService.getWorkshopById(id);
+            const userId = req.user?.id; // Optional user ID if logged in
+            const workshop = await this._workshopService.getWorkshopById(id, userId);
             if (!workshop) throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop });
         } catch (error) {
@@ -48,6 +50,8 @@ export class WorkshopController implements IWorkshopController {
 
     async getChefWorkshops(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
+            console.log('ivden');
+            
             const chefId = req.user?.id;
             if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
             const workshops = await this._workshopService.getChefWorkshops(chefId);
@@ -72,8 +76,9 @@ export class WorkshopController implements IWorkshopController {
             const limit = Number(req.query.limit) || 6;
             const search = String(req.query.search) || "";
             const filter = String(req.query.filter) || "";
+            const userId = req.user?.id; // Optional user ID
 
-            const result = await this._workshopService.getApprovedWorkshops(page, limit, search, filter);
+            const result = await this._workshopService.getApprovedWorkshops(page, limit, search, filter, userId);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.datas, totalCount: result.totalCount });
         } catch (error) {
             next(error);
@@ -145,10 +150,17 @@ export class WorkshopController implements IWorkshopController {
 
     async getWorkshopsByChef(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const { chefId } = req.params;
+            console.log('ivdethi');
+            
+            const chefId  = req.user?.id;
             const page = Number(req.query.page) || 1;
             const limit = Number(req.query.limit) || 6;
-            const result = await this._workshopService.getWorkshopsByChef(chefId, page, limit);
+            const search = String(req.query.search) || "";
+            const status = String(req.query.status) || "";
+
+            if(!chefId)throw new AppError('Not authenticated',STATUS_CODE.UNAUTHORIZED)
+
+            const result = await this._workshopService.getWorkshopsByChef(chefId, page, limit, search, status);
             res.status(STATUS_CODE.SUCCESS).json({
                 success: true,
                 datas: result.datas,
@@ -156,6 +168,22 @@ export class WorkshopController implements IWorkshopController {
                 currentPage: page,
                 totalPages: Math.ceil(result.totalCount / limit)
             });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async cancelWorkshop(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const chefId = req.user?.id;
+            const { id } = req.params;
+            const { reason } = req.body;
+
+            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!reason) throw new AppError('Cancellation reason is required', STATUS_CODE.BAD_REQUEST);
+
+            const workshop = await this._workshopService.cancelWorkshop(id, chefId, reason);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop cancelled processing started' });
         } catch (error) {
             next(error);
         }
