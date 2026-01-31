@@ -1,0 +1,36 @@
+import mongoose, { Schema, Document, Types } from "mongoose";
+
+export interface INotification extends Document {
+    recipientId: Types.ObjectId;
+    recipientRole: 'chef' | 'foodie';
+    title: string;
+    message: string;
+    type: 'SESSION_STARTED' | 'SESSION_CANCELLED' | 'WORKSHOP_APPROVED' | 'WORKSHOP_REJECTED';
+    workshopId?: Types.ObjectId;
+    sessionId?: Types.ObjectId;
+    isRead: boolean;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+const NotificationSchema: Schema = new Schema({
+    recipientId: { type: Schema.Types.ObjectId, required: true, refPath: 'recipientRole' }, // Dynamic ref if needed, or just ID
+    recipientRole: { type: String, enum: ['chef', 'foodie'], required: true },
+    title: { type: String, required: true },
+    message: { type: String, required: true },
+    type: {
+        type: String,
+        enum: ['SESSION_STARTED', 'SESSION_CANCELLED', 'WORKSHOP_APPROVED', 'WORKSHOP_REJECTED'],
+        required: true
+    },
+    workshopId: { type: Schema.Types.ObjectId, ref: 'Workshop' },
+    sessionId: { type: Schema.Types.ObjectId, ref: 'Session' }, // Assuming Session model exists, logical ref
+    isRead: { type: Boolean, default: false },
+}, {
+    timestamps: true
+});
+
+// Create compound index for efficient querying by recipient
+NotificationSchema.index({ recipientId: 1, createdAt: -1 });
+
+export const NotificationModel = mongoose.model<INotification>("Notification", NotificationSchema);

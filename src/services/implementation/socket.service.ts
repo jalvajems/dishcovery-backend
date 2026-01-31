@@ -6,7 +6,7 @@ import { env } from "../../config/env.config";
 
 class SocketService {
     private io: SocketIOServer | null = null;
-    private userSocketMap: Map<string, string> = new Map(); 
+    private userSocketMap: Map<string, string> = new Map();
 
     public init(server: HTTPServer): void {
         this.io = new SocketIOServer(server, {
@@ -34,6 +34,7 @@ class SocketService {
             const role = socket.data.user.role;
 
             this.userSocketMap.set(userId, socket.id);
+            socket.join(userId); // Join user to their own room for targeted notifications
             log.info(`User connected: ${userId} (${role}) - Socket: ${socket.id}`);
 
             socket.on("join-session", async (workshopId: string) => {

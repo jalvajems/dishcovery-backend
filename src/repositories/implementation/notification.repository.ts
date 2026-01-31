@@ -1,0 +1,45 @@
+import { injectable } from "inversify";
+import { INotification, NotificationModel } from "../../models/notification.model";
+import { INotificationRepository } from "../interfaces/INotificationRepository";
+
+@injectable()
+export class NotificationRepository implements INotificationRepository {
+
+    async create(notification: Partial<INotification>): Promise<INotification> {
+        return await NotificationModel.create(notification);
+    }
+
+    async findByRecipient(recipientId: string, limit: number = 20, skip: number = 0): Promise<INotification[]> {
+        return await NotificationModel.find({ recipientId })
+            .sort({ createdAt: -1 })
+            .skip(skip)
+            .limit(limit)
+            .exec();
+    }
+
+    async markAsRead(notificationId: string): Promise<INotification | null> {
+        return await NotificationModel.findByIdAndUpdate(
+            notificationId,
+            { isRead: true },
+            { new: true }
+        ).exec();
+    }
+
+    async countUnread(recipientId: string): Promise<number> {
+        return await NotificationModel.countDocuments({
+            recipientId,
+            isRead: false
+        }).exec();
+    }
+
+    async markAllAsRead(recipientId: string): Promise<void> {
+        await NotificationModel.updateMany(
+            { recipientId, isRead: false },
+            { isRead: true }
+        ).exec();
+    }
+
+    async deleteAll(recipientId: string): Promise<void> {
+        await NotificationModel.deleteMany({ recipientId }).exec();
+    }
+}

@@ -12,12 +12,15 @@ import { workshopMapper } from '../../utils/mapper/workshop.mapper';
 import { WorkshopSessionMapper } from '../../utils/mapper/session.mapper';
 import { IBookingService } from '../interface/IBookingService';
 
+import { INotificationService } from '../interfaces/INotificationService';
+
 @injectable()
 export class WorkshopService implements IWorkshopService {
     constructor(
         @inject(TYPES.IWorkshopRepository) private _workshopRepository: IWorkshopRepository,
         @inject(TYPES.WorkshopSessionService) private _sessionService: IWorkshopSessionService,
-        @inject(TYPES.IBookingService) private _bookingService: IBookingService
+        @inject(TYPES.IBookingService) private _bookingService: IBookingService,
+        @inject(TYPES.INotificationService) private _notificationService: INotificationService
     ) { }
 
     async createWorkshop(chefId: string, data: any): Promise<IWorkshopDocument> {
@@ -111,6 +114,17 @@ export class WorkshopService implements IWorkshopService {
         });
 
         if (!updated) throw new AppError('Failed to approve workshop', STATUS_CODE.INTERNAL_SERVER_ERROR);
+
+        // Notify Chef
+        await this._notificationService.createNotification(
+            (workshop.chefId as any).toString(),
+            'chef',
+            'Workshop Approved',
+            `Your workshop "${workshop.title}" has been approved.`,
+            'WORKSHOP_APPROVED',
+            workshopId
+        );
+
         return updated;
     }
 
@@ -128,6 +142,17 @@ export class WorkshopService implements IWorkshopService {
         });
 
         if (!updated) throw new AppError('Failed to reject workshop', STATUS_CODE.INTERNAL_SERVER_ERROR);
+
+        // Notify Chef
+        await this._notificationService.createNotification(
+            (workshop.chefId as any).toString(),
+            'chef',
+            'Workshop Rejected',
+            `Your workshop "${workshop.title}" has been rejected. Reason: ${reason}`,
+            'WORKSHOP_REJECTED',
+            workshopId
+        );
+
         return updated;
     }
 
@@ -193,6 +218,21 @@ export class WorkshopService implements IWorkshopService {
         console.log('rech start sesion wsrvs5');
         if (!session) throw new AppError('Failed to start session BC OF SESSION', STATUS_CODE.INTERNAL_SERVER_ERROR);
         console.log('rech start sesion wsrvs6', updated.id);
+
+        // Notify Foodies
+        const participants = await this._bookingService.getWorkshopParticipants(workshopId, chefId);
+        for (const participant of participants) {
+            await this._notificationService.createNotification(
+                (participant.foodieId as any)._id ? (participant.foodieId as any)._id.toString() : (participant.foodieId as any).toString(),
+                'foodie',
+                'Session Started',
+                `The session for workshop "${workshop.title}" has started! Join now.`,
+                'SESSION_STARTED',
+                workshopId,
+                (session as any)._id.toString() // Assuming session object has _id
+            );
+        }
+
         return { workshop: workshopMapper(updated), session: WorkshopSessionMapper.toResponse(session) };
     }
 
@@ -223,8 +263,8 @@ export class WorkshopService implements IWorkshopService {
         try {
             const skip = (page - 1) * limit;
             const res = await this._workshopRepository.findAllByChefId(chefId, skip, limit, search, status);
-            console.log('res=====?',res);
-            
+            console.log('res=====?', res);
+
             return res
         } catch (error) {
             throw error;
@@ -289,6 +329,19 @@ export class WorkshopService implements IWorkshopService {
 
         // For now, let's write the method body, I'll update the constructor next.
         await this._bookingService.processWorkshopCancellation(workshopId);
+
+        // Notify Foodies
+        const participants = await this._bookingService.getWorkshopParticipants(workshopId, chefId);
+        for (const participant of participants) {
+            await this._notificationService.createNotification(
+                (participant.foodieId as any)._id ? (participant.foodieId as any)._id.toString() : (participant.foodieId as any).toString(),
+                'foodie',
+                'Workshop Cancelled',
+                `The workshop "${workshop.title}" has been cancelled. Reason: ${reason}`,
+                'SESSION_CANCELLED',
+                workshopId
+            );
+        }
 
         return updated;
     }

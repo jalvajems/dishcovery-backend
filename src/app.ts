@@ -35,6 +35,8 @@ app.use(cors({
 app.use(requestLogger);
 
 
+import notificationRouter from './routes/notification.routes'
+
 app.use("/api/auth", authRouter)
 app.use("/api/admin", adminRouter)
 app.use("/api/foodie", foodieRouter)
@@ -44,6 +46,7 @@ app.use("/api/workshop", workshopRouter)
 app.use("/api/bookings", bookingRouter)
 app.use("/api/sessions", sessionRouter)
 app.use("/api/follow", followRouter)
+app.use("/api/notifications", notificationRouter)
 
 app.get("/check", (req, res) => {
     res.status(STATUS_CODE.SUCCESS).json({

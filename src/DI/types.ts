@@ -42,6 +42,9 @@ const TYPES = {
     IFollowRepository: Symbol.for("IFollowRepository"),
     IFollowService: Symbol.for("IFollowService"),
     IFollowController: Symbol.for("IFollowController"),
+    INotificationRepository: Symbol.for("INotificationRepository"),
+    INotificationService: Symbol.for("INotificationService"),
+    INotificationController: Symbol.for("INotificationController"),
 }
 
 export default TYPES;

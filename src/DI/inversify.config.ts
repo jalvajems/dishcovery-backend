@@ -12,6 +12,7 @@ import { foodSpotModule } from "./module/foodSpot.di";
 import workshopModule from "./module/workshop.di";
 import { transactionModule } from "./module/transaction.di";
 import { followModule } from "./module/follow.di";
+import notificationModule from "./module/notification.di";
 
 const container = new Container();
 
@@ -28,5 +29,6 @@ foodSpotModule(container);
 workshopModule(container);
 transactionModule(container);
 followModule(container);
+notificationModule(container);
 
 export default container;
