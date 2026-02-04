@@ -6,4 +6,5 @@ export interface IBookingController {
     getParticipants(req: Request, res: Response, Next: NextFunction): Promise<void>;
     cancelBooking(req: Request, res: Response, Next: NextFunction): Promise<void>;
     handleWebhook(req: Request, res: Response, Next: NextFunction): Promise<void>;
+    markAttendance(req: Request, res: Response, Next: NextFunction): Promise<void>;
 }

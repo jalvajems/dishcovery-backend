@@ -1,5 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
-import { IBookingDocument, BookingStatus, BookingType } from '../types/booking.types';
+import { IBookingDocument, BookingStatus, BookingType, AttendanceStatus } from '../types/booking.types';
 
 const BookingSchema: Schema = new Schema(
     {
@@ -17,6 +17,11 @@ const BookingSchema: Schema = new Schema(
             type: String,
             enum: Object.values(BookingStatus),
             default: BookingStatus.PENDING
+        },
+        attendanceStatus: {
+            type: String,
+            enum: Object.values(AttendanceStatus),
+            default: AttendanceStatus.PENDING
         },
         bookingType: {
             type: String,

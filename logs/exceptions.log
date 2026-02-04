@@ -119717,3 +119717,42 @@ Require stack:
     at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
     at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
     at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4092132187716959.js:69:33)
+[2026-02-04 19:29:01] [31merror[39m: TypeError: Cannot convert undefined or null to object
+    at Function.values (<anonymous>)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\booking.model.ts:28:26)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9141098519612649.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9141098519612649.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9141098519612649.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+[2026-02-04 19:30:17] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/booking.service.ts(380,5): error TS1128: Declaration or statement expected.
+src/services/implementation/booking.service.ts(382,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/booking.service.ts(382,35): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(382,51): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(382,60): error TS1005: ';' expected.
+src/services/implementation/booking.service.ts(383,11): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(383,69): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(384,8): error TS1003: Identifier expected.
+src/services/implementation/booking.service.ts(384,18): error TS1005: '{' expected.
+src/services/implementation/booking.service.ts(384,24): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(384,62): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(386,15): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(386,96): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(386,98): error TS1136: Property assignment expected.
+src/services/implementation/booking.service.ts(394,5): error TS1128: Declaration or statement expected.
+src/services/implementation/booking.service.ts(395,1): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\booking.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9141098519612649.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9141098519612649.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9141098519612649.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)

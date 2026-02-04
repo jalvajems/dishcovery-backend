@@ -15,10 +15,17 @@ export enum BookingType {
     PAID = 'PAID'
 }
 
+export enum AttendanceStatus {
+    PENDING = 'PENDING',
+    PRESENT = 'PRESENT',
+    ABSENT = 'ABSENT'
+}
+
 export interface IBooking {
     workshopId: string | Types.ObjectId;
     foodieId: string | Types.ObjectId;
     status: BookingStatus;
+    attendanceStatus: AttendanceStatus;
     bookingType: BookingType;
     amount: number;
     paymentIntentId?: string;

@@ -81,4 +81,20 @@ export class BookingController implements IBookingController {
             res.status(400).send(`Webhook Error: ${error instanceof Error ? error.message : 'Unknown Error'}`);
         }
     }
+
+    async markAttendance(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const chefId = req.user?.id;
+            const { id: bookingId } = req.params;
+            const { status } = req.body;
+
+            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!status) throw new AppError('Status is required', STATUS_CODE.BAD_REQUEST);
+
+            const booking = await this._bookingService.markAttendance(bookingId, status);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: booking, message: 'Attendance updated' });
+        } catch (error) {
+            next(error);
+        }
+    }
 }

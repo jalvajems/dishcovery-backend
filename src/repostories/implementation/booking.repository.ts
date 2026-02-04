@@ -20,14 +20,31 @@ export class BookingRepository extends BaseRepository<IBookingDocument> implemen
     }
 
     async updateStatus(id: string | Types.ObjectId, status: string, additionalData?: Partial<IBooking>): Promise<IBookingDocument | null> {
+        const update: any = { $set: { status } };
+
+        if (additionalData) {
+            const setFields: any = {};
+            const unsetFields: any = {};
+
+            Object.entries(additionalData).forEach(([key, value]) => {
+                if (value === null) {
+                    unsetFields[key] = "";
+                } else {
+                    setFields[key] = value;
+                }
+            });
+
+            if (Object.keys(setFields).length > 0) {
+                update.$set = { ...update.$set, ...setFields };
+            }
+            if (Object.keys(unsetFields).length > 0) {
+                update.$unset = unsetFields;
+            }
+        }
+
         return await this.model.findByIdAndUpdate(
             id,
-            {
-                $set: {
-                    status,
-                    ...(additionalData || {})
-                }
-            },
+            update,
             { new: true }
         );
     }
@@ -45,5 +62,13 @@ export class BookingRepository extends BaseRepository<IBookingDocument> implemen
             workshopId,
             status: BookingStatus.CONFIRMED
         });
+    }
+
+    async updateAttendance(id: string | Types.ObjectId, status: string): Promise<IBookingDocument | null> {
+        return await this.model.findByIdAndUpdate(
+            id,
+            { $set: { attendanceStatus: status } },
+            { new: true }
+        );
     }
 }

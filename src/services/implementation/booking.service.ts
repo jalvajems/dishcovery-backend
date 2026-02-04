@@ -53,7 +53,7 @@ export class BookingService implements IBookingService {
         }
 
         if (workshop.isFree) {
-            const bookingData = {
+            const bookingData: any = {
                 workshopId: new Types.ObjectId(workshopId),
                 foodieId: new Types.ObjectId(foodieId),
                 status: BookingStatus.CONFIRMED,
@@ -63,21 +63,25 @@ export class BookingService implements IBookingService {
                 // Clear cancellation/refund fields if reactivating
                 cancelledAt: null,
                 cancellationReason: null,
-                refundId: null,
-                paymentIntentId: null,
-                stripeEventId: null
+                refundId: null
             };
 
             let booking;
             if (existingBooking) {
                 // Reactivate existing booking
+                // Pass null to unset these fields
                 booking = await this.bookingRepository.updateStatus(
                     existingBooking._id as string,
                     BookingStatus.CONFIRMED,
-                    bookingData as any
+                    {
+                        ...bookingData,
+                        paymentIntentId: null,
+                        stripeEventId: null
+                    } as any
                 );
             } else {
                 // Create new booking
+                // Do NOT include paymentIntentId/stripeEventId to avoid duplicate null key error
                 booking = await this.bookingRepository.create(bookingData as any);
             }
 
@@ -375,5 +379,19 @@ export class BookingService implements IBookingService {
                 }
             }
         }
+    }
+
+    async markAttendance(bookingId: string, status: string): Promise<IBookingDocument> {
+        const booking = await this.bookingRepository.findById(bookingId);
+        if (!booking) throw new AppError('Booking not found', 404);
+
+        if (booking.status !== BookingStatus.CONFIRMED && booking.status !== BookingStatus.COMPLETED) {
+            // Depending on logic, maybe only confirmed bookings can be marked present?
+            // But let's allow it if it's confirmed.
+        }
+
+        const updatedBooking = await this.bookingRepository.updateAttendance(bookingId, status);
+        if (!updatedBooking) throw new AppError('Failed to update attendance', 500);
+        return updatedBooking;
     }
 }

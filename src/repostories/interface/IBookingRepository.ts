@@ -10,4 +10,5 @@ export interface IBookingRepository {
     findByFoodieId(foodieId: string | Types.ObjectId): Promise<IBookingDocument[]>;
     findByWorkshopId(workshopId: string | Types.ObjectId): Promise<IBookingDocument[]>;
     countConfirmedBookings(workshopId: string | Types.ObjectId): Promise<number>;
+    updateAttendance(id: string | Types.ObjectId, status: string): Promise<IBookingDocument | null>;
 }

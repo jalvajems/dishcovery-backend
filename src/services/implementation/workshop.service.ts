@@ -57,12 +57,13 @@ export class WorkshopService implements IWorkshopService {
 
         if (userId) {
             const bookings = await this._bookingService.getMyBookings(userId);
-            const isBooked = bookings.some(b =>
+            const myBooking = bookings.find(b =>
                 b.workshopId.toString() === (workshop._id as any).toString() &&
-                (b.status === 'CONFIRMED' || b.status === 'PENDING')
+                (b.status === 'CONFIRMED' || b.status === 'PENDING' || b.status === 'COMPLETED')
             );
+            const isBooked = !!myBooking;
             const workshopObj = workshop.toObject ? workshop.toObject() : workshop;
-            return { ...workshopObj, isBooked } as any;
+            return { ...workshopObj, isBooked, myBooking } as any;
         }
 
         return workshop;
@@ -246,8 +247,15 @@ export class WorkshopService implements IWorkshopService {
             throw new AppError('Unauthorized', STATUS_CODE.FORBIDDEN);
         }
 
-        if (workshop.status !== WorkshopStatus.LIVE) {
-            throw new AppError('Workshop is not LIVE', STATUS_CODE.BAD_REQUEST);
+        if (workshop.mode === WorkshopMode.ONLINE) {
+            if (workshop.status !== WorkshopStatus.LIVE) {
+                throw new AppError('Workshop is not LIVE', STATUS_CODE.BAD_REQUEST);
+            }
+        } else {
+            // Offline Mode
+            if (workshop.status !== WorkshopStatus.APPROVED && workshop.status !== WorkshopStatus.UPCOMING && workshop.status !== WorkshopStatus.LIVE) {
+                throw new AppError('Workshop cannot be completed from current status', STATUS_CODE.BAD_REQUEST);
+            }
         }
 
         const updated = await this._workshopRepository.updateById(workshopId, {

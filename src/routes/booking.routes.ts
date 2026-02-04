@@ -17,6 +17,7 @@ router.get('/my-bookings', verifyAccess, authorizeRole('user'), bookingControlle
 router.patch('/:id/cancel', verifyAccess, authorizeRole('user'), bookingController.cancelBooking.bind(bookingController));
 
 router.get('/workshop/:id/participants', verifyAccess, authorizeRole('chef'), bookingController.getParticipants.bind(bookingController));
+router.patch('/:id/attendance', verifyAccess, authorizeRole('chef'), bookingController.markAttendance.bind(bookingController));
 
 export { webhookRouter };
 export default router;
