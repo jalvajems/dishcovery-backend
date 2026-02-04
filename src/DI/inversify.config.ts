@@ -13,6 +13,7 @@ import workshopModule from "./module/workshop.di";
 import { transactionModule } from "./module/transaction.di";
 import { followModule } from "./module/follow.di";
 import notificationModule from "./module/notification.di";
+import chatModule from "./module/chat.di";
 
 const container = new Container();
 
@@ -30,5 +31,6 @@ workshopModule(container);
 transactionModule(container);
 followModule(container);
 notificationModule(container);
+chatModule(container);
 
 export default container;

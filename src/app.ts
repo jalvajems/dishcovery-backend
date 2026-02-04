@@ -14,6 +14,7 @@ import workshopRouter from './routes/workshop.routes'
 import bookingRouter, { webhookRouter } from './routes/booking.routes'
 import sessionRouter from './routes/session.routes'
 import followRouter from './routes/follow.routes'
+import chatRouter from './routes/chat.routes'
 
 
 import { requestLogger } from './middlewares/requestLogger'
@@ -47,6 +48,7 @@ app.use("/api/bookings", bookingRouter)
 app.use("/api/sessions", sessionRouter)
 app.use("/api/follow", followRouter)
 app.use("/api/notifications", notificationRouter)
+app.use("/api/chat", chatRouter)
 
 app.get("/check", (req, res) => {
     res.status(STATUS_CODE.SUCCESS).json({

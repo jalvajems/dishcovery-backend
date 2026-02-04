@@ -119528,3 +119528,192 @@ src/controllers/implementation/workshop.controller.ts(162,23): error TS1434: Une
     at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
     at Module.load (node:internal/modules/cjs/loader:1318:32)
     at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-01-31 13:38:42] [31merror[39m: Error: No bindings found for service: "IChatService".
+
+Trying to resolve bindings for "Symbol(IChatController)".
+
+Binding constraints:
+- service identifier: IChatService
+- name: -
+    at throwBindingNotFoundError (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:59:9)
+    at throwErrorWhenMultipleUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:72:7)
+    at throwErrorWhenUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:26:5)
+    at checkServiceNodeSingleInjectionBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\checkServiceNodeSingleInjectionBindings.ts:35:46)
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildPlanServiceNodeFromClassElementMetadata.ts:84:46
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:322:7
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:211:9
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:158:14
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildServiceNodeBindings.ts:162:12
+    at buildServiceNodeBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildServiceNodeBindings.ts:74:13)
+[2026-01-31 13:39:09] [31merror[39m: Error: No bindings found for service: "IChatService".
+
+Trying to resolve bindings for "Symbol(IChatController)".
+
+Binding constraints:
+- service identifier: IChatService
+- name: -
+    at throwBindingNotFoundError (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:59:9)
+    at throwErrorWhenMultipleUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:72:7)
+    at throwErrorWhenUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:26:5)
+    at checkServiceNodeSingleInjectionBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\checkServiceNodeSingleInjectionBindings.ts:35:46)
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildPlanServiceNodeFromClassElementMetadata.ts:84:46
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:322:7
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:211:9
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:158:14
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildServiceNodeBindings.ts:162:12
+    at buildServiceNodeBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildServiceNodeBindings.ts:74:13)
+[2026-01-31 15:23:49] [31merror[39m: Error: No bindings found for service: "IMessageService".
+
+Trying to resolve bindings for "Symbol(IMessageController)".
+
+Binding constraints:
+- service identifier: IMessageService
+- name: -
+    at throwBindingNotFoundError (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:59:9)
+    at throwErrorWhenMultipleUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:72:7)
+    at throwErrorWhenUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:26:5)
+    at checkServiceNodeSingleInjectionBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\checkServiceNodeSingleInjectionBindings.ts:35:46)
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildPlanServiceNodeFromClassElementMetadata.ts:84:46
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:322:7
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:211:9
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:158:14
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildServiceNodeBindings.ts:162:12
+    at buildServiceNodeBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildServiceNodeBindings.ts:74:13)
+[2026-01-31 15:23:52] [31merror[39m: Error: No bindings found for service: "IMessageRepository".
+
+Trying to resolve bindings for "Symbol(IMessageService)".
+
+Binding constraints:
+- service identifier: IMessageRepository
+- name: -
+    at throwBindingNotFoundError (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:59:9)
+    at throwErrorWhenMultipleUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:72:7)
+    at throwErrorWhenUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:26:5)
+    at checkServiceNodeSingleInjectionBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\checkServiceNodeSingleInjectionBindings.ts:35:46)
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildPlanServiceNodeFromClassElementMetadata.ts:84:46
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:322:7
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:211:9
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:158:14
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildServiceNodeBindings.ts:162:12
+    at buildServiceNodeBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildServiceNodeBindings.ts:74:13)
+[2026-02-02 16:02:12] [31merror[39m: Error: No bindings found for service: "IChatService".
+
+Trying to resolve bindings for "Symbol(IChatController)".
+
+Binding constraints:
+- service identifier: IChatService
+- name: -
+    at throwBindingNotFoundError (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:59:9)
+    at throwErrorWhenMultipleUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:72:7)
+    at throwErrorWhenUnexpectedBindingsAmountFound (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\throwErrorWhenUnexpectedBindingsAmountFound.ts:26:5)
+    at checkServiceNodeSingleInjectionBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\calculations\checkServiceNodeSingleInjectionBindings.ts:35:46)
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildPlanServiceNodeFromClassElementMetadata.ts:84:46
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:322:7
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:211:9
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\currySubplan.ts:158:14
+    at D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildServiceNodeBindings.ts:162:12
+    at buildServiceNodeBindings (D:\brototype\Dishcovery\server\node_modules\@inversifyjs\core\src\planning\actions\curryBuildServiceNodeBindings.ts:74:13)
+[2026-02-02 16:20:31] [31merror[39m: Error: Cannot find module '../utils/httpStatusCode'
+Require stack:
+- D:\brototype\Dishcovery\server\src\controllers\chat.controller.ts
+- D:\brototype\Dishcovery\server\src\routes\chat.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\chat.controller.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4092132187716959.js:69:33)
+[2026-02-02 16:20:41] [31merror[39m: Error: Cannot find module '../utils/httpStatusCode'
+Require stack:
+- D:\brototype\Dishcovery\server\src\controllers\chat.controller.ts
+- D:\brototype\Dishcovery\server\src\routes\chat.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\chat.controller.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4092132187716959.js:69:33)
+[2026-02-02 16:21:09] [31merror[39m: Error: Cannot find module '../utils/httpStatusCode'
+Require stack:
+- D:\brototype\Dishcovery\server\src\controllers\message.controller.ts
+- D:\brototype\Dishcovery\server\src\routes\message.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\message.controller.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4092132187716959.js:69:33)
+[2026-02-02 17:29:12] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/socket.service.ts(199,1): error TS1005: '}' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\socket.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4092132187716959.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4092132187716959.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4092132187716959.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-02 17:29:31] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/socket.service.ts(199,1): error TS1005: '}' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\socket.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4092132187716959.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4092132187716959.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4092132187716959.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-02 17:30:04] [31merror[39m: Error: Cannot find module '../middlewares/authMiddleware'
+Require stack:
+- D:\brototype\Dishcovery\server\src\routes\chat.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\routes\chat.routes.ts:9:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4092132187716959.js:69:33)
+[2026-02-03 12:31:28] [31merror[39m: Error: Cannot find module '../middlewares/authMiddleware'
+Require stack:
+- D:\brototype\Dishcovery\server\src\routes\chat.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\routes\chat.routes.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4092132187716959.js:69:33)

@@ -87,6 +87,24 @@ class SocketService {
                 }
             });
 
+            // Chat events
+            socket.on("chat:join", (conversationId: string) => {
+                socket.join(`chat:${conversationId}`);
+                log.info(`User ${userId} joined chat room: ${conversationId}`);
+            });
+
+            socket.on("chat:leave", (conversationId: string) => {
+                socket.leave(`chat:${conversationId}`);
+                log.info(`User ${userId} left chat room: ${conversationId}`);
+            });
+
+            socket.on("chat:typing", (data: { conversationId: string, isTyping: boolean }) => {
+                socket.to(`chat:${data.conversationId}`).emit("chat:typing", {
+                    userId,
+                    isTyping: data.isTyping
+                });
+            });
+
             socket.on("disconnecting", () => {
                 const rooms = Array.from(socket.rooms);
                 rooms.forEach(room => {
