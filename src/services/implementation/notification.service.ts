@@ -37,8 +37,8 @@ export class NotificationService implements INotificationService {
         return notification;
     }
 
-    async getUserNotifications(recipientId: string, limit: number = 20, skip: number = 0): Promise<INotification[]> {
-        return await this._notificationRepository.findByRecipient(recipientId, limit, skip);
+    async getUserNotifications(recipientId: string, limit: number = 20, skip: number = 0, filter: string = 'all'): Promise<INotification[]> {
+        return await this._notificationRepository.findByRecipient(recipientId, limit, skip, filter);
     }
 
     async markAsRead(notificationId: string): Promise<INotification | null> {

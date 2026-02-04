@@ -19,8 +19,9 @@ export class NotificationController implements INotificationController {
 
             const limit = Number(req.query.limit) || 20;
             const skip = Number(req.query.skip) || 0;
+            const filter = req.query.filter as string || 'all';
 
-            const notifications = await this._notificationService.getUserNotifications(userId, limit, skip);
+            const notifications = await this._notificationService.getUserNotifications(userId, limit, skip, filter);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: notifications });
         } catch (error) {
             next(error);

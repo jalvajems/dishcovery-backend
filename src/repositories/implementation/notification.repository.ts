@@ -9,8 +9,16 @@ export class NotificationRepository implements INotificationRepository {
         return await NotificationModel.create(notification);
     }
 
-    async findByRecipient(recipientId: string, limit: number = 20, skip: number = 0): Promise<INotification[]> {
-        return await NotificationModel.find({ recipientId })
+    async findByRecipient(recipientId: string, limit: number = 20, skip: number = 0, filter: string = 'all'): Promise<INotification[]> {
+        const query: any = { recipientId };
+
+        if (filter === 'unread') {
+            query.isRead = false;
+        } else if (filter === 'read') {
+            query.isRead = true;
+        }
+
+        return await NotificationModel.find(query)
             .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit)
