@@ -17,7 +17,7 @@ export class AuthController implements IAuthController {
         try {
             const userData = signupSchema.parse(req.body)
             const user = await this._authService.signupUser(userData)
-            res.status(STATUS_CODE.CREATED).json({ success: true,message:'Signup succussfully !!',otp:user.otp });
+            res.status(STATUS_CODE.CREATED).json({ success: true, message: 'Signup succussfully !!', otp: user.otp });
         } catch (error) {
             next(error);
         }
@@ -32,7 +32,7 @@ export class AuthController implements IAuthController {
                 sameSite: "strict",
                 maxAge: Number(process.env.MAX_AGE_REFRESH),
             })
-             res.status(STATUS_CODE.SUCCESS).json({ success: true, user, accessToken });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, user, accessToken });
 
         } catch (error) {
             next(error);
@@ -40,7 +40,7 @@ export class AuthController implements IAuthController {
     }
     async signupVerifyOtp(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            
+
             const OtpVerifyData = req.body
             const result = await this._authService.signupOtp(OtpVerifyData);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message: result.msg, data: result.user })
@@ -83,8 +83,8 @@ export class AuthController implements IAuthController {
     }
     async resendOtp(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const {email}=req.body;
-            const result=await this._authService.resendOtp(email);
+            const { email } = req.body;
+            const result = await this._authService.resendOtp(email);
             res.status(STATUS_CODE.SUCCESS).json(result)
         } catch (error) {
             next(error)
@@ -101,7 +101,7 @@ export class AuthController implements IAuthController {
                 sameSite: "strict",
                 maxAge: Number(process.env.MAX_AGE_REFRESH),
             })
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, accessToken: result.accessToken ,role:result.role})
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, accessToken: result.accessToken, role: result.role, user: result.user })
         } catch (error) {
             next(error);
         }
@@ -109,7 +109,7 @@ export class AuthController implements IAuthController {
     }
     async logout(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            
+
             const refreshToken = req.cookies?.refreshToken;
             if (!refreshToken) {
                 res.status(STATUS_CODE.BAD_REQUEST).json({ message: 'refresh token needed' });
@@ -121,7 +121,7 @@ export class AuthController implements IAuthController {
                 secure: env.NODE_ENV === "production",
                 sameSite: "strict",
             })
-            res.status(STATUS_CODE.SUCCESS).json({message:result.message})
+            res.status(STATUS_CODE.SUCCESS).json({ message: result.message })
 
         } catch (error) {
             next(error)

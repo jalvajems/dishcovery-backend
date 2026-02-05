@@ -166,7 +166,7 @@ export class AuthService implements IAuthService {
         }
     }
 
-    async refreshToken(cookieToken: string): Promise<{ accessToken: string, refreshToken: string, role: string }> {
+    async refreshToken(cookieToken: string): Promise<{ accessToken: string, refreshToken: string, role: string, user: IUserDto }> {
         if (!cookieToken) throw new AppError('token is not exist in cookies', 401);
         try {
             const decoded = jwt.verify(cookieToken, env.JWT_REFRESH_SECRET) as TokenPayload
@@ -180,20 +180,28 @@ export class AuthService implements IAuthService {
             if (!decoded.role) {
                 throw new AppError('Invalid role', STATUS_CODE.INTERNAL_SERVER_ERROR)
             }
+
+            // Fetch user data from database
+            const user = await this._userRepository.findById(decoded.id);
+            if (!user) {
+                throw new AppError('User not found', STATUS_CODE.NOT_FOUND);
+            }
+
             const { accessToken, refreshToken } = generatTokens({ id: decoded.id, role: decoded.role });
 
             await this._refreshTokenRepository.deleteByUserId(decoded.id);
             await this._refreshTokenRepository.createRefreshToken(decoded.id, refreshToken);
 
-            const old = await this._userRepository.findByEmail(decoded.id);
-            if (old) await redisClient.del(`refreshLookup:${old}`);
+            // Clean up old refresh token lookup
+            const oldRefreshLookupKey = `refreshLookup:${cookieToken}`;
+            await redisClient.del(oldRefreshLookupKey);
             await redisClient.del(`refreshKey:${decoded.id}`);
 
             await redisClient.set(`refreshKey:${decoded.id}`, refreshToken, { EX: Number(process.env.REDIS_REFRESH_EXP) })
             await redisClient.set(`refreshLookup:${refreshToken}`, decoded.id, { EX: Number(process.env.REDIS_REFRESH_EXP) })
 
 
-            return { accessToken: accessToken, refreshToken: refreshToken, role: decoded.role };
+            return { accessToken: accessToken, refreshToken: refreshToken, role: decoded.role, user: userMapper(user) };
 
         } catch (error) {
             throw new Error('refresh token creation failed');
