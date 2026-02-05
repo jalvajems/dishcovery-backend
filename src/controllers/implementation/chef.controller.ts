@@ -28,10 +28,18 @@ export class ChefController implements IChefController {
         if (!result.data) {
             hasProfile = false
         }
-        console.log('result in controller', result);
+
+        // Fetch dashboard statistics
+        const stats = await this._chefService.getDashboardStats(id);
 
         console.log('profile', result)
-        res.status(STATUS_CODE.SUCCESS).json({ success: true, hasProfile, isVerified: user.data?.isVerified ?? false, message: 'entered in to chef dashboard' })
+        res.status(STATUS_CODE.SUCCESS).json({
+            success: true,
+            hasProfile,
+            isVerified: user.data?.isVerified ?? false,
+            stats,
+            message: 'entered in to chef dashboard'
+        })
     }
     async createProfile(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {

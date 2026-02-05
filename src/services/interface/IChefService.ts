@@ -9,4 +9,5 @@ export interface IChefService {
     getUser(id: string): Promise<{ data: IUserDto }>;
     getAllChefs(page: number, limit: number, search: string, filter?: string): Promise<{ datas: any[]; totalCount: number }>;
     getChefDetails(chefId: string): Promise<{ data: any }>;
+    getDashboardStats(chefId: string): Promise<{ totalRecipes: number; averageRating: number; totalFollowers: number; totalWorkshops: number }>;
 }

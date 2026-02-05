@@ -11,6 +11,9 @@ import { IUser } from "../../types/user.types";
 import { IUserDto } from "../../dtos/user.dtos";
 import { userMapper } from "../../utils/mapper/user.mapper";
 import { IReviewRepostory } from "../../repostories/interface/IReviewRepository";
+import { RecipeModel } from "../../models/recipe.model";
+import { WorkshopModel } from "../../models/workshop.model";
+import { FollowModel } from "../../models/follow.model";
 
 @injectable()
 export class ChefService implements IChefService {
@@ -95,6 +98,40 @@ export class ChefService implements IChefService {
             const result = await this._chefRepository.findDetailsByChefId(chefId);
             if (!result) throw new AppError('Chef not found', STATUS_CODE.NOT_FOUND);
             return { data: result };
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async getDashboardStats(chefId: string): Promise<{ totalRecipes: number; averageRating: number; totalFollowers: number; totalWorkshops: number }> {
+        try {
+            // Get total recipes count
+            const totalRecipes = await RecipeModel.countDocuments({ chefId });
+
+            // Get total workshops count
+            const totalWorkshops = await WorkshopModel.countDocuments({ chefId });
+
+            // Get total followers count
+            const totalFollowers = await FollowModel.countDocuments({ followingId: chefId });
+
+            // Get chef profile to calculate average rating
+            const chefProfile = await this._chefRepository.findByChefId(chefId);
+            let averageRating = 0;
+
+            if (chefProfile) {
+                const reviews = await this._reviewRepository.findReview(chefId, "Chef");
+                if (reviews && reviews.length > 0) {
+                    const totalRating = reviews.reduce((sum, review) => sum + (review.rating || 0), 0);
+                    averageRating = parseFloat((totalRating / reviews.length).toFixed(1));
+                }
+            }
+
+            return {
+                totalRecipes,
+                averageRating,
+                totalFollowers,
+                totalWorkshops
+            };
         } catch (error) {
             throw error;
         }
