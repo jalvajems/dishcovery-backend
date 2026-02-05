@@ -100,5 +100,11 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
     async findByCuisine(cuisine: string): Promise<IRecipeDocument[] | null> {
         return await RecipeModel.find({ cuisine: cuisine }, { isBlock: false })
     }
+    async findRecent(limit: number): Promise<IRecipeDocument[]> {
+        return await RecipeModel.find({ isBlock: false })
+            .sort({ createdAt: -1 })
+            .limit(limit)
+            .populate("chefId", "name");
+    }
 
 }

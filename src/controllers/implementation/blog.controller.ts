@@ -114,4 +114,13 @@ export class BlogController implements IBlogController {
             next(error);
         }
     }
+    async getRecentBlogs(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const limit = Number(req.query.limit) || 3;
+            const result = await this._blogService.getRecentBlogs(limit);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: 'Recent blogs fetched successfully' });
+        } catch (error) {
+            next(error);
+        }
+    }
 }

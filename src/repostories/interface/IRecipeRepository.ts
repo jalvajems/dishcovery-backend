@@ -10,6 +10,7 @@ export interface IRecipeRepository extends IBaseRepository<IRecipeDocument> {
     unblockById(id: string): Promise<IRecipe & Document | null>;
     findByIdandPopulate(id: string): Promise<IRecipe & Document | null>;
     findByCuisine(cuisine: string): Promise<IRecipeDocument[] | null>;
+    findRecent(limit: number): Promise<IRecipeDocument[]>;
 
 
 }   

@@ -24,7 +24,7 @@ export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implem
 
     async findAllByChefId(chefId: string, skip: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopDocument[]; totalCount: number }> {
         const query: any = { chefId };
-console.log('status',status);
+        console.log('status', status);
 
         if (search) {
             query.title = { $regex: search, $options: 'i' };
@@ -33,11 +33,11 @@ console.log('status',status);
         if (status && status !== 'All') {
             query.status = status;
         }
-        console.log('~~~~~',query);
-        
+        console.log('~~~~~', query);
+
 
         const workshops = await this.model.find(query)
-            .sort({ createdAt: -1 }) // Sort by newest first usually
+            .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit);
         const totalCount = await this.model.countDocuments(query);
@@ -70,5 +70,15 @@ console.log('status',status);
             .limit(limit);
         const totalCount = await this.model.countDocuments(query);
         return { datas: workshops, totalCount };
+    }
+
+    async findRecentApproved(limit: number): Promise<IWorkshopDocument[]> {
+        // Fetch recently created workshops that are approved/upcoming
+        return await this.model.find({
+            status: { $in: ['APPROVED', 'UPCOMING'] }
+        })
+            .sort({ createdAt: -1 })
+            .limit(limit)
+            .populate('chefId', 'name image');
     }
 }

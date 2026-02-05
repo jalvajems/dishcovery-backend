@@ -38,16 +38,14 @@ export class BookingService implements IBookingService {
 
         const existingBooking = await this.bookingRepository.findByWorkshopAndFoodie(workshopId, foodieId);
 
-        // Define statuses that allow re-booking
         const retryableStatuses = [
             BookingStatus.CANCELLED,
             BookingStatus.REFUNDED,
             BookingStatus.CANCELLED_BY_FOODIE,
             BookingStatus.CANCELLED_BY_CHEF,
-            BookingStatus.PENDING // Allow retrying pending (unpaid) bookings
+            BookingStatus.PENDING 
         ];
 
-        // Check if there is an active booking that cannot be overwritten
         if (existingBooking && !retryableStatuses.includes(existingBooking.status)) {
             throw new AppError('You have already booked this workshop', 409);
         }
@@ -60,7 +58,6 @@ export class BookingService implements IBookingService {
                 bookingType: BookingType.FREE,
                 amount: 0,
                 bookedAt: new Date(),
-                // Clear cancellation/refund fields if reactivating
                 cancelledAt: null,
                 cancellationReason: null,
                 refundId: null
@@ -68,8 +65,7 @@ export class BookingService implements IBookingService {
 
             let booking;
             if (existingBooking) {
-                // Reactivate existing booking
-                // Pass null to unset these fields
+                
                 booking = await this.bookingRepository.updateStatus(
                     existingBooking._id as string,
                     BookingStatus.CONFIRMED,
@@ -80,8 +76,6 @@ export class BookingService implements IBookingService {
                     } as any
                 );
             } else {
-                // Create new booking
-                // Do NOT include paymentIntentId/stripeEventId to avoid duplicate null key error
                 booking = await this.bookingRepository.create(bookingData as any);
             }
 
@@ -92,12 +86,10 @@ export class BookingService implements IBookingService {
             return { booking: booking! };
         }
 
-        // Paid Workshop
         let booking: IBookingDocument;
         let clientSecret: string;
 
         if (existingBooking) {
-            // Reuse existing booking ID for metadata
             const paymentIntent = await this.stripeService.createPaymentIntent(workshop.price, {
                 workshopId,
                 bookingId: (existingBooking._id as string).toString(),
@@ -109,7 +101,7 @@ export class BookingService implements IBookingService {
                 BookingStatus.PENDING,
                 {
                     status: BookingStatus.PENDING,
-                    bookingType: BookingType.PAID, // Ensure type is correct if it was somehow Free before (unlikely but safe)
+                    bookingType: BookingType.PAID, 
                     amount: workshop.price,
                     bookedAt: new Date(),
                     cancelledAt: null,
@@ -123,7 +115,6 @@ export class BookingService implements IBookingService {
             clientSecret = paymentIntent.client_secret || '';
 
         } else {
-            // Create new booking
             const bookingData = {
                 workshopId: new Types.ObjectId(workshopId),
                 foodieId: new Types.ObjectId(foodieId),
@@ -145,8 +136,6 @@ export class BookingService implements IBookingService {
                 paymentIntentId: paymentIntent.id
             });
 
-            // Re-fetch booking or manually update the local object if needed, but returning 'booking' is mostly for reference.
-            // But we updated it properly in DB.
             clientSecret = paymentIntent.client_secret || '';
         }
 
@@ -174,8 +163,6 @@ export class BookingService implements IBookingService {
                 await this.bookingRepository.updateStatus(booking._id as any, BookingStatus.CONFIRMED, {
                     stripeEventId: event.id
                 });
-                // Assuming workshopId is populated. If not, we might need to fetch it or check type.
-                // However, incrementParticipants expects an ID string.
                 const workshopId = (booking.workshopId as any)._id ? (booking.workshopId as any)._id : booking.workshopId;
                 console.log('workshopid', workshopId);
 
@@ -232,20 +219,18 @@ export class BookingService implements IBookingService {
                 return;
             }
 
-            // Verify if it's already marked as REFUNDED to avoid duplicates
             if (booking.status === BookingStatus.REFUNDED) return;
 
             await this.bookingRepository.updateStatus(booking._id as string, BookingStatus.REFUNDED, {
                 refundId: refund.id
             });
 
-            // Credit Foodie (Refund)
             await this._transactionRepository.create({
                 userId: booking.foodieId,
                 role: 'user',
                 bookingId: booking._id as string,
                 workshopId: booking.workshopId,
-                amount: refund.amount / 100, // Stripe amount is in cents
+                amount: refund.amount / 100, 
                 type: WalletTransactionType.REFUND,
                 status: WalletTransactionStatus.SUCCESS,
                 stripePaymentIntentId: paymentIntentId,
@@ -253,7 +238,6 @@ export class BookingService implements IBookingService {
                 description: 'Refund for workshop booking'
             });
 
-            // Debit Chef (Reversal)
             const workshop = await this.workshopRepository.findById(booking.workshopId);
             if (workshop) {
                 await this._transactionRepository.create({
@@ -262,7 +246,7 @@ export class BookingService implements IBookingService {
                     bookingId: booking._id as string,
                     workshopId: booking.workshopId,
                     amount: refund.amount / 100,
-                    type: WalletTransactionType.REFUND, // Or create a DEBIT type if preferred, but REFUND implies direction
+                    type: WalletTransactionType.REFUND, 
                     status: WalletTransactionStatus.SUCCESS,
                     stripePaymentIntentId: paymentIntentId,
                     stripeEventId: event.id,
@@ -306,7 +290,6 @@ export class BookingService implements IBookingService {
             throw new AppError('Cannot cancel booking for a live or completed workshop', 400);
         }
 
-        // Logic split based on Paid vs Free
         if (booking.bookingType === BookingType.FREE) {
             await this.bookingRepository.updateStatus(bookingId, BookingStatus.CANCELLED_BY_FOODIE, {
                 cancelledAt: new Date(),
@@ -314,17 +297,13 @@ export class BookingService implements IBookingService {
             });
             await this.workshopRepository.decrementParticipants(workshop._id as string);
         } else {
-            // PAID WORKSHOP
             if (!booking.paymentIntentId) {
                 throw new AppError('Payment information missing for paid booking', 500);
             }
 
             try {
-                // Initiate refund via Stripe
                 await this.stripeService.createRefund(booking.paymentIntentId);
 
-                // Mark as CANCELLED_BY_FOODIE first. 
-                // The REFUNDED status and Wallet updates happen in the Webhook (charge.refunded)
                 await this.bookingRepository.updateStatus(bookingId, BookingStatus.CANCELLED_BY_FOODIE, {
                     cancelledAt: new Date(),
                     cancellationReason: 'Cancelled by Foodie'
@@ -342,7 +321,6 @@ export class BookingService implements IBookingService {
         const bookings = await this.bookingRepository.findByWorkshopId(workshopId);
 
         for (const booking of bookings) {
-            // Skip if already cancelled or refunded
             if (booking.status === BookingStatus.CANCELLED ||
                 booking.status === BookingStatus.CANCELLED_BY_FOODIE ||
                 booking.status === BookingStatus.CANCELLED_BY_CHEF ||
@@ -356,21 +334,16 @@ export class BookingService implements IBookingService {
                     cancellationReason: 'Workshop cancelled by Chef'
                 });
             } else {
-                // PAID
                 if (booking.paymentIntentId) {
                     try {
                         await this.stripeService.createRefund(booking.paymentIntentId);
 
-                        // Mark as REFUND_PENDING or CANCELLED_BY_CHEF. 
-                        // The refund webhook will confirm it and transaction will be created then.
                         await this.bookingRepository.updateStatus(booking._id as string, BookingStatus.CANCELLED_BY_CHEF, {
                             cancelledAt: new Date(),
                             cancellationReason: 'Workshop cancelled by Chef'
                         });
                     } catch (error) {
                         console.error(`Failed to refund booking ${booking._id}:`, error);
-                        // Still mark as CANCELLED_BY_CHEF but maybe flag for admin review if needed
-                        // For now, we update status so user sees it's cancelled
                         await this.bookingRepository.updateStatus(booking._id as string, BookingStatus.CANCELLED_BY_CHEF, {
                             cancelledAt: new Date(),
                             cancellationReason: 'Workshop cancelled by Chef (Refund Failed - Contact Support)'
@@ -386,8 +359,6 @@ export class BookingService implements IBookingService {
         if (!booking) throw new AppError('Booking not found', 404);
 
         if (booking.status !== BookingStatus.CONFIRMED && booking.status !== BookingStatus.COMPLETED) {
-            // Depending on logic, maybe only confirmed bookings can be marked present?
-            // But let's allow it if it's confirmed.
         }
 
         const updatedBooking = await this.bookingRepository.updateAttendance(bookingId, status);

@@ -14,7 +14,7 @@ export interface INotification extends Document {
 }
 
 const NotificationSchema: Schema = new Schema({
-    recipientId: { type: Schema.Types.ObjectId, required: true, refPath: 'recipientRole' }, // Dynamic ref if needed, or just ID
+    recipientId: { type: Schema.Types.ObjectId, required: true, refPath: 'recipientRole' },
     recipientRole: { type: String, enum: ['chef', 'foodie'], required: true },
     title: { type: String, required: true },
     message: { type: String, required: true },
@@ -24,13 +24,12 @@ const NotificationSchema: Schema = new Schema({
         required: true
     },
     workshopId: { type: Schema.Types.ObjectId, ref: 'Workshop' },
-    sessionId: { type: Schema.Types.ObjectId, ref: 'Session' }, // Assuming Session model exists, logical ref
+    sessionId: { type: Schema.Types.ObjectId, ref: 'Session' },
     isRead: { type: Boolean, default: false },
 }, {
     timestamps: true
 });
 
-// Create compound index for efficient querying by recipient
 NotificationSchema.index({ recipientId: 1, createdAt: -1 });
 
 export const NotificationModel = mongoose.model<INotification>("Notification", NotificationSchema);

@@ -17,13 +17,13 @@ router.get('/chef', verifyAccess, isVerifyChef, workshopController.getWorkshopsB
 router.patch('/chef/:id/submit', verifyAccess, isVerifyChef, workshopController.submitWorkshop.bind(workshopController));
 router.post('/chef/:id/start', verifyAccess, isVerifyChef, workshopController.startWorkshop.bind(workshopController));
 router.post('/chef/:id/end', verifyAccess, isVerifyChef, workshopController.endWorkshop.bind(workshopController));
-router.patch('/:id/cancel', verifyAccess, isVerifyChef, workshopController.cancelWorkshop.bind(workshopController)); // Added this line
-
+router.patch('/:id/cancel', verifyAccess, isVerifyChef, workshopController.cancelWorkshop.bind(workshopController)); 
 router.get('/admin', verifyAccess, authorizeRole('admin'), workshopController.getAllWorkshops.bind(workshopController));
 router.patch('/admin/:id/approve', verifyAccess, authorizeRole('admin'), workshopController.approveWorkshop.bind(workshopController));
 router.patch('/admin/:id/reject', verifyAccess, authorizeRole('admin'), validate(rejectionSchema), workshopController.rejectWorkshop.bind(workshopController));
 
 router.get('/approved', workshopController.getApprovedWorkshops.bind(workshopController));
+router.get('/recent', workshopController.getRecentWorkshops.bind(workshopController));
 router.get('/:id', workshopController.getWorkshopById.bind(workshopController));
 
 export default router;

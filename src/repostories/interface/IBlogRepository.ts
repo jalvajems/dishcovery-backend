@@ -9,5 +9,6 @@ export interface IBlogRepository extends IBaseRepository<IBlogDocument> {
     getRelatedBlog(tag: string): Promise<IBlogDocument[] | null>
     blockById(id: string): Promise<IBlogDocument | null>;
     unblockById(id: string): Promise<IBlogDocument | null>;
+    findRecent(limit: number): Promise<IBlogDocument[]>;
 
 }

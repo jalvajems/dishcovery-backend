@@ -12,6 +12,7 @@ export interface IFoodSpotRepository extends IBaseRepository<IFoodSpotDocument> 
     unblockById(id: string): Promise<IFoodSpot & Document | null>;
     approveById(id: string): Promise<IFoodSpot & Document | null>;
     unAproveById(id: string): Promise<IFoodSpot & Document | null>;
+    findRecent(limit: number): Promise<IFoodSpotDocument[]>;
 
 
 

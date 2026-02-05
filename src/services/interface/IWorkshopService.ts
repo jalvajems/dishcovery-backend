@@ -16,4 +16,5 @@ export interface IWorkshopService {
     submitForApproval(workshopId: string, chefId: string): Promise<IWorkshopDocument>;
     getWorkshopsByChef(chefId: string, page: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopDocument[], totalCount: number }>;
     cancelWorkshop(workshopId: string, chefId: string, reason: string): Promise<IWorkshopDocument>;
+    getRecentWorkshops(limit: number): Promise<{ data: IWorkshopDocument[] }>;
 }

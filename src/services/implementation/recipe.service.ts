@@ -143,4 +143,12 @@ export class RecipeService implements IRecipeService {
         }
     }
 
+    async getRecentRecipes(limit: number): Promise<{ data: IRecipeDto[]; }> {
+        try {
+            const result = await this._recipeRepository.findRecent(limit);
+            return { data: allRecipesMapper(result) }
+        } catch (error) {
+            throw error;
+        }
+    }
 }

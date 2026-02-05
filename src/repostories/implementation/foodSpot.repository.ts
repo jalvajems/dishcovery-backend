@@ -94,5 +94,11 @@ export class FoodSpotRepository extends BaseRepository<IFoodSpotDocument> implem
     async unAproveById(id: string): Promise<(IFoodSpot & Document) | null> {
         return await FoodSpotModel.findByIdAndUpdate({ _id: id }, { $set: { isApproved: false } }, { new: true })
     }
+    async findRecent(limit: number): Promise<IFoodSpotDocument[]> {
+        return await FoodSpotModel.find({ isBlocked: false, isApproved: true })
+            .sort({ createdAt: -1 })
+            .limit(limit)
+            .populate("foodieId", "name");
+    }
 
 }

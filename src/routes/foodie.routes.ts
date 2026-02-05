@@ -27,6 +27,7 @@ console.log('reached router');
 
 router.get('/dashboard', verifyAccess, foodieController.getFoodieDashboard.bind(foodieController))
       .get('/recipe-listing', verifyAccess, RecipeController.getAllRecipes.bind(RecipeController))
+      .get('/recipes/recent', verifyAccess, RecipeController.getRecentRecipes.bind(RecipeController))
       .get('/recipe-detail/:id', verifyAccess, foodieController.getRecipeDetail.bind(foodieController))
       .get('/related-recipes/:cuisine', verifyAccess, RecipeController.getRelatedRecipes.bind(RecipeController))
       .get('/saved-recipes', verifyAccess, RecipeController.getSavedRecipes.bind(RecipeController))
@@ -39,6 +40,7 @@ router.put("/review/like/:reviewId", verifyAccess, ReviewController.likeReview.b
 router.put("/review/dislike/:reviewId", verifyAccess, ReviewController.dislikeReview.bind(ReviewController));
 
 router.get("/blog-listing", verifyAccess, BlogController.getAllBlogs.bind(BlogController))
+      .get("/blogs/recent", verifyAccess, BlogController.getRecentBlogs.bind(BlogController))
       .get("/blog-detail/:blogId", verifyAccess, BlogController.getBlogDetails.bind(BlogController))
 
 router.post("/profile", validate(createFoodieProfileSchema), verifyAccess, foodieController.createProfile.bind(foodieController))
@@ -47,6 +49,7 @@ router.get("/profile", verifyAccess, foodieController.getProfile.bind(foodieCont
 
 router.post("/foodspot", verifyAccess, FoodSpotController.createFoodSpot.bind(FoodSpotController))
 router.put("/foodspot", verifyAccess, FoodSpotController.updateFoodSpot.bind(FoodSpotController))
+router.get("/foodspot/recent", verifyAccess, FoodSpotController.getRecentFoodSpots.bind(FoodSpotController))
 router.get("/foodspot/:id", verifyAccess, FoodSpotController.getFoodSpot.bind(FoodSpotController))
       .get('/nearby', verifyAccess, FoodSpotController.getNearByFoodSpots.bind(FoodSpotController))
       .get('/foodspots', verifyAccess, FoodSpotController.getAllFoodSpots.bind(FoodSpotController))

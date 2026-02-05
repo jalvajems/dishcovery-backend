@@ -7,4 +7,5 @@ export interface IWorkshopRepository extends IBaseRepository<IWorkshopDocument> 
     decrementParticipants(id: string): Promise<void>;
     findAllByChefId(chefId: string, skip: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopDocument[]; totalCount: number }>;
     findAllApprovedWithFilters(skip: number, limit: number, search: string, filter?: string): Promise<{ datas: IWorkshopDocument[]; totalCount: number }>;
+    findRecentApproved(limit: number): Promise<IWorkshopDocument[]>;
 }

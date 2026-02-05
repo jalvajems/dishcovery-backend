@@ -353,4 +353,9 @@ export class WorkshopService implements IWorkshopService {
 
         return updated;
     }
+
+    async getRecentWorkshops(limit: number): Promise<{ data: IWorkshopDocument[] }> {
+        const workshops = await this._workshopRepository.findRecentApproved(limit);
+        return { data: workshops };
+    }
 }

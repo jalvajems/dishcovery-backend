@@ -9,4 +9,5 @@ export interface IBlogController {
     getAllBlogs(req: Request, res: Response, next: NextFunction): Promise<void>;
     getRelatedBlogs(req: Request, res: Response, next: NextFunction): Promise<void>;
     getBlogsByChef(req: Request, res: Response, next: NextFunction): Promise<void>;
+    getRecentBlogs(req: Request, res: Response, next: NextFunction): Promise<void>;
 }

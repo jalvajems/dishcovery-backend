@@ -90,4 +90,13 @@ export class BlogService implements IBlogService {
         }
     }
 
+    async getRecentBlogs(limit: number): Promise<{ data: IBlogDto[]; }> {
+        try {
+            const result = await this._blogRepositoy.findRecent(limit);
+            if (!result) throw new AppError("No recent blogs found", STATUS_CODE.NOT_FOUND);
+            return { data: allBlogsMapper(result) };
+        } catch (error) {
+            throw error;
+        }
+    }
 }

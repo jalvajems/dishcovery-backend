@@ -51,7 +51,7 @@ export class WorkshopController implements IWorkshopController {
     async getChefWorkshops(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             console.log('ivden');
-            
+
             const chefId = req.user?.id;
             if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
             const workshops = await this._workshopService.getChefWorkshops(chefId);
@@ -151,14 +151,14 @@ export class WorkshopController implements IWorkshopController {
     async getWorkshopsByChef(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             console.log('ivdethi');
-            
-            const chefId  = req.user?.id;
+
+            const chefId = req.user?.id;
             const page = Number(req.query.page) || 1;
             const limit = Number(req.query.limit) || 6;
             const search = String(req.query.search) || "";
             const status = String(req.query.status) || "";
 
-            if(!chefId)throw new AppError('Not authenticated',STATUS_CODE.UNAUTHORIZED)
+            if (!chefId) throw new AppError('Not authenticated', STATUS_CODE.UNAUTHORIZED)
 
             const result = await this._workshopService.getWorkshopsByChef(chefId, page, limit, search, status);
             res.status(STATUS_CODE.SUCCESS).json({
@@ -184,6 +184,15 @@ export class WorkshopController implements IWorkshopController {
 
             const workshop = await this._workshopService.cancelWorkshop(id, chefId, reason);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop cancelled processing started' });
+        } catch (error) {
+            next(error);
+        }
+    }
+    async getRecentWorkshops(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const limit = Number(req.query.limit) || 3;
+            const result = await this._workshopService.getRecentWorkshops(limit);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: 'Recent workshops fetched successfully' });
         } catch (error) {
             next(error);
         }

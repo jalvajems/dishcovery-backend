@@ -9,4 +9,5 @@ export interface IBlogService {
     getBlogOfChef(chefId: string, page: number, limit: number, search: string): Promise<{ datas: IBlogDto[], totalCount: number, message: string }>;
     getAllblogs(page: number, limit: number, search: string, filter?: string): Promise<{ datas: IBlogDto[], totalCount: number }>;
     getRelatedBlogs(tag: string): Promise<{ datas: IBlogDto[] }>
+    getRecentBlogs(limit: number): Promise<{ data: IBlogDto[] }>;
 }

@@ -14,4 +14,5 @@ export interface IWorkshopController {
     submitWorkshop(req: Request, res: Response, next: NextFunction): Promise<void>;
     getWorkshopsByChef(req: Request, res: Response, next: NextFunction): Promise<void>;
     cancelWorkshop(req: Request, res: Response, next: NextFunction): Promise<void>;
+    getRecentWorkshops(req: Request, res: Response, next: NextFunction): Promise<void>;
 }

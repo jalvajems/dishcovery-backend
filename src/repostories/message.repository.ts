@@ -36,7 +36,7 @@ export class MessageRepository implements IMessageRepository {
             conversationId: new mongoose.Types.ObjectId(conversationId)
         })
             .populate('senderId', 'name email profileImage role')
-            .sort({ createdAt: -1 }) // Most recent first for pagination
+            .sort({ createdAt: -1 }) 
             .skip(skip)
             .limit(limit);
 
@@ -44,7 +44,7 @@ export class MessageRepository implements IMessageRepository {
             conversationId: new mongoose.Types.ObjectId(conversationId)
         });
 
-        return { messages: messages.reverse(), total }; // Reverse to show oldest first in UI
+        return { messages: messages.reverse(), total }; 
     }
 
     async updateMessageStatus(messageId: string, status: 'sent' | 'delivered' | 'read'): Promise<void> {
@@ -76,7 +76,7 @@ export class MessageRepository implements IMessageRepository {
     async deleteMessage(messageId: string, userId: string, forEveryone: boolean): Promise<IMessage | null> {
         if (forEveryone) {
             return await Message.findOneAndUpdate(
-                { _id: messageId, senderId: userId }, // Can only delete everyone if sender
+                { _id: messageId, senderId: userId }, 
                 { isDeletedForEveryone: true },
                 { new: true }
             );

@@ -79,14 +79,29 @@ export class FoodSpotController implements IFoodSpotController {
     }
     async getAllFoodSpotsByFoodie(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
+            console.log('reachef my');
+            
             const id = req.user?.id;
             const page = Number(req.query.page) || 1
             const limit = Number(req.query.limit) || 5
             const search = String(req.query.search) || ""
             if (!id) throw new AppError('Foodie is not authenticated', STATUS_CODE.UNAUTHORIZED);
             const result = await this._foodSpotService.getAllFoodSpotsByFoodie(id, page, limit, search);
+            console.log('result-----my',result);
+            
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, totalCount: result.totalCount, message: 'got all spot successfully' });
 
+        } catch (error) {
+            next(error);
+        }
+    }
+    async getRecentFoodSpots(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            console.log('here');
+            
+            const limit = Number(req.query.limit) || 3;
+            const result = await this._foodSpotService.getRecentFoodSpots(limit);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: 'Recent food spots fetched successfully' });
         } catch (error) {
             next(error);
         }

@@ -76,4 +76,10 @@ export class BlogRepository extends BaseRepository<IBlogDocument> implements IBl
     async unblockById(id: string): Promise<IBlogDocument | null> {
         return await BlogModel.findByIdAndUpdate({ _id: id }, { $set: { isBlocked: false } }, { new: true })
     }
+    async findRecent(limit: number): Promise<IBlogDocument[]> {
+        return await BlogModel.find({ isBlocked: false })
+            .sort({ createdAt: -1 })
+            .limit(limit)
+            .populate("chefId", "name");
+    }
 }

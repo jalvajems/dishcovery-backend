@@ -65,10 +65,25 @@ export class FoodSpotService implements IFoodSpotService {
     async getAllFoodSpotsByFoodie(id: string, page: number, limit: number, search: string): Promise<{ data: IFoodSpotResDto[], totalCount: number }> {
         try {
             const skip = (page - 1) * limit;
+            console.log('spotsserv',page);
+            console.log('spotsservi',id);
+            console.log('spotsservic',limit);
+            console.log('spotsservic',search);
             const spots = await this._foodSpotRepository.findAllFoodSpotsByFoodie(id, search, skip, limit)
+            console.log('spotsservice',spots);
+            
             if (!spots.datas) throw new AppError('spots are not found', STATUS_CODE.NOT_FOUND)
             return { data: allFoodSpotsMapper(spots.datas), totalCount: spots.totalCount }
 
+        } catch (error) {
+            throw error;
+        }
+    }
+    async getRecentFoodSpots(limit: number): Promise<{ data: IFoodSpotResDto[]; }> {
+        try {
+            const result = await this._foodSpotRepository.findRecent(limit);
+            if (!result) throw new AppError('No recent spots found', STATUS_CODE.NOT_FOUND);
+            return { data: allFoodSpotsMapper(result) };
         } catch (error) {
             throw error;
         }

@@ -164,4 +164,13 @@ export class RecipeController implements IRecipeController {
             next(error);
         }
     }
+    async getRecentRecipes(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const limit = Number(req.query.limit) || 3;
+            const result = await this._recipeService.getRecentRecipes(limit);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: 'Recent recipes fetched successfully' });
+        } catch (error) {
+            next(error);
+        }
+    }
 }

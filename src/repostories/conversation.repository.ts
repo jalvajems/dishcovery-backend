@@ -15,7 +15,7 @@ export class ConversationRepository implements IConversationRepository {
         const participantIds = [
             new mongoose.Types.ObjectId(userId1),
             new mongoose.Types.ObjectId(userId2)
-        ].sort((a, b) => a.toString().localeCompare(b.toString())); // Sort for consistent querying
+        ].sort((a, b) => a.toString().localeCompare(b.toString())); 
 
         let conversation = await Conversation.findOne({
             participants: { $all: participantIds }

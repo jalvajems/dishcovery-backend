@@ -12,4 +12,5 @@ export interface IRecipeService {
     toggleSaveRecipe(id: string, recipeId: string): Promise<{ message: string, isSaved: boolean }>;
     unSaveRecipe(id: string, recipeId: string): Promise<void>;
     getSavedRecipes(id: string): Promise<object>;
+    getRecentRecipes(limit: number): Promise<{ data: IRecipeDto[] }>;
 }
