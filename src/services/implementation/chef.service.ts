@@ -56,7 +56,7 @@ export class ChefService implements IChefService {
         try {
             console.log("chefId", chefId);
 
-            let result = await this._chefRepository.findByChefId(chefId);
+            const result = await this._chefRepository.findByChefId(chefId);
 
             let reviews: any[] = [];
             if (result) {
@@ -72,7 +72,7 @@ export class ChefService implements IChefService {
         try {
             console.log('userid', id);
 
-            let user = await this._userRepository.findOne({ _id: id })
+            const user = await this._userRepository.findOne({ _id: id })
             if (!user) throw new AppError('user not found', STATUS_CODE.NOT_FOUND)
             return { data: userMapper(user) }
         } catch (error) {

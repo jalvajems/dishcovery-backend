@@ -3,7 +3,7 @@ import {z} from 'zod'
 
 dotenv.config()
 
-let envSchema=z.object({
+const envSchema=z.object({
     NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
     PORT: z.string().default("4000"),
     MONGO_URI: z.string().min(1, "MONGO_URI is required!"),

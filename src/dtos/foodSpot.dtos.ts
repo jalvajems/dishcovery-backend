@@ -28,9 +28,9 @@ export interface IFoodSpotResDto {
   speciality: string[];
   tags: string[];
   openingHours: {
-      open: String,  
-      close: String, 
-      isOpenNow: Boolean,
+      open: string,  
+      close: string, 
+      isOpenNow: boolean,
     },
 
   rating?: number;

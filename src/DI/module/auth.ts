@@ -9,8 +9,8 @@ import { IRefreshtokenRepository } from "../../repostories/interface/IRefreshtok
 import { RefreshTokenRepository } from "../../repostories/implementation/refreshToken.repository";
 
 
-export function authModule(container:Container){
-    container.bind<IAuthController>(TYPES.IAuthController).to(AuthController),
-    container.bind<IAuthService>(TYPES.IAuthService).to(AuthService),
-    container.bind<IRefreshtokenRepository>(TYPES.IRefreshRepository).to(RefreshTokenRepository)
+export function authModule(container: Container) {
+    container.bind<IAuthController>(TYPES.IAuthController).to(AuthController);
+    container.bind<IAuthService>(TYPES.IAuthService).to(AuthService);
+    container.bind<IRefreshtokenRepository>(TYPES.IRefreshRepository).to(RefreshTokenRepository);
 }

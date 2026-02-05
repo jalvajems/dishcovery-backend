@@ -7,8 +7,8 @@ import { ChefRepository } from "../../repostories/implementation/chef.repository
 import { IChefService } from "../../services/interface/IChefService";
 import { ChefService } from "../../services/implementation/chef.service";
 
-export default function chefModule(container:Container){
-    container.bind<IChefController>(TYPES.IChefController).to(ChefController),
-    container.bind<IChefRepository>(TYPES.IChefRepository).to(ChefRepository),
-    container.bind<IChefService>(TYPES.IChefService).to(ChefService)
+export default function chefModule(container: Container) {
+    container.bind<IChefController>(TYPES.IChefController).to(ChefController);
+    container.bind<IChefRepository>(TYPES.IChefRepository).to(ChefRepository);
+    container.bind<IChefService>(TYPES.IChefService).to(ChefService);
 }

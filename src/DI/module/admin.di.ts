@@ -6,6 +6,6 @@ import { IAdminController } from "../../controllers/interface/IAdminController";
 import { AdminController } from "../../controllers/implementation/admin.controller";
 
 export function adminModule(container: Container) {
-    container.bind<IAdminService>(TYPES.IAdminService).to(AdminService),
-    container.bind<IAdminController>(TYPES.IAdminController).to(AdminController)
+    container.bind<IAdminService>(TYPES.IAdminService).to(AdminService);
+    container.bind<IAdminController>(TYPES.IAdminController).to(AdminController);
 }

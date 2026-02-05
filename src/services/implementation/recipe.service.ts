@@ -69,7 +69,7 @@ export class RecipeService implements IRecipeService {
         try {
             const skip = (page - 1) * limit
             const result = await this._recipeRepository.findAllByPagination(search, skip, limit, 'foodie', filter)
-            let total = Math.ceil(result.totalCount / limit)
+            const total = Math.ceil(result.totalCount / limit)
 
             return { datas: allRecipesMapper(result.datas), currentPage: page, totalPage: total }
         } catch (error) {

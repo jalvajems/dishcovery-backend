@@ -9,9 +9,9 @@ import { RecipeController } from "../../controllers/implementation/recipe.contro
 import { ISaveRepository } from "../../repostories/interface/ISaveRepository";
 import { SaveRepository } from "../../repostories/implementation/saveRepository";
 
-export default function recipeModule(container:Container){
+export default function recipeModule(container: Container) {
     container.bind<IRecipeRepository>(TYPES.IRecipeRepository).to(RecipeRepository);
     container.bind<IRecipeService>(TYPES.IRecipeService).to(RecipeService);
     container.bind<IRecipeController>(TYPES.IRecipeController).to(RecipeController);
-    container.bind<ISaveRepository>(TYPES.ISaveRepository).to(SaveRepository)
+    container.bind<ISaveRepository>(TYPES.ISaveRepository).to(SaveRepository);
 }

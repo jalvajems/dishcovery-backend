@@ -53,7 +53,7 @@ export class AdminService implements IAdminService {
             const users = await this._userRepository.findByRole(filter, skip, limit)
             const totalCount = await this._userRepository.countDocuments(filter)
     
-            let total = Math.ceil(totalCount / limit)
+            const total = Math.ceil(totalCount / limit)
     
             return {
                 data: usersMapper(users),
@@ -148,7 +148,7 @@ export class AdminService implements IAdminService {
             const totalCount=await this._recipeRepository.countDocument(filter)
             console.log('recipes=========',recipes.datas);
             
-            let total=Math.ceil(totalCount/limit)
+            const total=Math.ceil(totalCount/limit)
             
             return {
                 data:allRecipesMapper(recipes.datas),

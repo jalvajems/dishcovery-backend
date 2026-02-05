@@ -7,8 +7,8 @@ import { WalletTransactionService } from "../../services/implementation/wallet.s
 import { IWalletController } from "../../controllers/interface/IWalletController";
 import { WalletController } from "../../controllers/implementation/wallet.controller";
 
-export function transactionModule (container:Container){
-    container.bind<ITransactionRepository>(TYPES.ITransactionRepository).to(TransactionRepository)
-    container.bind<IWalletTransactionService>(TYPES.IWalletTransactionService).to(WalletTransactionService)
-    container.bind<IWalletController>(TYPES.IWalletController).to(WalletController)
+export function transactionModule(container: Container) {
+    container.bind<ITransactionRepository>(TYPES.ITransactionRepository).to(TransactionRepository);
+    container.bind<IWalletTransactionService>(TYPES.IWalletTransactionService).to(WalletTransactionService);
+    container.bind<IWalletController>(TYPES.IWalletController).to(WalletController);
 }

@@ -25,9 +25,9 @@ foodieId: object;
     tags: string[];
     rating?: number;
     openingHours: {
-      open: String, 
-      close: String, 
-      isOpenNow: Boolean,
+      open: string, 
+      close: string, 
+      isOpenNow: boolean,
     },
     likesCount: number;
     savesCount: number;

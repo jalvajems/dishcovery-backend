@@ -7,8 +7,8 @@ import { ReviewService } from "../../services/implementation/review.service";
 import { IReviewController } from "../../controllers/interface/IReviewController";
 import { ReviewController } from "../../controllers/implementation/review.controller";
 
-export function reviewModule(container:Container){
-    container.bind<IReviewRepostory>(TYPES.IReviewRepository).to(ReviewRepositry)
-    container.bind<IReviewService>(TYPES.IReviewService).to(ReviewService),
-    container.bind<IReviewController>(TYPES.IReviewController).to(ReviewController)
+export function reviewModule(container: Container) {
+    container.bind<IReviewRepostory>(TYPES.IReviewRepository).to(ReviewRepositry);
+    container.bind<IReviewService>(TYPES.IReviewService).to(ReviewService);
+    container.bind<IReviewController>(TYPES.IReviewController).to(ReviewController);
 }

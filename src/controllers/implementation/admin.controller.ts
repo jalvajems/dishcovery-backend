@@ -9,19 +9,19 @@ import { json, success } from "zod";
 import { logger } from "../../utils/logger";
 
 @injectable()
-export class AdminController implements IAdminController{
+export class AdminController implements IAdminController {
     constructor(
-        @inject(TYPES.IAdminService) private _adminService:IAdminService,
-    ){}
+        @inject(TYPES.IAdminService) private _adminService: IAdminService,
+    ) { }
     async getAllFoodies(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const page=Number(req.query.page)||1;
-            const limit=Number(req.query.limit)||10;
-            const search=(req.query.search as string)||"";
-            const isBlocked=req.query.isBlocked as string;
+            const page = Number(req.query.page) || 1;
+            const limit = Number(req.query.limit) || 10;
+            const search = (req.query.search as string) || "";
+            const isBlocked = req.query.isBlocked as string;
 
-            const result=await this._adminService.getAllFoodies({
-                page,limit,search,isBlocked,
+            const result = await this._adminService.getAllFoodies({
+                page, limit, search, isBlocked,
             })
 
             res.status(STATUS_CODE.SUCCESS).json(result)
@@ -31,13 +31,13 @@ export class AdminController implements IAdminController{
     }
     async getAllChefs(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const page=Number(req.query.page)||1;
-            const limit=Number(req.query.limit)||10;
-            const search=(req.query.search as string)||"";
-            const isBlocked=req.query.isBlocked as string;
-            const isVerified=req.query.isVerified as string;
-            const result=await this._adminService.getAllChefs({
-                page,limit,search,isBlocked,isVerified
+            const page = Number(req.query.page) || 1;
+            const limit = Number(req.query.limit) || 10;
+            const search = (req.query.search as string) || "";
+            const isBlocked = req.query.isBlocked as string;
+            const isVerified = req.query.isVerified as string;
+            const result = await this._adminService.getAllChefs({
+                page, limit, search, isBlocked, isVerified
             })
             res.status(STATUS_CODE.SUCCESS).json(result)
         } catch (error) {
@@ -46,121 +46,121 @@ export class AdminController implements IAdminController{
     }
     async blockUser(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id=req.params.id;
-            
-            const restult=await this._adminService.blockUserById(id)
-            res.status(STATUS_CODE.SUCCESS).json({restult})
+            const id = req.params.id;
+
+            const restult = await this._adminService.blockUserById(id)
+            res.status(STATUS_CODE.SUCCESS).json({ restult })
         } catch (error) {
             next(error);
         }
     }
     async unBlockUser(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id=req.params.id;
-            const restult=await this._adminService.unBlockUserById(id)
-            res.status(STATUS_CODE.SUCCESS).json({restult})
+            const id = req.params.id;
+            const restult = await this._adminService.unBlockUserById(id)
+            res.status(STATUS_CODE.SUCCESS).json({ restult })
         } catch (error) {
             next(error)
         }
     }
     async verifyChef(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id=req.params.id;
-            const result=await this._adminService.verifyChef(id);
-            res.status(STATUS_CODE.SUCCESS).json({result});
+            const id = req.params.id;
+            const result = await this._adminService.verifyChef(id);
+            res.status(STATUS_CODE.SUCCESS).json({ result });
         } catch (error) {
             next(error);
         }
     }
     async unVerifyChef(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id=req.params.id;
-            const result=await this._adminService.unVerifyChef(id);
-            res.status(STATUS_CODE.SUCCESS).json({result});
+            const id = req.params.id;
+            const result = await this._adminService.unVerifyChef(id);
+            res.status(STATUS_CODE.SUCCESS).json({ result });
         } catch (error) {
             next(error);
         }
     }
     async getAllRecipes(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const page=Number(req.query.page)||1;
-            const limit=Number(req.query.limit)||10;
-            const search=(req.query.search as string)||"";
-            const isBlocked=req.query.isBlocked as string;
-            
-            const result= await this._adminService.getAllRecipes({page,limit,search,isBlocked})
-            res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,currentPage:result.currentPage,totalPages:result.totalPages})
-            
+            const page = Number(req.query.page) || 1;
+            const limit = Number(req.query.limit) || 10;
+            const search = (req.query.search as string) || "";
+            const isBlocked = req.query.isBlocked as string;
+
+            const result = await this._adminService.getAllRecipes({ page, limit, search, isBlocked })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, currentPage: result.currentPage, totalPages: result.totalPages })
+
         } catch (error) {
             throw error;
         }
     }
     async blockRecipe(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id=req.params.id
-            console.log('id',id);
+            const id = req.params.id
+            console.log('id', id);
             await this._adminService.blockRecipe(id)
-            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'userblock updated'})
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'userblock updated' })
         } catch (error) {
             next(error)
         }
     }
     async unBlockRecipe(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id=req.params.id;
+            const id = req.params.id;
             await this._adminService.unblockRecipe(id)
             res.status(STATUS_CODE.SUCCESS).json()
         } catch (error) {
-            
+            next(error)
         }
     }
     async getAllBlogs(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             console.log('reach');
-            
-            const page=Number(req.query.page)||1;
-            const limit=Number(req.query.limit)||10;
-            const search=(req.query.search as string)||"";
-            const isBlocked=req.query.isBlocked as string;
 
-            const result=await this._adminService.getAllBlogs({page,limit,search,isBlocked})
-            console.log('reslt=-==',result);
-            
-            res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,currentPage:result.currentPage,totalPages:result.totalPages})
+            const page = Number(req.query.page) || 1;
+            const limit = Number(req.query.limit) || 10;
+            const search = (req.query.search as string) || "";
+            const isBlocked = req.query.isBlocked as string;
+
+            const result = await this._adminService.getAllBlogs({ page, limit, search, isBlocked })
+            console.log('reslt=-==', result);
+
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, currentPage: result.currentPage, totalPages: result.totalPages })
         } catch (error) {
             next(error)
         }
     }
     async blockBlog(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id=req.params.id;
+            const id = req.params.id;
             await this._adminService.blockBlog(id)
-            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'blog block updated'})
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'blog block updated' })
         } catch (error) {
             next(error)
         }
     }
     async unBlockBlog(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id=req.params.id;
+            const id = req.params.id;
             await this._adminService.unblockBlog(id)
-            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'blog block updated'})
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'blog block updated' })
         } catch (error) {
             next(error)
         }
     }
     async getAllFoodSpots(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const page=Number(req.query.page)||1;
-            const limit=Number(req.query.limit)||10;
-            const search=(req.query.search as string)||"";
-            const isBlocked=req.query.isBlocked as string;
-            const isApproved=req.query.isApproved as string;
+            const page = Number(req.query.page) || 1;
+            const limit = Number(req.query.limit) || 10;
+            const search = (req.query.search as string) || "";
+            const isBlocked = req.query.isBlocked as string;
+            const isApproved = req.query.isApproved as string;
 
-            const result=await this._adminService.getAllFoodSpot({page,limit,search,isApproved,isBlocked})
-            console.log('====controler',result);
-            
-            res.status(STATUS_CODE.SUCCESS).json({success:true,data:result.data,currentPage:result.currentPage,totalPages:result.totalPages})
+            const result = await this._adminService.getAllFoodSpot({ page, limit, search, isApproved, isBlocked })
+            console.log('====controler', result);
+
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, currentPage: result.currentPage, totalPages: result.totalPages })
 
         } catch (error) {
             next(error)
@@ -168,36 +168,36 @@ export class AdminController implements IAdminController{
     }
     async blockSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id=req.params.id;
+            const id = req.params.id;
             await this._adminService.blockSpot(id)
-            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'blog block updated'})
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'blog block updated' })
         } catch (error) {
             next(error)
         }
     }
     async unblockSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id=req.params.id;
+            const id = req.params.id;
             await this._adminService.unblockSpot(id)
-            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'blog block updated'})
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'blog block updated' })
         } catch (error) {
             next(error)
         }
     }
     async approveSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id=req.params.id;
+            const id = req.params.id;
             await this._adminService.approveSpot(id)
-            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'blog block updated'})
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'blog block updated' })
         } catch (error) {
             next(error)
         }
     }
     async unApproveSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id=req.params.id;
+            const id = req.params.id;
             await this._adminService.unapproveSpot(id)
-            res.status(STATUS_CODE.SUCCESS).json({success:true,message:'blog block updated'})
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'blog block updated' })
         } catch (error) {
             next(error)
         }
