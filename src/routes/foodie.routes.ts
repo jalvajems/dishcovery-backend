@@ -61,6 +61,6 @@ router.get('/chefs', verifyAccess, ChefController.getAllChefs.bind(ChefControlle
       .get('/chef/:id', verifyAccess, ChefController.getChefDetails.bind(ChefController))
       .get('/chef/:chefId/recipes', verifyAccess, RecipeController.getRecipesByChef.bind(RecipeController))
       .get('/chef/:chefId/blogs', verifyAccess, BlogController.getBlogsByChef.bind(BlogController))
-      .get('/chef/:chefId/workshops', verifyAccess, WorkshopController.getWorkshopsByChef.bind(WorkshopController));
+      .get('/chef/:chefId/workshops', verifyAccess, WorkshopController.getWorkshopsByChefToFoodie.bind(WorkshopController));
 
 export default router;

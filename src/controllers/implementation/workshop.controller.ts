@@ -172,6 +172,30 @@ export class WorkshopController implements IWorkshopController {
             next(error);
         }
     }
+    async getWorkshopsByChefToFoodie(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            console.log('ivdethi');
+
+            const chefId =String(req.params.chefId)||'';
+            const page = Number(req.query.page) || 1;
+            const limit = Number(req.query.limit) || 6;
+            const search = String(req.query.search) || "";
+            const status = String(req.query.status) || "";
+
+            if (!chefId) throw new AppError('Not authenticated', STATUS_CODE.UNAUTHORIZED)
+
+            const result = await this._workshopService.getWorkshopsByChef(chefId, page, limit, search, status);
+            res.status(STATUS_CODE.SUCCESS).json({
+                success: true,
+                datas: result.datas,
+                totalCount: result.totalCount,
+                currentPage: page,
+                totalPages: Math.ceil(result.totalCount / limit)
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
 
     async cancelWorkshop(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {

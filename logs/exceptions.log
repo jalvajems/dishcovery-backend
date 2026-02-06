@@ -119859,3 +119859,40 @@ src/services/implementation/foodSpot.service.ts(69,26): error TS1128: Declaratio
     at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
     at Module.load (node:internal/modules/cjs/loader:1318:32)
     at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 10:32:42] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/implementation/workshop.repository.ts(29,36): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\workshop.repository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-689604192452141.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-689604192452141.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-689604192452141.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 10:37:46] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/implementation/workshop.controller.ts(179,44): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\implementation\workshop.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-689604192452141.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-689604192452141.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-689604192452141.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 10:38:39] [31merror[39m: TypeError: Cannot read properties of undefined (reading 'bind')
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\routes\foodie.routes.ts:64:76)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-689604192452141.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-689604192452141.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-689604192452141.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)

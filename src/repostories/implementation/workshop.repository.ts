@@ -24,9 +24,9 @@ export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implem
 
     async findAllByChefId(chefId: string, skip: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopDocument[]; totalCount: number }> {
         const query: any = { chefId };
-        console.log('status', status);
+        console.log('status---', status);
 
-        if (search) {
+        if (search||search.length!==0) {
             query.title = { $regex: search, $options: 'i' };
         }
 
