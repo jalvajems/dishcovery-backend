@@ -5,6 +5,7 @@ import { IBookingController } from '../interface/IBookingController';
 import { IBookingService } from '../../services/interface/IBookingService';
 import { STATUS_CODE } from '../../constants/StatusCode';
 import { AppError } from '../../utils/AppError';
+import { logger } from '../../utils/logger';
 
 @injectable()
 export class BookingController implements IBookingController {
@@ -72,11 +73,18 @@ export class BookingController implements IBookingController {
     async handleWebhook(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const sig = req.headers['stripe-signature'];
-            if (!sig) throw new AppError('Missing stripe signature', 400);
+            logger.info(`Webhook received. Signature present: ${!!sig}`);
+
+            if (!sig) {
+                logger.error('Missing stripe signature');
+                throw new AppError('Missing stripe signature', 400);
+            }
 
             await this._bookingService.handleStripeWebhook(req.body, sig as string);
+            logger.info('Webhook processed successfully');
             res.status(STATUS_CODE.SUCCESS).json({ received: true });
         } catch (error) {
+            logger.error(`Webhook Error: ${error instanceof Error ? error.message : 'Unknown Error'}`, { stack: error instanceof Error ? error.stack : undefined });
             console.error('Webhook Error:', error);
             res.status(400).send(`Webhook Error: ${error instanceof Error ? error.message : 'Unknown Error'}`);
         }
