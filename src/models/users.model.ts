@@ -1,32 +1,32 @@
-import  {model, Schema,Document} from "mongoose";
+import { model, Schema, Document } from "mongoose";
 import { IUser, Role } from "../types/user.types";
 
-export interface IUserDocument extends IUser, Document{}
+export interface IUserDocument extends IUser, Document { }
 
-const userSchema= new Schema<IUserDocument>(
+const userSchema = new Schema<IUserDocument>(
     {
-        name:{type:String, required:true, trim:true},
-        email:{type:String, required:true, unique:true, lowercase:true},
-        password:{type:String, required:true},
-        role:{type:String,enum: Object.values(Role), default:Role.USER},
-        isVerified:{type:Boolean, default:false},
-        isBlocked:{type:Boolean,default:false},
-        savedRecipes:[
+        name: { type: String, required: true, trim: true },
+        email: { type: String, required: true, unique: true, lowercase: true },
+        password: { type: String, required: true },
+        role: { type: String, enum: Object.values(Role), default: Role.USER },
+        isVerified: { type: Boolean, default: false },
+        isBlocked: { type: Boolean, default: false },
+        savedRecipes: [
             {
-                type:Schema.Types.ObjectId,
-                ref:"Recipe",
-                default:[],
+                type: Schema.Types.ObjectId,
+                ref: "Recipe",
+                default: [],
             },
         ],
-        savedBlogs:[
+        savedBlogs: [
             {
-                type:Schema.Types.ObjectId,
-                ref:"Blog",
-                default:[],
-        }
+                type: Schema.Types.ObjectId,
+                ref: "Blog",
+                default: [],
+            }
         ]
     },
-    {timestamps:true}
+    { timestamps: true }
 );
 
-export const UserModel= model<IUserDocument>('User',userSchema);
+export const UserModel = model<IUserDocument>('User', userSchema);

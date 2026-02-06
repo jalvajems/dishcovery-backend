@@ -9,7 +9,6 @@ export class ChatController {
         @inject('IChatService') private chatService: IChatService
     ) { }
 
-    // Create or get existing conversation
     createOrGetConversation = async (req: Request, res: Response): Promise<void> => {
         try {
             const { otherUserId, otherUserRole } = req.body;
@@ -21,7 +20,6 @@ export class ChatController {
                 return;
             }
 
-            // Map 'user' role to 'foodie' for chat conversations
             const currentUserRole: 'chef' | 'foodie' = userRole === 'chef' ? 'chef' : 'foodie';
 
             const conversation = await this.chatService.getOrCreateConversation(
@@ -44,7 +42,6 @@ export class ChatController {
         }
     };
 
-    // Get user's conversations
     getUserConversations = async (req: Request, res: Response): Promise<void> => {
         try {
             const userId = (req as any).user.id;
@@ -72,7 +69,6 @@ export class ChatController {
     };
 
 
-    // Send a message
     sendMessage = async (req: Request, res: Response): Promise<void> => {
         try {
             const { conversationId, content } = req.body;
@@ -84,7 +80,6 @@ export class ChatController {
                 return;
             }
 
-            // Map 'user' role to 'foodie' for chat messages
             const mappedSenderRole: 'chef' | 'foodie' = senderRole === 'chef' ? 'chef' : 'foodie';
 
             const message = await this.chatService.sendMessage(senderId, mappedSenderRole, conversationId, content);
@@ -101,7 +96,6 @@ export class ChatController {
         }
     };
 
-    // Get messages for a conversation
     getMessages = async (req: Request, res: Response): Promise<void> => {
         try {
             const { conversationId } = req.params;
@@ -129,7 +123,6 @@ export class ChatController {
         }
     };
 
-    // Mark messages as read
     markAsRead = async (req: Request, res: Response): Promise<void> => {
         try {
             const { conversationId } = req.params;
@@ -149,11 +142,10 @@ export class ChatController {
         }
     };
 
-    // Delete message
     deleteMessage = async (req: Request, res: Response): Promise<void> => {
         try {
             const { messageId } = req.params;
-            const { forEveryone } = req.body; // Expecting boolean
+            const { forEveryone } = req.body; 
             const userId = (req as any).user.id;
 
             const updatedMessage = await this.chatService.deleteMessage(messageId, userId, forEveryone);

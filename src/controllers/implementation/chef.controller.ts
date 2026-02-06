@@ -29,7 +29,6 @@ export class ChefController implements IChefController {
             hasProfile = false
         }
 
-        // Fetch dashboard statistics
         const stats = await this._chefService.getDashboardStats(id);
 
         console.log('profile', result)

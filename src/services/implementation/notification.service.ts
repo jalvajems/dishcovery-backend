@@ -30,8 +30,6 @@ export class NotificationService implements INotificationService {
             sessionId: sessionId as any
         });
 
-        // Emit real-time event
-        // We assume users join a room named after their userId
         socketService.emitToRoom(recipientId, 'notification:new', notification);
 
         return notification;

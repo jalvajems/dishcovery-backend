@@ -34,7 +34,7 @@ class SocketService {
             const role = socket.data.user.role;
 
             this.userSocketMap.set(userId, socket.id);
-            socket.join(userId); // Join user to their own room for targeted notifications
+            socket.join(userId); 
             log.info(`User connected: ${userId} (${role}) - Socket: ${socket.id}`);
 
             socket.on("join-session", async (workshopId: string) => {
@@ -87,8 +87,7 @@ class SocketService {
                 }
             });
 
-            // Chat events
-            socket.on("chat:join", (conversationId: string) => {
+                                socket.on("chat:join", (conversationId: string) => {
                 socket.join(`chat:${conversationId}`);
                 log.info(`User ${userId} joined chat room: ${conversationId}`);
             });

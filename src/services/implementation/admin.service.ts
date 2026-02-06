@@ -294,7 +294,6 @@ export class AdminService implements IAdminService {
 
     async getDashboardStats(): Promise<any> {
         try {
-            // Get total counts
             const totalUsers = await this._userRepository.countDocument({ role: "user" });
             const totalChefs = await this._userRepository.countDocument({ role: "chef" });
             const totalRecipes = await this._recipeRepository.countDocument({});
@@ -317,7 +316,6 @@ export class AdminService implements IAdminService {
         try {
             const now = new Date();
 
-            // Calculate weekly data for the last 4 weeks
             const weeks = [];
             for (let i = 3; i >= 0; i--) {
                 const weekStart = new Date(now);
@@ -332,7 +330,6 @@ export class AdminService implements IAdminService {
                 });
             }
 
-            // Get counts for each week
             const recipeGrowth = await Promise.all(
                 weeks.map(async (week) => ({
                     week: week.label,

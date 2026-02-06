@@ -116,7 +116,6 @@ export class WorkshopService implements IWorkshopService {
 
         if (!updated) throw new AppError('Failed to approve workshop', STATUS_CODE.INTERNAL_SERVER_ERROR);
 
-        // Notify Chef
         await this._notificationService.createNotification(
             (workshop.chefId as any).toString(),
             'chef',
@@ -144,7 +143,6 @@ export class WorkshopService implements IWorkshopService {
 
         if (!updated) throw new AppError('Failed to reject workshop', STATUS_CODE.INTERNAL_SERVER_ERROR);
 
-        // Notify Chef
         await this._notificationService.createNotification(
             (workshop.chefId as any).toString(),
             'chef',
@@ -196,7 +194,6 @@ export class WorkshopService implements IWorkshopService {
             throw new AppError('Only online workshops can be started', STATUS_CODE.BAD_REQUEST);
         }
 
-        // Validate time
         const workshopDate = new Date(workshop.date);
         const [hours, minutes] = workshop.startTime.split(':').map(Number);
         workshopDate.setHours(hours, minutes, 0, 0);
@@ -220,7 +217,6 @@ export class WorkshopService implements IWorkshopService {
         if (!session) throw new AppError('Failed to start session BC OF SESSION', STATUS_CODE.INTERNAL_SERVER_ERROR);
         console.log('rech start sesion wsrvs6', updated.id);
 
-        // Notify Foodies
         const participants = await this._bookingService.getWorkshopParticipants(workshopId, chefId);
         for (const participant of participants) {
             await this._notificationService.createNotification(
@@ -230,7 +226,7 @@ export class WorkshopService implements IWorkshopService {
                 `The session for workshop "${workshop.title}" has started! Join now.`,
                 'SESSION_STARTED',
                 workshopId,
-                (session as any)._id.toString() // Assuming session object has _id
+                (session as any)._id.toString() 
             );
         }
 
@@ -252,7 +248,6 @@ export class WorkshopService implements IWorkshopService {
                 throw new AppError('Workshop is not LIVE', STATUS_CODE.BAD_REQUEST);
             }
         } else {
-            // Offline Mode
             if (workshop.status !== WorkshopStatus.APPROVED && workshop.status !== WorkshopStatus.UPCOMING && workshop.status !== WorkshopStatus.LIVE) {
                 throw new AppError('Workshop cannot be completed from current status', STATUS_CODE.BAD_REQUEST);
             }
@@ -278,12 +273,7 @@ export class WorkshopService implements IWorkshopService {
             throw error;
         }
     }
-    //             return res
-    //         } catch (error) {
-    //     throw error;
-    // }
-    //     }
-
+   
     async cancelWorkshop(workshopId: string, chefId: string, reason: string): Promise<IWorkshopDocument> {
         const workshop = await this._workshopRepository.findById(workshopId);
         if (!workshop) {
@@ -298,47 +288,15 @@ export class WorkshopService implements IWorkshopService {
             throw new AppError(`Cannot cancel workshop in ${workshop.status} status`, STATUS_CODE.BAD_REQUEST);
         }
 
-        // 1. Update Workshop Status
         const updated = await this._workshopRepository.updateById(workshopId, {
             status: WorkshopStatus.CANCELLED,
-            rejectionReason: reason // Using availability of this field or we could add cancellationReason to Workshop model
+            rejectionReason: reason 
         });
 
         if (!updated) throw new AppError('Failed to cancel workshop', STATUS_CODE.INTERNAL_SERVER_ERROR);
 
-        // 2. Process Refunds for Bookings (Async)
-        // We use immediate execution but don't await the full completion to return response faster? 
-        // OR better await it to ensure consistency if it's not too slow. 
-        // Given Stripe rate limits, if many bookings validation is needed. For now, await is safer.
-
-        // We need to inject BookingService here, but circular dependency might occur.
-        // If BookingService depends on WorkshopService (it does), we cannot inject BookingService into WorkshopService directly if using constructor injection in some containers without lazy loading.
-        // In Inversify we can use LazyServiceIdentifer or just resolve it.
-        // However, BookingService already depends on WorkshopService.
-        // To avoid Circular Dependency:
-        // Option A: Move cancellation logic to a coordination service (e.g. WorkshopOrchestrator).
-        // Option B: Emit an event (EventBus).
-        // Option C: Use property injection or lazy injection.
-
-        // For simplicity in this architecture, let's try strict layering or just direct call if DI allows.
-        // But since I need to modify the file now, I will add the method assuming I can add the dependency.
-        // Wait, I see `_workshopRepository` and `_sessionService` injected. I need to add `IBookingService`.
-
-        // Let's check `types.ts` for IBookingService symbol.
-        // If circular dependency is an issue, we might need a different approach.
-        // BookingService uses WorkshopRepository, not WorkshopService. So it MIGHT be fine if I inject BookingService here.
-        // Let's check BookingService imports: it imports IWorkshopRepository, NOT IWorkshopService. 
-        // So NO circular dependency between Services!
-        // BookingService -> WorkshopRepository
-        // WorkshopService -> BookingService (Proposed)
-        // This is valid.
-
-        // I will add the dependency in a separate step to the constructor.
-
-        // For now, let's write the method body, I'll update the constructor next.
         await this._bookingService.processWorkshopCancellation(workshopId);
 
-        // Notify Foodies
         const participants = await this._bookingService.getWorkshopParticipants(workshopId, chefId);
         for (const participant of participants) {
             await this._notificationService.createNotification(

@@ -39,7 +39,7 @@ export class WorkshopController implements IWorkshopController {
     async getWorkshopById(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const { id } = req.params;
-            const userId = req.user?.id; // Optional user ID if logged in
+            const userId = req.user?.id; 
             const workshop = await this._workshopService.getWorkshopById(id, userId);
             if (!workshop) throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop });

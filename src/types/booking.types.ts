@@ -7,7 +7,7 @@ export enum BookingStatus {
     CANCELLED_BY_CHEF = 'CANCELLED_BY_CHEF',
     REFUNDED = 'REFUNDED',
     COMPLETED = 'COMPLETED',
-    CANCELLED = 'CANCELLED' // Keeping for backward compatibility if needed, but prefer specific ones
+    CANCELLED = 'CANCELLED'
 }
 
 export enum BookingType {

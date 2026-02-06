@@ -18,13 +18,11 @@ export class AiController {
                 return
             }
 
-            // Simple max length check
             if (message.length > 500) {
                 res.status(STATUS_CODE.BAD_REQUEST).json({ message: "Message is too long. Max 500 characters." });
                 return
             }
 
-            // Default to 'foodie' if role is missing or invalid
             const userRole = (role === 'chef' || role === 'foodie') ? role : 'foodie';
 
             const reply = await this.aiService.getChatResponse(message, userRole);

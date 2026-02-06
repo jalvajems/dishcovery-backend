@@ -22,8 +22,7 @@ export class AiService {
                     headers: {
                         "Authorization": `Bearer ${env.OPENROUTER_API_KEY || process.env.OPENROUTER_API_KEY}`,
                         "Content-Type": "application/json",
-                        // OpenRouter requires these headers for rankings (optional but recommended)
-                        "HTTP-Referer": "http://localhost:5173", // Replace with your actual site URL
+                        "HTTP-Referer": "http://localhost:5173", 
                         "X-Title": "Dishcovery"
                     }
                 }

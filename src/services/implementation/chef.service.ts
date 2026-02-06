@@ -105,16 +105,12 @@ export class ChefService implements IChefService {
 
     async getDashboardStats(chefId: string): Promise<{ totalRecipes: number; averageRating: number; totalFollowers: number; totalWorkshops: number }> {
         try {
-            // Get total recipes count
             const totalRecipes = await RecipeModel.countDocuments({ chefId });
 
-            // Get total workshops count
             const totalWorkshops = await WorkshopModel.countDocuments({ chefId });
 
-            // Get total followers count
             const totalFollowers = await FollowModel.countDocuments({ followingId: chefId });
 
-            // Get chef profile to calculate average rating
             const chefProfile = await this._chefRepository.findByChefId(chefId);
             let averageRating = 0;
 

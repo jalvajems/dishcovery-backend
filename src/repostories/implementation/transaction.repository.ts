@@ -83,14 +83,9 @@ export class TransactionRepository extends BaseRepository<ITransactionDocument> 
         }
 
         const stats = result[0];
-        // For Chef: Balance = Credits - (Debits + Refunds)
-        // For User: Balance isn't strictly tracked as a "stored value" usually, but if it were:
-        // User Wallet usually holds Credits (Refunds). Debits are payments. 
-        // If we strictly follow Credit - Debit logic:
-        // Chef: Credit (Earnings) - Debit (Withdrawal) - Refund (Deduction)
         const balance = role === 'chef'
             ? stats.totalCredit - (stats.totalDebit + stats.totalRefund)
-            : stats.totalRefund - stats.totalDebit; // For foodie, this might be negative if they spent more than refunded, which is fine for "net spend".
+            : stats.totalRefund - stats.totalDebit; 
 
         return {
             balance,

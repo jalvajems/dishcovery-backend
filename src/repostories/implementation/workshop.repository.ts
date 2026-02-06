@@ -73,7 +73,6 @@ export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implem
     }
 
     async findRecentApproved(limit: number): Promise<IWorkshopDocument[]> {
-        // Fetch recently created workshops that are approved/upcoming
         return await this.model.find({
             status: { $in: ['APPROVED', 'UPCOMING'] }
         })

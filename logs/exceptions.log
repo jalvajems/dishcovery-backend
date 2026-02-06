@@ -119896,3 +119896,379 @@ src/controllers/implementation/workshop.controller.ts(179,44): error TS1003: Ide
     at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
     at Module.load (node:internal/modules/cjs/loader:1318:32)
     at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 11:48:32] [31merror[39m: TypeError: OAuth2Strategy requires a clientID option
+    at Strategy.OAuth2Strategy (D:\brototype\Dishcovery\server\node_modules\passport-oauth2\lib\strategy.js:87:34)
+    at new Strategy (D:\brototype\Dishcovery\server\node_modules\passport-google-oauth20\lib\strategy.js:52:18)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\passport.ts:8:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-02-06 11:48:46] [31merror[39m: TypeError: OAuth2Strategy requires a clientID option
+    at Strategy.OAuth2Strategy (D:\brototype\Dishcovery\server\node_modules\passport-oauth2\lib\strategy.js:87:34)
+    at new Strategy (D:\brototype\Dishcovery\server\node_modules\passport-google-oauth20\lib\strategy.js:52:18)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\passport.ts:8:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-02-06 11:49:01] [31merror[39m: TypeError: OAuth2Strategy requires a clientID option
+    at Strategy.OAuth2Strategy (D:\brototype\Dishcovery\server\node_modules\passport-oauth2\lib\strategy.js:87:34)
+    at new Strategy (D:\brototype\Dishcovery\server\node_modules\passport-google-oauth20\lib\strategy.js:52:18)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\passport.ts:8:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-02-06 11:49:16] [31merror[39m: TypeError: OAuth2Strategy requires a clientID option
+    at Strategy.OAuth2Strategy (D:\brototype\Dishcovery\server\node_modules\passport-oauth2\lib\strategy.js:87:34)
+    at new Strategy (D:\brototype\Dishcovery\server\node_modules\passport-google-oauth20\lib\strategy.js:52:18)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\passport.ts:8:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-02-06 11:49:26] [31merror[39m: TypeError: OAuth2Strategy requires a clientID option
+    at Strategy.OAuth2Strategy (D:\brototype\Dishcovery\server\node_modules\passport-oauth2\lib\strategy.js:87:34)
+    at new Strategy (D:\brototype\Dishcovery\server\node_modules\passport-google-oauth20\lib\strategy.js:52:18)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\passport.ts:8:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-02-06 11:49:46] [31merror[39m: TypeError: OAuth2Strategy requires a clientID option
+    at Strategy.OAuth2Strategy (D:\brototype\Dishcovery\server\node_modules\passport-oauth2\lib\strategy.js:87:34)
+    at new Strategy (D:\brototype\Dishcovery\server\node_modules\passport-google-oauth20\lib\strategy.js:52:18)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\passport.ts:8:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-02-06 11:50:04] [31merror[39m: TypeError: OAuth2Strategy requires a clientID option
+    at Strategy.OAuth2Strategy (D:\brototype\Dishcovery\server\node_modules\passport-oauth2\lib\strategy.js:87:34)
+    at new Strategy (D:\brototype\Dishcovery\server\node_modules\passport-google-oauth20\lib\strategy.js:52:18)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\passport.ts:8:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-02-06 11:50:24] [31merror[39m: TypeError: OAuth2Strategy requires a clientID option
+    at Strategy.OAuth2Strategy (D:\brototype\Dishcovery\server\node_modules\passport-oauth2\lib\strategy.js:87:34)
+    at new Strategy (D:\brototype\Dishcovery\server\node_modules\passport-google-oauth20\lib\strategy.js:52:18)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\passport.ts:8:5)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-8586276825858337.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-02-06 12:03:34] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:03:44] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:03:50] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:03:58] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:04:05] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:04:16] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:04:22] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:04:34] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:04:51] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:04:57] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:06:06] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:06:11] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:06:18] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:06:21] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:06:28] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:07:14] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:07:45] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 12:07:59] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/types/booking.types.ts(12,1): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,8): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,13): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+src/types/booking.types.ts(12,25): error TS1357: An enum member name must be followed by a ',', '=', or '}'.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\types\booking.types.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6569073193791601.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)

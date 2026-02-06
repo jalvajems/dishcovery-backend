@@ -181,7 +181,6 @@ export class AuthService implements IAuthService {
                 throw new AppError('Invalid role', STATUS_CODE.INTERNAL_SERVER_ERROR)
             }
 
-            // Fetch user data from database
             const user = await this._userRepository.findById(decoded.id);
             if (!user) {
                 throw new AppError('User not found', STATUS_CODE.NOT_FOUND);
@@ -192,7 +191,6 @@ export class AuthService implements IAuthService {
             await this._refreshTokenRepository.deleteByUserId(decoded.id);
             await this._refreshTokenRepository.createRefreshToken(decoded.id, refreshToken);
 
-            // Clean up old refresh token lookup
             const oldRefreshLookupKey = `refreshLookup:${cookieToken}`;
             await redisClient.del(oldRefreshLookupKey);
             await redisClient.del(`refreshKey:${decoded.id}`);
