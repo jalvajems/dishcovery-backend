@@ -13,6 +13,8 @@ router.get('/foodie-management', authorizeRole('admin'), verifyAccess, adminCont
       .get('/recipe-management', authorizeRole('admin'), adminController.getAllRecipes.bind(adminController))
       .get('/blog-management', authorizeRole('admin'), adminController.getAllBlogs.bind(adminController))
       .get('/foodspot-management', authorizeRole('admin'), adminController.getAllFoodSpots.bind(adminController))
+      .get('/dashboard-stats', authorizeRole('admin'), adminController.getDashboardStats.bind(adminController))
+      .get('/growth-data', authorizeRole('admin'), adminController.getGrowthData.bind(adminController))
 
 router.patch('/toggle-block/:id', authorizeRole('admin'), adminController.blockUser.bind(adminController))
       .patch('/toggle-unblock/:id', authorizeRole('admin'), adminController.unBlockUser.bind(adminController))

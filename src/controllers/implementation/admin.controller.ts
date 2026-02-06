@@ -202,4 +202,20 @@ export class AdminController implements IAdminController {
             next(error)
         }
     }
+    async getDashboardStats(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const stats = await this._adminService.getDashboardStats();
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: stats });
+        } catch (error) {
+            next(error);
+        }
+    }
+    async getGrowthData(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const growthData = await this._adminService.getGrowthData();
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: growthData });
+        } catch (error) {
+            next(error);
+        }
+    }
 }
