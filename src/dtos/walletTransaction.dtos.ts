@@ -1,8 +1,10 @@
+import { Role } from "../types/user.types";
+
 export interface IWalletTransactionDto {
   _id: string;
 
   userId: string | object;
-  role: "user" | "chef";
+  role: Role;
 
   bookingId: string | object;
   workshopId: string | object;
@@ -10,7 +12,7 @@ export interface IWalletTransactionDto {
   amount: number;
   currency: string;
 
-  type: string;   
+  type: string;
   status: "pending" | "success" | "failed";
 
   stripePaymentIntentId?: string;

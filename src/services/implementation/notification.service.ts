@@ -1,9 +1,11 @@
 import { inject, injectable } from "inversify";
 import TYPES from "../../DI/types";
-import { INotificationService } from "../interfaces/INotificationService";
+import { INotificationService } from "../interface/INotificationService";
 import { INotificationRepository } from "../../repositories/interfaces/INotificationRepository";
 import { INotification } from "../../models/notification.model";
 import { socketService } from "./socket.service";
+
+import { Role } from "../../types/user.types";
 
 @injectable()
 export class NotificationService implements INotificationService {
@@ -13,7 +15,7 @@ export class NotificationService implements INotificationService {
 
     async createNotification(
         recipientId: string,
-        recipientRole: 'chef' | 'foodie',
+        recipientRole: Role,
         title: string,
         message: string,
         type: 'SESSION_STARTED' | 'SESSION_CANCELLED' | 'WORKSHOP_APPROVED' | 'WORKSHOP_REJECTED',

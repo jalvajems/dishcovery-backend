@@ -18,8 +18,11 @@ import { IWorkshopSessionRepository } from "../../repostories/interface/IWorksho
 import { WorkshopSessionRepository } from "../../repostories/implementation/workshopSession.repository";
 import { IWorkshopSessionService } from "../../services/interface/IWorkshopSessionService";
 import { WorkshopSessionService } from "../../services/implementation/workshopSession.service";
+
 import { IWorkshopSessionController } from "../../controllers/interface/IWorkshopSessionController";
 import { WorkshopSessionController } from "../../controllers/implementation/workshopSession.controller";
+import { ICronService } from "../../services/interface/ICronService";
+import { CronService } from "../../services/implementation/cron.service";
 
 export default function workshopModule(container: Container) {
     container.bind<IWorkshopRepository>(TYPES.IWorkshopRepository).to(WorkshopRepository);
@@ -34,4 +37,6 @@ export default function workshopModule(container: Container) {
     container.bind<IWorkshopSessionRepository>(TYPES.WorkshopSessionRepository).to(WorkshopSessionRepository);
     container.bind<IWorkshopSessionService>(TYPES.WorkshopSessionService).to(WorkshopSessionService);
     container.bind<IWorkshopSessionController>(TYPES.WorkshopSessionController).to(WorkshopSessionController);
+
+    container.bind<ICronService>(TYPES.ICronService).to(CronService);
 }

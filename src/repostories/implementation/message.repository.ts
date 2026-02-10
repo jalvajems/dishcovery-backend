@@ -1,6 +1,7 @@
+import { Role } from "../../types/user.types";
 import { injectable } from "inversify";
-import { Message, IMessage } from "../models/message.model";
-import { IMessageRepository } from "../repositories/message.repository.interface";
+import { Message, IMessage } from "../../models/message.model";
+import { IMessageRepository } from "../../repositories/message.repository.interface";
 import mongoose from "mongoose";
 
 @injectable()
@@ -9,7 +10,7 @@ export class MessageRepository implements IMessageRepository {
     async createMessage(messageData: {
         conversationId: string;
         senderId: string;
-        senderRole: 'chef' | 'foodie';
+        senderRole: Role;
         content: string;
         messageType?: 'text' | 'image';
     }): Promise<IMessage> {
@@ -36,7 +37,7 @@ export class MessageRepository implements IMessageRepository {
             conversationId: new mongoose.Types.ObjectId(conversationId)
         })
             .populate('senderId', 'name email profileImage role')
-            .sort({ createdAt: -1 }) 
+            .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit);
 
@@ -44,7 +45,7 @@ export class MessageRepository implements IMessageRepository {
             conversationId: new mongoose.Types.ObjectId(conversationId)
         });
 
-        return { messages: messages.reverse(), total }; 
+        return { messages: messages.reverse(), total };
     }
 
     async updateMessageStatus(messageId: string, status: 'sent' | 'delivered' | 'read'): Promise<void> {
@@ -76,7 +77,7 @@ export class MessageRepository implements IMessageRepository {
     async deleteMessage(messageId: string, userId: string, forEveryone: boolean): Promise<IMessage | null> {
         if (forEveryone) {
             return await Message.findOneAndUpdate(
-                { _id: messageId, senderId: userId }, 
+                { _id: messageId, senderId: userId },
                 { isDeletedForEveryone: true },
                 { new: true }
             );

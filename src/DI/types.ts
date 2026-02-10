@@ -45,6 +45,7 @@ const TYPES = {
     INotificationRepository: Symbol.for("INotificationRepository"),
     INotificationService: Symbol.for("INotificationService"),
     INotificationController: Symbol.for("INotificationController"),
+    ICronService: Symbol.for("ICronService"),
 }
 
 export default TYPES;

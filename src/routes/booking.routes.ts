@@ -5,6 +5,7 @@ import TYPES from '../DI/types';
 import { verifyAccess } from '../middlewares/verifyAccess';
 import { authorizeRole } from '../middlewares/authorizeRole';
 import express from 'express';
+import { Role } from '../types/user.types';
 
 const router = Router();
 const webhookRouter = Router();
@@ -12,12 +13,12 @@ const bookingController = container.get<IBookingController>(TYPES.IBookingContro
 
 webhookRouter.post('/webhook', express.raw({ type: 'application/json' }), bookingController.handleWebhook.bind(bookingController));
 
-router.post('/:id/book', verifyAccess, authorizeRole('user'), bookingController.bookWorkshop.bind(bookingController));
-router.get('/my-bookings', verifyAccess, authorizeRole('user'), bookingController.getMyBookings.bind(bookingController));
-router.patch('/:id/cancel', verifyAccess, authorizeRole('user'), bookingController.cancelBooking.bind(bookingController));
+router.post('/:id/book', verifyAccess, authorizeRole(Role.USER), bookingController.bookWorkshop.bind(bookingController));
+router.get('/my-bookings', verifyAccess, authorizeRole(Role.USER), bookingController.getMyBookings.bind(bookingController));
+router.patch('/:id/cancel', verifyAccess, authorizeRole(Role.USER), bookingController.cancelBooking.bind(bookingController));
 
-router.get('/workshop/:id/participants', verifyAccess, authorizeRole('chef'), bookingController.getParticipants.bind(bookingController));
-router.patch('/:id/attendance', verifyAccess, authorizeRole('chef'), bookingController.markAttendance.bind(bookingController));
+router.get('/workshop/:id/participants', verifyAccess, authorizeRole(Role.CHEF), bookingController.getParticipants.bind(bookingController));
+router.patch('/:id/attendance', verifyAccess, authorizeRole(Role.CHEF), bookingController.markAttendance.bind(bookingController));
 
 export { webhookRouter };
 export default router;

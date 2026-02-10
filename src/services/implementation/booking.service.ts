@@ -10,6 +10,7 @@ import { AppError } from '../../utils/AppError';
 import { Types } from 'mongoose';
 import { ITransactionRepository } from '../../repostories/interface/ITransactionRepository';
 import { WalletTransactionStatus, WalletTransactionType } from '../../models/transaction.model';
+import { Role } from '../../types/user.types';
 
 @injectable()
 export class BookingService implements IBookingService {
@@ -36,6 +37,17 @@ export class BookingService implements IBookingService {
             throw new AppError('Workshop is full', 400);
         }
 
+        const workshopDate = new Date(workshop.date);
+        const [hours, minutes] = workshop.startTime.split(':').map(Number);
+        workshopDate.setHours(hours, minutes, 0, 0);
+
+        const oneHourBeforeStart = new Date(workshopDate.getTime() - 60 * 60 * 1000);
+        const now = new Date();
+
+        if (now > oneHourBeforeStart) {
+            throw new AppError('Bookings are closed 1 hour before the session starts', 400);
+        }
+
         const existingBooking = await this.bookingRepository.findByWorkshopAndFoodie(workshopId, foodieId);
 
         const retryableStatuses = [
@@ -43,7 +55,7 @@ export class BookingService implements IBookingService {
             BookingStatus.REFUNDED,
             BookingStatus.CANCELLED_BY_FOODIE,
             BookingStatus.CANCELLED_BY_CHEF,
-            BookingStatus.PENDING 
+            BookingStatus.PENDING
         ];
 
         if (existingBooking && !retryableStatuses.includes(existingBooking.status)) {
@@ -65,7 +77,7 @@ export class BookingService implements IBookingService {
 
             let booking;
             if (existingBooking) {
-                
+
                 booking = await this.bookingRepository.updateStatus(
                     existingBooking._id as string,
                     BookingStatus.CONFIRMED,
@@ -101,7 +113,7 @@ export class BookingService implements IBookingService {
                 BookingStatus.PENDING,
                 {
                     status: BookingStatus.PENDING,
-                    bookingType: BookingType.PAID, 
+                    bookingType: BookingType.PAID,
                     amount: workshop.price,
                     bookedAt: new Date(),
                     cancelledAt: null,
@@ -172,7 +184,7 @@ export class BookingService implements IBookingService {
 
             await this._transactionRepository.create({
                 userId: booking.foodieId,
-                role: 'user',
+                role: Role.USER,
                 bookingId: booking.id,
                 workshopId: booking.workshopId,
                 amount: booking.amount,
@@ -187,7 +199,7 @@ export class BookingService implements IBookingService {
 
             await this._transactionRepository.create({
                 userId: workshop!.chefId,
-                role: 'chef',
+                role: Role.CHEF,
                 bookingId: booking.id,
                 workshopId: booking.workshopId,
                 amount: booking.amount,
@@ -227,10 +239,10 @@ export class BookingService implements IBookingService {
 
             await this._transactionRepository.create({
                 userId: booking.foodieId,
-                role: 'user',
+                role: Role.USER,
                 bookingId: booking._id as string,
                 workshopId: booking.workshopId,
-                amount: refund.amount / 100, 
+                amount: refund.amount / 100,
                 type: WalletTransactionType.REFUND,
                 status: WalletTransactionStatus.SUCCESS,
                 stripePaymentIntentId: paymentIntentId,
@@ -242,11 +254,11 @@ export class BookingService implements IBookingService {
             if (workshop) {
                 await this._transactionRepository.create({
                     userId: workshop.chefId,
-                    role: 'chef',
+                    role: Role.CHEF,
                     bookingId: booking._id as string,
                     workshopId: booking.workshopId,
                     amount: refund.amount / 100,
-                    type: WalletTransactionType.REFUND, 
+                    type: WalletTransactionType.REFUND,
                     status: WalletTransactionStatus.SUCCESS,
                     stripePaymentIntentId: paymentIntentId,
                     stripeEventId: event.id,
@@ -317,7 +329,7 @@ export class BookingService implements IBookingService {
         }
     }
 
-    async processWorkshopCancellation(workshopId: string): Promise<void> {
+    async processWorkshopCancellation(workshopId: string, reason: string = 'Workshop cancelled by Chef'): Promise<void> {
         const bookings = await this.bookingRepository.findByWorkshopId(workshopId);
 
         for (const booking of bookings) {
@@ -331,7 +343,7 @@ export class BookingService implements IBookingService {
             if (booking.bookingType === BookingType.FREE) {
                 await this.bookingRepository.updateStatus(booking._id as string, BookingStatus.CANCELLED_BY_CHEF, {
                     cancelledAt: new Date(),
-                    cancellationReason: 'Workshop cancelled by Chef'
+                    cancellationReason: reason
                 });
             } else {
                 if (booking.paymentIntentId) {
@@ -340,13 +352,13 @@ export class BookingService implements IBookingService {
 
                         await this.bookingRepository.updateStatus(booking._id as string, BookingStatus.CANCELLED_BY_CHEF, {
                             cancelledAt: new Date(),
-                            cancellationReason: 'Workshop cancelled by Chef'
+                            cancellationReason: reason
                         });
                     } catch (error) {
                         console.error(`Failed to refund booking ${booking._id}:`, error);
                         await this.bookingRepository.updateStatus(booking._id as string, BookingStatus.CANCELLED_BY_CHEF, {
                             cancelledAt: new Date(),
-                            cancellationReason: 'Workshop cancelled by Chef (Refund Failed - Contact Support)'
+                            cancellationReason: `${reason} (Refund Failed - Contact Support)`
                         });
                     }
                 }

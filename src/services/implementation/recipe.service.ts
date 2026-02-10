@@ -10,6 +10,7 @@ import { AppError } from "../../utils/AppError";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { allRecipesMapper } from "../../utils/mapper/allRecipes.mapper";
 import { ISaveRepository } from "../../repostories/interface/ISaveRepository";
+import { Role } from "../../types/user.types";
 
 @injectable()
 export class RecipeService implements IRecipeService {
@@ -68,7 +69,7 @@ export class RecipeService implements IRecipeService {
     async getAllRecipes(page: number, limit: number, search: string, filter?: string): Promise<{ datas: IRecipeDto[]; currentPage: number; totalPage: number; }> {
         try {
             const skip = (page - 1) * limit
-            const result = await this._recipeRepository.findAllByPagination(search, skip, limit, 'foodie', filter)
+            const result = await this._recipeRepository.findAllByPagination(search, skip, limit, Role.FOODIE, filter)
             const total = Math.ceil(result.totalCount / limit)
 
             return { datas: allRecipesMapper(result.datas), currentPage: page, totalPage: total }

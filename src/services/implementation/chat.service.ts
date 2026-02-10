@@ -1,10 +1,11 @@
 import { inject, injectable } from "inversify";
-import { IChatService } from "../chat.service.interface";
+import { IChatService } from "../interface/chat.service.interface";
 import { IConversationRepository } from "../../repositories/conversation.repository.interface";
 import { IMessageRepository } from "../../repositories/message.repository.interface";
 import { IConversation } from "../../models/conversation.model";
 import { IMessage } from "../../models/message.model";
 import { socketService } from "./socket.service";
+import { Role } from "../../types/user.types";
 
 @injectable()
 export class ChatService implements IChatService {
@@ -17,8 +18,8 @@ export class ChatService implements IChatService {
     async getOrCreateConversation(
         userId1: string,
         userId2: string,
-        role1: 'chef' | 'foodie',
-        role2: 'chef' | 'foodie'
+        role1: Role,
+        role2: Role
     ): Promise<IConversation> {
         return await this.conversationRepository.findOrCreateConversation(userId1, userId2, role1, role2);
     }
@@ -41,7 +42,7 @@ export class ChatService implements IChatService {
                     _id: otherParticipant._id,
                     name: otherParticipant.name,
                     email: otherParticipant.email,
-                    role: otherParticipantDetails?.role || 'foodie'
+                    role: otherParticipantDetails?.role || Role.FOODIE
                 },
                 lastMessage: conv.lastMessage,
                 lastMessageAt: conv.lastMessageAt,
@@ -56,7 +57,7 @@ export class ChatService implements IChatService {
 
     async sendMessage(
         senderId: string,
-        senderRole: 'chef' | 'foodie',
+        senderRole: Role,
         conversationId: string,
         content: string
     ): Promise<IMessage> {
@@ -144,6 +145,6 @@ export class ChatService implements IChatService {
     async markAsDelivered(messageId: string, userId: string): Promise<void> {
         await this.messageRepository.updateMessageStatus(messageId, 'delivered');
 
- 
+
     }
 }

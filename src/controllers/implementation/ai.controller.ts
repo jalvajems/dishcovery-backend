@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import { AiService } from '../services/ai.service';
-import { STATUS_CODE } from '../constants/StatusCode';
+import { STATUS_CODE } from '../../constants/StatusCode';
+import { Role } from '../../types/user.types';
+import { AiService } from '../../services/implementation/ai.service';
 
 export class AiController {
     private aiService: AiService;
@@ -23,7 +24,7 @@ export class AiController {
                 return
             }
 
-            const userRole = (role === 'chef' || role === 'foodie') ? role : 'foodie';
+            const userRole = (role === Role.CHEF || role === Role.FOODIE) ? role : Role.FOODIE;
 
             const reply = await this.aiService.getChatResponse(message, userRole);
 

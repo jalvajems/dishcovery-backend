@@ -4,6 +4,8 @@ import { log } from "../../utils/logger";
 import jwt from 'jsonwebtoken';
 import { env } from "../../config/env.config";
 
+import { Role } from "../../types/user.types";
+
 class SocketService {
     private io: SocketIOServer | null = null;
     private userSocketMap: Map<string, string> = new Map();
@@ -21,7 +23,7 @@ class SocketService {
             if (!token) return next(new Error("Authentication error: No token provided"));
 
             try {
-                const decoded = jwt.verify(token, env.JWT_ACCESS_SECRET) as { id: string, role: string };
+                const decoded = jwt.verify(token, env.JWT_ACCESS_SECRET) as { id: string, role: Role };
                 socket.data.user = decoded;
                 next();
             } catch (err) {
@@ -34,7 +36,7 @@ class SocketService {
             const role = socket.data.user.role;
 
             this.userSocketMap.set(userId, socket.id);
-            socket.join(userId); 
+            socket.join(userId);
             log.info(`User connected: ${userId} (${role}) - Socket: ${socket.id}`);
 
             socket.on("join-session", async (workshopId: string) => {
@@ -67,7 +69,7 @@ class SocketService {
             });
 
             socket.on("chef-control", (data: { workshopId: string, targetId: string, action: 'mute' | 'remove' | 'end' }) => {
-                if (role !== 'chef') return;
+                if (role !== Role.CHEF) return;
 
                 const targetSocketId = this.userSocketMap.get(data.targetId);
 
@@ -87,7 +89,7 @@ class SocketService {
                 }
             });
 
-                                socket.on("chat:join", (conversationId: string) => {
+            socket.on("chat:join", (conversationId: string) => {
                 socket.join(`chat:${conversationId}`);
                 log.info(`User ${userId} joined chat room: ${conversationId}`);
             });

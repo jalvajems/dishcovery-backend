@@ -1,10 +1,11 @@
 import mongoose, { Schema, Document } from 'mongoose';
+import { Role } from '../types/user.types';
 
 export interface IConversation extends Document {
     participants: mongoose.Types.ObjectId[];
     participantDetails: {
         userId: mongoose.Types.ObjectId;
-        role: 'chef' | 'foodie';
+        role: Role;
     }[];
     lastMessage?: mongoose.Types.ObjectId;
     lastMessageAt: Date;

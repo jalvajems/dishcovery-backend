@@ -3,7 +3,8 @@ import { Types } from 'mongoose'
 export enum Role {
     USER = 'user',
     CHEF = 'chef',
-    ADMIN = 'admin'
+    ADMIN = 'admin',
+    FOODIE= 'foodie'
 }
 export interface IUser {
     name: string;

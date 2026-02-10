@@ -1,5 +1,6 @@
 import { inject, injectable } from "inversify";
 import { IAdminService } from "../interface/IAdminService";
+import { Role } from "../../types/user.types";
 import TYPES from "../../DI/types";
 import { IUserRepository } from "../../repostories/interface/IUserRepository";
 import { userMapper } from "../../utils/mapper/user.mapper";
@@ -38,7 +39,7 @@ export class AdminService implements IAdminService {
         try {
 
             const { page, limit, search, isBlocked } = query;
-            const filter: any = { role: "user" };
+            const filter: any = { role: Role.USER };
 
             if (search) {
                 filter.$or = [
@@ -72,7 +73,7 @@ export class AdminService implements IAdminService {
         try {
             const { page, limit, search, isBlocked, isVerified } = query;
             const skip = (page - 1) * limit;
-            const filter: any = { role: "chef" };
+            const filter: any = { role: Role.CHEF };
 
             if (search) {
                 filter.$or = [
@@ -146,7 +147,7 @@ export class AdminService implements IAdminService {
 
             const skip = (page - 1) * limit;
 
-            const recipes = await this._recipeRepository.findAllByPagination(filter, skip, limit, 'admin')
+            const recipes = await this._recipeRepository.findAllByPagination(filter, skip, limit, Role.ADMIN)
             const totalCount = await this._recipeRepository.countDocument(filter)
             console.log('recipes=========', recipes.datas);
 
@@ -192,7 +193,7 @@ export class AdminService implements IAdminService {
 
             const skip = (page - 1) * limit;
 
-            const blogs = await this._blogRepository.getAllBlogs(search, skip, limit, 'admin')
+            const blogs = await this._blogRepository.getAllBlogs(search, skip, limit, Role.ADMIN)
             if (!blogs.datas) throw new AppError('blog data not found', STATUS_CODE.NOT_FOUND)
             const total = Math.ceil(blogs.totalCount / limit)
             return {
@@ -294,8 +295,8 @@ export class AdminService implements IAdminService {
 
     async getDashboardStats(): Promise<any> {
         try {
-            const totalUsers = await this._userRepository.countDocument({ role: "user" });
-            const totalChefs = await this._userRepository.countDocument({ role: "chef" });
+            const totalUsers = await this._userRepository.countDocuments({ role: Role.USER });
+            const totalChefs = await this._userRepository.countDocuments({ role: Role.CHEF });
             const totalRecipes = await this._recipeRepository.countDocument({});
             const totalWorkshops = await this._workshopRepository.countDocument({});
             const totalFoodSpots = await this._foodspotRepository.countDocument({});

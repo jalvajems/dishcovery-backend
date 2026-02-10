@@ -1,18 +1,20 @@
 import { Types } from "mongoose";
-import { WalletTransactionStatus, WalletTransactionType } from "../models/transaction.model"; 
+import { WalletTransactionStatus, WalletTransactionType } from "../models/transaction.model";
+
+import { Role } from "./user.types";
 
 export interface ITransaction {
   userId: string | Types.ObjectId;
 
-  role: "user" | "chef";
+  role: Role;
 
-  bookingId:string |  Types.ObjectId;
+  bookingId: string | Types.ObjectId;
 
-  workshopId:string |  Types.ObjectId;
+  workshopId: string | Types.ObjectId;
 
   amount: number;
 
-  currency: string; 
+  currency: string;
 
   type: WalletTransactionType;
 

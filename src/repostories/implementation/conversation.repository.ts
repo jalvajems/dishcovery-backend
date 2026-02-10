@@ -1,6 +1,7 @@
+import { Role } from "../../types/user.types";
 import { injectable } from "inversify";
-import { Conversation, IConversation } from "../models/conversation.model";
-import { IConversationRepository } from "../repositories/conversation.repository.interface";
+import { Conversation, IConversation } from "../../models/conversation.model";
+import { IConversationRepository } from "../../repositories/conversation.repository.interface";
 import mongoose from "mongoose";
 
 @injectable()
@@ -9,13 +10,13 @@ export class ConversationRepository implements IConversationRepository {
     async findOrCreateConversation(
         userId1: string,
         userId2: string,
-        role1: 'chef' | 'foodie',
-        role2: 'chef' | 'foodie'
+        role1: Role,
+        role2: Role
     ): Promise<IConversation> {
         const participantIds = [
             new mongoose.Types.ObjectId(userId1),
             new mongoose.Types.ObjectId(userId2)
-        ].sort((a, b) => a.toString().localeCompare(b.toString())); 
+        ].sort((a, b) => a.toString().localeCompare(b.toString()));
 
         let conversation = await Conversation.findOne({
             participants: { $all: participantIds }

@@ -2,12 +2,13 @@ import { Types } from "mongoose";
 import { ITransactionDocument, TransactionModel, WalletTransactionStatus, } from "../../models/transaction.model";
 import { ITransactionRepository } from "../interface/ITransactionRepository";
 import { BaseRepository } from "./base.repository";
+import { Role } from "../../types/user.types";
 
 export class TransactionRepository extends BaseRepository<ITransactionDocument> implements ITransactionRepository {
     constructor() {
         super(TransactionModel)
     }
-    async findByUser(userId: string, role: "user" | "chef", page: number = 1, limit: number = 10): Promise<{ transactions: ITransactionDocument[], total: number }> {
+    async findByUser(userId: string, role: Role, page: number = 1, limit: number = 10): Promise<{ transactions: ITransactionDocument[], total: number }> {
         const skip = (page - 1) * limit;
         const query = { userId: new Types.ObjectId(userId), role };
 
@@ -37,7 +38,7 @@ export class TransactionRepository extends BaseRepository<ITransactionDocument> 
 
         return { transactions, total };
     }
-    async getWalletStats(userId: string, role: "user" | "chef"): Promise<{
+    async getWalletStats(userId: string, role: Role): Promise<{
         balance: number;
         totalCredit: number;
         totalDebit: number;
@@ -83,9 +84,9 @@ export class TransactionRepository extends BaseRepository<ITransactionDocument> 
         }
 
         const stats = result[0];
-        const balance = role === 'chef'
+        const balance = role === Role.CHEF
             ? stats.totalCredit - (stats.totalDebit + stats.totalRefund)
-            : stats.totalRefund - stats.totalDebit; 
+            : stats.totalRefund - stats.totalDebit;
 
         return {
             balance,

@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { env } from '../config/env.config';
+import { env } from '../../config/env.config';
+import { Role } from '../../types/user.types';
 
 export class AiService {
     private static readonly API_URL = "https://openrouter.ai/api/v1/chat/completions";
@@ -22,7 +23,7 @@ export class AiService {
                     headers: {
                         "Authorization": `Bearer ${env.OPENROUTER_API_KEY || process.env.OPENROUTER_API_KEY}`,
                         "Content-Type": "application/json",
-                        "HTTP-Referer": "http://localhost:5173", 
+                        "HTTP-Referer": "http://localhost:5173",
                         "X-Title": "Dishcovery"
                     }
                 }
@@ -47,7 +48,7 @@ Constraint: If the question is unrelated, politely refuse.
 Constraint: Do NOT output your internal thought process or reasoning. Give the DIRECT answer to the user.
 Constraint: Keep responses concise, structured, and easy to read.`;
 
-        if (role === 'chef') {
+        if (role === Role.CHEF) {
             return `${basePrompt}
 The user is a professional CHEF.
 - Use professional terms but keep it conversational.

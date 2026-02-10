@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { inject, injectable } from "inversify";
-import { IChatService } from "../services/chat.service.interface";
+import { Role } from '../../types/user.types';
+import { IChatService } from "../../services/interface/chat.service.interface";
 
 @injectable()
 export class ChatController {
@@ -20,7 +21,7 @@ export class ChatController {
                 return;
             }
 
-            const currentUserRole: 'chef' | 'foodie' = userRole === 'chef' ? 'chef' : 'foodie';
+            const currentUserRole: Role = userRole === Role.CHEF ? Role.CHEF : Role.FOODIE;
 
             const conversation = await this.chatService.getOrCreateConversation(
                 userId,
@@ -80,7 +81,7 @@ export class ChatController {
                 return;
             }
 
-            const mappedSenderRole: 'chef' | 'foodie' = senderRole === 'chef' ? 'chef' : 'foodie';
+            const mappedSenderRole: Role = senderRole === Role.CHEF ? Role.CHEF : Role.FOODIE;
 
             const message = await this.chatService.sendMessage(senderId, mappedSenderRole, conversationId, content);
 
@@ -145,7 +146,7 @@ export class ChatController {
     deleteMessage = async (req: Request, res: Response): Promise<void> => {
         try {
             const { messageId } = req.params;
-            const { forEveryone } = req.body; 
+            const { forEveryone } = req.body;
             const userId = (req as any).user.id;
 
             const updatedMessage = await this.chatService.deleteMessage(messageId, userId, forEveryone);

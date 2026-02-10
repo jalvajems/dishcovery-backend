@@ -1,10 +1,11 @@
 import { IMessage } from "../models/message.model";
+import { Role } from "../types/user.types";
 
 export interface IMessageRepository {
     createMessage(messageData: {
         conversationId: string;
         senderId: string;
-        senderRole: 'chef' | 'foodie';
+        senderRole: Role;
         content: string;
         messageType?: 'text' | 'image';
     }): Promise<IMessage>;

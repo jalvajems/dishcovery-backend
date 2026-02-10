@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { inject, injectable } from "inversify";
 import TYPES from "../../DI/types";
 import { INotificationController } from "../interface/INotificationController";
-import { INotificationService } from "../../services/interfaces/INotificationService";
+import { INotificationService } from "../../services/interface/INotificationService";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { AppError } from "../../utils/AppError";
 

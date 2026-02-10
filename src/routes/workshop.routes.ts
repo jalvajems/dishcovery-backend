@@ -7,6 +7,7 @@ import { authorizeRole } from '../middlewares/authorizeRole';
 import { validate } from '../middlewares/zod.middleware';
 import { createWorkshopSchema, updateWorkshopSchema, rejectionSchema } from '../validations/workshopValidation';
 import { isVerifyChef } from '../middlewares/isVerifyChef';
+import { Role } from '../types/user.types';
 
 const router = Router();
 const workshopController = container.get<IWorkshopController>(TYPES.IWorkshopController);
@@ -17,10 +18,10 @@ router.get('/chef', verifyAccess, isVerifyChef, workshopController.getWorkshopsB
 router.patch('/chef/:id/submit', verifyAccess, isVerifyChef, workshopController.submitWorkshop.bind(workshopController));
 router.post('/chef/:id/start', verifyAccess, isVerifyChef, workshopController.startWorkshop.bind(workshopController));
 router.post('/chef/:id/end', verifyAccess, isVerifyChef, workshopController.endWorkshop.bind(workshopController));
-router.patch('/:id/cancel', verifyAccess, isVerifyChef, workshopController.cancelWorkshop.bind(workshopController)); 
-router.get('/admin', verifyAccess, authorizeRole('admin'), workshopController.getAllWorkshops.bind(workshopController));
-router.patch('/admin/:id/approve', verifyAccess, authorizeRole('admin'), workshopController.approveWorkshop.bind(workshopController));
-router.patch('/admin/:id/reject', verifyAccess, authorizeRole('admin'), validate(rejectionSchema), workshopController.rejectWorkshop.bind(workshopController));
+router.patch('/:id/cancel', verifyAccess, isVerifyChef, workshopController.cancelWorkshop.bind(workshopController));
+router.get('/admin', verifyAccess, authorizeRole(Role.ADMIN), workshopController.getAllWorkshops.bind(workshopController));
+router.patch('/admin/:id/approve', verifyAccess, authorizeRole(Role.ADMIN), workshopController.approveWorkshop.bind(workshopController));
+router.patch('/admin/:id/reject', verifyAccess, authorizeRole(Role.ADMIN), validate(rejectionSchema), workshopController.rejectWorkshop.bind(workshopController));
 
 router.get('/approved', workshopController.getApprovedWorkshops.bind(workshopController));
 router.get('/recent', workshopController.getRecentWorkshops.bind(workshopController));

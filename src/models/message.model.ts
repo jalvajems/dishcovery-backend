@@ -1,9 +1,10 @@
 import mongoose, { Schema, Document } from 'mongoose';
+import { Role } from '../types/user.types';
 
 export interface IMessage extends Document {
     conversationId: mongoose.Types.ObjectId;
     senderId: mongoose.Types.ObjectId;
-    senderRole: 'chef' | 'foodie';
+    senderRole: Role;
     content: string;
     messageType: 'text' | 'image';
     status: 'sent' | 'delivered' | 'read';

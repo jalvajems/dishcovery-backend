@@ -1,5 +1,6 @@
 import { inject, injectable } from "inversify";
 import { IBlogService } from "../interface/IBlogService";
+import { Role } from "../../types/user.types";
 import TYPES from "../../DI/types";
 import { IBlogDto } from "../../dtos/blog.dto";
 import { IBlog } from "../../types/blog.types";
@@ -69,7 +70,7 @@ export class BlogService implements IBlogService {
         try {
             console.log('reached getallblog');
             const skip = (page - 1) * limit
-            const result = await this._blogRepositoy.getAllBlogs(search, skip, limit, 'foodie', filter)
+            const result = await this._blogRepositoy.getAllBlogs(search, skip, limit, Role.FOODIE, filter)
             if (!result.datas) throw new AppError('no blogs found', STATUS_CODE.NOT_FOUND);
             const total = Math.ceil(result.totalCount / limit)
             console.log('total', total);

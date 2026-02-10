@@ -12,7 +12,8 @@ import { workshopMapper } from '../../utils/mapper/workshop.mapper';
 import { WorkshopSessionMapper } from '../../utils/mapper/session.mapper';
 import { IBookingService } from '../interface/IBookingService';
 
-import { INotificationService } from '../interfaces/INotificationService';
+import { INotificationService } from '../interface/INotificationService';
+import { Role } from "../../types/user.types";
 
 @injectable()
 export class WorkshopService implements IWorkshopService {
@@ -118,7 +119,7 @@ export class WorkshopService implements IWorkshopService {
 
         await this._notificationService.createNotification(
             (workshop.chefId as any).toString(),
-            'chef',
+            Role.CHEF,
             'Workshop Approved',
             `Your workshop "${workshop.title}" has been approved.`,
             'WORKSHOP_APPROVED',
@@ -145,7 +146,7 @@ export class WorkshopService implements IWorkshopService {
 
         await this._notificationService.createNotification(
             (workshop.chefId as any).toString(),
-            'chef',
+            Role.CHEF,
             'Workshop Rejected',
             `Your workshop "${workshop.title}" has been rejected. Reason: ${reason}`,
             'WORKSHOP_REJECTED',
@@ -201,6 +202,12 @@ export class WorkshopService implements IWorkshopService {
         if (new Date() < workshopDate) {
             throw new AppError('Workshop cannot be started before scheduled time', STATUS_CODE.BAD_REQUEST);
         }
+
+        const oneHourAfterStart = new Date(workshopDate.getTime() + 60 * 60 * 1000);
+        if (new Date() > oneHourAfterStart) {
+            throw new AppError('Workshop session has expired and cannot be started', STATUS_CODE.BAD_REQUEST);
+        }
+
         const session = await this._sessionService.startSession(workshopId, chefId)
         console.log('rech start sesion wsrvs4');
 
@@ -221,12 +228,12 @@ export class WorkshopService implements IWorkshopService {
         for (const participant of participants) {
             await this._notificationService.createNotification(
                 (participant.foodieId as any)._id ? (participant.foodieId as any)._id.toString() : (participant.foodieId as any).toString(),
-                'foodie',
+                Role.FOODIE,
                 'Session Started',
                 `The session for workshop "${workshop.title}" has started! Join now.`,
                 'SESSION_STARTED',
                 workshopId,
-                (session as any)._id.toString() 
+                (session as any)._id.toString()
             );
         }
 
@@ -273,7 +280,7 @@ export class WorkshopService implements IWorkshopService {
             throw error;
         }
     }
-   
+
     async cancelWorkshop(workshopId: string, chefId: string, reason: string): Promise<IWorkshopDocument> {
         const workshop = await this._workshopRepository.findById(workshopId);
         if (!workshop) {
@@ -290,7 +297,7 @@ export class WorkshopService implements IWorkshopService {
 
         const updated = await this._workshopRepository.updateById(workshopId, {
             status: WorkshopStatus.CANCELLED,
-            rejectionReason: reason 
+            rejectionReason: reason
         });
 
         if (!updated) throw new AppError('Failed to cancel workshop', STATUS_CODE.INTERNAL_SERVER_ERROR);
@@ -301,7 +308,7 @@ export class WorkshopService implements IWorkshopService {
         for (const participant of participants) {
             await this._notificationService.createNotification(
                 (participant.foodieId as any)._id ? (participant.foodieId as any)._id.toString() : (participant.foodieId as any).toString(),
-                'foodie',
+                Role.FOODIE,
                 'Workshop Cancelled',
                 `The workshop "${workshop.title}" has been cancelled. Reason: ${reason}`,
                 'SESSION_CANCELLED',

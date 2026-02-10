@@ -2,7 +2,7 @@ import { Container } from "inversify";
 import TYPES from "../types";
 import { INotificationRepository } from "../../repositories/interfaces/INotificationRepository";
 import { NotificationRepository } from "../../repositories/implementation/notification.repository";
-import { INotificationService } from "../../services/interfaces/INotificationService";
+import { INotificationService } from "../../services/interface/INotificationService";
 import { NotificationService } from "../../services/implementation/notification.service";
 import { INotificationController } from "../../controllers/interface/INotificationController";
 import { NotificationController } from "../../controllers/implementation/notification.controller";

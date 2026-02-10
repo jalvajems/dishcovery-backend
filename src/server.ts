@@ -7,6 +7,9 @@ import { redisClient } from "./config/redis.config";
 
 import { createServer } from "http";
 import { socketService } from "./services/implementation/socket.service";
+import container from "./DI/inversify.config";
+import TYPES from "./DI/types";
+import { ICronService } from "./services/interface/ICronService";
 
 (async () => {
     try {
@@ -20,6 +23,9 @@ import { socketService } from "./services/implementation/socket.service";
 
         socketService.init(httpServer);
 
+        const cronService = container.get<ICronService>(TYPES.ICronService);
+        cronService.init();
+
         httpServer.listen(port, () => {
             log.info(`Server running on port ${port} in ${env.NODE_ENV} node`);
         });
@@ -31,3 +37,4 @@ import { socketService } from "./services/implementation/socket.service";
 
 
 })();
+// Trigger restart

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import container from "../DI/inversify.config";
-import { ChatController } from "../controllers/chat.controller";
+import { ChatController } from "../controllers/implementation/chat.controller";
 import { verifyAccess } from "../middlewares/verifyAccess";
 
 const router = Router();

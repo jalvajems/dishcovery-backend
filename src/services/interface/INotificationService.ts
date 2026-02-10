@@ -1,7 +1,9 @@
 import { INotification } from "../../models/notification.model";
 
+import { Role } from "../../types/user.types";
+
 export interface INotificationService {
-    createNotification(recipientId: string, recipientRole: 'chef' | 'foodie', title: string, message: string, type: string, workshopId?: string, sessionId?: string): Promise<INotification>;
+    createNotification(recipientId: string, recipientRole: Role, title: string, message: string, type: string, workshopId?: string, sessionId?: string): Promise<INotification>;
     getUserNotifications(recipientId: string, limit?: number, skip?: number, filter?: string): Promise<INotification[]>;
     markAsRead(notificationId: string): Promise<INotification | null>;
     getUnreadCount(recipientId: string): Promise<number>;

@@ -8,7 +8,8 @@ export enum WorkshopStatus {
     LIVE = 'LIVE',
     COMPLETED = 'COMPLETED',
     REJECTED = 'REJECTED',
-    CANCELLED = 'CANCELLED'
+    CANCELLED = 'CANCELLED',
+    EXPIRED = 'EXPIRED'
 }
 
 export enum WorkshopMode {

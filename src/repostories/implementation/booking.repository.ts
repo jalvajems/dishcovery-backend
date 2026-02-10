@@ -11,6 +11,7 @@ export class BookingRepository extends BaseRepository<IBookingDocument> implemen
         super(BookingModel);
     }
 
+
     async findByPaymentIntentId(paymentIntentId: string): Promise<IBookingDocument | null> {
         return await this.model.findOne({ paymentIntentId }).populate('workshopId');
     }

@@ -120272,3 +120272,839 @@ src/types/booking.types.ts(12,25): error TS1357: An enum member name must be fol
     at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
     at Module.load (node:internal/modules/cjs/loader:1318:32)
     at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 15:39:37] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/interface/IBookingRepository.ts(6,46): error TS1110: Type expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\interface\IBookingRepository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 15:42:13] [31merror[39m: D:\brototype\Dishcovery\server\src\repostories\implementation\booking.repository.ts:22
+        const ;
+              ^
+
+SyntaxError: Unexpected token ';'
+    at wrapSafe (node:internal/modules/cjs/loader:1469:18)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1491:20)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 15:42:25] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/implementation/booking.repository.ts(15,5): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\booking.repository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 15:46:35] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/implementation/booking.repository.ts(17,12): error TS1109: Expression expected.
+src/repostories/implementation/booking.repository.ts(20,5): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\booking.repository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 15:46:51] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/implementation/booking.repository.ts(17,16): error TS1109: Expression expected.
+src/repostories/implementation/booking.repository.ts(20,5): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\booking.repository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 15:50:43] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/implementation/booking.repository.ts(23,5): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\booking.repository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-06 15:51:50] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/implementation/booking.repository.ts(24,5): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\booking.repository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9499345326152229.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:17:18] [31merror[39m: Error: Cannot find module 'node-cron'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\workshop.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:2:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 10:17:26] [31merror[39m: Error: Cannot find module 'node-cron'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\workshop.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:2:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 10:17:36] [31merror[39m: Error: Cannot find module 'node-cron'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\workshop.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:2:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 10:17:57] [31merror[39m: Error: Cannot find module 'node-cron'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\workshop.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:2:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 10:42:26] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/ai.controller.ts(27,46): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\ai.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:42:35] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/ai.controller.ts(27,67): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\ai.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:42:50] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/ai.controller.ts(27,67): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\ai.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:42:57] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/ai.controller.ts(27,67): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\ai.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:43:01] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/ai.controller.ts(27,67): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\ai.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:43:45] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/chat.controller.ts(23,42): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\chat.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:43:52] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/chat.controller.ts(24,42): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\chat.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:45:25] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/chat.controller.ts(4,1): error TS1127: Invalid character.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\chat.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:45:30] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/chat.controller.ts(24,42): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\chat.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:45:32] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/chat.controller.ts(24,42): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\chat.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:46:11] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/chat.controller.ts(24,75): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\chat.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:46:13] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/chat.controller.ts(24,75): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\chat.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:46:50] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/chat.controller.ts(24,86): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\chat.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:48:39] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/chat.controller.ts(84,101): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\chat.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:55:50] [31merror[39m: Error: Cannot find module '../../repostories/conversation.repository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 10:56:02] [31merror[39m: Error: Cannot find module '../../repostories/conversation.repository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 10:56:04] [31merror[39m: Error: Cannot find module '../../repostories/conversation.repository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 10:56:13] [31merror[39m: Error: Cannot find module '../../repostories/conversation.repository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 10:56:38] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/cron.service.ts(22,25): error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+src/services/implementation/cron.service.ts(28,21): error TS1128: Declaration or statement expected.
+src/services/implementation/cron.service.ts(48,17): error TS1128: Declaration or statement expected.
+src/services/implementation/cron.service.ts(49,13): error TS1128: Declaration or statement expected.
+src/services/implementation/cron.service.ts(50,9): error TS1128: Declaration or statement expected.
+src/services/implementation/cron.service.ts(50,11): error TS1005: 'try' expected.
+src/services/implementation/cron.service.ts(53,5): error TS1128: Declaration or statement expected.
+src/services/implementation/cron.service.ts(54,1): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-10 10:57:17] [31merror[39m: Error: Cannot find module '../interfaces/INotificationService'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\workshop.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:6:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 10:57:19] [31merror[39m: Error: Cannot find module '../interfaces/INotificationService'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\workshop.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:6:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 10:57:50] [31merror[39m: Error: Cannot find module '../interfaces/INotificationService'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\workshop.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:6:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 10:57:56] [31merror[39m: Error: Cannot find module '../interfaces/INotificationService'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\workshop.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:6:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 10:58:49] [31merror[39m: Error: Cannot find module '../interfaces/INotificationService'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\workshop.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:6:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 10:59:06] [31merror[39m: Error: Cannot find module '../interfaces/INotificationService'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\workshop.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:6:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 11:00:04] [31merror[39m: Error: Cannot find module '../interfaces/INotificationService'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\workshop.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:6:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 11:00:21] [31merror[39m: Error: Cannot find module '../interfaces/INotificationService'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\workshop.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:6:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 11:00:36] [31merror[39m: Error: Cannot find module '../interfaces/INotificationService'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\workshop.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\cron.service.ts:6:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 11:01:36] [31merror[39m: Error: Cannot find module '../../repostories/conversation.repository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 11:03:01] [31merror[39m: Error: Cannot find module '../../repostories/conversation.repository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 11:03:15] [31merror[39m: Error: Cannot find module '../../repostories/conversation.repository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 11:04:29] [31merror[39m: Error: Cannot find module '../../repostories/conversation.repository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 11:04:30] [31merror[39m: Error: Cannot find module '../../repostories/conversation.repository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 13:19:56] [31merror[39m: Error: Cannot find module '../models/conversation.model'
+Require stack:
+- D:\brototype\Dishcovery\server\src\repostories\implementation\conversation.repository.ts
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\conversation.repository.ts:2:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 13:20:20] [31merror[39m: Error: Cannot find module '../models/conversation.model'
+Require stack:
+- D:\brototype\Dishcovery\server\src\repostories\implementation\conversation.repository.ts
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\conversation.repository.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 13:20:41] [31merror[39m: Error: Cannot find module '../models/message.model'
+Require stack:
+- D:\brototype\Dishcovery\server\src\repostories\implementation\message.repository.ts
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\message.repository.ts:3:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 13:20:42] [31merror[39m: Error: Cannot find module '../../services/chat.service.interface'
+Require stack:
+- D:\brototype\Dishcovery\server\src\controllers\implementation\chat.controller.ts
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\implementation\chat.controller.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 13:20:44] [31merror[39m: Error: Cannot find module '../../services/chat.service.interface'
+Require stack:
+- D:\brototype\Dishcovery\server\src\controllers\implementation\chat.controller.ts
+- D:\brototype\Dishcovery\server\src\DI\module\chat.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\implementation\chat.controller.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 13:22:45] [31merror[39m: Error: Cannot find module '../../services/ai.service'
+Require stack:
+- D:\brototype\Dishcovery\server\src\controllers\implementation\ai.controller.ts
+- D:\brototype\Dishcovery\server\src\routes\ai.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\implementation\ai.controller.ts:2:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 13:23:08] [31merror[39m: Error: Cannot find module '../../services/ai.service'
+Require stack:
+- D:\brototype\Dishcovery\server\src\controllers\implementation\ai.controller.ts
+- D:\brototype\Dishcovery\server\src\routes\ai.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\implementation\ai.controller.ts:2:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-04728477547292265.js:69:33)
+[2026-02-10 13:24:12] [31merror[39m: Error: Cannot find module '../../services/ai.service'
+Require stack:
+- D:\brototype\Dishcovery\server\src\controllers\implementation\ai.controller.ts
+- D:\brototype\Dishcovery\server\src\routes\ai.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\implementation\ai.controller.ts:2:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5234288419635269.js:69:33)
+[2026-02-10 13:26:25] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/controllers/implementation/ai.controller.ts(4,93): error TS1005: ';' expected.
+src/controllers/implementation/ai.controller.ts(4,95): error TS1002: Unterminated string literal.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\controllers\implementation\ai.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5234288419635269.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5234288419635269.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5234288419635269.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
