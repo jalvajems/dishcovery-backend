@@ -72,18 +72,18 @@ export class ChatController {
 
     sendMessage = async (req: Request, res: Response): Promise<void> => {
         try {
-            const { conversationId, content } = req.body;
+            const { conversationId, content, fileUrl, messageType } = req.body;
             const senderId = (req as any).user.id;
             const senderRole = (req as any).user.role;
 
-            if (!conversationId || !content) {
-                res.status(400).json({ message: 'Conversation ID and content are required' });
+            if (!conversationId || (!content && !fileUrl)) {
+                res.status(400).json({ message: 'Conversation ID and content or file are required' });
                 return;
             }
 
             const mappedSenderRole: Role = senderRole === Role.CHEF ? Role.CHEF : Role.FOODIE;
 
-            const message = await this.chatService.sendMessage(senderId, mappedSenderRole, conversationId, content);
+            const message = await this.chatService.sendMessage(senderId, mappedSenderRole, conversationId, content, fileUrl, messageType);
 
             res.status(201).json({
                 success: true,

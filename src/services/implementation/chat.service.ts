@@ -59,14 +59,17 @@ export class ChatService implements IChatService {
         senderId: string,
         senderRole: Role,
         conversationId: string,
-        content: string
+        content: string,
+        fileUrl?: string,
+        messageType: 'text' | 'image' | 'video' | 'audio' | 'file' = 'text'
     ): Promise<IMessage> {
         const message = await this.messageRepository.createMessage({
             conversationId,
             senderId,
             senderRole,
             content,
-            messageType: 'text'
+            fileUrl,
+            messageType
         });
 
         await this.conversationRepository.updateLastMessage(conversationId, (message._id as any).toString());

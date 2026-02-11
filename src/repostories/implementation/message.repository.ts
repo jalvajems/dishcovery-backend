@@ -12,13 +12,15 @@ export class MessageRepository implements IMessageRepository {
         senderId: string;
         senderRole: Role;
         content: string;
-        messageType?: 'text' | 'image';
+        fileUrl?: string;
+        messageType?: 'text' | 'image' | 'video' | 'audio' | 'file';
     }): Promise<IMessage> {
         const message = await Message.create({
             conversationId: new mongoose.Types.ObjectId(messageData.conversationId),
             senderId: new mongoose.Types.ObjectId(messageData.senderId),
             senderRole: messageData.senderRole,
             content: messageData.content,
+            fileUrl: messageData.fileUrl,
             messageType: messageData.messageType || 'text',
             status: 'sent'
         });

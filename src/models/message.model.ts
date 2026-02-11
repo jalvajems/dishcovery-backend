@@ -6,7 +6,8 @@ export interface IMessage extends Document {
     senderId: mongoose.Types.ObjectId;
     senderRole: Role;
     content: string;
-    messageType: 'text' | 'image';
+    fileUrl?: string;
+    messageType: 'text' | 'image' | 'video' | 'audio' | 'file';
     status: 'sent' | 'delivered' | 'read';
     readBy: mongoose.Types.ObjectId[];
     deletedFor: mongoose.Types.ObjectId[];
@@ -35,12 +36,16 @@ const MessageSchema = new Schema<IMessage>(
         },
         content: {
             type: String,
-            required: true,
+            required: false, // Content can be empty if it's just a file
             trim: true
+        },
+        fileUrl: {
+            type: String,
+            required: false
         },
         messageType: {
             type: String,
-            enum: ['text', 'image'],
+            enum: ['text', 'image', 'video', 'audio', 'file'],
             default: 'text'
         },
         status: {
