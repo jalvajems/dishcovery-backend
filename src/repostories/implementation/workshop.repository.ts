@@ -14,19 +14,19 @@ export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implem
         return await this.model.findById(id).populate('chefId', 'name email');
     }
 
-    async incrementParticipants(id: string): Promise<void> {
-        await this.model.findByIdAndUpdate(id, { $inc: { participantsCount: 1 } });
+    async incrementParticipants(id: string, count: number): Promise<void> {
+        await this.model.findByIdAndUpdate(id, { $inc: { participantsCount: count } });
     }
 
-    async decrementParticipants(id: string): Promise<void> {
-        await this.model.findByIdAndUpdate(id, { $inc: { participantsCount: -1 } });
+    async decrementParticipants(id: string, count: number): Promise<void> {
+        await this.model.findByIdAndUpdate(id, { $inc: { participantsCount: -count } });
     }
 
     async findAllByChefId(chefId: string, skip: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopDocument[]; totalCount: number }> {
         const query: any = { chefId };
         console.log('status---', status);
 
-        if (search||search.length!==0) {
+        if (search || search.length !== 0) {
             query.title = { $regex: search, $options: 'i' };
         }
 

@@ -27,6 +27,7 @@ export interface IBooking {
     status: BookingStatus;
     attendanceStatus: AttendanceStatus;
     bookingType: BookingType;
+    ticketCount: number;
     amount: number;
     paymentIntentId?: string;
     stripeEventId?: string;

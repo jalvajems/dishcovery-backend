@@ -17,9 +17,10 @@ export class BookingController implements IBookingController {
         try {
             const foodieId = req.user?.id;
             const { id: workshopId } = req.params;
+            const { ticketCount } = req.body;
             if (!foodieId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
 
-            const result = await this._bookingService.createBooking(workshopId, foodieId);
+            const result = await this._bookingService.createBooking(workshopId, foodieId, ticketCount);
 
             res.status(STATUS_CODE.CREATED).json({
                 success: true,

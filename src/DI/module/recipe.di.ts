@@ -1,7 +1,7 @@
 import { Container } from "inversify";
 import { IRecipeRepository } from "../../repostories/interface/IRecipeRepository";
 import TYPES from "../types";
-import { RecipeRepository } from "../../repostories/implementation/recipe.repsitory";
+import { RecipeRepository } from "../../repostories/implementation/recipe.repository";
 import { IRecipeService } from "../../services/interface/IRecipeService";
 import { RecipeService } from "../../services/implementation/recipe.service";
 import { IRecipeController } from "../../controllers/interface/IRecipeController";

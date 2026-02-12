@@ -1,7 +1,7 @@
 import { IBookingDocument } from '../../types/booking.types';
 
 export interface IBookingService {
-    createBooking(workshopId: string, foodieId: string): Promise<{ booking: IBookingDocument; clientSecret?: string }>;
+    createBooking(workshopId: string, foodieId: string, ticketCount?: number): Promise<{ booking: IBookingDocument; clientSecret?: string }>;
     handleStripeWebhook(payload: any, signature: string): Promise<void>;
     getMyBookings(foodieId: string): Promise<IBookingDocument[]>;
     getWorkshopParticipants(workshopId: string, chefId: string): Promise<IBookingDocument[]>;

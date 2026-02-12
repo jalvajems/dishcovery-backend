@@ -5,7 +5,7 @@ import { IBookingRepository } from '../../repostories/interface/IBookingReposito
 import { IWorkshopRepository } from '../../repostories/interface/IWorkshopRepository';
 import { IStripeService } from '../interface/IStripeService';
 import { IBookingDocument, BookingStatus, BookingType } from '../../types/booking.types';
-import { WorkshopStatus } from '../../types/workshop.types';
+import { WorkshopStatus, WorkshopMode } from '../../types/workshop.types';
 import { AppError } from '../../utils/AppError';
 import { Types } from 'mongoose';
 import { ITransactionRepository } from '../../repostories/interface/ITransactionRepository';
@@ -21,7 +21,7 @@ export class BookingService implements IBookingService {
         @inject(TYPES.ITransactionRepository) private _transactionRepository: ITransactionRepository,
     ) { }
 
-    async createBooking(workshopId: string, foodieId: string): Promise<{ booking: IBookingDocument; clientSecret?: string }> {
+    async createBooking(workshopId: string, foodieId: string, ticketCount: number = 1): Promise<{ booking: IBookingDocument; clientSecret?: string }> {
         const workshop = await this.workshopRepository.findById(workshopId);
 
         if (!workshop) {
@@ -33,8 +33,16 @@ export class BookingService implements IBookingService {
             throw new AppError(`Workshop is not bookable. Current status: ${workshop.status}`, 409);
         }
 
-        if (workshop.participantsCount >= workshop.participantLimit) {
-            throw new AppError('Workshop is full', 400);
+        if (workshop.mode === WorkshopMode.ONLINE) {
+            ticketCount = 1;
+        } else {
+            if (ticketCount < 1 || ticketCount > 5) {
+                throw new AppError('Ticket count must be between 1 and 5 for offline workshops', 400);
+            }
+        }
+
+        if (workshop.participantsCount + ticketCount > workshop.participantLimit) {
+            throw new AppError('Not enough spots available', 400);
         }
 
         const workshopDate = new Date(workshop.date);
@@ -59,8 +67,17 @@ export class BookingService implements IBookingService {
         ];
 
         if (existingBooking && !retryableStatuses.includes(existingBooking.status)) {
+            // allow booking again if existing booking is cancelled ? No existing logic seems to prevent multiple bookings if not caught by index, 
+            // but we have unique index on workshopId + foodieId.
+            // Requirement is just "select upto 5 slots". Assuming this means per booking or total? 
+            // "if the session is offline the foodie can select upto 5 slots"
+            // If they already have a booking, we should probably block or update? 
+            // The current unique index prevents multiple documents. 
+            // We'll stick to blocking if already booked as per existing logic.
             throw new AppError('You have already booked this workshop', 409);
         }
+
+        const totalAmount = workshop.price * ticketCount;
 
         if (workshop.isFree) {
             const bookingData: any = {
@@ -68,6 +85,7 @@ export class BookingService implements IBookingService {
                 foodieId: new Types.ObjectId(foodieId),
                 status: BookingStatus.CONFIRMED,
                 bookingType: BookingType.FREE,
+                ticketCount: ticketCount,
                 amount: 0,
                 bookedAt: new Date(),
                 cancelledAt: null,
@@ -92,7 +110,7 @@ export class BookingService implements IBookingService {
             }
 
             if (booking) {
-                await this.workshopRepository.incrementParticipants(workshopId);
+                await this.workshopRepository.incrementParticipants(workshopId, ticketCount);
             }
 
             return { booking: booking! };
@@ -102,7 +120,7 @@ export class BookingService implements IBookingService {
         let clientSecret: string;
 
         if (existingBooking) {
-            const paymentIntent = await this.stripeService.createPaymentIntent(workshop.price, {
+            const paymentIntent = await this.stripeService.createPaymentIntent(totalAmount, {
                 workshopId,
                 bookingId: (existingBooking._id as string).toString(),
                 foodieId
@@ -114,7 +132,8 @@ export class BookingService implements IBookingService {
                 {
                     status: BookingStatus.PENDING,
                     bookingType: BookingType.PAID,
-                    amount: workshop.price,
+                    ticketCount: ticketCount,
+                    amount: totalAmount,
                     bookedAt: new Date(),
                     cancelledAt: null,
                     cancellationReason: null,
@@ -132,13 +151,14 @@ export class BookingService implements IBookingService {
                 foodieId: new Types.ObjectId(foodieId),
                 status: BookingStatus.PENDING,
                 bookingType: BookingType.PAID,
-                amount: workshop.price,
+                ticketCount: ticketCount,
+                amount: totalAmount,
                 bookedAt: new Date()
             };
 
             booking = await this.bookingRepository.create(bookingData);
 
-            const paymentIntent = await this.stripeService.createPaymentIntent(workshop.price, {
+            const paymentIntent = await this.stripeService.createPaymentIntent(totalAmount, {
                 workshopId,
                 bookingId: (booking._id as string).toString(),
                 foodieId
@@ -178,7 +198,7 @@ export class BookingService implements IBookingService {
                 const workshopId = (booking.workshopId as any)._id ? (booking.workshopId as any)._id : booking.workshopId;
                 console.log('workshopid', workshopId);
 
-                await this.workshopRepository.incrementParticipants(workshopId.toString());
+                await this.workshopRepository.incrementParticipants(workshopId.toString(), booking.ticketCount || 1);
             }
             console.log('creating transaction');
 
@@ -307,7 +327,7 @@ export class BookingService implements IBookingService {
                 cancelledAt: new Date(),
                 cancellationReason: 'Cancelled by Foodie'
             });
-            await this.workshopRepository.decrementParticipants(workshop._id as string);
+            await this.workshopRepository.decrementParticipants(workshop._id as string, booking.ticketCount || 1);
         } else {
             if (!booking.paymentIntentId) {
                 throw new AppError('Payment information missing for paid booking', 500);
@@ -321,7 +341,7 @@ export class BookingService implements IBookingService {
                     cancellationReason: 'Cancelled by Foodie'
                 });
 
-                await this.workshopRepository.decrementParticipants(workshop._id as string);
+                await this.workshopRepository.decrementParticipants(workshop._id as string, booking.ticketCount || 1);
 
             } catch (error: any) {
                 throw new AppError(`Refund failed: ${error.message}`, 500);

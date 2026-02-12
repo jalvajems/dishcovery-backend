@@ -28,6 +28,11 @@ const BookingSchema: Schema = new Schema(
             enum: Object.values(BookingType),
             required: true
         },
+        ticketCount: {
+            type: Number,
+            required: true,
+            default: 1
+        },
         amount: {
             type: Number,
             required: true,

@@ -121121,3 +121121,687 @@ src/models/workshop.model.ts(95,9): error TS1005: ',' expected.
     at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
     at Module.load (node:internal/modules/cjs/loader:1318:32)
     at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-11 14:42:52] [31merror[39m: Error: Cannot find module '../../repostories/implementation/recipe.repsitory'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\recipe.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\recipe.di.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5234288419635269.js:69:33)
+[2026-02-11 14:50:01] [31merror[39m: Error: Cannot find module '../../repostories/implementation/recipe.repsitory'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\recipe.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\recipe.di.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5234288419635269.js:69:33)
+[2026-02-11 18:00:04] [31merror[39m: Error: Cannot find module '../../repostories/implementation/recipe.repsitory'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\recipe.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\recipe.di.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+[2026-02-11 18:01:58] [31merror[39m: Error: Cannot find module '../../repositories/implementation/notification.repository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-5234288419635269.js:69:33)
+[2026-02-11 18:01:58] [31merror[39m: Error: Cannot find module '../../repositories/implementation/notification.repository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+[2026-02-11 18:02:43] [31merror[39m: Error: Cannot find module '../../repositories/implementation/notification.repository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-627726133566745.js:69:33)
+[2026-02-11 18:03:39] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+[2026-02-11 18:03:39] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-627726133566745.js:69:33)
+[2026-02-11 18:03:54] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-627726133566745.js:69:33)
+[2026-02-11 18:03:54] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+[2026-02-12 09:24:13] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-6488836232049149.js:69:33)
+[2026-02-12 09:26:38] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-026926595814544152.js:69:33)
+[2026-02-12 09:32:15] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:69:33)
+[2026-02-12 09:32:46] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:29:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-12 09:32:51] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:29:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-12 09:34:05] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:29:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-12 09:34:07] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+[2026-02-12 09:34:07] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:69:33)
+[2026-02-12 09:35:44] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+[2026-02-12 09:35:44] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:69:33)
+[2026-02-12 09:35:46] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/notification.service.ts(6,1): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-12 09:35:46] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/notification.service.ts(6,1): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-12 09:35:47] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/notification.service.ts(6,1): error TS1005: 'from' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-12 09:35:47] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/notification.service.ts(6,1): error TS1005: 'from' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-12 09:35:49] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/notification.service.ts(6,1): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-12 09:35:50] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/notification.service.ts(6,1): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-12 09:35:52] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:69:33)
+[2026-02-12 09:35:52] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+[2026-02-12 09:35:55] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:69:33)
+[2026-02-12 09:35:55] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+[2026-02-12 09:35:59] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:69:33)
+[2026-02-12 09:35:59] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+[2026-02-12 09:36:04] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+[2026-02-12 09:36:04] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:69:33)
+[2026-02-12 09:36:08] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:69:33)
+[2026-02-12 09:36:08] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+[2026-02-12 09:36:11] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+[2026-02-12 09:36:11] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:69:33)
+[2026-02-12 09:36:14] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-29483770517319363.js:69:33)
+[2026-02-12 09:36:15] [31merror[39m: Error: Cannot find module '../../repositories/interfaces/INotificationRepository'
+Require stack:
+- D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts
+- D:\brototype\Dishcovery\server\src\DI\module\notification.di.ts
+- D:\brototype\Dishcovery\server\src\DI\inversify.config.ts
+- D:\brototype\Dishcovery\server\src\routes\auth.routes.ts
+- D:\brototype\Dishcovery\server\src\app.ts
+- D:\brototype\Dishcovery\server\src\server.ts
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1249:15)
+    at Function._load (node:internal/modules/cjs/loader:1075:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\notification.service.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-22592824301342618.js:69:33)
+[2026-02-12 09:36:42] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:29:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-12 09:36:46] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:29:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-12 09:36:48] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:29:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-12 09:37:08] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:29:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-12 09:37:10] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:29:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-12 09:37:20] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:29:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)

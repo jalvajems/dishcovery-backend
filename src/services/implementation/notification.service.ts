@@ -1,11 +1,11 @@
 import { inject, injectable } from "inversify";
 import TYPES from "../../DI/types";
 import { INotificationService } from "../interface/INotificationService";
-import { INotificationRepository } from "../../repositories/interfaces/INotificationRepository";
 import { INotification } from "../../models/notification.model";
 import { socketService } from "./socket.service";
 
 import { Role } from "../../types/user.types";
+import { INotificationRepository } from "../../repostories/interface/INotificationRepository";
 
 @injectable()
 export class NotificationService implements INotificationService {
