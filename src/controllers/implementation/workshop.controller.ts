@@ -39,7 +39,8 @@ export class WorkshopController implements IWorkshopController {
     async getWorkshopById(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const { id } = req.params;
-            const userId = req.user?.id; 
+            const userId = req.user?.id;
+            console.log('getWorkshopById controller - userId:', userId, 'workshopId:', id);
             const workshop = await this._workshopService.getWorkshopById(id, userId);
             if (!workshop) throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop });
@@ -176,7 +177,7 @@ export class WorkshopController implements IWorkshopController {
         try {
             console.log('ivdethi');
 
-            const chefId =String(req.params.chefId)||'';
+            const chefId = String(req.params.chefId) || '';
             const page = Number(req.query.page) || 1;
             const limit = Number(req.query.limit) || 6;
             const search = String(req.query.search) || "";

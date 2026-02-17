@@ -2,7 +2,7 @@ import { Router } from "express";
 import container from "../DI/inversify.config";
 import { IAuthController } from "../controllers/interface/IAuthController";
 import TYPES from "../DI/types";
-import { blockGuard } from "../middlewares/BlockGuard";
+import { blockGuard } from "../middlewares/blockGuard";
 
 
 const router = Router();

@@ -58,10 +58,15 @@ export class WorkshopService implements IWorkshopService {
 
         if (userId) {
             const bookings = await this._bookingService.getMyBookings(userId);
-            const myBooking = bookings.find(b =>
-                b.workshopId.toString() === (workshop._id as any).toString() &&
-                (b.status === 'CONFIRMED' || b.status === 'PENDING' || b.status === 'COMPLETED')
-            );
+            console.log('getWorkshopById service - userId:', userId, 'bookings count:', bookings.length);
+
+            const myBooking = bookings.find(b => {
+                const match = b.workshopId.toString() === (workshop._id as any).toString();
+                console.log(`Checking booking ${b._id}: workshopId ${b.workshopId} vs target ${(workshop._id as any)} -> match? ${match}`);
+                return match;
+            });
+            console.log('getWorkshopById service - found myBooking:', myBooking ? myBooking._id : 'null');
+
             const isBooked = !!myBooking;
             const workshopObj = workshop.toObject ? workshop.toObject() : workshop;
             return { ...workshopObj, isBooked, myBooking } as any;

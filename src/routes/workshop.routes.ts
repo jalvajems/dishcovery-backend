@@ -8,6 +8,7 @@ import { validate } from '../middlewares/zod.middleware';
 import { createWorkshopSchema, updateWorkshopSchema, rejectionSchema } from '../validations/workshopValidation';
 import { isVerifyChef } from '../middlewares/isVerifyChef';
 import { Role } from '../types/user.types';
+import { extractUser } from '../middlewares/extractUser';
 
 const router = Router();
 const workshopController = container.get<IWorkshopController>(TYPES.IWorkshopController);
@@ -25,6 +26,6 @@ router.patch('/admin/:id/reject', verifyAccess, authorizeRole(Role.ADMIN), valid
 
 router.get('/approved', workshopController.getApprovedWorkshops.bind(workshopController));
 router.get('/recent', workshopController.getRecentWorkshops.bind(workshopController));
-router.get('/:id', workshopController.getWorkshopById.bind(workshopController));
+router.get('/:id', extractUser, workshopController.getWorkshopById.bind(workshopController));
 
 export default router;
