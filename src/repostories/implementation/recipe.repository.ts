@@ -1,4 +1,4 @@
-import { Document, Types } from "mongoose";
+import { Document, Types, FilterQuery } from "mongoose";
 import { IRecipeDocument, RecipeModel } from "../../models/recipe.model";
 import { IRecipe } from "../../types/recipe.types";
 import { IRecipeRepository } from "../interface/IRecipeRepository";
@@ -19,7 +19,7 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
 
         const chefObjId = new Types.ObjectId(id);
 
-        const query: any = {
+        const query: FilterQuery<IRecipeDocument> = {
             $and: [
                 { chefId: chefObjId }
             ]
@@ -50,7 +50,7 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
 
     async findAllByPagination(search: string, skip: number, limit: number, from: string, filter?: string): Promise<{ datas: IRecipeDocument[], totalCount: number }> {
         if (from == 'admin') {
-            const query: any = {};
+            const query: FilterQuery<IRecipeDocument> = {};
             if (search) {
                 query.$or = [
                     { title: new RegExp(search, "i") },
@@ -66,7 +66,7 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
             const totalCount = await RecipeModel.countDocuments(query)
             return { datas: recipes, totalCount: totalCount }
         } else if (from == 'foodie') {
-            const query: any = {
+            const query: FilterQuery<IRecipeDocument> = {
                 isBlock: false
             };
             if (search) {

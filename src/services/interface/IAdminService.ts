@@ -4,6 +4,8 @@ import { IPaginationDto } from "../../dtos/IPaginationDto";
 import { IRecipeDto } from "../../dtos/recipe.dtos";
 import { IUserDto } from "../../dtos/user.dtos";
 
+import { IDashboardStats, IGrowthData } from "../../dtos/admin.dtos";
+
 export interface IAdminService {
     getAllFoodies(query: IPaginationDto): Promise<{ data: IUserDto[], currentPage: number, totalPages: number }>;
     getAllChefs(query: IPaginationDto): Promise<{ data: IUserDto[]; currentPage: number; totalPages: number; }>;
@@ -22,6 +24,6 @@ export interface IAdminService {
     unblockSpot(id: string): Promise<void>;
     approveSpot(id: string): Promise<void>;
     unapproveSpot(id: string): Promise<void>;
-    getDashboardStats(): Promise<any>;
-    getGrowthData(): Promise<any>;
+    getDashboardStats(): Promise<IDashboardStats>;
+    getGrowthData(): Promise<IGrowthData>;
 }

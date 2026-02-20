@@ -35,8 +35,10 @@ export class AiService {
 
             return "I apologize, but I couldn't generate a response at this moment. Please try again.";
 
-        } catch (error: any) {
-            console.error("AI Service Error:", error?.response?.data || error.message);
+        } catch (error: unknown) {
+            const errorMessage = error instanceof Error ? error.message : "Unknown error";
+            const responseData = axios.isAxiosError(error) ? error.response?.data : null;
+            console.error("AI Service Error:", responseData || errorMessage);
             throw new Error("Failed to communicate with AI service");
         }
     }

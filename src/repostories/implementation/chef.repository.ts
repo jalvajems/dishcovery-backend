@@ -1,4 +1,5 @@
 import { child } from "winston";
+import { FilterQuery } from "mongoose";
 import { ChefModel, IChefDocument } from "../../models/chef.model";
 import { IChef } from "../../types/chef.types";
 import { IChefRepository } from "../interface/IChefRepository";
@@ -27,7 +28,7 @@ export class ChefRepository extends BaseRepository<IChefDocument> implements ICh
     }
 
     async findAllChefs(skip: number, limit: number, search: string, filter?: string): Promise<{ datas: IChefDocument[]; totalCount: number }> {
-        const query: any = { isVerified: true, status: 'active' };
+        const query: FilterQuery<IChefDocument> = { isVerified: true, status: 'active' };
 
         if (search) {
             query.$or = [

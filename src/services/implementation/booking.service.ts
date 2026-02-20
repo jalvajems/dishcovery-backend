@@ -1,4 +1,5 @@
 import { injectable, inject } from 'inversify';
+import Stripe from 'stripe';
 import TYPES from '../../DI/types';
 import { IBookingService } from '../interface/IBookingService';
 import { IBookingRepository } from '../../repostories/interface/IBookingRepository';
@@ -11,6 +12,7 @@ import { Types } from 'mongoose';
 import { ITransactionRepository } from '../../repostories/interface/ITransactionRepository';
 import { WalletTransactionStatus, WalletTransactionType } from '../../models/transaction.model';
 import { Role } from '../../types/user.types';
+import { IStripeWebhookPayload } from '../../dtos/booking.dtos';
 
 @injectable()
 export class BookingService implements IBookingService {
@@ -80,7 +82,7 @@ export class BookingService implements IBookingService {
         const totalAmount = workshop.price * ticketCount;
 
         if (workshop.isFree) {
-            const bookingData: any = {
+            const bookingData: Partial<IBookingDocument> = {
                 workshopId: new Types.ObjectId(workshopId),
                 foodieId: new Types.ObjectId(foodieId),
                 status: BookingStatus.CONFIRMED,
@@ -88,9 +90,9 @@ export class BookingService implements IBookingService {
                 ticketCount: ticketCount,
                 amount: 0,
                 bookedAt: new Date(),
-                cancelledAt: null,
-                cancellationReason: null,
-                refundId: null
+                cancelledAt: undefined,
+                cancellationReason: undefined,
+                refundId: undefined
             };
 
             let booking;
@@ -101,12 +103,12 @@ export class BookingService implements IBookingService {
                     BookingStatus.CONFIRMED,
                     {
                         ...bookingData,
-                        paymentIntentId: null,
-                        stripeEventId: null
-                    } as any
+                        paymentIntentId: undefined,
+                        stripeEventId: undefined
+                    }
                 );
             } else {
-                booking = await this.bookingRepository.create(bookingData as any);
+                booking = await this.bookingRepository.create(bookingData as Partial<IBookingDocument>);
             }
 
             if (booking) {
@@ -135,12 +137,12 @@ export class BookingService implements IBookingService {
                     ticketCount: ticketCount,
                     amount: totalAmount,
                     bookedAt: new Date(),
-                    cancelledAt: null,
-                    cancellationReason: null,
-                    refundId: null,
-                    stripeEventId: null,
+                    cancelledAt: undefined,
+                    cancellationReason: undefined,
+                    refundId: undefined,
+                    stripeEventId: undefined,
                     paymentIntentId: paymentIntent.id
-                } as any
+                } as unknown as Partial<IBookingDocument>
             );
             booking = updatedBooking!;
             clientSecret = paymentIntent.client_secret || '';
@@ -177,7 +179,8 @@ export class BookingService implements IBookingService {
         };
     }
 
-    async handleStripeWebhook(payload: any, signature: string): Promise<void> {
+
+    async handleStripeWebhook(payload: string | Buffer, signature: string): Promise<void> {
         console.log('in handle strpewebhook');
 
         const event = this.stripeService.constructEvent(
@@ -188,17 +191,28 @@ export class BookingService implements IBookingService {
 
         if (event.type === 'payment_intent.succeeded') {
             console.log('in handle strpewebhook succes case');
-            const paymentIntent = event.data.object as any;
+            const paymentIntent = event.data.object as Stripe.PaymentIntent;
             const booking = await this.bookingRepository.findByPaymentIntentId(paymentIntent.id);
             if (!booking) return;
             if (booking && booking.status === BookingStatus.PENDING) {
-                await this.bookingRepository.updateStatus(booking._id as any, BookingStatus.CONFIRMED, {
+                await this.bookingRepository.updateStatus(booking._id as string, BookingStatus.CONFIRMED, {
                     stripeEventId: event.id
                 });
-                const workshopId = (booking.workshopId as any)._id ? (booking.workshopId as any)._id : booking.workshopId;
-                console.log('workshopid', workshopId);
 
-                await this.workshopRepository.incrementParticipants(workshopId.toString(), booking.ticketCount || 1);
+                // Better approach:
+                let wId: string;
+                if (booking.workshopId instanceof Types.ObjectId) {
+                    wId = booking.workshopId.toString();
+                } else if (typeof booking.workshopId === 'string') {
+                    wId = booking.workshopId;
+                } else {
+                    // It's a populated document
+                    wId = (booking.workshopId as unknown as { _id: Types.ObjectId })._id.toString();
+                }
+
+                console.log('workshopid', wId);
+
+                await this.workshopRepository.incrementParticipants(wId, booking.ticketCount || 1);
             }
             console.log('creating transaction');
 
@@ -233,17 +247,17 @@ export class BookingService implements IBookingService {
 
         }
         else if (event.type === 'payment_intent.payment_failed') {
-            const paymentIntent = event.data.object as any;
+            const paymentIntent = event.data.object as Stripe.PaymentIntent;
             const booking = await this.bookingRepository.findByPaymentIntentId(paymentIntent.id);
 
             if (booking && booking.status === BookingStatus.PENDING) {
-                await this.bookingRepository.updateStatus(booking._id as any, BookingStatus.CANCELLED);
+                await this.bookingRepository.updateStatus(booking._id as string, BookingStatus.CANCELLED);
             }
         }
         else if (event.type === 'charge.refunded') {
             console.log('handling charge.refunded event');
-            const refund = event.data.object as any;
-            const paymentIntentId = refund.payment_intent;
+            const refund = event.data.object as Stripe.Charge;
+            const paymentIntentId = refund.payment_intent as string;
 
             const booking = await this.bookingRepository.findByPaymentIntentId(paymentIntentId);
             if (!booking) {
@@ -343,8 +357,9 @@ export class BookingService implements IBookingService {
 
                 await this.workshopRepository.decrementParticipants(workshop._id as string, booking.ticketCount || 1);
 
-            } catch (error: any) {
-                throw new AppError(`Refund failed: ${error.message}`, 500);
+            } catch (error: unknown) {
+                const errorMessage = error instanceof Error ? error.message : 'Unknown error during refund';
+                throw new AppError(`Refund failed: ${errorMessage}`, 500);
             }
         }
     }

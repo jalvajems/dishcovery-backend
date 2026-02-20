@@ -3,7 +3,7 @@ import { BlogModel, IBlogDocument } from "../../models/blog.model";
 import { AppError } from "../../utils/AppError";
 import { IBlogRepository } from "../interface/IBlogRepository";
 import { BaseRepository } from "./base.repository";
-import { Types } from "mongoose";
+import { Types, FilterQuery } from "mongoose";
 
 export class BlogRepository extends BaseRepository<IBlogDocument> implements IBlogRepository {
     constructor() {
@@ -15,7 +15,7 @@ export class BlogRepository extends BaseRepository<IBlogDocument> implements IBl
     async getBlogByChef(chefId: string, skip: number, limit: number, search: string): Promise<{ datas: IBlogDocument[] | null, totalCount: number }> {
         const chefObjId = new Types.ObjectId(chefId);
 
-        const query: any = {
+        const query: FilterQuery<IBlogDocument> = {
             $and: [
                 { chefId: chefObjId }
             ]
@@ -33,7 +33,7 @@ export class BlogRepository extends BaseRepository<IBlogDocument> implements IBl
     }
     async getAllBlogs(search: string, skip: number, limit: number, from: string, filter?: string): Promise<{ datas: IBlogDocument[] | null, totalCount: number }> {
         if (from == 'admin') {
-            const query: any = {}
+            const query: FilterQuery<IBlogDocument> = {}
             if (search) {
                 query.$or = [
                     { title: new RegExp(search, "i") },
@@ -47,7 +47,7 @@ export class BlogRepository extends BaseRepository<IBlogDocument> implements IBl
             const totalCount = await BlogModel.countDocuments(query);
             return { datas: blogs, totalCount: totalCount }
         } else if (from == 'foodie') {
-            const query: any = {
+            const query: FilterQuery<IBlogDocument> = {
                 isBlocked: false
             }
             if (search) {

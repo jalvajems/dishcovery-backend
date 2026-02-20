@@ -6,6 +6,8 @@ import { IConversation } from "../../models/conversation.model";
 import { IMessage } from "../../models/message.model";
 import { socketService } from "./socket.service";
 import { Role } from "../../types/user.types";
+import { IPopulatedConversation, IConversationDto, IPopulatedParticipant } from "../../dtos/chat.dtos";
+import { Types } from "mongoose";
 
 @injectable()
 export class ChatService implements IChatService {
@@ -20,31 +22,32 @@ export class ChatService implements IChatService {
         userId2: string,
         role1: Role,
         role2: Role
-    ): Promise<IConversation> {
+    ): Promise<IPopulatedConversation> {
         return await this.conversationRepository.findOrCreateConversation(userId1, userId2, role1, role2);
     }
 
-    async getUserConversations(userId: string, page: number, limit: number): Promise<{ conversations: any[], total: number }> {
+    async getUserConversations(userId: string, page: number, limit: number): Promise<{ conversations: IConversationDto[], total: number }> {
         const { conversations, total } = await this.conversationRepository.getUserConversations(userId, page, limit);
 
-        const formattedConversations = conversations.map(conv => {
-            const otherParticipant = (conv.participants as any[]).find(
-                (p: any) => p._id.toString() !== userId
-            );
+        const formattedConversations: IConversationDto[] = conversations.map(conv => {
+            const participants = conv.participants as unknown as IPopulatedParticipant[];
+            const otherParticipant = participants.find(
+                (p) => p._id.toString() !== userId
+            )!;
 
             const otherParticipantDetails = conv.participantDetails.find(
-                (pd: any) => pd.userId.toString() !== userId
+                (pd) => pd.userId.toString() !== userId
             );
 
             return {
-                _id: conv._id,
+                _id: conv._id as Types.ObjectId,
                 otherParticipant: {
                     _id: otherParticipant._id,
                     name: otherParticipant.name,
                     email: otherParticipant.email,
                     role: otherParticipantDetails?.role || Role.FOODIE
                 },
-                lastMessage: conv.lastMessage,
+                lastMessage: conv.lastMessage as unknown as IMessage | undefined,
                 lastMessageAt: conv.lastMessageAt,
                 unreadCount: conv.unreadCount.get(userId) || 0,
                 createdAt: conv.createdAt,
@@ -72,12 +75,13 @@ export class ChatService implements IChatService {
             messageType
         });
 
-        await this.conversationRepository.updateLastMessage(conversationId, (message._id as any).toString());
+        await this.conversationRepository.updateLastMessage(conversationId, (message._id as Types.ObjectId).toString());
 
         const conversation = await this.conversationRepository.getConversationById(conversationId);
         if (conversation) {
-            const recipientId = (conversation.participants as any[])
-                .find((p: any) => p._id.toString() !== senderId)
+            const participants = conversation.participants as unknown as IPopulatedParticipant[];
+            const recipientId = participants
+                .find((p) => p._id.toString() !== senderId)
                 ?._id.toString();
 
             if (recipientId) {
@@ -114,8 +118,9 @@ export class ChatService implements IChatService {
 
         const conversation = await this.conversationRepository.getConversationById(conversationId);
         if (conversation) {
-            const otherUserId = (conversation.participants as any[])
-                .find((p: any) => p._id.toString() !== userId)
+            const participants = conversation.participants as unknown as IPopulatedParticipant[];
+            const otherUserId = participants
+                .find((p) => p._id.toString() !== userId)
                 ?._id.toString();
 
             if (otherUserId) {

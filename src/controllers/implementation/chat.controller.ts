@@ -3,6 +3,13 @@ import { inject, injectable } from "inversify";
 import { Role } from '../../types/user.types';
 import { IChatService } from "../../services/interface/chat.service.interface";
 
+interface AuthenticatedRequest extends Request {
+    user: {
+        id: string;
+        role: Role;
+    };
+}
+
 @injectable()
 export class ChatController {
 
@@ -13,8 +20,9 @@ export class ChatController {
     createOrGetConversation = async (req: Request, res: Response): Promise<void> => {
         try {
             const { otherUserId, otherUserRole } = req.body;
-            const userId = (req as any).user.id;
-            const userRole = (req as any).user.role;
+            const user = (req as unknown as AuthenticatedRequest).user;
+            const userId = user.id;
+            const userRole = user.role;
 
             if (!otherUserId || !otherUserRole) {
                 res.status(400).json({ message: 'Other user ID and role are required' });
@@ -34,18 +42,20 @@ export class ChatController {
                 success: true,
                 conversation
             });
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.error('Error in createOrGetConversation:', error);
+            const message = error instanceof Error ? error.message : 'Failed to create/get conversation';
             res.status(500).json({
                 success: false,
-                message: error.message || 'Failed to create/get conversation'
+                message
             });
         }
     };
 
     getUserConversations = async (req: Request, res: Response): Promise<void> => {
         try {
-            const userId = (req as any).user.id;
+            const user = (req as unknown as AuthenticatedRequest).user;
+            const userId = user.id;
             const page = parseInt(req.query.page as string) || 1;
             const limit = parseInt(req.query.limit as string) || 20;
 
@@ -61,10 +71,11 @@ export class ChatController {
                     totalPages: Math.ceil(total / limit)
                 }
             });
-        } catch (error: any) {
+        } catch (error: unknown) {
+            const message = error instanceof Error ? error.message : 'Failed to fetch conversations';
             res.status(500).json({
                 success: false,
-                message: error.message || 'Failed to fetch conversations'
+                message
             });
         }
     };
@@ -73,8 +84,9 @@ export class ChatController {
     sendMessage = async (req: Request, res: Response): Promise<void> => {
         try {
             const { conversationId, content, fileUrl, messageType } = req.body;
-            const senderId = (req as any).user.id;
-            const senderRole = (req as any).user.role;
+            const user = (req as unknown as AuthenticatedRequest).user;
+            const senderId = user.id;
+            const senderRole = user.role;
 
             if (!conversationId || (!content && !fileUrl)) {
                 res.status(400).json({ message: 'Conversation ID and content or file are required' });
@@ -89,10 +101,11 @@ export class ChatController {
                 success: true,
                 message
             });
-        } catch (error: any) {
+        } catch (error: unknown) {
+            const message = error instanceof Error ? error.message : 'Failed to send message';
             res.status(500).json({
                 success: false,
-                message: error.message || 'Failed to send message'
+                message
             });
         }
     };
@@ -100,7 +113,8 @@ export class ChatController {
     getMessages = async (req: Request, res: Response): Promise<void> => {
         try {
             const { conversationId } = req.params;
-            const userId = (req as any).user.id;
+            const user = (req as unknown as AuthenticatedRequest).user;
+            const userId = user.id;
             const page = parseInt(req.query.page as string) || 1;
             const limit = parseInt(req.query.limit as string) || 50;
 
@@ -116,10 +130,11 @@ export class ChatController {
                     totalPages: Math.ceil(total / limit)
                 }
             });
-        } catch (error: any) {
+        } catch (error: unknown) {
+            const message = error instanceof Error ? error.message : 'Failed to fetch messages';
             res.status(500).json({
                 success: false,
-                message: error.message || 'Failed to fetch messages'
+                message
             });
         }
     };
@@ -127,7 +142,8 @@ export class ChatController {
     markAsRead = async (req: Request, res: Response): Promise<void> => {
         try {
             const { conversationId } = req.params;
-            const userId = (req as any).user.id;
+            const user = (req as unknown as AuthenticatedRequest).user;
+            const userId = user.id;
 
             await this.chatService.markAsRead(conversationId, userId);
 
@@ -135,10 +151,11 @@ export class ChatController {
                 success: true,
                 message: 'Messages marked as read'
             });
-        } catch (error: any) {
+        } catch (error: unknown) {
+            const message = error instanceof Error ? error.message : 'Failed to mark messages as read';
             res.status(500).json({
                 success: false,
-                message: error.message || 'Failed to mark messages as read'
+                message
             });
         }
     };
@@ -147,7 +164,8 @@ export class ChatController {
         try {
             const { messageId } = req.params;
             const { forEveryone } = req.body;
-            const userId = (req as any).user.id;
+            const user = (req as unknown as AuthenticatedRequest).user;
+            const userId = user.id;
 
             const updatedMessage = await this.chatService.deleteMessage(messageId, userId, forEveryone);
 
@@ -161,10 +179,11 @@ export class ChatController {
                 message: 'Message deleted successfully',
                 data: updatedMessage
             });
-        } catch (error: any) {
+        } catch (error: unknown) {
+            const message = error instanceof Error ? error.message : 'Failed to delete message';
             res.status(500).json({
                 success: false,
-                message: error.message || 'Failed to delete message'
+                message
             });
         }
     };

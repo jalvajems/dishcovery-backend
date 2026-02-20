@@ -22,6 +22,7 @@ import { IFoodSpotRepository } from "../../repostories/interface/IFoodSportRepos
 import { allFoodSpotsMapper } from "../../utils/mapper/allFoodSpot. mapper";
 import { IWorkshopRepository } from "../../repostories/interface/IWorkshopRepository";
 import { logger } from "../../utils/logger";
+import { IDashboardStats, IGrowthData } from "../../dtos/admin.dtos";
 
 @injectable()
 export class AdminService implements IAdminService {
@@ -39,7 +40,7 @@ export class AdminService implements IAdminService {
         try {
 
             const { page, limit, search, isBlocked } = query;
-            const filter: any = { role: Role.USER };
+            const filter: Record<string, unknown> = { role: Role.USER };
 
             if (search) {
                 filter.$or = [
@@ -73,7 +74,7 @@ export class AdminService implements IAdminService {
         try {
             const { page, limit, search, isBlocked, isVerified } = query;
             const skip = (page - 1) * limit;
-            const filter: any = { role: Role.CHEF };
+            const filter: Record<string, unknown> = { role: Role.CHEF };
 
             if (search) {
                 filter.$or = [
@@ -136,7 +137,7 @@ export class AdminService implements IAdminService {
     async getAllRecipes(query: IPaginationDto): Promise<{ data: IRecipeDto[]; currentPage: number; totalPages: number; }> {
         try {
             const { page, limit, search, isBlocked } = query;
-            const filter: any = {}
+            const filter: Record<string, unknown> = {}
             if (search) {
                 filter.$or = [
                     { title: { $regex: search, $option: "i" } }
@@ -147,7 +148,7 @@ export class AdminService implements IAdminService {
 
             const skip = (page - 1) * limit;
 
-            const recipes = await this._recipeRepository.findAllByPagination(filter, skip, limit, Role.ADMIN)
+            const recipes = await this._recipeRepository.findAllByPagination(search || "", skip, limit, Role.ADMIN)
             const totalCount = await this._recipeRepository.countDocument(filter)
             console.log('recipes=========', recipes.datas);
 
@@ -182,7 +183,7 @@ export class AdminService implements IAdminService {
     async getAllBlogs(query: IPaginationDto): Promise<{ data: IBlogDto[]; currentPage: number; totalPages: number; }> {
         try {
             const { page, limit, search, isBlocked } = query;
-            const filter: any = {}
+            const filter: Record<string, unknown> = {}
             if (search) {
                 filter.$or = [
                     { title: { $regex: search, $option: "i" } }
@@ -228,7 +229,7 @@ export class AdminService implements IAdminService {
             console.log('inside query', query);
 
             const skip = (page - 1) * limit;
-            const filter: any = {}
+            const filter: Record<string, unknown> = {}
             if (search) {
                 filter.$or = [
                     { name: { $regex: search, $options: "i" } },
@@ -293,7 +294,7 @@ export class AdminService implements IAdminService {
 
 
 
-    async getDashboardStats(): Promise<any> {
+    async getDashboardStats(): Promise<IDashboardStats> {
         try {
             const totalUsers = await this._userRepository.countDocuments({ role: Role.USER });
             const totalChefs = await this._userRepository.countDocuments({ role: Role.CHEF });
@@ -313,7 +314,7 @@ export class AdminService implements IAdminService {
         }
     }
 
-    async getGrowthData(): Promise<any> {
+    async getGrowthData(): Promise<IGrowthData> {
         try {
             const now = new Date();
 

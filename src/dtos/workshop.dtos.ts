@@ -32,3 +32,30 @@ export interface IWorkshopResponseDTO {
   createdAt?: Date;
   updatedAt?: Date;
 }
+
+export interface ICreateWorkshopDto {
+  title: string;
+  description: string;
+  category: string;
+  tags: string[];
+  date: string | Date;
+  startTime: string;
+  duration: number;
+  participantLimit: number;
+  mode: WorkshopMode;
+  price: number;
+  isFree: boolean;
+  location?: {
+    venueName?: string;
+    address?: string;
+    city?: string;
+    latitude?: number;
+    longitude?: number;
+  };
+  thumbnail?: string;
+  images?: string[];
+  requirements?: string[];
+  sessionRoomId?: string;
+}
+
+export interface IUpdateWorkshopDto extends Partial<ICreateWorkshopDto> { }

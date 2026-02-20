@@ -121859,3 +121859,313 @@ Require stack:
     at Server.listen (node:net:2066:7)
     at D:\brototype\Dishcovery\server\src\server.ts:29:20
     at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-02-19 20:57:20] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/booking.service.ts(180,1): error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+src/services/implementation/booking.service.ts(182,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/booking.service.ts(182,38): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(182,72): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(182,81): error TS1005: ';' expected.
+src/services/implementation/booking.service.ts(182,97): error TS1109: Expression expected.
+src/services/implementation/booking.service.ts(183,12): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(183,42): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(185,11): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(189,6): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(191,13): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(191,49): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(191,51): error TS1136: Property assignment expected.
+src/services/implementation/booking.service.ts(237,9): error TS1128: Declaration or statement expected.
+src/services/implementation/booking.service.ts(291,5): error TS1128: Declaration or statement expected.
+src/services/implementation/booking.service.ts(293,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/booking.service.ts(293,33): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(293,42): error TS1005: ';' expected.
+src/services/implementation/booking.service.ts(293,71): error TS1011: An element access expression should take an argument.
+src/services/implementation/booking.service.ts(294,12): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(294,65): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(297,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/booking.service.ts(297,45): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(297,61): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(297,70): error TS1005: ';' expected.
+src/services/implementation/booking.service.ts(297,99): error TS1011: An element access expression should take an argument.
+src/services/implementation/booking.service.ts(298,11): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(298,72): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(299,8): error TS1003: Identifier expected.
+src/services/implementation/booking.service.ts(299,19): error TS1005: '{' expected.
+src/services/implementation/booking.service.ts(299,25): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(299,64): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(301,16): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(301,45): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(301,47): error TS1136: Property assignment expected.
+src/services/implementation/booking.service.ts(306,5): error TS1128: Declaration or statement expected.
+src/services/implementation/booking.service.ts(308,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/booking.service.ts(308,34): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(308,52): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(308,61): error TS1005: ';' expected.
+src/services/implementation/booking.service.ts(308,77): error TS1109: Expression expected.
+src/services/implementation/booking.service.ts(309,11): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(309,69): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(310,8): error TS1003: Identifier expected.
+src/services/implementation/booking.service.ts(310,18): error TS1005: '{' expected.
+src/services/implementation/booking.service.ts(310,24): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(310,62): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(312,15): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(312,48): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(312,50): error TS1136: Property assignment expected.
+src/services/implementation/booking.service.ts(352,5): error TS1128: Declaration or statement expected.
+src/services/implementation/booking.service.ts(354,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/booking.service.ts(354,49): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(354,65): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(354,105): error TS1005: ';' expected.
+src/services/implementation/booking.service.ts(354,121): error TS1109: Expression expected.
+src/services/implementation/booking.service.ts(355,11): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(355,79): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(357,9): error TS1359: Identifier expected. 'const' is a reserved word that cannot be used here.
+src/services/implementation/booking.service.ts(357,15): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(357,23): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(357,26): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(391,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/booking.service.ts(391,35): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(391,51): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(391,60): error TS1005: ';' expected.
+src/services/implementation/booking.service.ts(392,11): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(392,69): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(393,8): error TS1003: Identifier expected.
+src/services/implementation/booking.service.ts(393,18): error TS1005: '{' expected.
+src/services/implementation/booking.service.ts(393,24): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(393,62): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(395,15): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(395,96): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(395,98): error TS1136: Property assignment expected.
+src/services/implementation/booking.service.ts(401,5): error TS1128: Declaration or statement expected.
+src/services/implementation/booking.service.ts(402,1): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\booking.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-19 20:57:44] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/booking.service.ts(181,1): error TS1068: Unexpected token. A constructor, method, accessor, or property was expected.
+src/services/implementation/booking.service.ts(183,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/booking.service.ts(183,38): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(183,72): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(183,81): error TS1005: ';' expected.
+src/services/implementation/booking.service.ts(183,97): error TS1109: Expression expected.
+src/services/implementation/booking.service.ts(184,12): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(184,42): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(186,11): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(190,6): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(192,13): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(192,49): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(192,51): error TS1136: Property assignment expected.
+src/services/implementation/booking.service.ts(238,9): error TS1128: Declaration or statement expected.
+src/services/implementation/booking.service.ts(292,5): error TS1128: Declaration or statement expected.
+src/services/implementation/booking.service.ts(294,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/booking.service.ts(294,33): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(294,42): error TS1005: ';' expected.
+src/services/implementation/booking.service.ts(294,71): error TS1011: An element access expression should take an argument.
+src/services/implementation/booking.service.ts(295,12): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(295,65): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(298,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/booking.service.ts(298,45): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(298,61): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(298,70): error TS1005: ';' expected.
+src/services/implementation/booking.service.ts(298,99): error TS1011: An element access expression should take an argument.
+src/services/implementation/booking.service.ts(299,11): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(299,72): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(300,8): error TS1003: Identifier expected.
+src/services/implementation/booking.service.ts(300,19): error TS1005: '{' expected.
+src/services/implementation/booking.service.ts(300,25): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(300,64): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(302,16): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(302,45): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(302,47): error TS1136: Property assignment expected.
+src/services/implementation/booking.service.ts(307,5): error TS1128: Declaration or statement expected.
+src/services/implementation/booking.service.ts(309,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/booking.service.ts(309,34): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(309,52): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(309,61): error TS1005: ';' expected.
+src/services/implementation/booking.service.ts(309,77): error TS1109: Expression expected.
+src/services/implementation/booking.service.ts(310,11): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(310,69): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(311,8): error TS1003: Identifier expected.
+src/services/implementation/booking.service.ts(311,18): error TS1005: '{' expected.
+src/services/implementation/booking.service.ts(311,24): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(311,62): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(313,15): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(313,48): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(313,50): error TS1136: Property assignment expected.
+src/services/implementation/booking.service.ts(353,5): error TS1128: Declaration or statement expected.
+src/services/implementation/booking.service.ts(355,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/booking.service.ts(355,49): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(355,65): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(355,105): error TS1005: ';' expected.
+src/services/implementation/booking.service.ts(355,121): error TS1109: Expression expected.
+src/services/implementation/booking.service.ts(356,11): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(356,79): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(358,9): error TS1359: Identifier expected. 'const' is a reserved word that cannot be used here.
+src/services/implementation/booking.service.ts(358,15): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(358,23): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(358,26): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(392,5): error TS1434: Unexpected keyword or identifier.
+src/services/implementation/booking.service.ts(392,35): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(392,51): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(392,60): error TS1005: ';' expected.
+src/services/implementation/booking.service.ts(393,11): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(393,69): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(394,8): error TS1003: Identifier expected.
+src/services/implementation/booking.service.ts(394,18): error TS1005: '{' expected.
+src/services/implementation/booking.service.ts(394,24): error TS1005: ':' expected.
+src/services/implementation/booking.service.ts(394,62): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(396,15): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(396,96): error TS1005: ',' expected.
+src/services/implementation/booking.service.ts(396,98): error TS1136: Property assignment expected.
+src/services/implementation/booking.service.ts(402,5): error TS1128: Declaration or statement expected.
+src/services/implementation/booking.service.ts(403,1): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\booking.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-19 21:07:37] [31merror[39m: ReferenceError: Schema is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\conversation.model.ts:33:28)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-19 21:29:14] [31merror[39m: ReferenceError: Schema is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\notification.model.ts:16:36)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-19 21:35:14] [31merror[39m: ReferenceError: Schema is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\notification.model.ts:16:36)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-19 21:35:19] [31merror[39m: ReferenceError: Schema is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\notification.model.ts:16:36)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-19 21:35:22] [31merror[39m: ReferenceError: Schema is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\notification.model.ts:16:36)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-19 21:35:25] [31merror[39m: ReferenceError: Schema is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\notification.model.ts:16:36)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-19 21:35:27] [31merror[39m: ReferenceError: Schema is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\notification.model.ts:16:36)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-19 21:35:30] [31merror[39m: ReferenceError: Schema is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\notification.model.ts:16:36)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-19 21:35:32] [31merror[39m: ReferenceError: Schema is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\notification.model.ts:16:36)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-19 21:35:34] [31merror[39m: ReferenceError: Schema is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\notification.model.ts:16:36)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-19 21:35:37] [31merror[39m: ReferenceError: Schema is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\notification.model.ts:16:36)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-02-19 21:35:39] [31merror[39m: ReferenceError: Schema is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\notification.model.ts:16:36)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-7926482675474773.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)

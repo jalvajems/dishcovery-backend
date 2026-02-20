@@ -1,8 +1,9 @@
 import mongoose, { Schema, Document, Types } from "mongoose";
+import { Role } from "../types/user.types";
 
 export interface INotification extends Document {
     recipientId: Types.ObjectId;
-    recipientRole: 'chef' | 'foodie';
+    recipientRole: Role.CHEF | Role.FOODIE;
     title: string;
     message: string;
     type: 'SESSION_STARTED' | 'SESSION_CANCELLED' | 'WORKSHOP_APPROVED' | 'WORKSHOP_REJECTED';

@@ -1,4 +1,5 @@
 import { inject, injectable } from "inversify";
+import mongoose from "mongoose";
 import TYPES from "../../DI/types";
 import { INotificationService } from "../interface/INotificationService";
 import { INotification } from "../../models/notification.model";
@@ -22,15 +23,18 @@ export class NotificationService implements INotificationService {
         workshopId?: string,
         sessionId?: string
     ): Promise<INotification> {
-        const notification = await this._notificationRepository.create({
-            recipientId: recipientId as any,
+        const payload: Partial<INotification> = {
+            recipientId: new mongoose.Types.ObjectId(recipientId),
             recipientRole,
             title,
             message,
-            type,
-            workshopId: workshopId as any,
-            sessionId: sessionId as any
-        });
+            type
+        };
+
+        if (workshopId) payload.workshopId = new mongoose.Types.ObjectId(workshopId);
+        if (sessionId) payload.sessionId = new mongoose.Types.ObjectId(sessionId);
+
+        const notification = await this._notificationRepository.create(payload);
 
         socketService.emitToRoom(recipientId, 'notification:new', notification);
 

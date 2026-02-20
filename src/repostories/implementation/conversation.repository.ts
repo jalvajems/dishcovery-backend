@@ -2,6 +2,7 @@ import { Role } from "../../types/user.types";
 import { injectable } from "inversify";
 import { Conversation, IConversation } from "../../models/conversation.model";
 import { IConversationRepository } from "../../repositories/conversation.repository.interface";
+import { IPopulatedConversation } from "../../dtos/chat.dtos";
 import mongoose from "mongoose";
 
 @injectable()
@@ -12,7 +13,7 @@ export class ConversationRepository implements IConversationRepository {
         userId2: string,
         role1: Role,
         role2: Role
-    ): Promise<IConversation> {
+    ): Promise<IPopulatedConversation> {
         const participantIds = [
             new mongoose.Types.ObjectId(userId1),
             new mongoose.Types.ObjectId(userId2)
@@ -23,7 +24,7 @@ export class ConversationRepository implements IConversationRepository {
         }).populate('participants', 'name email');
 
         if (!conversation) {
-            conversation = await Conversation.create({
+            let newConversation = await Conversation.create({
                 participants: participantIds,
                 participantDetails: [
                     { userId: new mongoose.Types.ObjectId(userId1), role: role1 },
@@ -35,19 +36,21 @@ export class ConversationRepository implements IConversationRepository {
                 ])
             });
 
-            conversation = await conversation.populate('participants', 'name email');
+            conversation = await newConversation.populate('participants', 'name email');
         }
 
-        return conversation;
+        return conversation as unknown as IPopulatedConversation;
     }
 
-    async getConversationById(conversationId: string): Promise<IConversation | null> {
-        return await Conversation.findById(conversationId)
+    async getConversationById(conversationId: string): Promise<IPopulatedConversation | null> {
+        const conversation = await Conversation.findById(conversationId)
             .populate('participants', 'name email')
             .populate('lastMessage');
+
+        return conversation as unknown as IPopulatedConversation | null;
     }
 
-    async getUserConversations(userId: string, page: number, limit: number): Promise<{ conversations: IConversation[], total: number }> {
+    async getUserConversations(userId: string, page: number, limit: number): Promise<{ conversations: IPopulatedConversation[], total: number }> {
         const skip = (page - 1) * limit;
 
         const conversations = await Conversation.find({
@@ -63,7 +66,7 @@ export class ConversationRepository implements IConversationRepository {
             participants: new mongoose.Types.ObjectId(userId)
         });
 
-        return { conversations, total };
+        return { conversations: conversations as unknown as IPopulatedConversation[], total };
     }
 
     async updateLastMessage(conversationId: string, messageId: string): Promise<void> {

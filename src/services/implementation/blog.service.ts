@@ -27,7 +27,7 @@ export class BlogService implements IBlogService {
             throw error;
         }
     }
-    async updateBlog(blogId: string, data: any): Promise<{ data: IBlogDto; message: string; }> {
+    async updateBlog(blogId: string, data: Partial<IBlog>): Promise<{ data: IBlogDto; message: string; }> {
         try {
             const result = await this._blogRepositoy.updateById(blogId, data);
             if (!result) throw new AppError('updated blog data is empty', STATUS_CODE.NOT_FOUND);

@@ -1,6 +1,7 @@
-import mongoose from "mongoose";
+import mongoose, { PipelineStage } from "mongoose";
 import { FollowModel, IFollowDocument } from "../../models/follow.model";
 import { IFollowRepository } from "../interface/IFollowRepository";
+import { IFollower, IFollowing } from "../../types/follow.types";
 import { BaseRepository } from "./base.repository";
 import { injectable } from "inversify";
 
@@ -24,7 +25,7 @@ export class FollowRepository extends BaseRepository<IFollowDocument> implements
         return count > 0;
     }
 
-    async getFollowers(followingId: string, page: number, limit: number): Promise<{ followers: any[], total: number }> {
+    async getFollowers(followingId: string, page: number, limit: number): Promise<{ followers: IFollower[], total: number }> {
         const skip = (page - 1) * limit;
         const followers = await FollowModel.aggregate([
             { $match: { followingId: new mongoose.Types.ObjectId(followingId) } },
@@ -67,10 +68,10 @@ export class FollowRepository extends BaseRepository<IFollowDocument> implements
         return { followers, total };
     }
 
-    async getFollowing(followerId: string, page: number, limit: number, search?: string): Promise<{ following: any[], total: number }> {
+    async getFollowing(followerId: string, page: number, limit: number, search?: string): Promise<{ following: IFollowing[], total: number }> {
         const skip = (page - 1) * limit;
 
-        const pipeline: any[] = [
+        const pipeline: PipelineStage[] = [
             { $match: { followerId: new mongoose.Types.ObjectId(followerId) } },
             {
                 $lookup: {

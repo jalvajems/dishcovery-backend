@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken';
 import { env } from "../../config/env.config";
 
 import { Role } from "../../types/user.types";
+import { IChatTypingPayload, IChefControlPayload, IWebrtcSignalPayload } from "../../types/socket.types";
 
 class SocketService {
     private io: SocketIOServer | null = null;
@@ -58,7 +59,7 @@ class SocketService {
                 });
             });
 
-            socket.on("webrtc-signal", (data: { to: string, signal: any, from: string }) => {
+            socket.on("webrtc-signal", (data: IWebrtcSignalPayload) => {
                 const targetSocketId = this.userSocketMap.get(data.to) || data.to;
                 if (targetSocketId) {
                     this.io?.to(targetSocketId).emit("webrtc-signal", {
@@ -68,7 +69,7 @@ class SocketService {
                 }
             });
 
-            socket.on("chef-control", (data: { workshopId: string, targetId: string, action: 'mute' | 'remove' | 'end' }) => {
+            socket.on("chef-control", (data: IChefControlPayload) => {
                 if (role !== Role.CHEF) return;
 
                 const targetSocketId = this.userSocketMap.get(data.targetId);
@@ -99,7 +100,7 @@ class SocketService {
                 log.info(`User ${userId} left chat room: ${conversationId}`);
             });
 
-            socket.on("chat:typing", (data: { conversationId: string, isTyping: boolean }) => {
+            socket.on("chat:typing", (data: IChatTypingPayload) => {
                 socket.to(`chat:${data.conversationId}`).emit("chat:typing", {
                     userId,
                     isTyping: data.isTyping
@@ -129,7 +130,7 @@ class SocketService {
         return this.io;
     }
 
-    public emitToRoom(roomId: string, event: string, data: any): void {
+    public emitToRoom(roomId: string, event: string, data: unknown): void {
         this.io?.to(roomId).emit(event, data);
     }
 }

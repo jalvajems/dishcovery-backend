@@ -19,7 +19,7 @@ export interface ISessionLog {
     type: SessionEvent;
     userId: Types.ObjectId;
     timestamp: Date;
-    metadata?: any;
+    metadata?: Record<string, unknown>;
 }
 
 export interface IWorkshopSession {
@@ -31,8 +31,8 @@ export interface IWorkshopSession {
     endedAt?: Date;
     participants: ISessionParticipant[];
     logs: ISessionLog[];
-    createdAt:Date;
-    updatedAt:Date;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 export interface IWorkshopSessionDocument extends IWorkshopSession, Document { }

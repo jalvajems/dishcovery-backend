@@ -1,4 +1,4 @@
-import mongoose, { Types } from "mongoose";
+import mongoose, { Types, FilterQuery } from "mongoose";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { FoodSpotModel, IFoodSpotDocument } from "../../models/foodSpot.model";
 import { AppError } from "../../utils/AppError";
@@ -37,7 +37,7 @@ export class FoodSpotRepository extends BaseRepository<IFoodSpotDocument> implem
     }
     async findAllFoodSpots(search: string, skip: number, limit: number, filter?: string): Promise<{ datas: IFoodSpotDocument[] | null; totalCount: number; }> {
 
-        const query: any = {
+        const query: FilterQuery<IFoodSpotDocument> = {
             isBlocked: false,
             isApproved: true
 
@@ -66,7 +66,7 @@ export class FoodSpotRepository extends BaseRepository<IFoodSpotDocument> implem
     async findAllFoodSpotsByFoodie(foodieId: string, search: string, skip: number, limit: number): Promise<{ datas: IFoodSpotDocument[] | null; totalCount: number; }> {
         const id = new Types.ObjectId(foodieId);
 
-        const query: any = {
+        const query: FilterQuery<IFoodSpotDocument> = {
             $and: [
                 { foodieId: id }
             ]

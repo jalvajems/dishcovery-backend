@@ -1,4 +1,5 @@
 import { injectable } from 'inversify';
+import { FilterQuery } from 'mongoose';
 import { WorkshopModel } from '../../models/workshop.model';
 import { IWorkshopDocument } from '../../types/workshop.types';
 import { IWorkshopRepository } from '../interface/IWorkshopRepository';
@@ -23,7 +24,7 @@ export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implem
     }
 
     async findAllByChefId(chefId: string, skip: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopDocument[]; totalCount: number }> {
-        const query: any = { chefId };
+        const query: FilterQuery<IWorkshopDocument> = { chefId };
         console.log('status---', status);
 
         if (search || search.length !== 0) {
@@ -45,7 +46,7 @@ export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implem
     }
 
     async findAllApprovedWithFilters(skip: number, limit: number, search: string, filter?: string): Promise<{ datas: IWorkshopDocument[]; totalCount: number }> {
-        const query: any = {
+        const query: FilterQuery<IWorkshopDocument> = {
             status: { $in: ['APPROVED', 'UPCOMING', 'LIVE'] }
         };
 

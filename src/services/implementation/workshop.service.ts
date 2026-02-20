@@ -1,12 +1,14 @@
 import { inject, injectable } from 'inversify';
+import { Types } from 'mongoose';
 import TYPES from '../../DI/types';
 import { IWorkshopRepository } from '../../repostories/interface/IWorkshopRepository';
 import { IWorkshopService } from '../interface/IWorkshopService';
 import { IWorkshopDocument, WorkshopStatus, WorkshopMode } from '../../types/workshop.types';
+import { IWorkshopSessionDocument } from '../../types/workshopSession.types';
 import { AppError } from '../../utils/AppError';
 import { STATUS_CODE } from '../../constants/StatusCode';
 import { IWorkshopSessionService } from '../interface/IWorkshopSessionService';
-import { IWorkshopResponseDTO } from '../../dtos/workshop.dtos';
+import { ICreateWorkshopDto, IUpdateWorkshopDto, IWorkshopResponseDTO } from '../../dtos/workshop.dtos';
 import { IWorkshopSessionResponseDTO } from '../../dtos/session.dtos';
 import { workshopMapper } from '../../utils/mapper/workshop.mapper';
 import { WorkshopSessionMapper } from '../../utils/mapper/session.mapper';
@@ -24,16 +26,19 @@ export class WorkshopService implements IWorkshopService {
         @inject(TYPES.INotificationService) private _notificationService: INotificationService
     ) { }
 
-    async createWorkshop(chefId: string, data: any): Promise<IWorkshopDocument> {
+    // Create a new workshop
+
+    async createWorkshop(chefId: string, data: ICreateWorkshopDto): Promise<IWorkshopDocument> {
         const workshopData = {
             ...data,
+            date: new Date(data.date),
             chefId,
             status: WorkshopStatus.DRAFT,
         };
         return await this._workshopRepository.create(workshopData);
     }
 
-    async updateWorkshop(workshopId: string, chefId: string, data: any): Promise<IWorkshopDocument> {
+    async updateWorkshop(workshopId: string, chefId: string, data: IUpdateWorkshopDto): Promise<IWorkshopDocument> {
         const workshop = await this._workshopRepository.findById(workshopId);
         if (!workshop) {
             throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
@@ -61,15 +66,15 @@ export class WorkshopService implements IWorkshopService {
             console.log('getWorkshopById service - userId:', userId, 'bookings count:', bookings.length);
 
             const myBooking = bookings.find(b => {
-                const match = b.workshopId.toString() === (workshop._id as any).toString();
-                console.log(`Checking booking ${b._id}: workshopId ${b.workshopId} vs target ${(workshop._id as any)} -> match? ${match}`);
+                const match = b.workshopId.toString() === (workshop._id as string | Types.ObjectId).toString();
+                console.log(`Checking booking ${b._id}: workshopId ${b.workshopId} vs target ${(workshop._id)} -> match? ${match}`);
                 return match;
             });
             console.log('getWorkshopById service - found myBooking:', myBooking ? myBooking._id : 'null');
 
             const isBooked = !!myBooking;
             const workshopObj = workshop.toObject ? workshop.toObject() : workshop;
-            return { ...workshopObj, isBooked, myBooking } as any;
+            return { ...workshopObj, isBooked, myBooking } as unknown as IWorkshopDocument;
         }
 
         return workshop;
@@ -97,10 +102,10 @@ export class WorkshopService implements IWorkshopService {
 
             const workshopsWithStatus = result.datas.map(w => {
                 const wObj = w.toObject ? w.toObject() : w;
-                return { ...wObj, isBooked: bookedWorkshopIds.has((w._id as any).toString()) };
+                return { ...wObj, isBooked: bookedWorkshopIds.has((w._id as string | Types.ObjectId).toString()) };
             });
 
-            return { datas: workshopsWithStatus as any[], totalCount: result.totalCount };
+            return { datas: workshopsWithStatus as unknown as IWorkshopDocument[], totalCount: result.totalCount };
         }
 
         return result;
@@ -122,8 +127,9 @@ export class WorkshopService implements IWorkshopService {
 
         if (!updated) throw new AppError('Failed to approve workshop', STATUS_CODE.INTERNAL_SERVER_ERROR);
 
+        const chefIdStr = (workshop.chefId as string | Types.ObjectId).toString();
         await this._notificationService.createNotification(
-            (workshop.chefId as any).toString(),
+            chefIdStr,
             Role.CHEF,
             'Workshop Approved',
             `Your workshop "${workshop.title}" has been approved.`,
@@ -149,8 +155,9 @@ export class WorkshopService implements IWorkshopService {
 
         if (!updated) throw new AppError('Failed to reject workshop', STATUS_CODE.INTERNAL_SERVER_ERROR);
 
+        const chefIdStr = (workshop.chefId as string | Types.ObjectId).toString();
         await this._notificationService.createNotification(
-            (workshop.chefId as any).toString(),
+            chefIdStr,
             Role.CHEF,
             'Workshop Rejected',
             `Your workshop "${workshop.title}" has been rejected. Reason: ${reason}`,
@@ -231,14 +238,17 @@ export class WorkshopService implements IWorkshopService {
 
         const participants = await this._bookingService.getWorkshopParticipants(workshopId, chefId);
         for (const participant of participants) {
+            const foodieId = participant.foodieId as string | { _id: string | Types.ObjectId } | Types.ObjectId;
+            const foodieIdStr = (typeof foodieId === 'object' && '_id' in foodieId) ? (foodieId as { _id: string | Types.ObjectId })._id.toString() : foodieId.toString();
+
             await this._notificationService.createNotification(
-                (participant.foodieId as any)._id ? (participant.foodieId as any)._id.toString() : (participant.foodieId as any).toString(),
+                foodieIdStr,
                 Role.FOODIE,
                 'Session Started',
                 `The session for workshop "${workshop.title}" has started! Join now.`,
                 'SESSION_STARTED',
                 workshopId,
-                (session as any)._id.toString()
+                (session._id as Types.ObjectId).toString()
             );
         }
 
@@ -311,8 +321,11 @@ export class WorkshopService implements IWorkshopService {
 
         const participants = await this._bookingService.getWorkshopParticipants(workshopId, chefId);
         for (const participant of participants) {
+            const foodieId = participant.foodieId as string | { _id: string | Types.ObjectId } | Types.ObjectId;
+            const foodieIdStr = (typeof foodieId === 'object' && '_id' in foodieId) ? (foodieId as { _id: string | Types.ObjectId })._id.toString() : foodieId.toString();
+
             await this._notificationService.createNotification(
-                (participant.foodieId as any)._id ? (participant.foodieId as any)._id.toString() : (participant.foodieId as any).toString(),
+                foodieIdStr,
                 Role.FOODIE,
                 'Workshop Cancelled',
                 `The workshop "${workshop.title}" has been cancelled. Reason: ${reason}`,

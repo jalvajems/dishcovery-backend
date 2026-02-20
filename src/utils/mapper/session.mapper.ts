@@ -1,10 +1,10 @@
 import { SessionLogResponseDTO, SessionParticipantResponseDTO, IWorkshopSessionResponseDTO } from "../../dtos/session.dtos";
-import { IWorkshopSessionDocument } from "../../types/workshopSession.types";
+import { ISessionLog, ISessionParticipant, IWorkshopSessionDocument } from "../../types/workshopSession.types";
 
 export class WorkshopSessionMapper {
 
   private static mapParticipant(
-    participant: any
+    participant: ISessionParticipant
   ): SessionParticipantResponseDTO {
     return {
       foodieId: participant.foodieId.toString(),
@@ -15,7 +15,7 @@ export class WorkshopSessionMapper {
   }
 
 
-  private static mapLog(log: any): SessionLogResponseDTO{
+  private static mapLog(log: ISessionLog): SessionLogResponseDTO {
     return {
       type: log.type,
       userId: log.userId.toString(),
@@ -24,7 +24,7 @@ export class WorkshopSessionMapper {
     };
   }
 
- 
+
   static toResponse(
     session: IWorkshopSessionDocument
   ): IWorkshopSessionResponseDTO {

@@ -8,7 +8,7 @@ export interface SessionLogResponseDTO {
   type: string;
   userId: string;
   timestamp: Date;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 

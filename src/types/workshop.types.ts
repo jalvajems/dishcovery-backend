@@ -18,11 +18,11 @@ export enum WorkshopMode {
 }
 
 export interface ILocation {
-    venueName: string;
-    address: string;
-    city: string;
-    latitude: number;
-    longitude: number;
+    venueName?: string;
+    address?: string;
+    city?: string;
+    latitude?: number;
+    longitude?: number;
 }
 
 export interface IWorkshop {

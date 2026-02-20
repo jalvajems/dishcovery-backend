@@ -1,5 +1,9 @@
 import { IWalletTransactionDto } from "../../dtos/walletTransaction.dtos";
 import { ITransactionDocument } from "../../models/transaction.model";
+import { IUser } from "../../types/user.types";
+import { IBooking } from "../../types/booking.types";
+import { IWorkshop } from "../../types/workshop.types";
+import { Types } from "mongoose";
 
 export function walletTransactionMapper(
   transaction: ITransactionDocument
@@ -13,10 +17,10 @@ export function walletTransactionMapper(
     userId: obj.userId
       ? typeof obj.userId === "object" && "_id" in obj.userId
         ? {
-          id: obj.userId._id,
-          name: obj.userId.name
+          id: (obj.userId as unknown as IUser & { _id: Types.ObjectId })._id.toString(),
+          name: (obj.userId as unknown as IUser).name
         }
-        : obj.userId
+        : obj.userId.toString()
       : null,
 
     role: obj.role,
@@ -24,8 +28,8 @@ export function walletTransactionMapper(
     bookingId: obj.bookingId
       ? typeof obj.bookingId === "object" && "_id" in obj.bookingId
         ? {
-          id: obj.bookingId._id,
-          foodieId: (obj.bookingId as any).foodieId
+          id: (obj.bookingId as unknown as IBooking & { _id: Types.ObjectId })._id.toString(),
+          foodieId: (obj.bookingId as unknown as IBooking).foodieId.toString()
         }
         : obj.bookingId.toString()
       : null,
@@ -33,11 +37,11 @@ export function walletTransactionMapper(
     workshopId: obj.workshopId
       ? typeof obj.workshopId === "object" && "_id" in obj.workshopId
         ? {
-          id: obj.workshopId._id,
-          title: (obj.workshopId as any).title,
-          chefId: (obj.workshopId as any).chefId
+          id: (obj.workshopId as unknown as IWorkshop & { _id: Types.ObjectId })._id.toString(),
+          title: (obj.workshopId as unknown as IWorkshop).title,
+          chefId: (obj.workshopId as unknown as IWorkshop).chefId.toString()
         }
-        : obj.workshopId
+        : obj.workshopId.toString()
       : null,
 
     amount: obj.amount,

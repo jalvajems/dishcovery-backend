@@ -5,6 +5,8 @@ import { IFollowService } from "../interface/IFollowService";
 import TYPES from "../../DI/types";
 import { IFoodieService } from "../interface/IFoodieService";
 import { IChefRepository } from "../../repostories/interface/IChefRepository";
+import { IFollower, IFollowing } from "../../types/follow.types";
+import { IFoodieDto } from "../../dtos/foodie.dtos";
 
 @injectable()
 export class FollowService implements IFollowService {
@@ -26,11 +28,11 @@ export class FollowService implements IFollowService {
         return await this._followRepository.isFollowing(followerId, followingId);
     }
 
-    async getFollowers(followingId: string, page: number, limit: number): Promise<{ followers: any[], total: number }> {
+    async getFollowers(followingId: string, page: number, limit: number): Promise<{ followers: IFollower[], total: number }> {
         return await this._followRepository.getFollowers(followingId, page, limit);
     }
 
-    async getFollowing(followerId: string, page: number, limit: number, search?: string): Promise<{ following: any[], total: number }> {
+    async getFollowing(followerId: string, page: number, limit: number, search?: string): Promise<{ following: IFollowing[], total: number }> {
         return await this._followRepository.getFollowing(followerId, page, limit, search);
     }
 
@@ -42,7 +44,7 @@ export class FollowService implements IFollowService {
         return { followers, following };
     }
 
-    async getFoodieProfile(userId: string): Promise<any> {
+    async getFoodieProfile(userId: string): Promise<{ data: IFoodieDto | boolean }> {
         return await this._foodieService.getProfile(userId);
     }
 }

@@ -5,7 +5,6 @@ import { IChefRepository } from "../../repostories/interface/IChefRepository";
 import { IChef } from "../../types/chef.types";
 import { AppError } from "../../utils/AppError";
 import { STATUS_CODE } from "../../constants/StatusCode";
-import { object } from "zod";
 import { IUserRepository } from "../../repostories/interface/IUserRepository";
 import { IUser } from "../../types/user.types";
 import { IUserDto } from "../../dtos/user.dtos";
@@ -14,6 +13,9 @@ import { IReviewRepostory } from "../../repostories/interface/IReviewRepository"
 import { RecipeModel } from "../../models/recipe.model";
 import { WorkshopModel } from "../../models/workshop.model";
 import { FollowModel } from "../../models/follow.model";
+import { IChefProfileDto } from "../../dtos/chef.dtos";
+import { IChefDocument } from "../../models/chef.model";
+import { IReviewDocument } from "../../models/review.model";
 
 @injectable()
 export class ChefService implements IChefService {
@@ -22,7 +24,7 @@ export class ChefService implements IChefService {
         @inject(TYPES.IUserRepository) private _userRepository: IUserRepository,
         @inject(TYPES.IReviewRepository) private _reviewRepository: IReviewRepostory
     ) { }
-    async createProfile(chefId: string, data: object): Promise<{ data: IChef; }> {
+    async createProfile(chefId: string, data: IChefProfileDto): Promise<{ data: IChefDocument; }> {
         try {
 
             const existing = await this._chefRepository.findByChefId(chefId);
@@ -38,9 +40,9 @@ export class ChefService implements IChefService {
             throw error;
         }
     }
-    async updateProfile(userId: string, data: object): Promise<{ user: IUser, chef: IChef; }> {
+    async updateProfile(userId: string, data: IChefProfileDto): Promise<{ user: IUser, chef: IChefDocument; }> {
         try {
-            const { name, email, phone, location, specialities, bio, image, certificates, achievements, skills }: any = data
+            const { name, email, phone, location, specialities, bio, image, certificates, achievements, skills } = data;
             console.log('=================', bio);
 
             const updateUser = await this._userRepository.findByIdAndUpdate(userId, { name, email })
@@ -55,13 +57,13 @@ export class ChefService implements IChefService {
             throw error;
         }
     }
-    async getProfile(chefId: string): Promise<{ data: IChef | boolean; }> {
+    async getProfile(chefId: string): Promise<{ data: IChefDocument | boolean; reviews?: IReviewDocument[] }> {
         try {
             console.log("chefId", chefId);
 
             const result = await this._chefRepository.findByChefId(chefId);
 
-            let reviews: any[] = [];
+            let reviews: IReviewDocument[] = [];
             if (result) {
                 reviews = await this._reviewRepository.findReview(result._id as string, "Chef");
             }
@@ -83,7 +85,7 @@ export class ChefService implements IChefService {
         }
     }
 
-    async getAllChefs(page: number, limit: number, search: string, filter?: string): Promise<{ datas: any[]; totalCount: number }> {
+    async getAllChefs(page: number, limit: number, search: string, filter?: string): Promise<{ datas: IChefDocument[]; totalCount: number }> {
         try {
             const skip = (page - 1) * limit;
             const result = await this._chefRepository.findAllChefs(skip, limit, search, filter);
@@ -93,7 +95,7 @@ export class ChefService implements IChefService {
         }
     }
 
-    async getChefDetails(chefId: string): Promise<{ data: any }> {
+    async getChefDetails(chefId: string): Promise<{ data: IChefDocument }> {
         try {
             const result = await this._chefRepository.findDetailsByChefId(chefId);
             if (!result) throw new AppError('Chef not found', STATUS_CODE.NOT_FOUND);

@@ -6,6 +6,7 @@ import { AppError } from "../../utils/AppError";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { IReviewDocument } from "../../models/review.model";
 import { Types } from "mongoose";
+import { ICreateReviewDto } from "../../dtos/review.dtos";
 
 @injectable()
 export class ReviewService implements IReviewService {
@@ -13,11 +14,11 @@ export class ReviewService implements IReviewService {
         @inject(TYPES.IReviewRepository) private _reviewRepository: IReviewRepostory,
     ) { }
 
-    async createReview(userId: string, data: any): Promise<{ data: IReviewDocument; }> {
+    async createReview(userId: string, data: ICreateReviewDto): Promise<{ data: IReviewDocument; }> {
         try {
             const { reviewableId, reviewableType, rating, reviewText } = data;
 
-            const payload = {
+            const payload: Partial<IReviewDocument> = {
                 userId: new Types.ObjectId(userId),
                 reviewableId: new Types.ObjectId(reviewableId),
                 reviewableType,
@@ -27,7 +28,7 @@ export class ReviewService implements IReviewService {
                 dislikes: [],
             };
 
-            const restult = await this._reviewRepository.create(payload as Partial<IReviewDocument>)
+            const restult = await this._reviewRepository.create(payload)
             return { data: restult }
         } catch (error) {
             throw error
@@ -62,33 +63,33 @@ export class ReviewService implements IReviewService {
             throw error;
         }
     }
-  async toggleDislike(reviewId: string, userId: string): Promise<IReviewDocument> {
-    try {
-        const review = await this._reviewRepository.findById(reviewId);
-        if (!review) throw new AppError('no review found', STATUS_CODE.BAD_REQUEST);
-console.log('uriddd',reviewId);
+    async toggleDislike(reviewId: string, userId: string): Promise<IReviewDocument> {
+        try {
+            const review = await this._reviewRepository.findById(reviewId);
+            if (!review) throw new AppError('no review found', STATUS_CODE.BAD_REQUEST);
+            console.log('uriddd', reviewId);
 
-        const uId = userId?.toString();
-        if (!uId) throw new AppError("Invalid user id", STATUS_CODE.BAD_REQUEST);
+            const uId = userId?.toString();
+            if (!uId) throw new AppError("Invalid user id", STATUS_CODE.BAD_REQUEST);
 
-        review.dislikes = review.dislikes.filter(id => id);
-        review.likes = review.likes.filter(id => id);
+            review.dislikes = review.dislikes.filter(id => id);
+            review.likes = review.likes.filter(id => id);
 
-        const alreadyDisLiked = review.dislikes.some(id => id.toString() === uId);
+            const alreadyDisLiked = review.dislikes.some(id => id.toString() === uId);
 
-        if (alreadyDisLiked) {
-            review.dislikes = review.dislikes.filter(id => id.toString() !== uId);
-        } else {
-            review.dislikes.push(new Types.ObjectId(uId));
-            review.likes = review.likes.filter(id => id.toString() !== uId);
+            if (alreadyDisLiked) {
+                review.dislikes = review.dislikes.filter(id => id.toString() !== uId);
+            } else {
+                review.dislikes.push(new Types.ObjectId(uId));
+                review.likes = review.likes.filter(id => id.toString() !== uId);
+            }
+
+            await review.save();
+            return review;
+
+        } catch (error) {
+            throw error;
         }
-
-        await review.save();
-        return review;
-
-    } catch (error) {
-        throw error;
     }
-}
 
 }

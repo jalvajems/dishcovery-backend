@@ -52,12 +52,12 @@ export class AuthService implements IAuthService {
             await sendMail(userData.email, 'Dishcovery: otp for signup', otp);
 
             return { userData: userMapper(createdUser), otp: redisOtp }
-        } catch (error: any) {
+        } catch (error: unknown) {
             if (error instanceof AppError) {
                 throw error;
             }
-
-            throw new AppError(error.message || 'Error in signup', STATUS_CODE.INTERNAL_SERVER_ERROR)
+            const errorMessage = error instanceof Error ? error.message : 'Error in signup';
+            throw new AppError(errorMessage, STATUS_CODE.INTERNAL_SERVER_ERROR)
         }
     }
 
@@ -209,7 +209,7 @@ export class AuthService implements IAuthService {
         try {
             const userId = await this._refreshTokenRepository.findByToken(refreshToken)
             if (userId == null) {
-                new AppError('user is not found', STATUS_CODE.NOT_FOUND)
+                throw new AppError('user is not found', STATUS_CODE.NOT_FOUND)
             } else {
 
                 await this._refreshTokenRepository.deleteByUserId(userId)

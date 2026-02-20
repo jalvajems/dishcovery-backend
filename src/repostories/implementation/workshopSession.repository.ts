@@ -1,9 +1,9 @@
 import { injectable } from 'inversify';
 import { WorkshopSessionModel } from '../../models/workshopSession.model';
-import { IWorkshopSessionDocument } from '../../types/workshopSession.types';
+import { ISessionLog, ISessionParticipant, IWorkshopSessionDocument } from '../../types/workshopSession.types';
 import { IWorkshopSessionRepository } from '../interface/IWorkshopSessionRepository';
 import { BaseRepository } from './base.repository';
-import  { Types } from 'mongoose';
+import { Types } from 'mongoose';
 
 @injectable()
 export class WorkshopSessionRepository extends BaseRepository<IWorkshopSessionDocument> implements IWorkshopSessionRepository {
@@ -12,8 +12,8 @@ export class WorkshopSessionRepository extends BaseRepository<IWorkshopSessionDo
     }
 
     async findByWorkshopId(workshopId: string | Types.ObjectId): Promise<IWorkshopSessionDocument | null> {
-        const res= await WorkshopSessionModel.findOne({ workshopId:workshopId }).populate('participants.foodieId', 'name email');
-        
+        const res = await WorkshopSessionModel.findOne({ workshopId: workshopId }).populate('participants.foodieId', 'name email');
+
         return res
     }
 
@@ -21,7 +21,7 @@ export class WorkshopSessionRepository extends BaseRepository<IWorkshopSessionDo
         return await this.model.findOne({ roomId, isLive: true });
     }
 
-    async addParticipant(sessionId: string, participantData: any): Promise<IWorkshopSessionDocument | null> {
+    async addParticipant(sessionId: string, participantData: ISessionParticipant): Promise<IWorkshopSessionDocument | null> {
         return await this.model.findByIdAndUpdate(
             sessionId,
             { $push: { participants: participantData } },
@@ -42,7 +42,7 @@ export class WorkshopSessionRepository extends BaseRepository<IWorkshopSessionDo
         );
     }
 
-    async addLog(sessionId: string, logData: any): Promise<IWorkshopSessionDocument | null> {
+    async addLog(sessionId: string, logData: ISessionLog): Promise<IWorkshopSessionDocument | null> {
         return await this.model.findByIdAndUpdate(
             sessionId,
             { $push: { logs: logData } },
