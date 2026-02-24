@@ -20,7 +20,7 @@ export class UserRepository extends BaseRepository<IUserDocument> implements IUs
     await UserModel.updateOne({ email }, { $set: { password: hashedPass } })
   }
   async findByRole(filter: object, skip: number, limit: number): Promise<IUserDocument[]> {
-    return UserModel.find(filter).skip(skip).limit(limit);
+    return UserModel.find(filter).sort({ createdAt: -1 }).skip(skip).limit(limit);
   }
   async countDocuments(filter: object): Promise<number> {
     return UserModel.countDocuments(filter)

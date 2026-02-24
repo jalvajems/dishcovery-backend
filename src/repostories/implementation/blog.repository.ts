@@ -43,7 +43,7 @@ export class BlogRepository extends BaseRepository<IBlogDocument> implements IBl
             if (filter) {
                 query.tags = { $in: [new RegExp(filter, "i")] };
             }
-            const blogs = await BlogModel.find(query).skip(skip).limit(limit).populate("chefId", "name")
+            const blogs = await BlogModel.find(query).sort({ createdAt: -1 }).skip(skip).limit(limit).populate("chefId", "name")
             const totalCount = await BlogModel.countDocuments(query);
             return { datas: blogs, totalCount: totalCount }
         } else if (from == 'foodie') {
@@ -60,7 +60,7 @@ export class BlogRepository extends BaseRepository<IBlogDocument> implements IBl
                 query.tags = { $in: [new RegExp(filter, "i")] };
             }
 
-            const blogs = await BlogModel.find(query).skip(skip).limit(limit).populate("chefId", "name")
+            const blogs = await BlogModel.find(query).sort({ createdAt: -1 }).skip(skip).limit(limit).populate("chefId", "name")
             const totalCount = await BlogModel.countDocuments(query);
             return { datas: blogs, totalCount: totalCount }
         } else {

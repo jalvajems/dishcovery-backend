@@ -26,7 +26,7 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
 
         console.log('recipes in repo1');
         if (search && search.trim() !== "") {
-            query.$and.push({
+            query.$and!.push({
                 $or: [
                     { title: new RegExp(search, "i") },
                     { cuisine: new RegExp(search, "i") },
@@ -36,6 +36,7 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
         console.log('recipes in repo2', query);
 
         const recipes = await RecipeModel.find(query)
+            .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit);
 
@@ -60,7 +61,7 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
             if (filter) {
                 query.cuisine = filter;
             }
-            const recipes = await RecipeModel.find(query).populate("chefId", "name ").skip(skip).limit(limit);
+            const recipes = await RecipeModel.find(query).sort({ createdAt: -1 }).populate("chefId", "name ").skip(skip).limit(limit);
 
             const totalCount = await RecipeModel.countDocuments(query)
             return { datas: recipes, totalCount: totalCount }
@@ -79,7 +80,7 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
                 query.cuisine = filter;
             }
 
-            const recipes = await RecipeModel.find(query).populate("chefId", "name ").skip(skip).limit(limit);
+            const recipes = await RecipeModel.find(query).sort({ createdAt: -1 }).populate("chefId", "name ").skip(skip).limit(limit);
 
             const totalCount = await RecipeModel.countDocuments(query)
             return { datas: recipes, totalCount: totalCount }

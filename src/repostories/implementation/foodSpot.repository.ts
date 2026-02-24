@@ -47,7 +47,7 @@ export class FoodSpotRepository extends BaseRepository<IFoodSpotDocument> implem
         if (filter) {
             query.tags = { $in: [new RegExp(filter, "i")] };
         }
-        const spots = await FoodSpotModel.find(query).skip(skip).limit(limit).populate('foodieId', 'name')
+        const spots = await FoodSpotModel.find(query).sort({ createdAt: -1 }).skip(skip).limit(limit).populate('foodieId', 'name')
         const totalCount = await FoodSpotModel.countDocuments(query)
         return { datas: spots, totalCount }
 
@@ -55,7 +55,7 @@ export class FoodSpotRepository extends BaseRepository<IFoodSpotDocument> implem
 
     }
     async findAllFoodSpotsAdmin(filter: object, skip: number, limit: number): Promise<{ datas: IFoodSpotDocument[] | null; totalCount: number; }> {
-        const spots = await FoodSpotModel.find(filter).skip(skip).limit(limit).populate('foodieId', 'name')
+        const spots = await FoodSpotModel.find(filter).sort({ createdAt: -1 }).skip(skip).limit(limit).populate('foodieId', 'name')
         const totalCount = await FoodSpotModel.countDocuments(filter)
         return { datas: spots, totalCount }
     }

@@ -70,7 +70,7 @@ export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implem
 
         const workshops = await this.model.find(query)
             .populate('chefId', 'name image')
-            .sort({ date: 1 })
+            .sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit);
         const totalCount = await this.model.countDocuments(query);
