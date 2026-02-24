@@ -30,9 +30,9 @@ export class FoodSpotController implements IFoodSpotController {
     }
     async getFoodSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id;
-            if (!id) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED)
-            const result = await this._foodSpotService.getFoodSpot(id);
+            const spotId = req.params.id;
+            if (!spotId) throw new AppError(FOODSPOT_MESSAGES.NOT_FOUND, STATUS_CODE.UNAUTHORIZED)
+            const result = await this._foodSpotService.getFoodSpot(spotId);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, message: FOODSPOT_MESSAGES.SPOT_FETCHED})
 
         } catch (error) {
@@ -82,12 +82,12 @@ export class FoodSpotController implements IFoodSpotController {
         try {
             console.log('reachef my');
             
-            const id = req.user?.id;
+            const userId = req.user?.id;
             const page = Number(req.query.page) || 1
             const limit = Number(req.query.limit) || 5
             const search = String(req.query.search) || ""
-            if (!id) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
-            const result = await this._foodSpotService.getAllFoodSpotsByFoodie(id, page, limit, search);
+            if (!userId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
+            const result = await this._foodSpotService.getAllFoodSpotsByFoodie(userId, page, limit, search);
             console.log('result-----my',result);
             
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, totalCount: result.totalCount, message: FOODSPOT_MESSAGES.FETCHED_ALL });

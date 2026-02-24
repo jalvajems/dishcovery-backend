@@ -28,11 +28,11 @@ export class RecipeService implements IRecipeService {
         log.info('recipe created');
         return { message:RECIPE_MESSAGES.CREATED  }
     }
-    async editRecipe(id: string, newDate: IRecipe): Promise<{ data: IRecipeDto; message: string; }> {
+    async editRecipe(recipeId: string, newDate: IRecipe): Promise<{ data: IRecipeDto; message: string; }> {
         console.log('recidata', newDate);
-        console.log('recidata', id);
+        console.log('recidata', recipeId);
 
-        const updatedData = await this._recipeRepository.updateById(id, newDate)
+        const updatedData = await this._recipeRepository.updateById(recipeId, newDate)
         log.info('new recipe data updated!')
         if (!updatedData) throw new AppError('error in updated recipe', STATUS_CODE.INTERNAL_SERVER_ERROR);
 
@@ -62,8 +62,8 @@ export class RecipeService implements IRecipeService {
 
         return { datas: allRecipesMapper(result.datas), currentPage: page, totalPage: total }
     }
-    async getRecipeDetail(id: string, userId: string): Promise<{ data: IRecipeDto; message: string; }> {
-        const recipeData = await this._recipeRepository.findByIdandPopulate(id)
+    async getRecipeDetail(recipeId: string, userId: string): Promise<{ data: IRecipeDto; message: string; }> {
+        const recipeData = await this._recipeRepository.findByIdandPopulate(recipeId)
         if (!recipeData) throw new AppError(RECIPE_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND)
         console.log('recipedetail in service==========', recipeData);
 
@@ -73,8 +73,8 @@ export class RecipeService implements IRecipeService {
 
         return { data: recipeMapper(recipeData), message: RECIPE_MESSAGES.FETCHED }
     }
-    async deleteRecipe(id: string): Promise<{ message: string; }> {
-        await this._recipeRepository.deleteById(id);
+    async deleteRecipe(recipeId: string): Promise<{ message: string; }> {
+        await this._recipeRepository.deleteById(recipeId);
         return { message: RECIPE_MESSAGES.DELETED};
     }
     async getRelatedRecipes(cuisine: string): Promise<{ datas: IRecipeDto[]; message: string; }> {

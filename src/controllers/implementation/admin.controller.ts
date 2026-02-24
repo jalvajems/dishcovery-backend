@@ -44,9 +44,9 @@ export class AdminController implements IAdminController {
     }
     async blockUser(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id;
+            const userId = req.params.id;
 
-            const restult = await this._adminService.blockUserById(id)
+            const restult = await this._adminService.blockUserById(userId)
             res.status(STATUS_CODE.SUCCESS).json({ restult })
         } catch (error) {
             next(error);
@@ -54,8 +54,8 @@ export class AdminController implements IAdminController {
     }
     async unBlockUser(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id;
-            const restult = await this._adminService.unBlockUserById(id)
+            const userId = req.params.id;
+            const restult = await this._adminService.unBlockUserById(userId)
             res.status(STATUS_CODE.SUCCESS).json({ restult })
         } catch (error) {
             next(error)
@@ -63,8 +63,8 @@ export class AdminController implements IAdminController {
     }
     async verifyChef(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id;
-            const result = await this._adminService.verifyChef(id);
+            const chefId = req.params.id;
+            const result = await this._adminService.verifyChef(chefId);
             res.status(STATUS_CODE.SUCCESS).json({ result });
         } catch (error) {
             next(error);
@@ -72,8 +72,8 @@ export class AdminController implements IAdminController {
     }
     async unVerifyChef(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id;
-            const result = await this._adminService.unVerifyChef(id);
+            const chefId = req.params.id;
+            const result = await this._adminService.unVerifyChef(chefId);
             res.status(STATUS_CODE.SUCCESS).json({ result });
         } catch (error) {
             next(error);
@@ -95,9 +95,8 @@ export class AdminController implements IAdminController {
     }
     async blockRecipe(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id
-            console.log('id', id);
-            await this._adminService.blockRecipe(id)
+            const recipeId = req.params.id
+            await this._adminService.blockRecipe(recipeId)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message: MESSAGES.BLOCK_UPDATED })
         } catch (error) {
             next(error)
@@ -105,8 +104,8 @@ export class AdminController implements IAdminController {
     }
     async unBlockRecipe(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id;
-            await this._adminService.unblockRecipe(id)
+            const recipeId = req.params.id;
+            await this._adminService.unblockRecipe(recipeId)
             res.status(STATUS_CODE.SUCCESS).json()
         } catch (error) {
             next(error)
@@ -131,8 +130,8 @@ export class AdminController implements IAdminController {
     }
     async blockBlog(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id;
-            await this._adminService.blockBlog(id)
+            const blogId = req.params.id;
+            await this._adminService.blockBlog(blogId)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message: MESSAGES.BLOCK_UPDATED })
         } catch (error) {
             next(error)
@@ -140,8 +139,8 @@ export class AdminController implements IAdminController {
     }
     async unBlockBlog(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id;
-            await this._adminService.unblockBlog(id)
+            const blogId = req.params.id;
+            await this._adminService.unblockBlog(blogId)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message: MESSAGES.BLOCK_UPDATED })
         } catch (error) {
             next(error)
@@ -166,8 +165,8 @@ export class AdminController implements IAdminController {
     }
     async blockSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id;
-            await this._adminService.blockSpot(id)
+            const spotId = req.params.id;
+            await this._adminService.blockSpot(spotId)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message:MESSAGES.BLOCK_UPDATED })
         } catch (error) {
             next(error)
@@ -175,8 +174,8 @@ export class AdminController implements IAdminController {
     }
     async unblockSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id;
-            await this._adminService.unblockSpot(id)
+            const spotId = req.params.id;
+            await this._adminService.unblockSpot(spotId)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message:MESSAGES.BLOCK_UPDATED })
         } catch (error) {
             next(error)
@@ -184,8 +183,8 @@ export class AdminController implements IAdminController {
     }
     async approveSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id;
-            await this._adminService.approveSpot(id)
+            const spotId = req.params.id;
+            await this._adminService.approveSpot(spotId)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message: MESSAGES.APPROVE_UPDATED })
         } catch (error) {
             next(error)
@@ -193,8 +192,8 @@ export class AdminController implements IAdminController {
     }
     async unApproveSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id;
-            await this._adminService.unapproveSpot(id)
+            const spotId = req.params.id;
+            await this._adminService.unapproveSpot(spotId)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message: MESSAGES.APPROVE_UPDATED })
         } catch (error) {
             next(error)

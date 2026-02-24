@@ -88,28 +88,28 @@ export class AdminService implements IAdminService {
             totalPages: Math.ceil(totalCount / limit),
         }
     }
-    async blockUserById(id: string): Promise<IUserDto> {
-        const result = await this._userRepository.blockById(id);
+    async blockUserById(userId: string): Promise<IUserDto> {
+        const result = await this._userRepository.blockById(userId);
         if (!result) throw new AppError('result is empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
         return userMapper(result);
 
     }
-    async unBlockUserById(id: string): Promise<IUserDto> {
-        const result = await this._userRepository.unblockById(id);
+    async unBlockUserById(userId: string): Promise<IUserDto> {
+        const result = await this._userRepository.unblockById(userId);
         if (!result) throw new AppError('result is empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
         return userMapper(result);
 
     }
-    async verifyChef(id: string): Promise<object> {
-        const result = await this._userRepository.verifyById(id);
+    async verifyChef(chefId: string): Promise<object> {
+        const result = await this._userRepository.verifyById(chefId);
         console.log('verifeid data chef', result);
 
         if (!result) throw new AppError('user in empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
         return result
     }
-    async unVerifyChef(id: string): Promise<IUserDto> {
+    async unVerifyChef(chefId: string): Promise<IUserDto> {
         try {
-            const result = await this._userRepository.unVerifyById(id);
+            const result = await this._userRepository.unVerifyById(chefId);
             if (!result) throw new AppError('user is empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
             return userMapper(result);
         } catch (error) {
@@ -145,12 +145,12 @@ export class AdminService implements IAdminService {
             throw error;
         }
     }
-    async blockRecipe(id: string): Promise<void> {
-        const result = this._recipeRepository.blockById(id)
+    async blockRecipe(recipeId: string): Promise<void> {
+        const result = this._recipeRepository.blockById(recipeId)
         if (!result) throw new AppError('recipe is not fount', STATUS_CODE.INTERNAL_SERVER_ERROR);
     }
-    async unblockRecipe(id: string): Promise<void> {
-        const result = this._recipeRepository.unblockById(id)
+    async unblockRecipe(recipeId: string): Promise<void> {
+        const result = this._recipeRepository.unblockById(recipeId)
         if (!result) throw new AppError('recipe is not fount', STATUS_CODE.INTERNAL_SERVER_ERROR);
     }
     async getAllBlogs(query: IPaginationDto): Promise<{ data: IBlogDto[]; currentPage: number; totalPages: number; }> {
@@ -178,13 +178,13 @@ export class AdminService implements IAdminService {
             throw error
         }
     }
-    async blockBlog(id: string): Promise<void> {
-        const result = await this._blogRepository.blockById(id)
+    async blockBlog( blogId: string): Promise<void> {
+        const result = await this._blogRepository.blockById(blogId)
         if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
 
     }
-    async unblockBlog(id: string): Promise<void> {
-        const result = await this._blogRepository.unblockById(id)
+    async unblockBlog(blogId: string): Promise<void> {
+        const result = await this._blogRepository.unblockById(blogId)
         if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
     }
 
@@ -220,20 +220,20 @@ export class AdminService implements IAdminService {
         }
 
     }
-    async blockSpot(id: string): Promise<void> {
-        const result = await this._foodspotRepository.blockById(id)
+    async blockSpot(spotId: string): Promise<void> {
+        const result = await this._foodspotRepository.blockById(spotId)
         if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
     }
-    async unblockSpot(id: string): Promise<void> {
-        const result = await this._foodspotRepository.unblockById(id)
+    async unblockSpot(spotId: string): Promise<void> {
+        const result = await this._foodspotRepository.unblockById(spotId)
         if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
     }
-    async approveSpot(id: string): Promise<void> {
-        const result = await this._foodspotRepository.approveById(id)
+    async approveSpot(spotId: string): Promise<void> {
+        const result = await this._foodspotRepository.approveById(spotId)
         if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
     }
-    async unapproveSpot(id: string): Promise<void> {
-        const result = await this._foodspotRepository.unAproveById(id)
+    async unapproveSpot(spotId: string): Promise<void> {
+        const result = await this._foodspotRepository.unAproveById(spotId)
         if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
     }
 

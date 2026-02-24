@@ -41,13 +41,13 @@ export class RecipeController implements IRecipeController {
     }
     async getAllRecipesChef(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.user?.id;
+            const userId = req.user?.id;
             const page = Number(req.query.page) || 1
             const limit = Number(req.query.limit) || 5
             const search = String(req.query.search) || ""
 
             // if(!id)throw new AppError('user id is not found',STATUS_CODE.NOT_FOUND)
-            const result = await this._recipeService.getAllRecipesChef(id as string, page, limit, search);
+            const result = await this._recipeService.getAllRecipesChef(userId as string, page, limit, search);
             log.info('resldata:===========', result.data)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, currentPage: result.currentPage, totalPages: result.totalPages, message: result.message })
         } catch (error) {
@@ -104,13 +104,13 @@ export class RecipeController implements IRecipeController {
     }
     async toggleSaveRecipe(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.user?.id
+            const userId = req.user?.id
             const { recipeId } = req.body;
 
-            if (!id) throw new AppError(MESSAGES.USER.USERID_NOTFOUND, STATUS_CODE.UNAUTHORIZED);
+            if (!userId) throw new AppError(MESSAGES.USER.USERID_NOTFOUND, STATUS_CODE.UNAUTHORIZED);
 
 
-            const result = await this._recipeService.toggleSaveRecipe(id, recipeId)
+            const result = await this._recipeService.toggleSaveRecipe(userId, recipeId)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message: result.message, isSaved: result.isSaved })
         } catch (error) {
             next(error)
@@ -118,12 +118,12 @@ export class RecipeController implements IRecipeController {
     }
     async unsaveRecipe(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.user?.id;
+            const userId = req.user?.id;
             const { recipeId } = req.body;
 
-            if (!id) throw new AppError(MESSAGES.USER.USERID_NOTFOUND, STATUS_CODE.UNAUTHORIZED)
+            if (!userId) throw new AppError(MESSAGES.USER.USERID_NOTFOUND, STATUS_CODE.UNAUTHORIZED)
 
-            await this._recipeService.unSaveRecipe(id, recipeId);
+            await this._recipeService.unSaveRecipe(userId, recipeId);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message: RECIPE_MESSAGES.SAVED })
         } catch (error) {
             next(error);
@@ -131,10 +131,10 @@ export class RecipeController implements IRecipeController {
     }
     async getSavedRecipes(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.user?.id;
-            if (!id) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED)
+            const userId = req.user?.id;
+            if (!userId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED)
 
-            const result = await this._recipeService.getSavedRecipes(id)
+            const result = await this._recipeService.getSavedRecipes(userId)
             console.log('saved recipes========', result)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result, message: RECIPE_MESSAGES.FETCH_SAVED })
         } catch (error) {

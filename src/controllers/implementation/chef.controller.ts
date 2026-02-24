@@ -17,10 +17,10 @@ export class ChefController implements IChefController {
 
     async getChefDashboard(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.user?.id;
-            if (!id) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
-            const result = await this._chefService.getProfile(id);
-            const user = await this._chefService.getUser(id);
+            const chefId = req.user?.id;
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
+            const result = await this._chefService.getProfile(chefId);
+            const user = await this._chefService.getUser(chefId);
 
             console.log('user in dashbord chef', user);
 
@@ -30,7 +30,7 @@ export class ChefController implements IChefController {
                 hasProfile = false;
             }
 
-            const stats = await this._chefService.getDashboardStats(id);
+            const stats = await this._chefService.getDashboardStats(chefId);
 
             console.log('profile', result);
             res.status(STATUS_CODE.SUCCESS).json({

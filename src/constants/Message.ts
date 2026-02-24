@@ -120,6 +120,7 @@ export const FOODIE_MESSAGES={
 }
 export const FOODSPOT_MESSAGES={
     CREATED:'created successfully!',
+    NOT_FOUND:'foodspot id not found',
     SPOT_FETCHED: 'successfully got spots',
     UPDATED:'successfully updated spot;',
     NEAR_SPOT_FETCHED:"nearby food spot fetched!!",
