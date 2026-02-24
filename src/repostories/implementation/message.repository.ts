@@ -1,7 +1,7 @@
 import { Role } from "../../types/user.types";
 import { injectable } from "inversify";
 import { Message, IMessage } from "../../models/message.model";
-import { IMessageRepository } from "../../repositories/message.repository.interface";
+import { IMessageRepository } from "../interface/message.repository.interface";
 import mongoose from "mongoose";
 
 @injectable()

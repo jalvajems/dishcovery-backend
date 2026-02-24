@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken'
 import { AppError } from "../utils/AppError"
 import { STATUS_CODE } from "../constants/StatusCode"
 import { env } from '../config/env.config';
+import { MESSAGES } from "../constants/Message";
 
 export const authorizeRole=(...allowedRoles:string[])=>{
     return(req:Request,res:Response,next:NextFunction)=>{
@@ -11,7 +12,7 @@ export const authorizeRole=(...allowedRoles:string[])=>{
     const token = authHeader && authHeader.split(' ')[1];
         
         if (!token) {
-        return res.status(STATUS_CODE.UNAUTHORIZED).json({ message: 'Accesss token is missing' })
+        return res.status(STATUS_CODE.UNAUTHORIZED).json({ message: MESSAGES.AUTH.ACCESSTOKEN_MISSING})
     }
 
         const decoded = jwt.verify(token, env.JWT_ACCESS_SECRET) as { id: string, role: string };

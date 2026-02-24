@@ -5,7 +5,7 @@ import { IWorkshopController } from '../interface/IWorkshopController';
 import { IWorkshopService } from '../../services/interface/IWorkshopService';
 import { STATUS_CODE } from '../../constants/StatusCode';
 import { AppError } from '../../utils/AppError';
-import { log } from '../../utils/logger';
+import { MESSAGES, WORKSHOP_MESSAGES } from '../../constants/Message';
 
 @injectable()
 export class WorkshopController implements IWorkshopController {
@@ -16,9 +16,9 @@ export class WorkshopController implements IWorkshopController {
     async createWorkshop(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const chefId = req.user?.id;
-            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
             const workshop = await this._workshopService.createWorkshop(chefId, req.body);
-            res.status(STATUS_CODE.CREATED).json({ success: true, data: workshop, message: 'Workshop created successfully' });
+            res.status(STATUS_CODE.CREATED).json({ success: true, data: workshop, message: WORKSHOP_MESSAGES.CREATED });
         } catch (error) {
             next(error);
         }
@@ -28,9 +28,9 @@ export class WorkshopController implements IWorkshopController {
         try {
             const chefId = req.user?.id;
             const { id } = req.params;
-            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
             const workshop = await this._workshopService.updateWorkshop(id, chefId, req.body);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop updated successfully' });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: WORKSHOP_MESSAGES.UPDATED });
         } catch (error) {
             next(error);
         }
@@ -54,7 +54,7 @@ export class WorkshopController implements IWorkshopController {
             console.log('ivden');
 
             const chefId = req.user?.id;
-            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
             const workshops = await this._workshopService.getChefWorkshops(chefId);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshops });
         } catch (error) {
@@ -90,9 +90,9 @@ export class WorkshopController implements IWorkshopController {
         try {
             const adminId = req.user?.id;
             const { id } = req.params;
-            if (!adminId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!adminId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
             const workshop = await this._workshopService.approveWorkshop(id, adminId);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop approved successfully' });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: WORKSHOP_MESSAGES.APPROVE });
         } catch (error) {
             next(error);
         }
@@ -103,9 +103,9 @@ export class WorkshopController implements IWorkshopController {
             const adminId = req.user?.id;
             const { id } = req.params;
             const { rejectionReason } = req.body;
-            if (!adminId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!adminId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
             const workshop = await this._workshopService.rejectWorkshop(id, adminId, rejectionReason);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop rejected successfully' });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message:WORKSHOP_MESSAGES.REJECTE });
         } catch (error) {
             next(error);
         }
@@ -117,9 +117,9 @@ export class WorkshopController implements IWorkshopController {
 
             const chefId = req.user?.id;
             const { id } = req.params;
-            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
             const workshop = await this._workshopService.startSession(id, chefId);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop session started' });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message:  WORKSHOP_MESSAGES.SESSION_STARTED});
         } catch (error) {
             next(error);
         }
@@ -129,9 +129,9 @@ export class WorkshopController implements IWorkshopController {
         try {
             const chefId = req.user?.id;
             const { id } = req.params;
-            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
             const workshop = await this._workshopService.endSession(id, chefId);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop session ended' });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message:WORKSHOP_MESSAGES.SESSION_ENDED });
         } catch (error) {
             next(error);
         }
@@ -141,9 +141,9 @@ export class WorkshopController implements IWorkshopController {
         try {
             const chefId = req.user?.id;
             const { id } = req.params;
-            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
             const workshop = await this._workshopService.submitForApproval(id, chefId);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop submitted for approval' });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: WORKSHOP_MESSAGES.SUBMITTED_FOR_APPROVAL });
         } catch (error) {
             next(error);
         }
@@ -159,7 +159,7 @@ export class WorkshopController implements IWorkshopController {
             const search = String(req.query.search) || "";
             const status = String(req.query.status) || "";
 
-            if (!chefId) throw new AppError('Not authenticated', STATUS_CODE.UNAUTHORIZED)
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED)
 
             const result = await this._workshopService.getWorkshopsByChef(chefId, page, limit, search, status);
             res.status(STATUS_CODE.SUCCESS).json({
@@ -183,7 +183,7 @@ export class WorkshopController implements IWorkshopController {
             const search = String(req.query.search) || "";
             const status = String(req.query.status) || "";
 
-            if (!chefId) throw new AppError('Not authenticated', STATUS_CODE.UNAUTHORIZED)
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED)
 
             const result = await this._workshopService.getWorkshopsByChef(chefId, page, limit, search, status);
             res.status(STATUS_CODE.SUCCESS).json({
@@ -204,11 +204,11 @@ export class WorkshopController implements IWorkshopController {
             const { id } = req.params;
             const { reason } = req.body;
 
-            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
-            if (!reason) throw new AppError('Cancellation reason is required', STATUS_CODE.BAD_REQUEST);
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
+            if (!reason) throw new AppError(WORKSHOP_MESSAGES.CANCEL_REASON_REQUIRED, STATUS_CODE.BAD_REQUEST);
 
             const workshop = await this._workshopService.cancelWorkshop(id, chefId, reason);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: 'Workshop cancelled processing started' });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop, message: WORKSHOP_MESSAGES.CANCELLING });
         } catch (error) {
             next(error);
         }
@@ -217,7 +217,7 @@ export class WorkshopController implements IWorkshopController {
         try {
             const limit = Number(req.query.limit) || 3;
             const result = await this._workshopService.getRecentWorkshops(limit);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: 'Recent workshops fetched successfully' });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message:  WORKSHOP_MESSAGES.RECENT_FETCHED});
         } catch (error) {
             next(error);
         }

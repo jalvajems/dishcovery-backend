@@ -5,7 +5,7 @@ import { IWorkshopSessionController } from '../interface/IWorkshopSessionControl
 import { IWorkshopSessionService } from '../../services/interface/IWorkshopSessionService';
 import { STATUS_CODE } from '../../constants/StatusCode';
 import { AppError } from '../../utils/AppError';
-import { log } from 'console';
+import { MESSAGES, WORKSHOP_MESSAGES } from '../../constants/Message';
 
 @injectable()
 export class WorkshopSessionController implements IWorkshopSessionController {
@@ -19,12 +19,12 @@ export class WorkshopSessionController implements IWorkshopSessionController {
             
             const { workshopId } = req.params;
             const chefId = req.user?.id;
-            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
 
             const session = await this._sessionService.startSession(workshopId, chefId);
             res.status(STATUS_CODE.CREATED).json({
                 success: true,
-                message: 'Session started successfully',
+                message:WORKSHOP_MESSAGES.SESSION_STARTED,
                 data: session
             });
         } catch (error) {
@@ -36,12 +36,12 @@ export class WorkshopSessionController implements IWorkshopSessionController {
         try {
             const { workshopId } = req.params;
             const chefId = req.user?.id;
-            if (!chefId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
 
             await this._sessionService.endSession(workshopId, chefId);
             res.status(STATUS_CODE.SUCCESS).json({
                 success: true,
-                message: 'Session ended successfully'
+                message: WORKSHOP_MESSAGES.SESSION_ENDED
             });
         } catch (error) {
             next(error);
@@ -52,12 +52,12 @@ export class WorkshopSessionController implements IWorkshopSessionController {
         try {
             const { workshopId } = req.params;
             const foodieId = req.user?.id;
-            if (!foodieId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!foodieId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
 
             const result = await this._sessionService.joinSession(workshopId, foodieId);
             res.status(STATUS_CODE.SUCCESS).json({
                 success: true,
-                message: 'Joined session successfully',
+                message:WORKSHOP_MESSAGES.JOINED_SESSION,
                 data: result
             });
         } catch (error) {
@@ -69,12 +69,12 @@ export class WorkshopSessionController implements IWorkshopSessionController {
         try {
             const { workshopId } = req.params;
             const foodieId = req.user?.id;
-            if (!foodieId) throw new AppError('Unauthorized', STATUS_CODE.UNAUTHORIZED);
+            if (!foodieId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
 
             await this._sessionService.leaveSession(workshopId, foodieId);
             res.status(STATUS_CODE.SUCCESS).json({
                 success: true,
-                message: 'Left session successfully'
+                message: WORKSHOP_MESSAGES.LEFT_SESSION
             });
         } catch (error) {
             next(error);

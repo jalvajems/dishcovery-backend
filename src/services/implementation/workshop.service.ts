@@ -4,7 +4,6 @@ import TYPES from '../../DI/types';
 import { IWorkshopRepository } from '../../repostories/interface/IWorkshopRepository';
 import { IWorkshopService } from '../interface/IWorkshopService';
 import { IWorkshopDocument, WorkshopStatus, WorkshopMode } from '../../types/workshop.types';
-import { IWorkshopSessionDocument } from '../../types/workshopSession.types';
 import { AppError } from '../../utils/AppError';
 import { STATUS_CODE } from '../../constants/StatusCode';
 import { IWorkshopSessionService } from '../interface/IWorkshopSessionService';
@@ -85,7 +84,7 @@ export class WorkshopService implements IWorkshopService {
     }
 
     async getAllWorkshopsForAdmin(): Promise<IWorkshopDocument[]> {
-        return await this._workshopRepository.findAll({});
+        return await this._workshopRepository.findAllForAdmin();
     }
 
     async getApprovedWorkshops(page: number, limit: number, search: string, filter?: string, userId?: string): Promise<{ datas: IWorkshopDocument[], totalCount: number }> {
@@ -285,15 +284,11 @@ export class WorkshopService implements IWorkshopService {
     }
 
     async getWorkshopsByChef(chefId: string, page: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopDocument[], totalCount: number }> {
-        try {
-            const skip = (page - 1) * limit;
-            const res = await this._workshopRepository.findAllByChefId(chefId, skip, limit, search, status);
-            console.log('res=====?', res);
+        const skip = (page - 1) * limit;
+        const res = await this._workshopRepository.findAllByChefId(chefId, skip, limit, search, status);
+        console.log('res=====?', res);
 
-            return res
-        } catch (error) {
-            throw error;
-        }
+        return res
     }
 
     async cancelWorkshop(workshopId: string, chefId: string, reason: string): Promise<IWorkshopDocument> {

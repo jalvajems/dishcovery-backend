@@ -1,5 +1,4 @@
 import  { FoodieModel, IFoodieDocument } from "../../models/foodie.model";
-import { IFoodie } from "../../types/foodie.types";
 import { IFoodieRepository } from "../interface/IFoodieRepository";
 import { BaseRepository } from "./base.repository";
 

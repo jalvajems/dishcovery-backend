@@ -1,5 +1,4 @@
 import { INotification } from "../../models/notification.model";
-import { Role } from "../../types/user.types";
 
 export interface INotificationRepository {
     create(notification: Partial<INotification>): Promise<INotification>;

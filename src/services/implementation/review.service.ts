@@ -15,81 +15,64 @@ export class ReviewService implements IReviewService {
     ) { }
 
     async createReview(userId: string, data: ICreateReviewDto): Promise<{ data: IReviewDocument; }> {
-        try {
-            const { reviewableId, reviewableType, rating, reviewText } = data;
+        const { reviewableId, reviewableType, rating, reviewText } = data;
 
-            const payload: Partial<IReviewDocument> = {
-                userId: new Types.ObjectId(userId),
-                reviewableId: new Types.ObjectId(reviewableId),
-                reviewableType,
-                rating,
-                reviewText,
-                likes: [],
-                dislikes: [],
-            };
+        const payload: Partial<IReviewDocument> = {
+            userId: new Types.ObjectId(userId),
+            reviewableId: new Types.ObjectId(reviewableId),
+            reviewableType,
+            rating,
+            reviewText,
+            likes: [],
+            dislikes: [],
+        };
 
-            const restult = await this._reviewRepository.create(payload)
-            return { data: restult }
-        } catch (error) {
-            throw error
-        }
+        const restult = await this._reviewRepository.create(payload)
+        return { data: restult }
     }
     async getReviews(reviewableId: string, reviewableType: string): Promise<{ data: IReviewDocument[]; }> {
-        try {
-            const result = await this._reviewRepository.findReview(reviewableId, reviewableType)
-            return { data: result };
-        } catch (error) {
-            throw error;
-        }
+        const result = await this._reviewRepository.findReview(reviewableId, reviewableType)
+        return { data: result };
     }
     async toggleLike(reviewId: string, userId: string): Promise<IReviewDocument> {
-        try {
-            const review = await this._reviewRepository.findById(reviewId)
-            if (!review) throw new AppError('no review found', STATUS_CODE.SUCCESS);
+        const review = await this._reviewRepository.findById(reviewId)
+        if (!review) throw new AppError('no review found', STATUS_CODE.SUCCESS);
 
-            const uId = userId.toString()
+        const uId = userId.toString()
 
-            const alreadyLiked = review.likes.some(id => id.toString() === uId);
-            if (alreadyLiked) {
-                review.likes = review.likes.filter(id => id.toString() !== uId);
-            } else {
-                review.likes.push(new Types.ObjectId(uId));
-                review.dislikes = review.dislikes.filter(id => id.toString() !== uId);
-            }
-
-            await review.save();
-            return review
-        } catch (error) {
-            throw error;
+        const alreadyLiked = review.likes.some(id => id.toString() === uId);
+        if (alreadyLiked) {
+            review.likes = review.likes.filter(id => id.toString() !== uId);
+        } else {
+            review.likes.push(new Types.ObjectId(uId));
+            review.dislikes = review.dislikes.filter(id => id.toString() !== uId);
         }
+
+        await review.save();
+        return review
     }
     async toggleDislike(reviewId: string, userId: string): Promise<IReviewDocument> {
-        try {
-            const review = await this._reviewRepository.findById(reviewId);
-            if (!review) throw new AppError('no review found', STATUS_CODE.BAD_REQUEST);
-            console.log('uriddd', reviewId);
+        const review = await this._reviewRepository.findById(reviewId);
+        if (!review) throw new AppError('no review found', STATUS_CODE.BAD_REQUEST);
+        console.log('uriddd', reviewId);
 
-            const uId = userId?.toString();
-            if (!uId) throw new AppError("Invalid user id", STATUS_CODE.BAD_REQUEST);
+        const uId = userId?.toString();
+        if (!uId) throw new AppError("Invalid user id", STATUS_CODE.BAD_REQUEST);
 
-            review.dislikes = review.dislikes.filter(id => id);
-            review.likes = review.likes.filter(id => id);
+        review.dislikes = review.dislikes.filter(id => id);
+        review.likes = review.likes.filter(id => id);
 
-            const alreadyDisLiked = review.dislikes.some(id => id.toString() === uId);
+        const alreadyDisLiked = review.dislikes.some(id => id.toString() === uId);
 
-            if (alreadyDisLiked) {
-                review.dislikes = review.dislikes.filter(id => id.toString() !== uId);
-            } else {
-                review.dislikes.push(new Types.ObjectId(uId));
-                review.likes = review.likes.filter(id => id.toString() !== uId);
-            }
-
-            await review.save();
-            return review;
-
-        } catch (error) {
-            throw error;
+        if (alreadyDisLiked) {
+            review.dislikes = review.dislikes.filter(id => id.toString() !== uId);
+        } else {
+            review.dislikes.push(new Types.ObjectId(uId));
+            review.likes = review.likes.filter(id => id.toString() !== uId);
         }
+
+        await review.save();
+        return review;
     }
 
 }

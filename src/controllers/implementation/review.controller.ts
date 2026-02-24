@@ -5,6 +5,7 @@ import TYPES from "../../DI/types";
 import { IReviewService } from "../../services/interface/IReviewService";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { AppError } from "../../utils/AppError";
+import { MESSAGES, REVIEW_MESSAGES } from "../../constants/Message";
 
 @injectable()
 export class ReviewController implements IReviewController {
@@ -19,13 +20,13 @@ export class ReviewController implements IReviewController {
             const userId = req.user?.id;
             console.log('requser',req.user);
             
-            if (!userId) throw new AppError('Unauthorized',STATUS_CODE.UNAUTHORIZED)
+            if (!userId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED,STATUS_CODE.UNAUTHORIZED)
                 
                 const data = req.body;
                 
                 const result = await this._reviewService.createReview(userId, data)
                 console.log('result:', result);
-                res.status(STATUS_CODE.SUCCESS).json({ data: result, message: 'review got successfully' });
+                res.status(STATUS_CODE.SUCCESS).json({ data: result, message: REVIEW_MESSAGES.CREATED });
                 
             } catch (error) {
             throw error
@@ -34,10 +35,10 @@ export class ReviewController implements IReviewController {
     async getReviews(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const { id, type } = req.query;      
-            if (!id || !type) throw new AppError('missing id or type',STATUS_CODE.BAD_REQUEST)
+            if (!id || !type) throw new AppError(REVIEW_MESSAGES.ID_OR_TYPE_MISSING,STATUS_CODE.BAD_REQUEST)
                 const result = await this._reviewService.getReviews(id as string, type as string);
             console.log('result getreviw:', result);
-            res.status(STATUS_CODE.SUCCESS).json({ success:true, data: result, message: 'review recieved' });
+            res.status(STATUS_CODE.SUCCESS).json({ success:true, data: result, message: REVIEW_MESSAGES.REVIEW_FETCHED });
             
         } catch (error) {
             next(error);
@@ -47,10 +48,10 @@ export class ReviewController implements IReviewController {
         try {
             const { reviewId } = req.params;
             const userId= req.user?.id;
-            if (!userId) throw new AppError('Unauthorized',STATUS_CODE.UNAUTHORIZED)
+            if (!userId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED,STATUS_CODE.UNAUTHORIZED)
 
             const result = await this._reviewService.toggleLike(reviewId, userId as string)
-            res.status(STATUS_CODE.SUCCESS).json({ data: result, message: 'like toggled' });
+            res.status(STATUS_CODE.SUCCESS).json({ data: result, message: REVIEW_MESSAGES.LIKED });
         } catch (error) {
             throw error
         }
@@ -60,7 +61,7 @@ export class ReviewController implements IReviewController {
             const { reviewId } = req.params;
             const userId  = req.user?.id;
             const result = await this._reviewService.toggleDislike(reviewId, userId as string)
-            res.status(STATUS_CODE.SUCCESS).json({ data: result, message: 'dislike done' })
+            res.status(STATUS_CODE.SUCCESS).json({ data: result, message:  REVIEW_MESSAGES.DISLIKED})
         } catch (error) {
             throw error
         }

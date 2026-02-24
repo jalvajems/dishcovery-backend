@@ -1,4 +1,3 @@
-import { IRecipeDocument } from "../../models/recipe.model";
 import { IUserDocument } from "../../models/users.model";
 import { IBaseRepository } from "./IBaseRepository";
 

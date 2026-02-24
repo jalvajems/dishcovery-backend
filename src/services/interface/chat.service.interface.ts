@@ -1,4 +1,3 @@
-import { IConversation } from "../../models/conversation.model";
 import { IPopulatedConversation, IConversationDto } from "../../dtos/chat.dtos";
 import { IMessage } from "../../models/message.model";
 import { Role } from "../../types/user.types";
@@ -10,5 +9,5 @@ export interface IChatService {
     getMessages(conversationId: string, userId: string, page: number, limit: number): Promise<{ messages: IMessage[], total: number }>;
     markAsRead(conversationId: string, userId: string): Promise<void>;
     deleteMessage(messageId: string, userId: string, forEveryone: boolean): Promise<IMessage | null>;
-    markAsDelivered(messageId: string, userId: string): Promise<void>;
+    markAsDelivered(messageId: string): Promise<void>;
 }

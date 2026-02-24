@@ -4,9 +4,8 @@ import TYPES from "../../DI/types";
 import { IBlogService } from "../../services/interface/IBlogService";
 import { Request, Response, NextFunction } from "express";
 import { STATUS_CODE } from "../../constants/StatusCode";
-import { success } from "zod";
-import { ja } from "zod/v4/locales";
 import { AppError } from "../../utils/AppError";
+import { BLOG_MESSAGES, MESSAGES } from "../../constants/Message";
 
 @injectable()
 export class BlogController implements IBlogController {
@@ -52,7 +51,7 @@ export class BlogController implements IBlogController {
             const page = Number(req.query.page) || 1;
             const limit = Number(req.query.limit) || 5;
             const search = String(req.query.search) || '';
-            if (!chefId) throw new AppError('unauthorized', STATUS_CODE.UNAUTHORIZED)
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED)
             const result = await this._blogService.getBlogOfChef(chefId, page, limit, search)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.datas, totalCount: result.totalCount, message: result.message })
         } catch (error) {
@@ -80,7 +79,7 @@ export class BlogController implements IBlogController {
 
             const result = await this._blogService.getAllblogs(page, limit, search, filter);
 
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.datas, totalCount: result.totalCount, message: 'blogs fetch successfully' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.datas, totalCount: result.totalCount, message:BLOG_MESSAGES.FETCH_SUCCESS })
         } catch (error) {
             next(error)
         }
@@ -90,7 +89,7 @@ export class BlogController implements IBlogController {
             const tag = req.params.tag;
             if (!tag) throw new AppError("no tag found in req", STATUS_CODE.BAD_REQUEST)
             const result = await this._blogService.getRelatedBlogs(tag)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, relatedDatas: result.datas, message: 'related datas got successfully!' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, relatedDatas: result.datas, message: BLOG_MESSAGES.FETCH_SUCCESS })
         } catch (error) {
             next(error);
         }
@@ -118,7 +117,7 @@ export class BlogController implements IBlogController {
         try {
             const limit = Number(req.query.limit) || 3;
             const result = await this._blogService.getRecentBlogs(limit);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: 'Recent blogs fetched successfully' });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: BLOG_MESSAGES.FETCH_SUCCESS });
         } catch (error) {
             next(error);
         }

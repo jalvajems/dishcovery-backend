@@ -6,6 +6,7 @@ import { IAuthService } from "../../services/interface/IAuthService";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { signupSchema, loginSchema } from "../../validations/authValidation";
 import { env } from "../../config/env.config";
+import { MESSAGES } from "../../constants/Message";
 
 
 @injectable()
@@ -17,7 +18,7 @@ export class AuthController implements IAuthController {
         try {
             const userData = signupSchema.parse(req.body)
             const user = await this._authService.signupUser(userData)
-            res.status(STATUS_CODE.CREATED).json({ success: true, message: 'Signup succussfully !!', otp: user.otp });
+            res.status(STATUS_CODE.CREATED).json({ success: true, message: MESSAGES.AUTH.REGISTER_SUCCESS, otp: user.otp });
         } catch (error) {
             next(error);
         }
@@ -53,7 +54,7 @@ export class AuthController implements IAuthController {
         try {
 
             const { email } = req.body;
-            const result = await this._authService.forgetPass(email);
+            await this._authService.forgetPass(email);
             res.status(STATUS_CODE.SUCCESS).json({ success: true })
 
         } catch (error) {
@@ -64,7 +65,7 @@ export class AuthController implements IAuthController {
         try {
 
             const OtpVerifyData = req.body;
-            const result = await this._authService.forgetPassOtp(OtpVerifyData);
+            await this._authService.forgetPassOtp(OtpVerifyData);
 
             res.status(STATUS_CODE.SUCCESS).json({ success: true });
         } catch (error) {
@@ -74,7 +75,7 @@ export class AuthController implements IAuthController {
     async resetPass(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const { email, newPass, confirmPass } = req.body;
-            const result = await this._authService.resetPassword(email, newPass, confirmPass);
+            await this._authService.resetPassword(email, newPass, confirmPass);
 
             res.status(STATUS_CODE.SUCCESS).json({ success: true })
         } catch (error) {
@@ -112,7 +113,7 @@ export class AuthController implements IAuthController {
 
             const refreshToken = req.cookies?.refreshToken;
             if (!refreshToken) {
-                res.status(STATUS_CODE.BAD_REQUEST).json({ message: 'refresh token needed' });
+                res.status(STATUS_CODE.BAD_REQUEST).json({ message: MESSAGES.AUTH.TOKEN_NEEDED });
             }
             const result = await this._authService.logout(refreshToken);
 

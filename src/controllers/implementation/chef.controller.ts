@@ -4,8 +4,8 @@ import { STATUS_CODE } from "../../constants/StatusCode";
 import { inject, injectable } from "inversify";
 import TYPES from "../../DI/types";
 import { IChefService } from "../../services/interface/IChefService";
-import { success } from "zod";
 import { AppError } from "../../utils/AppError";
+import { CHEF_MESSAGES, MESSAGES } from "../../constants/Message";
 
 @injectable()
 export class ChefController implements IChefController {
@@ -16,29 +16,33 @@ export class ChefController implements IChefController {
     ) { }
 
     async getChefDashboard(req: Request, res: Response, next: NextFunction): Promise<void> {
-        const id = req.user?.id
-        if (!id) throw new AppError('user is not authenticated', STATUS_CODE.UNAUTHORIZED)
-        const result = await this._chefService.getProfile(id)
-        const user = await this._chefService.getUser(id)
+        try {
+            const id = req.user?.id;
+            if (!id) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
+            const result = await this._chefService.getProfile(id);
+            const user = await this._chefService.getUser(id);
 
-        console.log('user in dashbord chef', user);
+            console.log('user in dashbord chef', user);
 
-        let hasProfile = true
+            let hasProfile = true;
 
-        if (!result.data) {
-            hasProfile = false
+            if (!result.data) {
+                hasProfile = false;
+            }
+
+            const stats = await this._chefService.getDashboardStats(id);
+
+            console.log('profile', result);
+            res.status(STATUS_CODE.SUCCESS).json({
+                success: true,
+                hasProfile,
+                isVerified: user.data?.isVerified ?? false,
+                stats,
+                message:CHEF_MESSAGES.ENTERED_TO_CHEF_DASHBOARD
+            });
+        } catch (error) {
+            next(error);
         }
-
-        const stats = await this._chefService.getDashboardStats(id);
-
-        console.log('profile', result)
-        res.status(STATUS_CODE.SUCCESS).json({
-            success: true,
-            hasProfile,
-            isVerified: user.data?.isVerified ?? false,
-            stats,
-            message: 'entered in to chef dashboard'
-        })
     }
     async createProfile(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
@@ -48,9 +52,9 @@ export class ChefController implements IChefController {
             console.log('data===', payload);
 
 
-            if (!chefId) throw new AppError('no chef id  found', STATUS_CODE.UNAUTHORIZED)
+            if (!chefId) throw new AppError(MESSAGES.NOT_FOUND, STATUS_CODE.UNAUTHORIZED)
             const result = await this._chefService.createProfile(chefId, payload)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: 'Profile created successfully' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message:CHEF_MESSAGES.PROFILE_CREATED })
         } catch (error) {
             next(error)
         }
@@ -61,9 +65,9 @@ export class ChefController implements IChefController {
             const chefId = req.user?.id;
             const payload = req.body;
             console.log('reaaaaaach=======================', payload);
-            if (!chefId) throw new AppError("not authenticated", STATUS_CODE.UNAUTHORIZED)
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED)
             const result = await this._chefService.updateProfile(chefId as string, payload)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result, message: "Profie data updated!!" })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result, message: CHEF_MESSAGES.PROFILE_UPDATED })
         } catch (error) {
             next(error)
 
@@ -74,12 +78,12 @@ export class ChefController implements IChefController {
             const chefId = req.user?.id
             console.log('userid', chefId);
 
-            if (!chefId) throw new AppError("user is not authorized", STATUS_CODE.UNAUTHORIZED)
+            if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED)
             const result = await this._chefService.getProfile(chefId);
 
             console.log('profile========0', result);
 
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, reviews: result.reviews, message: "data fetched successfully" })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, reviews: result.reviews, message:CHEF_MESSAGES.DATA_FETCHED  })
         } catch (error) {
             next(error)
         }

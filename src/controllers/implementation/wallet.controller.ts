@@ -5,7 +5,7 @@ import { WalletTransactionService } from "../../services/implementation/wallet.s
 import { Request, Response, NextFunction } from "express";
 import { AppError } from "../../utils/AppError";
 import { STATUS_CODE } from "../../constants/StatusCode";
-import { success } from "zod";
+import { Role } from "../../types/user.types";
 
 @injectable()
 export class WalletController implements IWalletController {
@@ -22,7 +22,7 @@ export class WalletController implements IWalletController {
 
             console.log('reached chef walcontr');
             if (!chefId) throw new AppError('user is not authenticated', STATUS_CODE.UNAUTHORIZED)
-            const data = await this._walletTransactionService.getUserWallet(chefId, 'chef', page, limit);
+            const data = await this._walletTransactionService.getUserWallet(chefId, Role.CHEF, page, limit);
             res.json({ success: true, data })
         } catch (error) {
             next(error)
@@ -35,7 +35,7 @@ export class WalletController implements IWalletController {
             const limit = parseInt(req.query.limit as string) || 10;
 
             if (!userId) throw new AppError('user is not authenticated', STATUS_CODE.UNAUTHORIZED)
-            const data = await this._walletTransactionService.getUserWallet(userId, 'user', page, limit);
+            const data = await this._walletTransactionService.getUserWallet(userId, Role.USER, page, limit);
             res.json({ success: true, data })
         } catch (error) {
             next(error);

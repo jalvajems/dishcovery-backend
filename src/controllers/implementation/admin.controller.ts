@@ -4,9 +4,7 @@ import { inject, injectable } from "inversify";
 import TYPES from "../../DI/types";
 import { IAdminService } from "../../services/interface/IAdminService";
 import { STATUS_CODE } from "../../constants/StatusCode";
-import { query } from "winston";
-import { json, success } from "zod";
-import { logger } from "../../utils/logger";
+import { MESSAGES } from "../../constants/Message";
 
 @injectable()
 export class AdminController implements IAdminController {
@@ -92,7 +90,7 @@ export class AdminController implements IAdminController {
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, currentPage: result.currentPage, totalPages: result.totalPages })
 
         } catch (error) {
-            throw error;
+            next(error);
         }
     }
     async blockRecipe(req: Request, res: Response, next: NextFunction): Promise<void> {
@@ -100,7 +98,7 @@ export class AdminController implements IAdminController {
             const id = req.params.id
             console.log('id', id);
             await this._adminService.blockRecipe(id)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'userblock updated' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: MESSAGES.BLOCK_UPDATED })
         } catch (error) {
             next(error)
         }
@@ -135,7 +133,7 @@ export class AdminController implements IAdminController {
         try {
             const id = req.params.id;
             await this._adminService.blockBlog(id)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'blog block updated' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: MESSAGES.BLOCK_UPDATED })
         } catch (error) {
             next(error)
         }
@@ -144,7 +142,7 @@ export class AdminController implements IAdminController {
         try {
             const id = req.params.id;
             await this._adminService.unblockBlog(id)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'blog block updated' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: MESSAGES.BLOCK_UPDATED })
         } catch (error) {
             next(error)
         }
@@ -170,7 +168,7 @@ export class AdminController implements IAdminController {
         try {
             const id = req.params.id;
             await this._adminService.blockSpot(id)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'blog block updated' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message:MESSAGES.BLOCK_UPDATED })
         } catch (error) {
             next(error)
         }
@@ -179,7 +177,7 @@ export class AdminController implements IAdminController {
         try {
             const id = req.params.id;
             await this._adminService.unblockSpot(id)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'blog block updated' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message:MESSAGES.BLOCK_UPDATED })
         } catch (error) {
             next(error)
         }
@@ -188,7 +186,7 @@ export class AdminController implements IAdminController {
         try {
             const id = req.params.id;
             await this._adminService.approveSpot(id)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'blog block updated' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: MESSAGES.APPROVE_UPDATED })
         } catch (error) {
             next(error)
         }
@@ -197,7 +195,7 @@ export class AdminController implements IAdminController {
         try {
             const id = req.params.id;
             await this._adminService.unapproveSpot(id)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'blog block updated' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: MESSAGES.APPROVE_UPDATED })
         } catch (error) {
             next(error)
         }

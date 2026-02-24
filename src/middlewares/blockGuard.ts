@@ -2,8 +2,8 @@ import { NextFunction, Request, Response } from "express";
 import container from "../DI/inversify.config";
 import { IUserRepository } from "../repostories/interface/IUserRepository";
 import TYPES from "../DI/types";
-import { log } from "../utils/logger";
 import { STATUS_CODE } from "../constants/StatusCode";
+import { MESSAGES } from "../constants/Message";
 
 export const blockGuard = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -14,10 +14,10 @@ export const blockGuard = async (req: Request, res: Response, next: NextFunction
         if (userData?.isBlocked) {
             
             res.clearCookie('refreshToken')
-            return res.status(STATUS_CODE.FORBIDDEN).json({message: 'Your account is blocked by admin!!'});
+            return res.status(STATUS_CODE.FORBIDDEN).json({message: MESSAGES.USER.BLOCKED_BY_ADMIN});
         }
         next()
     } catch (error) {
-        return res.status(STATUS_CODE.UNAUTHORIZED).json({ message: 'Invalid or expired access token' });
+        return res.status(STATUS_CODE.UNAUTHORIZED).json({ message:  MESSAGES.AUTH.INVALIDE_TOKEN});
     }
 }

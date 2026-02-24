@@ -12,7 +12,7 @@ import { Types } from 'mongoose';
 import { ITransactionRepository } from '../../repostories/interface/ITransactionRepository';
 import { WalletTransactionStatus, WalletTransactionType } from '../../models/transaction.model';
 import { Role } from '../../types/user.types';
-import { IStripeWebhookPayload } from '../../dtos/booking.dtos';
+import { BOOKING_MESSAGES, MESSAGES, WORKSHOP_MESSAGES } from '../../constants/Message';
 
 @injectable()
 export class BookingService implements IBookingService {
@@ -27,7 +27,7 @@ export class BookingService implements IBookingService {
         const workshop = await this.workshopRepository.findById(workshopId);
 
         if (!workshop) {
-            throw new AppError('Workshop not found', 404);
+            throw new AppError(WORKSHOP_MESSAGES.NOT_FOUND, 404);
         }
 
         const allowedStatuses = [WorkshopStatus.APPROVED, WorkshopStatus.UPCOMING];
@@ -308,7 +308,7 @@ export class BookingService implements IBookingService {
 
     async getWorkshopParticipants(workshopId: string, chefId: string): Promise<IBookingDocument[]> {
         const workshop = await this.workshopRepository.findById(workshopId);
-        if (!workshop) throw new AppError('Workshop not found', 404);
+        if (!workshop) throw new AppError(MESSAGES.NOT_FOUND, 404);
 
         if (workshop.chefId.toString() !== chefId) {
             throw new AppError('Access denied: You are not the host of this workshop', 403);
@@ -319,10 +319,10 @@ export class BookingService implements IBookingService {
 
     async cancelBooking(bookingId: string, foodieId: string): Promise<void> {
         const booking = await this.bookingRepository.findById(bookingId);
-        if (!booking) throw new AppError('Booking not found', 404);
+        if (!booking) throw new AppError(BOOKING_MESSAGES.NOT_FOUND, 404);
 
         if (booking.foodieId.toString() !== foodieId) {
-            throw new AppError('Access denied', 403);
+            throw new AppError(MESSAGES.AUTH.ACCESS_DENIED, 403);
         }
 
         if (booking.status !== BookingStatus.CONFIRMED) {
@@ -330,7 +330,7 @@ export class BookingService implements IBookingService {
         }
 
         const workshop = await this.workshopRepository.findById(booking.workshopId);
-        if (!workshop) throw new AppError('Workshop not found', 404);
+        if (!workshop) throw new AppError(WORKSHOP_MESSAGES.NOT_FOUND, 404);
 
         if (workshop.status === WorkshopStatus.LIVE || workshop.status === WorkshopStatus.COMPLETED) {
             throw new AppError('Cannot cancel booking for a live or completed workshop', 400);
@@ -403,10 +403,9 @@ export class BookingService implements IBookingService {
 
     async markAttendance(bookingId: string, status: string): Promise<IBookingDocument> {
         const booking = await this.bookingRepository.findById(bookingId);
-        if (!booking) throw new AppError('Booking not found', 404);
+        if (!booking) throw new AppError(BOOKING_MESSAGES.NOT_FOUND, 404);
 
-        if (booking.status !== BookingStatus.CONFIRMED && booking.status !== BookingStatus.COMPLETED) {
-        }
+
 
         const updatedBooking = await this.bookingRepository.updateAttendance(bookingId, status);
         if (!updatedBooking) throw new AppError('Failed to update attendance', 500);

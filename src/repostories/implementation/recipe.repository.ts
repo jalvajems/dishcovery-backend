@@ -3,7 +3,6 @@ import { IRecipeDocument, RecipeModel } from "../../models/recipe.model";
 import { IRecipe } from "../../types/recipe.types";
 import { IRecipeRepository } from "../interface/IRecipeRepository";
 import { BaseRepository } from "./base.repository";
-import { UserModel } from "../../models/users.model";
 import { error } from "console";
 
 export class RecipeRepository extends BaseRepository<IRecipeDocument> implements IRecipeRepository {

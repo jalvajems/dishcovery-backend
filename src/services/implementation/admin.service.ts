@@ -12,7 +12,6 @@ import { IPaginationDto } from "../../dtos/IPaginationDto";
 import { IRecipeDto } from "../../dtos/recipe.dtos";
 import { IRecipeRepository } from "../../repostories/interface/IRecipeRepository";
 import { allRecipesMapper } from "../../utils/mapper/allRecipes.mapper";
-import { recipeMapper } from "../../utils/mapper/recipe.mapper";
 import { IBlogRepository } from "../../repostories/interface/IBlogRepository";
 import { allBlogsMapper } from "../../utils/mapper/allBlogs.mapper";
 import { IBlogDto } from "../../dtos/blog.dto";
@@ -37,85 +36,68 @@ export class AdminService implements IAdminService {
     ) { }
 
     async getAllFoodies(query: IPaginationDto): Promise<{ data: IUserDto[]; currentPage: number; totalPages: number }> {
-        try {
+        const { page, limit, search, isBlocked } = query;
+        const filter: Record<string, unknown> = { role: Role.USER };
 
-            const { page, limit, search, isBlocked } = query;
-            const filter: Record<string, unknown> = { role: Role.USER };
-
-            if (search) {
-                filter.$or = [
-                    { name: { $regex: search, $options: "i" } },
-                    { email: { $regex: search, $options: "i" } },
-                ]
-            }
-            if (isBlocked === "true") filter.isBlocked = true;
-            if (isBlocked === "false") filter.isBlocked = false;
+        if (search) {
+            filter.$or = [
+                { name: { $regex: search, $options: "i" } },
+                { email: { $regex: search, $options: "i" } },
+            ]
+        }
+        if (isBlocked === "true") filter.isBlocked = true;
+        if (isBlocked === "false") filter.isBlocked = false;
 
 
-            const skip = (page - 1) * limit;
+        const skip = (page - 1) * limit;
 
-            const users = await this._userRepository.findByRole(filter, skip, limit)
-            const totalCount = await this._userRepository.countDocuments(filter)
+        const users = await this._userRepository.findByRole(filter, skip, limit)
+        const totalCount = await this._userRepository.countDocuments(filter)
 
-            const total = Math.ceil(totalCount / limit)
+        const total = Math.ceil(totalCount / limit)
 
-            return {
-                data: usersMapper(users),
-                currentPage: page,
-                totalPages: total,
-            }
-        } catch (error) {
-            throw error
+        return {
+            data: usersMapper(users),
+            currentPage: page,
+            totalPages: total,
         }
 
     }
     async getAllChefs(query: IPaginationDto): Promise<{ data: IUserDto[]; currentPage: number; totalPages: number; }> {
 
-        try {
-            const { page, limit, search, isBlocked, isVerified } = query;
-            const skip = (page - 1) * limit;
-            const filter: Record<string, unknown> = { role: Role.CHEF };
+        const { page, limit, search, isBlocked, isVerified } = query;
+        const skip = (page - 1) * limit;
+        const filter: Record<string, unknown> = { role: Role.CHEF };
 
-            if (search) {
-                filter.$or = [
-                    { name: { $regex: search, $options: "i" } },
-                    { email: { $regex: search, $options: "i" } },
-                ]
-            }
-            if (isBlocked === "true") filter.isBlocked = true;
-            if (isBlocked === "false") filter.isBlocked = false;
+        if (search) {
+            filter.$or = [
+                { name: { $regex: search, $options: "i" } },
+                { email: { $regex: search, $options: "i" } },
+            ]
+        }
+        if (isBlocked === "true") filter.isBlocked = true;
+        if (isBlocked === "false") filter.isBlocked = false;
 
-            if (isVerified === "true") filter.isVerified = true;
-            if (isVerified === "false") filter.isVerified = false;
-            const users = await this._userRepository.findByRole(filter, skip, limit)
-            const totalCount = await this._userRepository.countDocuments(filter)
-            return {
-                data: usersMapper(users),
-                currentPage: page,
-                totalPages: Math.ceil(totalCount / limit),
-            }
-        } catch (error) {
-            throw error
+        if (isVerified === "true") filter.isVerified = true;
+        if (isVerified === "false") filter.isVerified = false;
+        const users = await this._userRepository.findByRole(filter, skip, limit)
+        const totalCount = await this._userRepository.countDocuments(filter)
+        return {
+            data: usersMapper(users),
+            currentPage: page,
+            totalPages: Math.ceil(totalCount / limit),
         }
     }
     async blockUserById(id: string): Promise<IUserDto> {
-        try {
-            const result = await this._userRepository.blockById(id);
-            if (!result) throw new AppError('result is empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
-            return userMapper(result);
-        } catch (error) {
-            throw error
-        }
+        const result = await this._userRepository.blockById(id);
+        if (!result) throw new AppError('result is empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
+        return userMapper(result);
 
     }
     async unBlockUserById(id: string): Promise<IUserDto> {
-        try {
-            const result = await this._userRepository.unblockById(id);
-            if (!result) throw new AppError('result is empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
-            return userMapper(result);
-        } catch (error) {
-            throw error;
-        }
+        const result = await this._userRepository.unblockById(id);
+        if (!result) throw new AppError('result is empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
+        return userMapper(result);
 
     }
     async verifyChef(id: string): Promise<object> {
@@ -164,21 +146,12 @@ export class AdminService implements IAdminService {
         }
     }
     async blockRecipe(id: string): Promise<void> {
-        try {
-            const result = this._recipeRepository.blockById(id)
-            if (!result) throw new AppError('recipe is not fount', STATUS_CODE.INTERNAL_SERVER_ERROR);
-        } catch (error) {
-            throw error
-        }
+        const result = this._recipeRepository.blockById(id)
+        if (!result) throw new AppError('recipe is not fount', STATUS_CODE.INTERNAL_SERVER_ERROR);
     }
     async unblockRecipe(id: string): Promise<void> {
-        try {
-            const result = this._recipeRepository.unblockById(id)
-            if (!result) throw new AppError('recipe is not fount', STATUS_CODE.INTERNAL_SERVER_ERROR);
-
-        } catch (error) {
-            throw error
-        }
+        const result = this._recipeRepository.unblockById(id)
+        if (!result) throw new AppError('recipe is not fount', STATUS_CODE.INTERNAL_SERVER_ERROR);
     }
     async getAllBlogs(query: IPaginationDto): Promise<{ data: IBlogDto[]; currentPage: number; totalPages: number; }> {
         try {
@@ -206,21 +179,13 @@ export class AdminService implements IAdminService {
         }
     }
     async blockBlog(id: string): Promise<void> {
-        try {
-            const result = await this._blogRepository.blockById(id)
-            if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
-        } catch (error) {
-            throw error
-        }
+        const result = await this._blogRepository.blockById(id)
+        if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
 
     }
     async unblockBlog(id: string): Promise<void> {
-        try {
-            const result = await this._blogRepository.unblockById(id)
-            if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
-        } catch (error) {
-            throw error
-        }
+        const result = await this._blogRepository.unblockById(id)
+        if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
     }
 
     async getAllFoodSpot(query: IPaginationDto): Promise<{ data: IFoodSpotResDto[]; currentPage: number; totalPages: number; }> {
@@ -256,62 +221,38 @@ export class AdminService implements IAdminService {
 
     }
     async blockSpot(id: string): Promise<void> {
-        try {
-            const result = await this._foodspotRepository.blockById(id)
-            if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
-
-        } catch (error) {
-            throw error;
-        }
+        const result = await this._foodspotRepository.blockById(id)
+        if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
     }
     async unblockSpot(id: string): Promise<void> {
-        try {
-            const result = await this._foodspotRepository.unblockById(id)
-            if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
-
-        } catch (error) {
-            throw error;
-        }
+        const result = await this._foodspotRepository.unblockById(id)
+        if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
     }
     async approveSpot(id: string): Promise<void> {
-        try {
-            const result = await this._foodspotRepository.approveById(id)
-            if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
-
-        } catch (error) {
-            throw error;
-        }
+        const result = await this._foodspotRepository.approveById(id)
+        if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
     }
     async unapproveSpot(id: string): Promise<void> {
-        try {
-            const result = await this._foodspotRepository.unAproveById(id)
-            if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
-
-        } catch (error) {
-            throw error;
-        }
+        const result = await this._foodspotRepository.unAproveById(id)
+        if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
     }
 
 
 
     async getDashboardStats(): Promise<IDashboardStats> {
-        try {
-            const totalUsers = await this._userRepository.countDocuments({ role: Role.USER });
-            const totalChefs = await this._userRepository.countDocuments({ role: Role.CHEF });
-            const totalRecipes = await this._recipeRepository.countDocument({});
-            const totalWorkshops = await this._workshopRepository.countDocument({});
-            const totalFoodSpots = await this._foodspotRepository.countDocument({});
+        const totalUsers = await this._userRepository.countDocuments({ role: Role.USER });
+        const totalChefs = await this._userRepository.countDocuments({ role: Role.CHEF });
+        const totalRecipes = await this._recipeRepository.countDocument({});
+        const totalWorkshops = await this._workshopRepository.countDocument({});
+        const totalFoodSpots = await this._foodspotRepository.countDocument({});
 
-            return {
-                totalUsers,
-                totalChefs,
-                totalRecipes,
-                totalWorkshops,
-                totalFoodSpots
-            };
-        } catch (error) {
-            throw error;
-        }
+        return {
+            totalUsers,
+            totalChefs,
+            totalRecipes,
+            totalWorkshops,
+            totalFoodSpots
+        };
     }
 
     async getGrowthData(): Promise<IGrowthData> {

@@ -1,5 +1,4 @@
 import { IFoodieDocument } from "../../models/foodie.model";
-import { IFoodie } from "../../types/foodie.types";
 import { IBaseRepository } from "./IBaseRepository";
 
 export interface IFoodieRepository extends IBaseRepository<IFoodieDocument> {

@@ -1,5 +1,4 @@
 import { IBlogDocument } from "../../models/blog.model";
-import { IBlog } from "../../types/blog.types";
 import { IBaseRepository } from "./IBaseRepository";
 
 export interface IBlogRepository extends IBaseRepository<IBlogDocument> {

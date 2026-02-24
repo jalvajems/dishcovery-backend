@@ -1,8 +1,7 @@
 import { inject, injectable } from "inversify";
 import { IChatService } from "../interface/chat.service.interface";
-import { IConversationRepository } from "../../repositories/conversation.repository.interface";
-import { IMessageRepository } from "../../repositories/message.repository.interface";
-import { IConversation } from "../../models/conversation.model";
+import { IConversationRepository } from "../../repostories/interface/conversation.repository.interface";
+import { IMessageRepository } from "../../repostories/interface/message.repository.interface";
 import { IMessage } from "../../models/message.model";
 import { socketService } from "./socket.service";
 import { Role } from "../../types/user.types";
@@ -150,7 +149,7 @@ export class ChatService implements IChatService {
         return message;
     }
 
-    async markAsDelivered(messageId: string, userId: string): Promise<void> {
+    async markAsDelivered(messageId: string): Promise<void> {
         await this.messageRepository.updateMessageStatus(messageId, 'delivered');
 
 

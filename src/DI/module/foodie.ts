@@ -6,7 +6,6 @@ import { IFoodieService } from "../../services/interface/IFoodieService";
 import { FoodieService } from "../../services/implementation/foodie.service";
 import { IFoodieController } from "../../controllers/interface/IFoodieController";
 import { FoodieController } from "../../controllers/implementation/foodie.controller";
-import { log } from "console";
 
 
 export function foodieModule(container:Container){

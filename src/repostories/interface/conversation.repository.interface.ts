@@ -1,7 +1,5 @@
-import { IConversation } from "../models/conversation.model";
-import { IPopulatedConversation } from "../dtos/chat.dtos";
-import mongoose from "mongoose";
-import { Role } from "../types/user.types";
+import { IPopulatedConversation } from "../../dtos/chat.dtos";
+import { Role } from "../../types/user.types";
 
 export interface IConversationRepository {
     findOrCreateConversation(userId1: string, userId2: string, role1: Role, role2: Role): Promise<IPopulatedConversation>;

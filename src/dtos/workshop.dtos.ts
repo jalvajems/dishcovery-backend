@@ -58,4 +58,4 @@ export interface ICreateWorkshopDto {
   sessionRoomId?: string;
 }
 
-export interface IUpdateWorkshopDto extends Partial<ICreateWorkshopDto> { }
+export type IUpdateWorkshopDto = Partial<ICreateWorkshopDto>;

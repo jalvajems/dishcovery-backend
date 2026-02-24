@@ -1,12 +1,8 @@
-import mongoose, { Types, FilterQuery } from "mongoose";
-import { STATUS_CODE } from "../../constants/StatusCode";
+import { Types, FilterQuery } from "mongoose";
 import { FoodSpotModel, IFoodSpotDocument } from "../../models/foodSpot.model";
-import { AppError } from "../../utils/AppError";
 import { IFoodSpotRepository } from "../interface/IFoodSportRepository";
 import { BaseRepository } from "./base.repository";
-import { logger } from "../../utils/logger";
 import { IFoodSpot } from "../../types/foodSpot.types";
-import { FoodieModel } from "../../models/foodie.model";
 
 export class FoodSpotRepository extends BaseRepository<IFoodSpotDocument> implements IFoodSpotRepository {
     constructor() {

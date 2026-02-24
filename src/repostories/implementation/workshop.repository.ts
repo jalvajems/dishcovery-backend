@@ -23,6 +23,10 @@ export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implem
         await this.model.findByIdAndUpdate(id, { $inc: { participantsCount: -count } });
     }
 
+    async findAllForAdmin(): Promise<IWorkshopDocument[]> {
+        return await this.model.find({}).sort({ createdAt: -1 });
+    }
+
     async findAllByChefId(chefId: string, skip: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopDocument[]; totalCount: number }> {
         const query: FilterQuery<IWorkshopDocument> = { chefId };
         console.log('status---', status);

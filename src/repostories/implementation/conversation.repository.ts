@@ -1,7 +1,7 @@
 import { Role } from "../../types/user.types";
 import { injectable } from "inversify";
-import { Conversation, IConversation } from "../../models/conversation.model";
-import { IConversationRepository } from "../../repositories/conversation.repository.interface";
+import { Conversation } from "../../models/conversation.model";
+import { IConversationRepository } from "../interface/conversation.repository.interface";
 import { IPopulatedConversation } from "../../dtos/chat.dtos";
 import mongoose from "mongoose";
 
@@ -24,7 +24,7 @@ export class ConversationRepository implements IConversationRepository {
         }).populate('participants', 'name email');
 
         if (!conversation) {
-            let newConversation = await Conversation.create({
+            const newConversation = await Conversation.create({
                 participants: participantIds,
                 participantDetails: [
                     { userId: new mongoose.Types.ObjectId(userId1), role: role1 },

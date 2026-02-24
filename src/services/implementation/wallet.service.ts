@@ -4,9 +4,6 @@ import { IWalletTransactionService } from "../interface/IWalletService";
 import { IWalletTransactionDto } from "../../dtos/walletTransaction.dtos";
 import TYPES from "../../DI/types";
 import { TransactionRepository } from "../../repostories/implementation/transaction.repository";
-import { walletTransactionMapper } from "../../utils/mapper/walletTransaction.mapper";
-import { AppError } from "../../utils/AppError";
-import { STATUS_CODE } from "../../constants/StatusCode";
 import { allWalletTransactionMapper } from "../../utils/mapper/allTransaction.mapper";
 import { Role } from "../../types/user.types";
 
@@ -22,19 +19,15 @@ export class WalletTransactionService implements IWalletTransactionService {
         totalPages: number,
         currentPage: number
     }> {
-        try {
-            const { transactions, total } = await this._transactionRepository.findByUser(userId, role, page, limit)
-            const stats = await this._transactionRepository.getWalletStats(userId, role)
+        const { transactions, total } = await this._transactionRepository.findByUser(userId, role, page, limit)
+        const stats = await this._transactionRepository.getWalletStats(userId, role)
 
-            return {
-                transactions: allWalletTransactionMapper(transactions),
-                balance: stats.balance,
-                stats,
-                totalPages: Math.ceil(total / limit),
-                currentPage: page
-            }
-        } catch (error) {
-            throw error;
+        return {
+            transactions: allWalletTransactionMapper(transactions),
+            balance: stats.balance,
+            stats,
+            totalPages: Math.ceil(total / limit),
+            currentPage: page
         }
     }
 }

@@ -6,7 +6,7 @@ import { IUserRepository } from '../repostories/interface/IUserRepository';
 import TYPES from '../DI/types';
 import container from '../DI/inversify.config';
 import { STATUS_CODE } from '../constants/StatusCode';
-import { AppError } from '../utils/AppError';
+import { MESSAGES } from '../constants/Message';
 
 
 
@@ -20,7 +20,7 @@ export const   verifyAccess = async (req: Request, res: Response, next: NextFunc
     
     if (!token) {
         log.info('no token , so no access!')
-        return res.status(STATUS_CODE.UNAUTHORIZED).json({ message: 'Accesss token is missing' })
+        return res.status(STATUS_CODE.UNAUTHORIZED).json({ message: MESSAGES.AUTH.ACCESSTOKEN_MISSING })
     }
 
     try {
@@ -31,19 +31,19 @@ export const   verifyAccess = async (req: Request, res: Response, next: NextFunc
         const user = await userRepo.findById(decoded.id)
         if (!user) {
             log.info('user id is not found!')
-            return res.status(STATUS_CODE.NOT_FOUND).json({ message: "No user id found!" })
+            return res.status(STATUS_CODE.NOT_FOUND).json({ message: MESSAGES.USER.USERID_NOTFOUND })
         }
         if (user.isBlocked) {
             log.info('Your account is blocked by admin!!');
             return res.status(STATUS_CODE.FORBIDDEN).json({
-                message: 'Your account is blocked by admin!!'
+                message: MESSAGES.USER.BLOCKED_BY_ADMIN
             });
         }
 
         next()
     } catch (error) {
         log.info('Error on checking token and admin block!', error);
-        return res.status(STATUS_CODE.UNAUTHORIZED).json({ message: 'Invalid or expired access token' });
+        return res.status(STATUS_CODE.UNAUTHORIZED).json({ message:MESSAGES.AUTH.INVALIDE_TOKEN });
 
     }
 };

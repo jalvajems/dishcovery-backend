@@ -1,5 +1,4 @@
 import { IBookingDocument } from '../../types/booking.types';
-import { IStripeWebhookPayload } from '../../dtos/booking.dtos';
 
 export interface IBookingService {
     createBooking(workshopId: string, foodieId: string, ticketCount?: number): Promise<{ booking: IBookingDocument; clientSecret?: string }>;

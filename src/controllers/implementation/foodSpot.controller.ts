@@ -6,6 +6,7 @@ import { Request, Response, NextFunction } from "express";
 import { AppError } from "../../utils/AppError";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { success } from "zod";
+import { FOODSPOT_MESSAGES, MESSAGES } from "../../constants/Message";
 
 @injectable()
 export class FoodSpotController implements IFoodSpotController {
@@ -16,13 +17,13 @@ export class FoodSpotController implements IFoodSpotController {
     async createFoodSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const foodieId = req.user?.id
-            if (!foodieId) throw new AppError('Foodie is not authenticated', STATUS_CODE.UNAUTHORIZED)
+            if (!foodieId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED)
 
             console.log('===========', req.body);
 
 
             const result = await this._foodSpotService.createFoodSpot({ foodieId, ...req.body })
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, message: 'created successfully!' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, message: FOODSPOT_MESSAGES.CREATED })
         } catch (error) {
             next(error)
         }
@@ -30,9 +31,9 @@ export class FoodSpotController implements IFoodSpotController {
     async getFoodSpot(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const id = req.params.id;
-            if (!id) throw new AppError('Foodie is not authenticated', STATUS_CODE.UNAUTHORIZED)
+            if (!id) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED)
             const result = await this._foodSpotService.getFoodSpot(id);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, message: 'successfully got spots' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, message: FOODSPOT_MESSAGES.SPOT_FETCHED})
 
         } catch (error) {
             next(error)
@@ -43,7 +44,7 @@ export class FoodSpotController implements IFoodSpotController {
 
             const { id, payload } = req.body;
             await this._foodSpotService.updateFoodSpot(id, payload)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: 'successfully updated spot;' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: FOODSPOT_MESSAGES.UPDATED })
         } catch (error) {
             next(error);
         }
@@ -52,11 +53,11 @@ export class FoodSpotController implements IFoodSpotController {
         try {
             const { lat, lng, distance = 5000 } = req.query;
             if (!lat || !lng) {
-                throw new AppError("latitude and longitude require", STATUS_CODE.BAD_REQUEST)
+                throw new AppError(FOODSPOT_MESSAGES.LAT_LONG_REQUIRED, STATUS_CODE.BAD_REQUEST)
             }
             const result = await this._foodSpotService.getNearByFoodSpot(Number(lat), Number(lng), Number(distance));
 
-            res.status(200).json({ success: true, data: result.data, message: "nearby food spot fetched!!" })
+            res.status(200).json({ success: true, data: result.data, message:  FOODSPOT_MESSAGES.NEAR_SPOT_FETCHED})
         } catch (error) {
             next(error)
         }
@@ -71,7 +72,7 @@ export class FoodSpotController implements IFoodSpotController {
             const result = await this._foodSpotService.getAllFoodSpots(page, limit, search, filter);
             console.log('result--------', result.data);
 
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, totalCount: result.totalCount, message: 'got all food spot successfully' });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, totalCount: result.totalCount, message:FOODSPOT_MESSAGES.FETCHED_ALL });
 
         } catch (error) {
             next(error)
@@ -85,11 +86,11 @@ export class FoodSpotController implements IFoodSpotController {
             const page = Number(req.query.page) || 1
             const limit = Number(req.query.limit) || 5
             const search = String(req.query.search) || ""
-            if (!id) throw new AppError('Foodie is not authenticated', STATUS_CODE.UNAUTHORIZED);
+            if (!id) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
             const result = await this._foodSpotService.getAllFoodSpotsByFoodie(id, page, limit, search);
             console.log('result-----my',result);
             
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, totalCount: result.totalCount, message: 'got all spot successfully' });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, totalCount: result.totalCount, message: FOODSPOT_MESSAGES.FETCHED_ALL });
 
         } catch (error) {
             next(error);
@@ -101,7 +102,7 @@ export class FoodSpotController implements IFoodSpotController {
             
             const limit = Number(req.query.limit) || 3;
             const result = await this._foodSpotService.getRecentFoodSpots(limit);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: 'Recent food spots fetched successfully' });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: FOODSPOT_MESSAGES.RECENT_FETCHED });
         } catch (error) {
             next(error);
         }

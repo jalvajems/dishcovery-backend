@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { inject, injectable } from "inversify";
 import { Role } from '../../types/user.types';
 import { IChatService } from "../../services/interface/chat.service.interface";
+import { CHAT_MESSAGES } from "../../constants/Message";
 
 interface AuthenticatedRequest extends Request {
     user: {
@@ -25,7 +26,7 @@ export class ChatController {
             const userRole = user.role;
 
             if (!otherUserId || !otherUserRole) {
-                res.status(400).json({ message: 'Other user ID and role are required' });
+                res.status(400).json({ message:CHAT_MESSAGES.OTHERID_REQUIRED  });
                 return;
             }
 
@@ -44,7 +45,7 @@ export class ChatController {
             });
         } catch (error: unknown) {
             console.error('Error in createOrGetConversation:', error);
-            const message = error instanceof Error ? error.message : 'Failed to create/get conversation';
+            const message = error instanceof Error ? error.message : CHAT_MESSAGES.CREATE_CONVERSATION_FAILED;
             res.status(500).json({
                 success: false,
                 message
@@ -72,7 +73,7 @@ export class ChatController {
                 }
             });
         } catch (error: unknown) {
-            const message = error instanceof Error ? error.message : 'Failed to fetch conversations';
+            const message = error instanceof Error ? error.message :CHAT_MESSAGES.FAILED_FETCH_CONVERSATION;
             res.status(500).json({
                 success: false,
                 message
@@ -89,7 +90,7 @@ export class ChatController {
             const senderRole = user.role;
 
             if (!conversationId || (!content && !fileUrl)) {
-                res.status(400).json({ message: 'Conversation ID and content or file are required' });
+                res.status(400).json({ message: CHAT_MESSAGES.CONVERSATIONID_AND_CONTENT_REQUIRED });
                 return;
             }
 
@@ -102,7 +103,7 @@ export class ChatController {
                 message
             });
         } catch (error: unknown) {
-            const message = error instanceof Error ? error.message : 'Failed to send message';
+            const message = error instanceof Error ? error.message : CHAT_MESSAGES.FAILED_SEND_MESSAGE ;
             res.status(500).json({
                 success: false,
                 message
@@ -131,7 +132,7 @@ export class ChatController {
                 }
             });
         } catch (error: unknown) {
-            const message = error instanceof Error ? error.message : 'Failed to fetch messages';
+            const message = error instanceof Error ? error.message : CHAT_MESSAGES.FAILED_FETCH_MESSAGE;
             res.status(500).json({
                 success: false,
                 message
@@ -149,10 +150,10 @@ export class ChatController {
 
             res.status(200).json({
                 success: true,
-                message: 'Messages marked as read'
+                message: CHAT_MESSAGES.MARKED_AS_READ
             });
         } catch (error: unknown) {
-            const message = error instanceof Error ? error.message : 'Failed to mark messages as read';
+            const message = error instanceof Error ? error.message :CHAT_MESSAGES.FAILED_MARKED_AS_READ ;
             res.status(500).json({
                 success: false,
                 message
@@ -170,17 +171,17 @@ export class ChatController {
             const updatedMessage = await this.chatService.deleteMessage(messageId, userId, forEveryone);
 
             if (!updatedMessage) {
-                res.status(404).json({ message: 'Message not found or not authorized to delete' });
+                res.status(404).json({ message: CHAT_MESSAGES.MESSAGE_NOT_FOUND });
                 return;
             }
 
             res.status(200).json({
                 success: true,
-                message: 'Message deleted successfully',
+                message:CHAT_MESSAGES.MESSAGE_DELETED ,
                 data: updatedMessage
             });
         } catch (error: unknown) {
-            const message = error instanceof Error ? error.message : 'Failed to delete message';
+            const message = error instanceof Error ? error.message : CHAT_MESSAGES.FAILED_MESSAGE_DELETED;
             res.status(500).json({
                 success: false,
                 message

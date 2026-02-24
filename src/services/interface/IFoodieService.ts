@@ -1,6 +1,5 @@
 import { IFoodieDto, IFoodieProfileDto } from "../../dtos/foodie.dtos";
 import { IRecipeDto } from "../../dtos/recipe.dtos";
-import { IFoodie } from "../../types/foodie.types";
 
 export interface IFoodieService {
     getAllRecipes(): Promise<{ data: IRecipeDto[], message: string }>;

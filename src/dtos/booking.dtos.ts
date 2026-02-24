@@ -4,7 +4,7 @@ export interface IStripeWebhookPayload {
     api_version: string;
     created: number;
     data: {
-        object: any; // Stripe objects can be complex, keeping as any for flexibility or typing properly if Stripe types available
+        object: unknown; // Stripe objects can be complex, keeping as unknown for flexibility
     };
     livemode: boolean;
     pending_webhooks: number;

@@ -27,7 +27,7 @@ class SocketService {
                 const decoded = jwt.verify(token, env.JWT_ACCESS_SECRET) as { id: string, role: Role };
                 socket.data.user = decoded;
                 next();
-            } catch (err) {
+            } catch {
                 next(new Error("Authentication error: Invalid token"));
             }
         });

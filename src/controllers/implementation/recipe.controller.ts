@@ -5,9 +5,8 @@ import { IRecipeService } from "../../services/interface/IRecipeService";
 import { Request, Response, NextFunction } from "express";
 import { log } from "../../utils/logger";
 import { STATUS_CODE } from "../../constants/StatusCode";
-import { success } from "zod";
 import { AppError } from "../../utils/AppError";
-import { Types } from "mongoose";
+import { MESSAGES, RECIPE_MESSAGES } from "../../constants/Message";
 
 @injectable()
 export class RecipeController implements IRecipeController {
@@ -23,7 +22,7 @@ export class RecipeController implements IRecipeController {
             const result = await this._recipeService.createRecipe({ chefId, ...recipeData });
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message: result.message })
         } catch (error) {
-            throw error
+            next(error)
         }
     }
     async editRecipe(req: Request, res: Response, next: NextFunction): Promise<void> {
@@ -37,7 +36,7 @@ export class RecipeController implements IRecipeController {
             const result = await this._recipeService.editRecipe(recipeId, recipeData)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, message: result.message })
         } catch (error) {
-            throw error;
+            next(error);
         }
     }
     async getAllRecipesChef(req: Request, res: Response, next: NextFunction): Promise<void> {
@@ -52,7 +51,7 @@ export class RecipeController implements IRecipeController {
             log.info('resldata:===========', result.data)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, currentPage: result.currentPage, totalPages: result.totalPages, message: result.message })
         } catch (error) {
-            throw error
+            next(error)
         }
     }
     async getAllRecipes(req: Request, res: Response, next: NextFunction): Promise<void> {
@@ -70,25 +69,25 @@ export class RecipeController implements IRecipeController {
     }
     async getRecipeDetail(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            const id = req.params.id
+            const recipeId = req.params.id
             const userId = req.user?.id
-            if (!id) throw new AppError('id is missing', STATUS_CODE.NOT_FOUND)
-            if (!userId) throw new AppError('id is missing', STATUS_CODE.NOT_FOUND)
-            const result = await this._recipeService.getRecipeDetail(id, userId)
+            if (!recipeId) throw new AppError(RECIPE_MESSAGES.RECIPEID_NOTFOUND, STATUS_CODE.NOT_FOUND)
+            if (!userId) throw new AppError(MESSAGES.USER.USERID_NOTFOUND, STATUS_CODE.NOT_FOUND)
+            const result = await this._recipeService.getRecipeDetail(recipeId, userId)
             console.log('recdetail==========', result)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, message: result.message })
         } catch (error) {
-            throw error
+            next(error)
         }
     }
     async deletRecipe(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const id = req.params.id;
-            if (!id) throw new AppError('Recipe id is not found', STATUS_CODE.NOT_FOUND)
+            if (!id) throw new AppError(RECIPE_MESSAGES.RECIPEID_NOTFOUND, STATUS_CODE.NOT_FOUND)
             const result = await this._recipeService.deleteRecipe(String(id))
             res.status(STATUS_CODE.SUCCESS).json({ message: result.message })
         } catch (error) {
-            throw error;
+            next(error);
         }
     }
     async getRelatedRecipes(req: Request, res: Response, next: NextFunction): Promise<void> {
@@ -108,7 +107,7 @@ export class RecipeController implements IRecipeController {
             const id = req.user?.id
             const { recipeId } = req.body;
 
-            if (!id) throw new AppError('no user id found', STATUS_CODE.UNAUTHORIZED);
+            if (!id) throw new AppError(MESSAGES.USER.USERID_NOTFOUND, STATUS_CODE.UNAUTHORIZED);
 
 
             const result = await this._recipeService.toggleSaveRecipe(id, recipeId)
@@ -122,10 +121,10 @@ export class RecipeController implements IRecipeController {
             const id = req.user?.id;
             const { recipeId } = req.body;
 
-            if (!id) throw new AppError('no user found', STATUS_CODE.UNAUTHORIZED)
+            if (!id) throw new AppError(MESSAGES.USER.USERID_NOTFOUND, STATUS_CODE.UNAUTHORIZED)
 
             await this._recipeService.unSaveRecipe(id, recipeId);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: "recipe unsaved!!" })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: RECIPE_MESSAGES.SAVED })
         } catch (error) {
             next(error);
         }
@@ -133,11 +132,11 @@ export class RecipeController implements IRecipeController {
     async getSavedRecipes(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const id = req.user?.id;
-            if (!id) throw new AppError('user is not authenticated', STATUS_CODE.UNAUTHORIZED)
+            if (!id) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED)
 
             const result = await this._recipeService.getSavedRecipes(id)
             console.log('saved recipes========', result)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result, message: 'fetched saved recipes' })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result, message: RECIPE_MESSAGES.FETCH_SAVED })
         } catch (error) {
             next(error)
         }
@@ -168,7 +167,7 @@ export class RecipeController implements IRecipeController {
         try {
             const limit = Number(req.query.limit) || 3;
             const result = await this._recipeService.getRecentRecipes(limit);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: 'Recent recipes fetched successfully' });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message:RECIPE_MESSAGES.RECENT_FETCHED  });
         } catch (error) {
             next(error);
         }

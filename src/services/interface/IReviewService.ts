@@ -1,5 +1,4 @@
 import { IReviewDocument } from "../../models/review.model";
-import { IReview } from "../../types/review.types";
 
 import { ICreateReviewDto } from "../../dtos/review.dtos";
 

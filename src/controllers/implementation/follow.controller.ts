@@ -3,6 +3,7 @@ import { inject, injectable } from "inversify";
 import TYPES from "../../DI/types";
 import { IFollowService } from "../../services/interface/IFollowService";
 import { STATUS_CODE } from "../../constants/StatusCode";
+import { FOLLOW_MESSAGES } from "../../constants/Message";
 
 @injectable()
 export class FollowController {
@@ -16,11 +17,11 @@ export class FollowController {
             const { followingId } = req.body;
 
             if (followerId === followingId) {
-                return res.status(STATUS_CODE.BAD_REQUEST).json({ success: false, message: "You cannot follow yourself" });
+                return res.status(STATUS_CODE.BAD_REQUEST).json({ success: false, message: FOLLOW_MESSAGES.CANNOT_FOLLOW_YOURSELF });
             }
 
             const result = await this._followService.follow(followerId as string, followingId);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result, message: "Followed successfully" });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result, message: FOLLOW_MESSAGES.FOLLOWED_SUCCESS});
         } catch (error) {
             next(error);
         }
@@ -32,7 +33,7 @@ export class FollowController {
             const { followingId } = req.body;
 
             const result = await this._followService.unfollow(followerId as string, followingId);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result, message: "Unfollowed successfully" });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result, message: FOLLOW_MESSAGES.UNFOLLOWED_SUCCESS });
         } catch (error) {
             next(error);
         }

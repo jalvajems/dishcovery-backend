@@ -7,7 +7,7 @@ import { IRecipeController } from '../controllers/interface/IRecipeController';
 import { IBlogController } from '../controllers/interface/IBlogController';
 import { validate } from '../middlewares/zod.middleware';
 import { createChefProfileSchema, updateChefProfileSchema } from '../validations/chefProfileValidation';
-import { createRecipeSchema, editRecipeRequestSchema, updateRecipeSchema } from '../validations/recipeValidation';
+import { createRecipeSchema, editRecipeRequestSchema } from '../validations/recipeValidation';
 import { createBlogSchema, updateBlogSchema } from '../validations/blogValidation';
 import { isVerifyChef } from '../middlewares/isVerifyChef';
 import { IWalletController } from '../controllers/interface/IWalletController';

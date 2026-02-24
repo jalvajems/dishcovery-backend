@@ -1,6 +1,6 @@
 import { IWorkshopSessionResponseDTO } from '../../dtos/session.dtos';
 import { ICreateWorkshopDto, IUpdateWorkshopDto, IWorkshopResponseDTO } from '../../dtos/workshop.dtos';
-import { IWorkshopDocument, WorkshopStatus } from '../../types/workshop.types';
+import { IWorkshopDocument } from '../../types/workshop.types';
 
 export interface IWorkshopService {
     createWorkshop(chefId: string, data: ICreateWorkshopDto): Promise<IWorkshopDocument>;

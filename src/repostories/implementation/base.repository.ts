@@ -1,4 +1,4 @@
-import mongoose, { Document, FilterQuery, Model, Types, UpdateQuery } from "mongoose";
+import mongoose, { Document, FilterQuery, Model, UpdateQuery } from "mongoose";
 import { IBaseRepository } from "../interface/IBaseRepository";
 
 

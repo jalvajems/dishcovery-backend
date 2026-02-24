@@ -1,5 +1,4 @@
 import { IUserDto } from "../../dtos/user.dtos";
-import { IChef } from "../../types/chef.types";
 import { IUser } from "../../types/user.types";
 import { IReviewDocument } from "../../models/review.model";
 import { IChefProfileDto } from "../../dtos/chef.dtos";
