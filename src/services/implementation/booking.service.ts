@@ -13,6 +13,7 @@ import { ITransactionRepository } from '../../repostories/interface/ITransaction
 import { WalletTransactionStatus, WalletTransactionType } from '../../models/transaction.model';
 import { Role } from '../../types/user.types';
 import { BOOKING_MESSAGES, MESSAGES, WORKSHOP_MESSAGES } from '../../constants/Message';
+import { STATUS_CODE } from '../../constants/StatusCode';
 
 @injectable()
 export class BookingService implements IBookingService {
@@ -27,24 +28,24 @@ export class BookingService implements IBookingService {
         const workshop = await this.workshopRepository.findById(workshopId);
 
         if (!workshop) {
-            throw new AppError(WORKSHOP_MESSAGES.NOT_FOUND, 404);
+            throw new AppError(WORKSHOP_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND);
         }
 
         const allowedStatuses = [WorkshopStatus.APPROVED, WorkshopStatus.UPCOMING];
         if (!allowedStatuses.includes(workshop.status)) {
-            throw new AppError(`Workshop is not bookable. Current status: ${workshop.status}`, 409);
+            throw new AppError(`Workshop is not bookable. Current status: ${workshop.status}`, STATUS_CODE.CONFLICT);
         }
 
         if (workshop.mode === WorkshopMode.ONLINE) {
             ticketCount = 1;
         } else {
             if (ticketCount < 1 || ticketCount > 5) {
-                throw new AppError('Ticket count must be between 1 and 5 for offline workshops', 400);
+                throw new AppError('Ticket count must be between 1 and 5 for offline workshops', STATUS_CODE.BAD_REQUEST);
             }
         }
 
         if (workshop.participantsCount + ticketCount > workshop.participantLimit) {
-            throw new AppError('Not enough spots available', 400);
+            throw new AppError('Not enough spots available', STATUS_CODE.BAD_REQUEST);
         }
 
         const workshopDate = new Date(workshop.date);
@@ -55,7 +56,7 @@ export class BookingService implements IBookingService {
         const now = new Date();
 
         if (now > oneHourBeforeStart) {
-            throw new AppError('Bookings are closed 1 hour before the session starts', 400);
+            throw new AppError('Bookings are closed 1 hour before the session starts', STATUS_CODE.BAD_REQUEST);
         }
 
         const existingBooking = await this.bookingRepository.findByWorkshopAndFoodie(workshopId, foodieId);
@@ -76,7 +77,7 @@ export class BookingService implements IBookingService {
             // If they already have a booking, we should probably block or update? 
             // The current unique index prevents multiple documents. 
             // We'll stick to blocking if already booked as per existing logic.
-            throw new AppError('You have already booked this workshop', 409);
+            throw new AppError('You have already booked this workshop', STATUS_CODE.CONFLICT);
         }
 
         const totalAmount = workshop.price * ticketCount;
@@ -308,10 +309,10 @@ export class BookingService implements IBookingService {
 
     async getWorkshopParticipants(workshopId: string, chefId: string): Promise<IBookingDocument[]> {
         const workshop = await this.workshopRepository.findById(workshopId);
-        if (!workshop) throw new AppError(MESSAGES.NOT_FOUND, 404);
+        if (!workshop) throw new AppError(MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND);
 
         if (workshop.chefId.toString() !== chefId) {
-            throw new AppError('Access denied: You are not the host of this workshop', 403);
+            throw new AppError('Access denied: You are not the host of this workshop', STATUS_CODE.FORBIDDEN);
         }
 
         return await this.bookingRepository.findByWorkshopId(workshopId);
@@ -319,21 +320,21 @@ export class BookingService implements IBookingService {
 
     async cancelBooking(bookingId: string, foodieId: string): Promise<void> {
         const booking = await this.bookingRepository.findById(bookingId);
-        if (!booking) throw new AppError(BOOKING_MESSAGES.NOT_FOUND, 404);
+        if (!booking) throw new AppError(BOOKING_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND);
 
         if (booking.foodieId.toString() !== foodieId) {
-            throw new AppError(MESSAGES.AUTH.ACCESS_DENIED, 403);
+            throw new AppError(MESSAGES.AUTH.ACCESS_DENIED, STATUS_CODE.FORBIDDEN);
         }
 
         if (booking.status !== BookingStatus.CONFIRMED) {
-            throw new AppError('Only confirmed bookings can be cancelled', 400);
+            throw new AppError('Only confirmed bookings can be cancelled', STATUS_CODE.BAD_REQUEST);
         }
 
         const workshop = await this.workshopRepository.findById(booking.workshopId);
-        if (!workshop) throw new AppError(WORKSHOP_MESSAGES.NOT_FOUND, 404);
+        if (!workshop) throw new AppError(WORKSHOP_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND);
 
         if (workshop.status === WorkshopStatus.LIVE || workshop.status === WorkshopStatus.COMPLETED) {
-            throw new AppError('Cannot cancel booking for a live or completed workshop', 400);
+            throw new AppError('Cannot cancel booking for a live or completed workshop', STATUS_CODE.BAD_REQUEST);
         }
 
         if (booking.bookingType === BookingType.FREE) {
@@ -344,7 +345,7 @@ export class BookingService implements IBookingService {
             await this.workshopRepository.decrementParticipants(workshop._id as string, booking.ticketCount || 1);
         } else {
             if (!booking.paymentIntentId) {
-                throw new AppError('Payment information missing for paid booking', 500);
+                throw new AppError('Payment information missing for paid booking', STATUS_CODE.INTERNAL_SERVER_ERROR);
             }
 
             try {
@@ -403,7 +404,7 @@ export class BookingService implements IBookingService {
 
     async markAttendance(bookingId: string, status: string): Promise<IBookingDocument> {
         const booking = await this.bookingRepository.findById(bookingId);
-        if (!booking) throw new AppError(BOOKING_MESSAGES.NOT_FOUND, 404);
+        if (!booking) throw new AppError(BOOKING_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND);
 
 
 

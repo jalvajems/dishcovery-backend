@@ -35,8 +35,7 @@ export class CronService implements ICronService {
             // And they haven't been started (status is not LIVE or COMPLETED, which is covered by finding APPROVED/UPCOMING)
 
             const workshops = await this._workshopRepository.findAll({
-                status: { $in: [WorkshopStatus.APPROVED, WorkshopStatus.UPCOMING] },
-                mode: WorkshopMode.ONLINE
+                status: { $in: [WorkshopStatus.APPROVED, WorkshopStatus.UPCOMING] }
             });
 
             const now = new Date();
@@ -46,9 +45,21 @@ export class CronService implements ICronService {
                 const [hours, minutes] = workshop.startTime.split(':').map(Number);
                 workshopDate.setHours(hours, minutes, 0, 0);
 
-                const oneHourAfterStart = new Date(workshopDate.getTime() + 60 * 60 * 1000);
+                let isExpired = false;
 
-                if (now > oneHourAfterStart) {
+                if (workshop.mode === WorkshopMode.ONLINE) {
+                    const oneHourAfterStart = new Date(workshopDate.getTime() + 60 * 60 * 1000);
+                    if (now > oneHourAfterStart) {
+                        isExpired = true;
+                    }
+                } else if (workshop.mode === WorkshopMode.OFFLINE) {
+                    const oneDayAfterStart = new Date(workshopDate.getTime() + 24 * 60 * 60 * 1000);
+                    if (now > oneDayAfterStart) {
+                        isExpired = true;
+                    }
+                }
+
+                if (isExpired) {
                     logger.info(`Workshop ${workshop._id} expired. Processing expiration...`);
 
                     await this._workshopRepository.updateById(workshop._id as string, {

@@ -7,7 +7,7 @@ import { MESSAGES } from "../constants/Message";
 export const validate = (schema: AnyZodObject) => (req: Request, res: Response, next: NextFunction) => {
     try {
         schema.parse(req.body);
-        next();
+        next();k
     } catch (error) {
         if (error instanceof ZodError) {
             const issues = error.errors || error.issues || [];
