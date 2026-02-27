@@ -108,41 +108,33 @@ export class AdminService implements IAdminService {
         return result
     }
     async unVerifyChef(chefId: string): Promise<IUserDto> {
-        try {
-            const result = await this._userRepository.unVerifyById(chefId);
-            if (!result) throw new AppError('user is empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
-            return userMapper(result);
-        } catch (error) {
-            throw error;
-        }
+        const result = await this._userRepository.unVerifyById(chefId);
+        if (!result) throw new AppError('user is empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
+        return userMapper(result);
     }
     async getAllRecipes(query: IPaginationDto): Promise<{ data: IRecipeDto[]; currentPage: number; totalPages: number; }> {
-        try {
-            const { page, limit, search, isBlocked } = query;
-            const filter: Record<string, unknown> = {}
-            if (search) {
-                filter.$or = [
-                    { title: { $regex: search, $option: "i" } }
-                ]
-            }
-            if (isBlocked === "true") filter.isBlocked = true;
-            if (isBlocked === "false") filter.isBlocked = false;
+        const { page, limit, search, isBlocked } = query;
+        const filter: Record<string, unknown> = {}
+        if (search) {
+            filter.$or = [
+                { title: { $regex: search, $option: "i" } }
+            ]
+        }
+        if (isBlocked === "true") filter.isBlocked = true;
+        if (isBlocked === "false") filter.isBlocked = false;
 
-            const skip = (page - 1) * limit;
+        const skip = (page - 1) * limit;
 
-            const recipes = await this._recipeRepository.findAllByPagination(search || "", skip, limit, Role.ADMIN)
-            const totalCount = await this._recipeRepository.countDocument(filter)
-            console.log('recipes=========', recipes.datas);
+        const recipes = await this._recipeRepository.findAllByPagination(search || "", skip, limit, Role.ADMIN)
+        const totalCount = await this._recipeRepository.countDocument(filter)
+        console.log('recipes=========', recipes.datas);
 
-            const total = Math.ceil(totalCount / limit)
+        const total = Math.ceil(totalCount / limit)
 
-            return {
-                data: allRecipesMapper(recipes.datas),
-                currentPage: page,
-                totalPages: total
-            }
-        } catch (error) {
-            throw error;
+        return {
+            data: allRecipesMapper(recipes.datas),
+            currentPage: page,
+            totalPages: total
         }
     }
     async blockRecipe(recipeId: string): Promise<void> {
@@ -154,31 +146,26 @@ export class AdminService implements IAdminService {
         if (!result) throw new AppError('recipe is not fount', STATUS_CODE.INTERNAL_SERVER_ERROR);
     }
     async getAllBlogs(query: IPaginationDto): Promise<{ data: IBlogDto[]; currentPage: number; totalPages: number; }> {
-        try {
-            const { page, limit, search, isBlocked } = query;
-            const filter: Record<string, unknown> = {}
-            if (search) {
-                filter.$or = [
-                    { title: { $regex: search, $option: "i" } }
-                ]
-            }
-            if (isBlocked === "true") filter.isBlocked = true;
-            if (isBlocked === "false") filter.isBlocked = false;
+        const { page, limit, search, isBlocked } = query;
+        const filter: Record<string, unknown> = {}
+        if (search) {
+            filter.$or = [
+                { title: { $regex: search, $option: "i" } }
+            ]
+        }
+        if (isBlocked === "true") filter.isBlocked = true;
+        if (isBlocked === "false") filter.isBlocked = false;
 
-            const skip = (page - 1) * limit;
+        const skip = (page - 1) * limit;
 
-            const blogs = await this._blogRepository.getAllBlogs(search, skip, limit, Role.ADMIN)
-            if (!blogs.datas) throw new AppError('blog data not found', STATUS_CODE.NOT_FOUND)
-            const total = Math.ceil(blogs.totalCount / limit)
-            return {
-                data: allBlogsMapper(blogs.datas), currentPage: page, totalPages: total
-            }
-
-        } catch (error) {
-            throw error
+        const blogs = await this._blogRepository.getAllBlogs(search, skip, limit, Role.ADMIN)
+        if (!blogs.datas) throw new AppError('blog data not found', STATUS_CODE.NOT_FOUND)
+        const total = Math.ceil(blogs.totalCount / limit)
+        return {
+            data: allBlogsMapper(blogs.datas), currentPage: page, totalPages: total
         }
     }
-    async blockBlog( blogId: string): Promise<void> {
+    async blockBlog(blogId: string): Promise<void> {
         const result = await this._blogRepository.blockById(blogId)
         if (!result) throw new AppError("updated blog not found", STATUS_CODE.NOT_FOUND)
 
@@ -189,36 +176,30 @@ export class AdminService implements IAdminService {
     }
 
     async getAllFoodSpot(query: IPaginationDto): Promise<{ data: IFoodSpotResDto[]; currentPage: number; totalPages: number; }> {
-        try {
-            const { page, limit, search, isBlocked, isApproved } = query;
-            console.log('inside query', query);
+        const { page, limit, search, isBlocked, isApproved } = query;
+        console.log('inside query', query);
 
-            const skip = (page - 1) * limit;
-            const filter: Record<string, unknown> = {}
-            if (search) {
-                filter.$or = [
-                    { name: { $regex: search, $options: "i" } },
-                ]
-            }
-            console.log('isblocked ', isBlocked);
-            console.log('isaprove ', isApproved);
-
-            if (isBlocked === "blocked") filter.isBlocked = true;
-            if (isBlocked === "active") filter.isBlocked = false;
-            if (isApproved === "approved") filter.isApproved = true;
-            if (isApproved === "pending") filter.isApproved = false;
-
-            const spots = await this._foodspotRepository.findAllFoodSpotsAdmin(filter, skip, limit)
-            logger.info('====spotcont', spots)
-
-            if (!spots.datas) throw new AppError('spot not found', STATUS_CODE.NOT_FOUND)
-
-            return { data: allFoodSpotsMapper(spots.datas), currentPage: page, totalPages: Math.ceil(spots.totalCount / limit) }
-
-        } catch (error) {
-            throw error;
+        const skip = (page - 1) * limit;
+        const filter: Record<string, unknown> = {}
+        if (search) {
+            filter.$or = [
+                { name: { $regex: search, $options: "i" } },
+            ]
         }
+        console.log('isblocked ', isBlocked);
+        console.log('isaprove ', isApproved);
 
+        if (isBlocked === "blocked") filter.isBlocked = true;
+        if (isBlocked === "active") filter.isBlocked = false;
+        if (isApproved === "approved") filter.isApproved = true;
+        if (isApproved === "pending") filter.isApproved = false;
+
+        const spots = await this._foodspotRepository.findAllFoodSpotsAdmin(filter, skip, limit)
+        logger.info('====spotcont', spots)
+
+        if (!spots.datas) throw new AppError('spot not found', STATUS_CODE.NOT_FOUND)
+
+        return { data: allFoodSpotsMapper(spots.datas), currentPage: page, totalPages: Math.ceil(spots.totalCount / limit) }
     }
     async blockSpot(spotId: string): Promise<void> {
         const result = await this._foodspotRepository.blockById(spotId)
@@ -256,58 +237,54 @@ export class AdminService implements IAdminService {
     }
 
     async getGrowthData(): Promise<IGrowthData> {
-        try {
-            const now = new Date();
+        const now = new Date();
 
-            const weeks = [];
-            for (let i = 3; i >= 0; i--) {
-                const weekStart = new Date(now);
-                weekStart.setDate(now.getDate() - (i + 1) * 7);
-                const weekEnd = new Date(now);
-                weekEnd.setDate(now.getDate() - i * 7);
+        const weeks = [];
+        for (let i = 3; i >= 0; i--) {
+            const weekStart = new Date(now);
+            weekStart.setDate(now.getDate() - (i + 1) * 7);
+            const weekEnd = new Date(now);
+            weekEnd.setDate(now.getDate() - i * 7);
 
-                weeks.push({
-                    start: weekStart,
-                    end: weekEnd,
-                    label: `Week ${4 - i}`
-                });
-            }
-
-            const recipeGrowth = await Promise.all(
-                weeks.map(async (week) => ({
-                    week: week.label,
-                    count: await this._recipeRepository.countDocument({
-                        createdAt: { $gte: week.start, $lt: week.end }
-                    })
-                }))
-            );
-
-            const workshopGrowth = await Promise.all(
-                weeks.map(async (week) => ({
-                    week: week.label,
-                    count: await this._workshopRepository.countDocument({
-                        createdAt: { $gte: week.start, $lt: week.end }
-                    })
-                }))
-            );
-
-            const foodSpotGrowth = await Promise.all(
-                weeks.map(async (week) => ({
-                    week: week.label,
-                    count: await this._foodspotRepository.countDocument({
-                        createdAt: { $gte: week.start, $lt: week.end }
-                    })
-                }))
-            );
-
-            return {
-                recipeGrowth,
-                workshopGrowth,
-                foodSpotGrowth
-            };
-        } catch (error) {
-            throw error;
+            weeks.push({
+                start: weekStart,
+                end: weekEnd,
+                label: `Week ${4 - i}`
+            });
         }
+
+        const recipeGrowth = await Promise.all(
+            weeks.map(async (week) => ({
+                week: week.label,
+                count: await this._recipeRepository.countDocument({
+                    createdAt: { $gte: week.start, $lt: week.end }
+                })
+            }))
+        );
+
+        const workshopGrowth = await Promise.all(
+            weeks.map(async (week) => ({
+                week: week.label,
+                count: await this._workshopRepository.countDocument({
+                    createdAt: { $gte: week.start, $lt: week.end }
+                })
+            }))
+        );
+
+        const foodSpotGrowth = await Promise.all(
+            weeks.map(async (week) => ({
+                week: week.label,
+                count: await this._foodspotRepository.countDocument({
+                    createdAt: { $gte: week.start, $lt: week.end }
+                })
+            }))
+        );
+
+        return {
+            recipeGrowth,
+            workshopGrowth,
+            foodSpotGrowth
+        };
     }
 
 

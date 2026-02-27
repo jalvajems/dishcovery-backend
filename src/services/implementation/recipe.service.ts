@@ -26,7 +26,7 @@ export class RecipeService implements IRecipeService {
 
         await this._recipeRepository.create(recipeData);
         log.info('recipe created');
-        return { message:RECIPE_MESSAGES.CREATED  }
+        return { message: RECIPE_MESSAGES.CREATED }
     }
     async editRecipe(recipeId: string, newDate: IRecipe): Promise<{ data: IRecipeDto; message: string; }> {
         console.log('recidata', newDate);
@@ -36,7 +36,7 @@ export class RecipeService implements IRecipeService {
         log.info('new recipe data updated!')
         if (!updatedData) throw new AppError('error in updated recipe', STATUS_CODE.INTERNAL_SERVER_ERROR);
 
-        return { data: recipeMapper(updatedData), message:RECIPE_MESSAGES.UPDATED }
+        return { data: recipeMapper(updatedData), message: RECIPE_MESSAGES.UPDATED }
     }
     async getAllRecipesChef(chefId: string, page: number, limit: number, search: string): Promise<{ data: IRecipeDto[]; currentPage: number; totalPages: number; message: string; }> {
         const skip = (page - 1) * limit;
@@ -62,20 +62,17 @@ export class RecipeService implements IRecipeService {
 
         return { datas: allRecipesMapper(result.datas), currentPage: page, totalPage: total }
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async getRecipeDetail(recipeId: string, userId: string): Promise<{ data: IRecipeDto; message: string; }> {
         const recipeData = await this._recipeRepository.findByIdandPopulate(recipeId)
         if (!recipeData) throw new AppError(RECIPE_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND)
         console.log('recipedetail in service==========', recipeData);
 
-        const user = await this._saveRepository.findById(userId!);
-
-
-
         return { data: recipeMapper(recipeData), message: RECIPE_MESSAGES.FETCHED }
     }
     async deleteRecipe(recipeId: string): Promise<{ message: string; }> {
         await this._recipeRepository.deleteById(recipeId);
-        return { message: RECIPE_MESSAGES.DELETED};
+        return { message: RECIPE_MESSAGES.DELETED };
     }
     async getRelatedRecipes(cuisine: string): Promise<{ datas: IRecipeDto[]; message: string; }> {
         const result = await this._recipeRepository.findByCuisine(cuisine);

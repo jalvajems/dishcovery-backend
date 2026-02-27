@@ -29,7 +29,7 @@ export class FoodieService implements IFoodieService {
     async getAllRecipes(): Promise<{ data: IRecipeDto[]; message: string; }> {
         const result = await this._recipeRepository.findAll({})
         if (!result) throw new AppError(RECIPE_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND);
-        return { data: allRecipesMapper(result), message:RECIPE_MESSAGES.FETCHED }
+        return { data: allRecipesMapper(result), message: RECIPE_MESSAGES.FETCHED }
     }
     async getRecipeDetail(id: string, userId: string): Promise<{ data: IRecipeDto; isSaved: boolean | undefined; message: string; }> {
         console.log('reached=', userId);
@@ -56,6 +56,7 @@ export class FoodieService implements IFoodieService {
         if (exist) throw new AppError(FOODIE_MESSAGES.PROFILE_EXISTED, STATUS_CODE.NOT_FOUND);
         console.log('1')
 
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { name: _name, ...foodieData } = data;
         const result = await this._foodieRepository.create({ userId, ...foodieData } as Partial<IFoodieDocument>)
         return { data: foodieMapper(result) }

@@ -5,7 +5,7 @@ import { IFoodSpotService } from "../../services/interface/IFoodSpotService";
 import { Request, Response, NextFunction } from "express";
 import { AppError } from "../../utils/AppError";
 import { STATUS_CODE } from "../../constants/StatusCode";
-import { success } from "zod";
+
 import { FOODSPOT_MESSAGES, MESSAGES } from "../../constants/Message";
 
 @injectable()
@@ -33,7 +33,7 @@ export class FoodSpotController implements IFoodSpotController {
             const spotId = req.params.id;
             if (!spotId) throw new AppError(FOODSPOT_MESSAGES.NOT_FOUND, STATUS_CODE.UNAUTHORIZED)
             const result = await this._foodSpotService.getFoodSpot(spotId);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, message: FOODSPOT_MESSAGES.SPOT_FETCHED})
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, message: FOODSPOT_MESSAGES.SPOT_FETCHED })
 
         } catch (error) {
             next(error)
@@ -57,7 +57,7 @@ export class FoodSpotController implements IFoodSpotController {
             }
             const result = await this._foodSpotService.getNearByFoodSpot(Number(lat), Number(lng), Number(distance));
 
-            res.status(200).json({ success: true, data: result.data, message:  FOODSPOT_MESSAGES.NEAR_SPOT_FETCHED})
+            res.status(200).json({ success: true, data: result.data, message: FOODSPOT_MESSAGES.NEAR_SPOT_FETCHED })
         } catch (error) {
             next(error)
         }
@@ -72,7 +72,7 @@ export class FoodSpotController implements IFoodSpotController {
             const result = await this._foodSpotService.getAllFoodSpots(page, limit, search, filter);
             console.log('result--------', result.data);
 
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, totalCount: result.totalCount, message:FOODSPOT_MESSAGES.FETCHED_ALL });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, totalCount: result.totalCount, message: FOODSPOT_MESSAGES.FETCHED_ALL });
 
         } catch (error) {
             next(error)
@@ -81,15 +81,15 @@ export class FoodSpotController implements IFoodSpotController {
     async getAllFoodSpotsByFoodie(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             console.log('reachef my');
-            
+
             const userId = req.user?.id;
             const page = Number(req.query.page) || 1
             const limit = Number(req.query.limit) || 5
             const search = String(req.query.search) || ""
             if (!userId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
             const result = await this._foodSpotService.getAllFoodSpotsByFoodie(userId, page, limit, search);
-            console.log('result-----my',result);
-            
+            console.log('result-----my', result);
+
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, totalCount: result.totalCount, message: FOODSPOT_MESSAGES.FETCHED_ALL });
 
         } catch (error) {
@@ -99,7 +99,7 @@ export class FoodSpotController implements IFoodSpotController {
     async getRecentFoodSpots(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             console.log('here');
-            
+
             const limit = Number(req.query.limit) || 3;
             const result = await this._foodSpotService.getRecentFoodSpots(limit);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: FOODSPOT_MESSAGES.RECENT_FETCHED });

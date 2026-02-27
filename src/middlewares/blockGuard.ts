@@ -12,12 +12,12 @@ export const blockGuard = async (req: Request, res: Response, next: NextFunction
         const userData = await userRepository.findByEmail(email)
 
         if (userData?.isBlocked) {
-            
+
             res.clearCookie('refreshToken')
-            return res.status(STATUS_CODE.FORBIDDEN).json({message: MESSAGES.USER.BLOCKED_BY_ADMIN});
+            return res.status(STATUS_CODE.FORBIDDEN).json({ message: MESSAGES.USER.BLOCKED_BY_ADMIN });
         }
         next()
-    } catch (error) {
-        return res.status(STATUS_CODE.UNAUTHORIZED).json({ message:  MESSAGES.AUTH.INVALIDE_TOKEN});
+    } catch {
+        return res.status(STATUS_CODE.UNAUTHORIZED).json({ message: MESSAGES.AUTH.INVALIDE_TOKEN });
     }
 }

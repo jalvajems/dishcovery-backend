@@ -6,7 +6,8 @@ import { MESSAGES } from '../constants/Message';
 import { ZodError } from 'zod';
 
 
-export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const errorHandler: ErrorRequestHandler = (err, req, res, _next) => {
   logger.error(err);
   if (err instanceof ZodError) {
     console.error("Validation failed");
@@ -19,7 +20,7 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
       ? err.statusCode
       : STATUS_CODE.INTERNAL_SERVER_ERROR;
 
-  let message = err instanceof AppError || err instanceof Error
+  const message = err instanceof AppError || err instanceof Error
     ? err.message
     : MESSAGES.ERROR;
 

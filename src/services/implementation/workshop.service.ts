@@ -65,8 +65,12 @@ export class WorkshopService implements IWorkshopService {
             console.log('getWorkshopById service - userId:', userId, 'bookings count:', bookings.length);
 
             const myBooking = bookings.find(b => {
-                const match = b.workshopId.toString() === (workshop._id as string | Types.ObjectId).toString();
-                console.log(`Checking booking ${b._id}: workshopId ${b.workshopId} vs target ${(workshop._id)} -> match? ${match}`);
+                const bookingWorkshopId = b.workshopId && typeof b.workshopId === 'object' && '_id' in b.workshopId
+                    ? (b.workshopId as { _id: Types.ObjectId | string })._id.toString()
+                    : b.workshopId.toString();
+                const targetWorkshopId = (workshop._id as string | Types.ObjectId).toString();
+                const match = bookingWorkshopId === targetWorkshopId;
+                console.log(`Checking booking ${b._id}: workshopId ${bookingWorkshopId} vs target ${targetWorkshopId} -> match? ${match}`);
                 return match;
             });
             console.log('getWorkshopById service - found myBooking:', myBooking ? myBooking._id : 'null');
