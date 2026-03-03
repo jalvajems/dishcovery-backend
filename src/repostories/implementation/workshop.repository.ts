@@ -24,7 +24,7 @@ export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implem
     }
 
     async findAllForAdmin(): Promise<IWorkshopDocument[]> {
-        return await this.model.find({}).sort({ createdAt: -1 });
+        return await this.model.find({}).sort({ createdAt: -1 }).populate('chefId', 'name email');
     }
 
     async findAllByChefId(chefId: string, skip: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopDocument[]; totalCount: number }> {

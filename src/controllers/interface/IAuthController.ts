@@ -10,4 +10,5 @@ export interface IAuthController {
     resendOtp(req: Request, res: Response, next: NextFunction): Promise<void>;
     refreshToken(req: Request, res: Response, next: NextFunction): Promise<void>;
     logout(req: Request, res: Response, next: NextFunction): Promise<void>;
+    googleAuth(req: Request, res: Response, next: NextFunction): Promise<void>;
 }

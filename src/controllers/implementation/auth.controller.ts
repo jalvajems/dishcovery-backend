@@ -128,4 +128,26 @@ export class AuthController implements IAuthController {
             next(error)
         }
     }
+
+    async googleAuth(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const { credential, role } = req.body;
+            if (!credential) {
+                res.status(STATUS_CODE.BAD_REQUEST).json({ message: "Google token is required" });
+                return;
+            }
+            const { user, accessToken, refreshToken } = await this._authService.googleAuth(credential, role || 'user');
+
+            res.cookie('refreshToken', refreshToken, {
+                httpOnly: true,
+                secure: env.NODE_ENV === 'production',
+                sameSite: "strict",
+                maxAge: Number(process.env.MAX_AGE_REFRESH),
+            });
+
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, user, accessToken });
+        } catch (error) {
+            next(error);
+        }
+    }
 }

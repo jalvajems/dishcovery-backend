@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import { IAuthService } from '../interface/IAuthService';
 import { AppError } from '../../utils/AppError';
 import { inject, injectable } from 'inversify';
+import { OAuth2Client } from 'google-auth-library';
 import { IUserRepository } from '../../repostories/interface/IUserRepository';
 import TYPES from '../../DI/types';
 import { STATUS_CODE } from '../../constants/StatusCode';
@@ -66,7 +67,11 @@ export class AuthService implements IAuthService {
         const user = await this._userRepository.findByEmail(loginData.email)
         if (!user) throw new AppError(MESSAGES.AUTH.INVALID_MAIL_PASS, STATUS_CODE.UNAUTHORIZED);
 
-        const isMatch = await bcrypt.compare(loginData.password, user.password);
+        if (!user.password) {
+            throw new AppError("This email is connected with a Google account. Please use Google Login.", STATUS_CODE.UNAUTHORIZED);
+        }
+
+        const isMatch = await bcrypt.compare(loginData.password, user.password as string);
         if (!isMatch) throw new AppError(MESSAGES.AUTH.INVALID_CREDENTIALS, STATUS_CODE.UNAUTHORIZED)
 
         const payload = {
@@ -148,7 +153,7 @@ export class AuthService implements IAuthService {
         const key = `otp:${email}`
         await redisClient.set(key, otp, { EX: Number(process.env.OTP_EXP) })
         await sendMail(email, 'Your Resend OTP is:', otp);
-        return { message:MESSAGES.AUTH.OTP_RESENT  }
+        return { message: MESSAGES.AUTH.OTP_RESENT }
     }
     async resetPassword(email: string, newPass: string, confirmPass: string): Promise<void> {
         try {
@@ -220,5 +225,57 @@ export class AuthService implements IAuthService {
         }
     }
 
+    async googleAuth(token: string, role: string): Promise<{ user: IUserDto, accessToken: string, refreshToken: string }> {
+        const client = new OAuth2Client(env.GOOGLE_CLIENT_ID || process.env.GOOGLE_CLIENT_ID);
+        try {
+            const ticket = await client.verifyIdToken({
+                idToken: token,
+                audience: env.GOOGLE_CLIENT_ID || process.env.GOOGLE_CLIENT_ID,
+            });
+            const payload = ticket.getPayload();
+            if (!payload || !payload.email) {
+                throw new AppError("Invalid Google Token", STATUS_CODE.UNAUTHORIZED);
+            }
+
+            const { email, name, sub: googleId, picture } = payload;
+
+            let user = await this._userRepository.findByEmail(email);
+
+            if (!user) {
+                user = await this._userRepository.create({
+                    email,
+                    name: name || "Google User",
+                    googleId,
+                    profilePicture: picture,
+                    role: role as any,
+                    isVerified: true,
+                });
+            } else if (!user.googleId) {
+                await this._userRepository.updateById(user._id as string, { googleId, profilePicture: picture });
+                user.googleId = googleId;
+                user.profilePicture = picture;
+            }
+
+            if (user.isBlocked) {
+                throw new AppError("Your account has been blocked.", STATUS_CODE.FORBIDDEN);
+            }
+
+            const jwtPayload = {
+                id: user._id?.toString() as string,
+                role: user.role
+            }
+            const { accessToken, refreshToken } = generatTokens(jwtPayload)
+
+            await redisClient.set(`refreshKey:${user._id?.toString()}`, refreshToken, { EX: Number(process.env.REDIS_REFRESH_EXP) })
+            await redisClient.set(`refreshLookup:${refreshToken}`, user._id?.toString() as string, { EX: Number(process.env.REDIS_REFRESH_EXP) })
+
+            return { user: userMapper(user), accessToken, refreshToken };
+
+        } catch (error) {
+            log.error("Google Auth Error", error);
+            if (error instanceof AppError) throw error;
+            throw new AppError("Google Authentication Failed", STATUS_CODE.UNAUTHORIZED);
+        }
+    }
 
 }

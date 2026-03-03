@@ -7,7 +7,9 @@ const userSchema = new Schema<IUserDocument>(
     {
         name: { type: String, required: true, trim: true },
         email: { type: String, required: true, unique: true, lowercase: true },
-        password: { type: String, required: true },
+        password: { type: String, required: false },
+        googleId: { type: String, unique: true, sparse: true },
+        profilePicture: { type: String },
         role: { type: String, enum: Object.values(Role), default: Role.USER },
         isVerified: { type: Boolean, default: false },
         isBlocked: { type: Boolean, default: false },

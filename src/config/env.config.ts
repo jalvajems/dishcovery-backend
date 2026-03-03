@@ -10,6 +10,7 @@ const envSchema = z.object({
     JWT_ACCESS_SECRET: z.string(),
     JWT_REFRESH_SECRET: z.string(),
     OPENROUTER_API_KEY: z.string().optional(),
+    GOOGLE_CLIENT_ID: z.string().optional(),
 });
 
 const parsed = envSchema.safeParse(process.env)
@@ -29,6 +30,7 @@ export const env = {
     JWT_ACCESS_SECRET: parsed.data.JWT_ACCESS_SECRET,
     JWT_REFRESH_SECRET: parsed.data.JWT_REFRESH_SECRET,
     OPENROUTER_API_KEY: parsed.data.OPENROUTER_API_KEY,
+    GOOGLE_CLIENT_ID: parsed.data.GOOGLE_CLIENT_ID,
 }
 
 export type Env = typeof env;

@@ -4,12 +4,14 @@ export enum Role {
     USER = 'user',
     CHEF = 'chef',
     ADMIN = 'admin',
-    FOODIE= 'foodie'
+    FOODIE = 'foodie'
 }
 export interface IUser {
     name: string;
     email: string;
-    password: string;
+    password?: string;
+    googleId?: string;
+    profilePicture?: string;
     role: Role;
     isVerified: boolean;
     isBlocked: boolean;

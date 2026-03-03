@@ -20,5 +20,6 @@ router.post('/signup', authController.signup.bind(authController))
     .post('/refresh', authController.refreshToken.bind(authController))
     .post('/logout', authController.logout.bind(authController))
     .post('/resend-otp', authController.resendOtp.bind(authController))
+    .post('/google-auth', authController.googleAuth.bind(authController))
 
 export default router;

@@ -11,6 +11,7 @@ export interface IAuthService {
     resendOtp(email: string): Promise<object>;
     resetPassword(email: string, newPass: string, confirmPass: string): Promise<void>;
     refreshToken(existingRefreshToken: string): Promise<{ accessToken: string, refreshToken: string, role: string, user: IUserDto }>;
-    logout(refreshToken: string): Promise<{ message: string }>
+    logout(refreshToken: string): Promise<{ message: string }>;
+    googleAuth(token: string, role: string): Promise<{ user: IUserDto, accessToken: string, refreshToken: string }>;
 
 }
