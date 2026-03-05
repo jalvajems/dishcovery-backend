@@ -1,3 +1,4 @@
+import { Booking, Workshop } from "../types/transaction.types";
 import { Role } from "../types/user.types";
 
 export interface IWalletTransactionDto {
@@ -6,8 +7,8 @@ export interface IWalletTransactionDto {
   userId: string | object;
   role: Role;
 
-  bookingId: string | object;
-  workshopId: string | object;
+  bookingId: Booking | string;
+  workshopId: Workshop | string;
 
   amount: number;
   currency: string;

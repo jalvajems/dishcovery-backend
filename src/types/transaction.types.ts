@@ -30,3 +30,24 @@ export interface ITransaction {
   updatedAt?: Date;
 }
 
+export interface FoodieUser {
+  _id: string
+  name: string
+  email: string
+}
+
+export interface Booking {
+  _id: string
+  foodieId: FoodieUser | string
+}
+
+export interface ChefUser {
+  _id: string
+  name: string
+}
+
+export interface Workshop {
+  _id: string
+  title: string
+  chefId: ChefUser | string
+}

@@ -17,7 +17,7 @@ export function walletTransactionMapper(
     userId: obj.userId
       ? typeof obj.userId === "object" && "_id" in obj.userId
         ? {
-          id: (obj.userId as unknown as IUser & { _id: Types.ObjectId })._id.toString(),
+          _id: (obj.userId as unknown as IUser & { _id: Types.ObjectId })._id.toString(),
           name: (obj.userId as unknown as IUser).name
         }
         : obj.userId.toString()
@@ -28,21 +28,32 @@ export function walletTransactionMapper(
     bookingId: obj.bookingId
       ? typeof obj.bookingId === "object" && "_id" in obj.bookingId
         ? {
-          id: (obj.bookingId as unknown as IBooking & { _id: Types.ObjectId })._id.toString(),
-          foodieId: (obj.bookingId as unknown as IBooking).foodieId.toString()
+          _id: (obj.bookingId as unknown as IBooking & { _id: Types.ObjectId })._id.toString(),
+          foodieId: typeof (obj.bookingId as unknown as IBooking).foodieId === "object" && "_id" in ((obj.bookingId as unknown as IBooking).foodieId as any)
+            ? {
+              _id: ((obj.bookingId as unknown as IBooking).foodieId as any)._id.toString(),
+              name: ((obj.bookingId as unknown as IBooking).foodieId as any).name,
+              email: ((obj.bookingId as unknown as IBooking).foodieId as any).email
+            }
+            : (obj.bookingId as unknown as IBooking).foodieId.toString()
         }
         : obj.bookingId.toString()
-      : null,
+      : null as any,
 
     workshopId: obj.workshopId
       ? typeof obj.workshopId === "object" && "_id" in obj.workshopId
         ? {
-          id: (obj.workshopId as unknown as IWorkshop & { _id: Types.ObjectId })._id.toString(),
+          _id: (obj.workshopId as unknown as IWorkshop & { _id: Types.ObjectId })._id.toString(),
           title: (obj.workshopId as unknown as IWorkshop).title,
-          chefId: (obj.workshopId as unknown as IWorkshop).chefId.toString()
+          chefId: typeof (obj.workshopId as unknown as IWorkshop).chefId === "object" && "_id" in ((obj.workshopId as unknown as IWorkshop).chefId as any)
+            ? {
+              _id: ((obj.workshopId as unknown as IWorkshop).chefId as any)._id.toString(),
+              name: ((obj.workshopId as unknown as IWorkshop).chefId as any).name
+            }
+            : (obj.workshopId as unknown as IWorkshop).chefId.toString()
         }
         : obj.workshopId.toString()
-      : null,
+      : null as any,
 
     amount: obj.amount,
     currency: obj.currency,

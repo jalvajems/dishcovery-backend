@@ -42,12 +42,11 @@ export class FoodieController implements IFoodieController {
     }
     async getRecipeDetail(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            ;
 
             const userId = req.user?.id;
             const recipeId = req.params.id;
 
-            if (recipeId) throw new AppError(FOODIE_MESSAGES.RECIPEID_NOTFOUND, STATUS_CODE.NOT_FOUND);
+            if (!recipeId) throw new AppError(FOODIE_MESSAGES.RECIPEID_NOTFOUND, STATUS_CODE.NOT_FOUND);
             if (!userId) throw new AppError(FOODIE_MESSAGES.USERID_NOTFOUND, STATUS_CODE.UNAUTHORIZED);
             const result = await this._foodieService.getRecipeDetail(recipeId, userId);
             console.log('recipedetail=========', result);
