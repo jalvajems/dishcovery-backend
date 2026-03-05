@@ -10,6 +10,8 @@ import { BookingStatus } from '../../types/booking.types';
 import { AppError } from '../../utils/AppError';
 import { Types } from 'mongoose';
 import { v4 as uuidv4 } from 'uuid';
+import { WorkshopSessionMapper } from '../../utils/mapper/session.mapper';
+import { IWorkshopSessionResponseDTO } from '../../dtos/session.dtos';
 
 @injectable()
 export class WorkshopSessionService implements IWorkshopSessionService {
@@ -19,9 +21,9 @@ export class WorkshopSessionService implements IWorkshopSessionService {
         @inject(TYPES.IBookingRepository) private bookingRepository: IBookingRepository
     ) { }
 
-    async startSession(workshopId: string, chefId: string): Promise<IWorkshopSessionDocument> {
+    async startSession(workshopId: string, chefId: string): Promise<IWorkshopSessionResponseDTO> {
         console.log('session service1');
-        
+
         const workshop = await this.workshopRepository.findById(workshopId);
 
         if (!workshop) throw new AppError('Workshop not found', 404);
@@ -33,7 +35,7 @@ export class WorkshopSessionService implements IWorkshopSessionService {
         }
 
         const existingSession = await this.sessionRepository.findByWorkshopId(workshopId);
-        if (existingSession) return existingSession;
+        if (existingSession) return WorkshopSessionMapper.toResponse(existingSession);
 
         const roomId = uuidv4();
         const session = await this.sessionRepository.create({
@@ -56,12 +58,12 @@ export class WorkshopSessionService implements IWorkshopSessionService {
             sessionRoomId: roomId
         });
 
-        return session;
+        return WorkshopSessionMapper.toResponse(session);
     }
 
     async endSession(workshopId: string, chefId: string): Promise<void> {
         console.log('reached end sesion workshop');
-        
+
         const workshop = await this.workshopRepository.findById(workshopId);
         if (!workshop) throw new AppError('Workshop not found', 404);
         if (workshop.chefId.toString() !== chefId) throw new AppError('Unauthorized', 403);
@@ -80,7 +82,7 @@ export class WorkshopSessionService implements IWorkshopSessionService {
         await this.workshopRepository.updateById(workshopId, { status: WorkshopStatus.COMPLETED });
     }
 
-    async joinSession(workshopId: string, foodieId: string): Promise<{ session: IWorkshopSessionDocument, role: string }> {
+    async joinSession(workshopId: string, foodieId: string): Promise<{ session: IWorkshopSessionResponseDTO, role: string }> {
         const workshop = await this.workshopRepository.findById(workshopId);
         if (!workshop) throw new AppError('Workshop not found', 404);
         if (workshop.status !== WorkshopStatus.LIVE) throw new AppError('Workshop is not live', 400);
@@ -107,7 +109,7 @@ export class WorkshopSessionService implements IWorkshopSessionService {
             });
         }
 
-        return { session, role: 'PARTICIPANT' };
+        return { session: WorkshopSessionMapper.toResponse(session), role: 'PARTICIPANT' };
     }
 
     async leaveSession(workshopId: string, foodieId: string): Promise<void> {
@@ -122,11 +124,13 @@ export class WorkshopSessionService implements IWorkshopSessionService {
         });
     }
 
-    async getSessionInfo(workshopId: string): Promise<IWorkshopSessionDocument | null> {
-        return await this.sessionRepository.findByWorkshopId(workshopId);
+    async getSessionInfo(workshopId: string): Promise<IWorkshopSessionResponseDTO | null> {
+        const session = await this.sessionRepository.findByWorkshopId(workshopId);
+        return session ? WorkshopSessionMapper.toResponse(session) : null;
     }
 
-    async getActiveSessions(): Promise<IWorkshopSessionDocument[]> {
-        return await this.sessionRepository.findAll({ isLive: true });
+    async getActiveSessions(): Promise<IWorkshopSessionResponseDTO[]> {
+        const sessions = await this.sessionRepository.findAll({ isLive: true });
+        return sessions.map(session => WorkshopSessionMapper.toResponse(session));
     }
 }

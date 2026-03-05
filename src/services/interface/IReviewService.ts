@@ -1,10 +1,9 @@
 import { IReviewDocument } from "../../models/review.model";
-
-import { ICreateReviewDto } from "../../dtos/review.dtos";
+import { ICreateReviewDto, IReviewDto } from "../../dtos/review.dtos";
 
 export interface IReviewService {
-    createReview(userId: string, data: ICreateReviewDto): Promise<{ data: IReviewDocument }>;
-    getReviews(reviewableId: string, reviewableType: string): Promise<{ data: IReviewDocument[] }>;
-    toggleLike(reviewId: string, userId: string): Promise<IReviewDocument>;
-    toggleDislike(reviewId: string, userId: string): Promise<IReviewDocument>;
+    createReview(userId: string, data: ICreateReviewDto): Promise<{ data: IReviewDto }>;
+    getReviews(reviewableId: string, reviewableType: string): Promise<{ data: IReviewDto[] }>;
+    toggleLike(reviewId: string, userId: string): Promise<IReviewDto>;
+    toggleDislike(reviewId: string, userId: string): Promise<IReviewDto>;
 }

@@ -94,11 +94,12 @@ export class RecipeService implements IRecipeService {
     async unSaveRecipe(id: string, recipeId: string): Promise<void> {
         await this._saveRepository.unSaveRecipe(id, recipeId);
     }
-    async getSavedRecipes(id: string): Promise<object> {
+    async getSavedRecipes(id: string): Promise<{ data: IRecipeDto[], message: string }> {
         const result = await this._saveRepository.getSavedRecipes(id);
-        console.log('result recipe saved', result)
         if (!result) throw new AppError(RECIPE_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND)
-        return result;
+
+        const savedRecipes = (result as any).savedRecipes || [];
+        return { data: allRecipesMapper(savedRecipes), message: RECIPE_MESSAGES.FETCHED }
     }
 
     async getRecentRecipes(limit: number): Promise<{ data: IRecipeDto[]; }> {

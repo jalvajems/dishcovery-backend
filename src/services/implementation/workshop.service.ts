@@ -27,17 +27,18 @@ export class WorkshopService implements IWorkshopService {
 
     // Create a new workshop
 
-    async createWorkshop(chefId: string, data: ICreateWorkshopDto): Promise<IWorkshopDocument> {
+    async createWorkshop(chefId: string, data: ICreateWorkshopDto): Promise<IWorkshopResponseDTO> {
         const workshopData = {
             ...data,
             date: new Date(data.date),
             chefId,
             status: WorkshopStatus.DRAFT,
         };
-        return await this._workshopRepository.create(workshopData);
+        const result = await this._workshopRepository.create(workshopData);
+        return workshopMapper(result);
     }
 
-    async updateWorkshop(workshopId: string, chefId: string, data: IUpdateWorkshopDto): Promise<IWorkshopDocument> {
+    async updateWorkshop(workshopId: string, chefId: string, data: IUpdateWorkshopDto): Promise<IWorkshopResponseDTO> {
         const workshop = await this._workshopRepository.findById(workshopId);
         if (!workshop) {
             throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
@@ -53,10 +54,10 @@ export class WorkshopService implements IWorkshopService {
 
         const updated = await this._workshopRepository.updateById(workshopId, data);
         if (!updated) throw new AppError('Failed to update workshop', STATUS_CODE.INTERNAL_SERVER_ERROR);
-        return updated;
+        return workshopMapper(updated);
     }
 
-    async getWorkshopById(id: string, userId?: string): Promise<IWorkshopDocument | null> {
+    async getWorkshopById(id: string, userId?: string): Promise<IWorkshopResponseDTO | null> {
         const workshop = await this._workshopRepository.findWithChef(id);
         if (!workshop) return null;
 
@@ -65,33 +66,33 @@ export class WorkshopService implements IWorkshopService {
             console.log('getWorkshopById service - userId:', userId, 'bookings count:', bookings.length);
 
             const myBooking = bookings.find(b => {
-                const bookingWorkshopId = b.workshopId && typeof b.workshopId === 'object' && '_id' in b.workshopId
-                    ? (b.workshopId as { _id: Types.ObjectId | string })._id.toString()
-                    : b.workshopId.toString();
+                const bookingWorkshopId = b.workshopId;
                 const targetWorkshopId = (workshop._id as string | Types.ObjectId).toString();
                 const match = bookingWorkshopId === targetWorkshopId;
-                console.log(`Checking booking ${b._id}: workshopId ${bookingWorkshopId} vs target ${targetWorkshopId} -> match? ${match}`);
+                console.log(`Checking booking ${b.id}: workshopId ${bookingWorkshopId} vs target ${targetWorkshopId} -> match? ${match}`);
                 return match;
             });
-            console.log('getWorkshopById service - found myBooking:', myBooking ? myBooking._id : 'null');
+            console.log('getWorkshopById service - found myBooking:', myBooking ? myBooking.id : 'null');
 
             const isBooked = !!myBooking;
-            const workshopObj = workshop.toObject ? workshop.toObject() : workshop;
-            return { ...workshopObj, isBooked, myBooking } as unknown as IWorkshopDocument;
+            const dto = workshopMapper(workshop);
+            return { ...dto, isBooked, myBooking } as unknown as IWorkshopResponseDTO;
         }
 
-        return workshop;
+        return workshopMapper(workshop);
     }
 
-    async getChefWorkshops(chefId: string): Promise<IWorkshopDocument[]> {
-        return await this._workshopRepository.findAll({ chefId });
+    async getChefWorkshops(chefId: string): Promise<IWorkshopResponseDTO[]> {
+        const workshops = await this._workshopRepository.findAll({ chefId });
+        return workshops.map(w => workshopMapper(w));
     }
 
-    async getAllWorkshopsForAdmin(): Promise<IWorkshopDocument[]> {
-        return await this._workshopRepository.findAllForAdmin();
+    async getAllWorkshopsForAdmin(): Promise<IWorkshopResponseDTO[]> {
+        const workshops = await this._workshopRepository.findAllForAdmin();
+        return workshops.map(w => workshopMapper(w));
     }
 
-    async getApprovedWorkshops(page: number, limit: number, search: string, filter?: string, userId?: string): Promise<{ datas: IWorkshopDocument[], totalCount: number }> {
+    async getApprovedWorkshops(page: number, limit: number, search: string, filter?: string, userId?: string): Promise<{ datas: IWorkshopResponseDTO[], totalCount: number }> {
         const skip = (page - 1) * limit;
         const result = await this._workshopRepository.findAllApprovedWithFilters(skip, limit, search, filter);
 
@@ -104,17 +105,17 @@ export class WorkshopService implements IWorkshopService {
             );
 
             const workshopsWithStatus = result.datas.map(w => {
-                const wObj = w.toObject ? w.toObject() : w;
-                return { ...wObj, isBooked: bookedWorkshopIds.has((w._id as string | Types.ObjectId).toString()) };
+                const dto = workshopMapper(w);
+                return { ...dto, isBooked: bookedWorkshopIds.has((w._id as string | Types.ObjectId).toString()) };
             });
 
-            return { datas: workshopsWithStatus as unknown as IWorkshopDocument[], totalCount: result.totalCount };
+            return { datas: workshopsWithStatus as unknown as IWorkshopResponseDTO[], totalCount: result.totalCount };
         }
 
-        return result;
+        return { datas: result.datas.map(w => workshopMapper(w)), totalCount: result.totalCount };
     }
 
-    async approveWorkshop(workshopId: string, adminId: string): Promise<IWorkshopDocument> {
+    async approveWorkshop(workshopId: string, adminId: string): Promise<IWorkshopResponseDTO> {
         const workshop = await this._workshopRepository.findById(workshopId);
         if (!workshop) throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
 
@@ -140,10 +141,10 @@ export class WorkshopService implements IWorkshopService {
             workshopId
         );
 
-        return updated;
+        return workshopMapper(updated);
     }
 
-    async rejectWorkshop(workshopId: string, adminId: string, reason: string): Promise<IWorkshopDocument> {
+    async rejectWorkshop(workshopId: string, adminId: string, reason: string): Promise<IWorkshopResponseDTO> {
         const workshop = await this._workshopRepository.findById(workshopId);
         if (!workshop) throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
 
@@ -168,10 +169,10 @@ export class WorkshopService implements IWorkshopService {
             workshopId
         );
 
-        return updated;
+        return workshopMapper(updated);
     }
 
-    async submitForApproval(workshopId: string, chefId: string): Promise<IWorkshopDocument> {
+    async submitForApproval(workshopId: string, chefId: string): Promise<IWorkshopResponseDTO> {
         const workshop = await this._workshopRepository.findById(workshopId);
         if (!workshop) throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
 
@@ -188,7 +189,7 @@ export class WorkshopService implements IWorkshopService {
         });
 
         if (!updated) throw new AppError('Failed to submit for approval', STATUS_CODE.INTERNAL_SERVER_ERROR);
-        return updated;
+        return workshopMapper(updated);
     }
 
     async startSession(workshopId: string, chefId: string): Promise<{ workshop: IWorkshopResponseDTO, session: IWorkshopSessionResponseDTO }> {
@@ -251,14 +252,14 @@ export class WorkshopService implements IWorkshopService {
                 `The session for workshop "${workshop.title}" has started! Join now.`,
                 'SESSION_STARTED',
                 workshopId,
-                (session._id as Types.ObjectId).toString()
+                session.id
             );
         }
 
-        return { workshop: workshopMapper(updated), session: WorkshopSessionMapper.toResponse(session) };
+        return { workshop: workshopMapper(updated), session };
     }
 
-    async endSession(workshopId: string, chefId: string): Promise<IWorkshopDocument> {
+    async endSession(workshopId: string, chefId: string): Promise<IWorkshopResponseDTO> {
         console.log('reached end sesion');
 
         const workshop = await this._workshopRepository.findById(workshopId);
@@ -284,18 +285,18 @@ export class WorkshopService implements IWorkshopService {
         });
 
         if (!updated) throw new AppError('Failed to end session', STATUS_CODE.INTERNAL_SERVER_ERROR);
-        return updated;
+        return workshopMapper(updated);
     }
 
-    async getWorkshopsByChef(chefId: string, page: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopDocument[], totalCount: number }> {
+    async getWorkshopsByChef(chefId: string, page: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopResponseDTO[], totalCount: number }> {
         const skip = (page - 1) * limit;
         const res = await this._workshopRepository.findAllByChefId(chefId, skip, limit, search, status);
         console.log('res=====?', res);
 
-        return res
+        return { datas: res.datas.map(w => workshopMapper(w)), totalCount: res.totalCount };
     }
 
-    async cancelWorkshop(workshopId: string, chefId: string, reason: string): Promise<IWorkshopDocument> {
+    async cancelWorkshop(workshopId: string, chefId: string, reason: string): Promise<IWorkshopResponseDTO> {
         const workshop = await this._workshopRepository.findById(workshopId);
         if (!workshop) {
             throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
@@ -333,11 +334,11 @@ export class WorkshopService implements IWorkshopService {
             );
         }
 
-        return updated;
+        return workshopMapper(updated);
     }
 
-    async getRecentWorkshops(limit: number): Promise<{ data: IWorkshopDocument[] }> {
+    async getRecentWorkshops(limit: number): Promise<{ data: IWorkshopResponseDTO[] }> {
         const workshops = await this._workshopRepository.findRecentApproved(limit);
-        return { data: workshops };
+        return { data: workshops.map(w => workshopMapper(w)) };
     }
 }

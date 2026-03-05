@@ -6,6 +6,8 @@ import { IBookingRepository } from '../../repostories/interface/IBookingReposito
 import { IWorkshopRepository } from '../../repostories/interface/IWorkshopRepository';
 import { IStripeService } from '../interface/IStripeService';
 import { IBookingDocument, BookingStatus, BookingType } from '../../types/booking.types';
+import { IBookingDto } from '../../dtos/booking.dtos';
+import { bookingMapper, allBookingsMapper } from '../../utils/mapper/booking.mapper';
 import { WorkshopStatus, WorkshopMode } from '../../types/workshop.types';
 import { AppError } from '../../utils/AppError';
 import { Types } from 'mongoose';
@@ -24,7 +26,7 @@ export class BookingService implements IBookingService {
         @inject(TYPES.ITransactionRepository) private _transactionRepository: ITransactionRepository,
     ) { }
 
-    async createBooking(workshopId: string, foodieId: string, ticketCount: number = 1): Promise<{ booking: IBookingDocument; clientSecret?: string }> {
+    async createBooking(workshopId: string, foodieId: string, ticketCount: number = 1): Promise<{ booking: IBookingDto; clientSecret?: string }> {
         const workshop = await this.workshopRepository.findById(workshopId);
 
         if (!workshop) {
@@ -116,7 +118,7 @@ export class BookingService implements IBookingService {
                 await this.workshopRepository.incrementParticipants(workshopId, ticketCount);
             }
 
-            return { booking: booking! };
+            return { booking: bookingMapper(booking!) };
         }
 
         let booking: IBookingDocument;
@@ -175,7 +177,7 @@ export class BookingService implements IBookingService {
         }
 
         return {
-            booking,
+            booking: bookingMapper(booking),
             clientSecret: clientSecret || undefined
         };
     }
@@ -303,11 +305,12 @@ export class BookingService implements IBookingService {
         }
     }
 
-    async getMyBookings(foodieId: string): Promise<IBookingDocument[]> {
-        return await this.bookingRepository.findByFoodieId(foodieId);
+    async getMyBookings(foodieId: string): Promise<IBookingDto[]> {
+        const bookings = await this.bookingRepository.findByFoodieId(foodieId);
+        return allBookingsMapper(bookings);
     }
 
-    async getWorkshopParticipants(workshopId: string, chefId: string): Promise<IBookingDocument[]> {
+    async getWorkshopParticipants(workshopId: string, chefId: string): Promise<IBookingDto[]> {
         const workshop = await this.workshopRepository.findById(workshopId);
         if (!workshop) throw new AppError(MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND);
 
@@ -315,7 +318,8 @@ export class BookingService implements IBookingService {
             throw new AppError('Access denied: You are not the host of this workshop', STATUS_CODE.FORBIDDEN);
         }
 
-        return await this.bookingRepository.findByWorkshopId(workshopId);
+        const bookings = await this.bookingRepository.findByWorkshopId(workshopId);
+        return allBookingsMapper(bookings);
     }
 
     async cancelBooking(bookingId: string, foodieId: string): Promise<void> {
@@ -402,7 +406,7 @@ export class BookingService implements IBookingService {
         }
     }
 
-    async markAttendance(bookingId: string, status: string): Promise<IBookingDocument> {
+    async markAttendance(bookingId: string, status: string): Promise<IBookingDto> {
         const booking = await this.bookingRepository.findById(bookingId);
         if (!booking) throw new AppError(BOOKING_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND);
 
@@ -410,6 +414,6 @@ export class BookingService implements IBookingService {
 
         const updatedBooking = await this.bookingRepository.updateAttendance(bookingId, status);
         if (!updatedBooking) throw new AppError('Failed to update attendance', 500);
-        return updatedBooking;
+        return bookingMapper(updatedBooking);
     }
 }

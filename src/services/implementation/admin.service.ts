@@ -100,12 +100,12 @@ export class AdminService implements IAdminService {
         return userMapper(result);
 
     }
-    async verifyChef(chefId: string): Promise<object> {
+    async verifyChef(chefId: string): Promise<IUserDto> {
         const result = await this._userRepository.verifyById(chefId);
         console.log('verifeid data chef', result);
 
         if (!result) throw new AppError('user in empty', STATUS_CODE.INTERNAL_SERVER_ERROR);
-        return result
+        return userMapper(result);
     }
     async unVerifyChef(chefId: string): Promise<IUserDto> {
         const result = await this._userRepository.unVerifyById(chefId);

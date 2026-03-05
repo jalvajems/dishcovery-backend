@@ -6,7 +6,8 @@ import { AppError } from "../../utils/AppError";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { IReviewDocument } from "../../models/review.model";
 import { Types } from "mongoose";
-import { ICreateReviewDto } from "../../dtos/review.dtos";
+import { ICreateReviewDto, IReviewDto } from "../../dtos/review.dtos";
+import { reviewMapper, allReviewsMapper } from "../../utils/mapper/review.mapper";
 
 @injectable()
 export class ReviewService implements IReviewService {
@@ -14,7 +15,7 @@ export class ReviewService implements IReviewService {
         @inject(TYPES.IReviewRepository) private _reviewRepository: IReviewRepostory,
     ) { }
 
-    async createReview(userId: string, data: ICreateReviewDto): Promise<{ data: IReviewDocument; }> {
+    async createReview(userId: string, data: ICreateReviewDto): Promise<{ data: IReviewDto; }> {
         const { reviewableId, reviewableType, rating, reviewText } = data;
 
         const payload: Partial<IReviewDocument> = {
@@ -28,13 +29,13 @@ export class ReviewService implements IReviewService {
         };
 
         const restult = await this._reviewRepository.create(payload)
-        return { data: restult }
+        return { data: reviewMapper(restult) }
     }
-    async getReviews(reviewableId: string, reviewableType: string): Promise<{ data: IReviewDocument[]; }> {
+    async getReviews(reviewableId: string, reviewableType: string): Promise<{ data: IReviewDto[]; }> {
         const result = await this._reviewRepository.findReview(reviewableId, reviewableType)
-        return { data: result };
+        return { data: allReviewsMapper(result) };
     }
-    async toggleLike(reviewId: string, userId: string): Promise<IReviewDocument> {
+    async toggleLike(reviewId: string, userId: string): Promise<IReviewDto> {
         const review = await this._reviewRepository.findById(reviewId)
         if (!review) throw new AppError('no review found', STATUS_CODE.SUCCESS);
 
@@ -49,9 +50,9 @@ export class ReviewService implements IReviewService {
         }
 
         await review.save();
-        return review
+        return reviewMapper(review);
     }
-    async toggleDislike(reviewId: string, userId: string): Promise<IReviewDocument> {
+    async toggleDislike(reviewId: string, userId: string): Promise<IReviewDto> {
         const review = await this._reviewRepository.findById(reviewId);
         if (!review) throw new AppError('no review found', STATUS_CODE.BAD_REQUEST);
         console.log('uriddd', reviewId);
@@ -72,7 +73,7 @@ export class ReviewService implements IReviewService {
         }
 
         await review.save();
-        return review;
+        return reviewMapper(review);
     }
 
 }

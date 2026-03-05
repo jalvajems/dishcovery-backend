@@ -6,7 +6,7 @@ export interface INotification extends Document {
     recipientRole: Role.CHEF | Role.FOODIE;
     title: string;
     message: string;
-    type: 'SESSION_STARTED' | 'SESSION_CANCELLED' | 'WORKSHOP_APPROVED' | 'WORKSHOP_REJECTED';
+    type: 'SESSION_STARTED' | 'SESSION_CANCELLED' | 'WORKSHOP_APPROVED' | 'WORKSHOP_REJECTED' | 'WORKSHOP_EXPIRED';
     workshopId?: Types.ObjectId;
     sessionId?: Types.ObjectId;
     isRead: boolean;
@@ -21,7 +21,7 @@ const NotificationSchema: Schema = new Schema({
     message: { type: String, required: true },
     type: {
         type: String,
-        enum: ['SESSION_STARTED', 'SESSION_CANCELLED', 'WORKSHOP_APPROVED', 'WORKSHOP_REJECTED'],
+        enum: ['SESSION_STARTED', 'SESSION_CANCELLED', 'WORKSHOP_APPROVED', 'WORKSHOP_REJECTED', 'WORKSHOP_EXPIRED'],
         required: true
     },
     workshopId: { type: Schema.Types.ObjectId, ref: 'Workshop' },

@@ -87,13 +87,7 @@ export class CronService implements ICronService {
 
                     const participants = await this._bookingService.getWorkshopParticipants(workshop._id as string, chefIdString);
                     for (const participant of participants) {
-                        let foodieIdString: string;
-                        if (participant.foodieId instanceof Types.ObjectId || typeof participant.foodieId === 'string') {
-                            foodieIdString = participant.foodieId.toString();
-                        } else {
-                            // Assumes populated
-                            foodieIdString = (participant.foodieId as unknown as { _id: Types.ObjectId | string })._id.toString();
-                        }
+                        const foodieIdString = participant.foodieId;
 
                         await this._notificationService.createNotification(
                             foodieIdString,

@@ -15,6 +15,8 @@ import { FollowModel } from "../../models/follow.model";
 import { IChefProfileDto } from "../../dtos/chef.dtos";
 import { IChefDocument } from "../../models/chef.model";
 import { IReviewDocument } from "../../models/review.model";
+import { chefMapper } from "../../utils/mapper/chef.mapper";
+import { IChef } from "../../types/chef.types";
 
 @injectable()
 export class ChefService implements IChefService {
@@ -23,7 +25,7 @@ export class ChefService implements IChefService {
         @inject(TYPES.IUserRepository) private _userRepository: IUserRepository,
         @inject(TYPES.IReviewRepository) private _reviewRepository: IReviewRepostory
     ) { }
-    async createProfile(chefId: string, data: IChefProfileDto): Promise<{ data: IChefDocument; }> {
+    async createProfile(chefId: string, data: IChefProfileDto): Promise<{ data: IChef; }> {
         const existing = await this._chefRepository.findByChefId(chefId);
         if (existing) {
             throw new AppError("Profile already exist!", STATUS_CODE.INTERNAL_SERVER_ERROR)
@@ -32,9 +34,9 @@ export class ChefService implements IChefService {
         const result = await this._chefRepository.createProfile({ chefId: chefId, ...data });
         if (!result) throw new AppError('profile creation failed', STATUS_CODE.INTERNAL_SERVER_ERROR)
 
-        return { data: result }
+        return { data: chefMapper(result as IChefDocument) }
     }
-    async updateProfile(userId: string, data: IChefProfileDto): Promise<{ user: IUser, chef: IChefDocument; }> {
+    async updateProfile(userId: string, data: IChefProfileDto): Promise<{ user: IUserDto, chef: IChef; }> {
         const { name, email, phone, location, specialities, bio, image, certificates, achievements, skills } = data;
         console.log('=================', bio);
 
@@ -45,9 +47,9 @@ export class ChefService implements IChefService {
 
         if (!updateChef) throw new AppError('failed to chef update profile data', STATUS_CODE.INTERNAL_SERVER_ERROR)
         if (!updateUser) throw new AppError('failed to user update profile data', STATUS_CODE.INTERNAL_SERVER_ERROR)
-        return { user: updateUser, chef: updateChef }
+        return { user: userMapper(updateUser), chef: chefMapper(updateChef as IChefDocument) }
     }
-    async getProfile(chefId: string): Promise<{ data: IChefDocument | boolean; reviews?: IReviewDocument[] }> {
+    async getProfile(chefId: string): Promise<{ data: IChef | boolean; reviews?: IReviewDocument[] }> {
         console.log("chefId", chefId);
 
         const result = await this._chefRepository.findByChefId(chefId);
@@ -57,7 +59,7 @@ export class ChefService implements IChefService {
             reviews = await this._reviewRepository.findReview(result._id as string, "Chef");
         }
 
-        return { data: result || false, reviews }
+        return { data: result ? chefMapper(result as IChefDocument) : false, reviews }
     }
     async getUser(id: string): Promise<{ data: IUserDto; }> {
         console.log('userid', id);
@@ -73,10 +75,10 @@ export class ChefService implements IChefService {
         return { datas: result.datas, totalCount: result.totalCount };
     }
 
-    async getChefDetails(chefId: string): Promise<{ data: IChefDocument }> {
+    async getChefDetails(chefId: string): Promise<{ data: IChef }> {
         const result = await this._chefRepository.findDetailsByChefId(chefId);
         if (!result) throw new AppError('Chef not found', STATUS_CODE.NOT_FOUND);
-        return { data: result };
+        return { data: chefMapper(result as IChefDocument) };
     }
 
     async getDashboardStats(chefId: string): Promise<{ totalRecipes: number; averageRating: number; totalFollowers: number; totalWorkshops: number }> {

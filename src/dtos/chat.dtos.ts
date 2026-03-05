@@ -34,3 +34,19 @@ export interface IGetConversationsResponse {
     conversations: IConversationDto[];
     total: number;
 }
+
+export interface IMessageDto {
+    id: string;
+    conversationId: string;
+    senderId: string;
+    senderRole: string;
+    content: string;
+    fileUrl?: string;
+    messageType: 'text' | 'image' | 'video' | 'audio' | 'file';
+    status: 'sent' | 'delivered' | 'read';
+    readBy: string[];
+    deletedFor: string[];
+    isDeletedForEveryone: boolean;
+    createdAt: Date;
+    updatedAt: Date;
+}

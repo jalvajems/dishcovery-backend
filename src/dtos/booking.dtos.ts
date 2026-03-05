@@ -14,3 +14,20 @@ export interface IStripeWebhookPayload {
     };
     type: string;
 }
+
+import { BookingStatus, BookingType, AttendanceStatus } from '../types/booking.types';
+
+export interface IBookingDto {
+    id: string;
+    workshopId: string;
+    foodieId: string;
+    status: BookingStatus;
+    attendanceStatus: AttendanceStatus;
+    bookingType: BookingType;
+    ticketCount: number;
+    amount: number;
+    paymentIntentId?: string;
+    bookedAt: Date;
+    cancelledAt?: Date;
+    cancellationReason?: string;
+}

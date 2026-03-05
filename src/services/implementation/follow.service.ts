@@ -7,6 +7,8 @@ import { IFoodieService } from "../interface/IFoodieService";
 import { IChefRepository } from "../../repostories/interface/IChefRepository";
 import { IFollower, IFollowing } from "../../types/follow.types";
 import { IFoodieDto } from "../../dtos/foodie.dtos";
+import { followMapper } from "../../utils/mapper/follow.mapper";
+import { IFollowDto } from "../../dtos/follow.dtos";
 
 @injectable()
 export class FollowService implements IFollowService {
@@ -16,8 +18,9 @@ export class FollowService implements IFollowService {
         @inject(TYPES.IChefRepository) private _chefRepository: IChefRepository,
     ) { }
 
-    async follow(followerId: string, followingId: string): Promise<IFollowDocument> {
-        return await this._followRepository.follow(followerId, followingId);
+    async follow(followerId: string, followingId: string): Promise<IFollowDto> {
+        const result = await this._followRepository.follow(followerId, followingId);
+        return followMapper(result);
     }
 
     async unfollow(followerId: string, followingId: string): Promise<boolean> {

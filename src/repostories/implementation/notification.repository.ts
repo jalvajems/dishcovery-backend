@@ -1,7 +1,7 @@
 import { injectable } from "inversify";
 import { FilterQuery } from "mongoose";
 import { INotification, NotificationModel } from "../../models/notification.model";
-import { INotificationRepository } from "../interfaces/INotificationRepository";
+import { INotificationRepository } from "../interface/INotificationRepository";
 
 @injectable()
 export class NotificationRepository implements INotificationRepository {

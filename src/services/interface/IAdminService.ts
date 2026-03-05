@@ -11,7 +11,7 @@ export interface IAdminService {
     getAllChefs(query: IPaginationDto): Promise<{ data: IUserDto[]; currentPage: number; totalPages: number; }>;
     blockUserById(userId: string): Promise<IUserDto>;
     unBlockUserById(userId: string): Promise<IUserDto>;
-    verifyChef(chefId: string): Promise<object>;
+    verifyChef(chefId: string): Promise<IUserDto>;
     unVerifyChef(chefId: string): Promise<IUserDto>;
     getAllRecipes(query: IPaginationDto): Promise<{ data: IRecipeDto[], currentPage: number, totalPages: number }>;
     blockRecipe(recipeId: string): Promise<void>;

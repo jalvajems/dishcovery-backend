@@ -5,7 +5,8 @@ import { IMessageRepository } from "../../repostories/interface/message.reposito
 import { IMessage } from "../../models/message.model";
 import { socketService } from "./socket.service";
 import { Role } from "../../types/user.types";
-import { IPopulatedConversation, IConversationDto, IPopulatedParticipant } from "../../dtos/chat.dtos";
+import { IPopulatedConversation, IConversationDto, IPopulatedParticipant, IMessageDto } from "../../dtos/chat.dtos";
+import { messageMapper, allMessagesMapper } from "../../utils/mapper/chat.mapper";
 import { Types } from "mongoose";
 
 @injectable()
@@ -64,7 +65,7 @@ export class ChatService implements IChatService {
         content: string,
         fileUrl?: string,
         messageType: 'text' | 'image' | 'video' | 'audio' | 'file' = 'text'
-    ): Promise<IMessage> {
+    ): Promise<IMessageDto> {
         const message = await this.messageRepository.createMessage({
             conversationId,
             senderId,
@@ -99,7 +100,7 @@ export class ChatService implements IChatService {
             }
         }
 
-        return message;
+        return messageMapper(message);
     }
 
     async getMessages(
@@ -107,8 +108,9 @@ export class ChatService implements IChatService {
         userId: string,
         page: number,
         limit: number
-    ): Promise<{ messages: IMessage[], total: number }> {
-        return await this.messageRepository.getMessagesByConversation(conversationId, page, limit);
+    ): Promise<{ messages: IMessageDto[], total: number }> {
+        const { messages, total } = await this.messageRepository.getMessagesByConversation(conversationId, page, limit);
+        return { messages: allMessagesMapper(messages), total };
     }
 
     async markAsRead(conversationId: string, userId: string): Promise<void> {
@@ -135,7 +137,7 @@ export class ChatService implements IChatService {
         }
     }
 
-    async deleteMessage(messageId: string, userId: string, forEveryone: boolean): Promise<IMessage | null> {
+    async deleteMessage(messageId: string, userId: string, forEveryone: boolean): Promise<IMessageDto | null> {
         const message = await this.messageRepository.deleteMessage(messageId, userId, forEveryone);
 
         if (message && forEveryone) {
@@ -146,7 +148,7 @@ export class ChatService implements IChatService {
             });
         }
 
-        return message;
+        return message ? messageMapper(message) : null;
     }
 
     async markAsDelivered(messageId: string): Promise<void> {

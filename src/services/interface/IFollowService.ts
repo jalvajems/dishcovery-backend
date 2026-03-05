@@ -1,9 +1,10 @@
 import { IFollowDocument } from "../../models/follow.model";
 import { IFollower, IFollowing } from "../../types/follow.types";
 import { IFoodieDto } from "../../dtos/foodie.dtos";
+import { IFollowDto } from "../../dtos/follow.dtos";
 
 export interface IFollowService {
-    follow(followerId: string, followingId: string): Promise<IFollowDocument>;
+    follow(followerId: string, followingId: string): Promise<IFollowDto>;
     unfollow(followerId: string, followingId: string): Promise<boolean>;
     isFollowing(followerId: string, followingId: string): Promise<boolean>;
     getFollowers(followingId: string, page: number, limit: number): Promise<{ followers: IFollower[], total: number }>;
