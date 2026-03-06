@@ -66,4 +66,34 @@ export class ReviewController implements IReviewController {
             next(error);
         }
     }
+
+    async updateReview(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const { reviewId } = req.params;
+            const userId = req.user?.id;
+            const { reviewText, rating } = req.body;
+
+            if (!userId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
+            if (!reviewText || rating === undefined) throw new AppError('Review text and rating are required', STATUS_CODE.BAD_REQUEST);
+
+            const result = await this._reviewService.updateReview(reviewId, userId as string, reviewText, rating);
+            res.status(STATUS_CODE.SUCCESS).json({ data: result, message: 'Review updated successfully' });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async deleteReview(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const { reviewId } = req.params;
+            const userId = req.user?.id;
+
+            if (!userId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
+
+            await this._reviewService.deleteReview(reviewId, userId as string);
+            res.status(STATUS_CODE.SUCCESS).json({ message: 'Review deleted successfully' });
+        } catch (error) {
+            next(error);
+        }
+    }
 }

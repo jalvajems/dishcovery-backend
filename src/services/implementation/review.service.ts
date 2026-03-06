@@ -18,6 +18,16 @@ export class ReviewService implements IReviewService {
     async createReview(userId: string, data: ICreateReviewDto): Promise<{ data: IReviewDto; }> {
         const { reviewableId, reviewableType, rating, reviewText } = data;
 
+        const existingReview = await this._reviewRepository.findOne({
+            userId: new Types.ObjectId(userId),
+            reviewableId: new Types.ObjectId(reviewableId),
+            reviewableType
+        });
+
+        if (existingReview) {
+            throw new AppError(`You have already reviewed this ${reviewableType.toLowerCase()}`, STATUS_CODE.BAD_REQUEST);
+        }
+
         const payload: Partial<IReviewDocument> = {
             userId: new Types.ObjectId(userId),
             reviewableId: new Types.ObjectId(reviewableId),
@@ -74,6 +84,32 @@ export class ReviewService implements IReviewService {
 
         await review.save();
         return reviewMapper(review);
+    }
+
+    async updateReview(reviewId: string, userId: string, reviewText: string, rating: number): Promise<IReviewDto> {
+        const review = await this._reviewRepository.findById(reviewId);
+        if (!review) throw new AppError('no review found', STATUS_CODE.NOT_FOUND);
+
+        if (review.userId.toString() !== userId) {
+            throw new AppError('You are not authorized to edit this review', STATUS_CODE.FORBIDDEN);
+        }
+
+        review.reviewText = reviewText;
+        review.rating = rating;
+
+        await review.save();
+        return reviewMapper(review);
+    }
+
+    async deleteReview(reviewId: string, userId: string): Promise<void> {
+        const review = await this._reviewRepository.findById(reviewId);
+        if (!review) throw new AppError('no review found', STATUS_CODE.NOT_FOUND);
+
+        if (review.userId.toString() !== userId) {
+            throw new AppError('You are not authorized to delete this review', STATUS_CODE.FORBIDDEN);
+        }
+
+        await this._reviewRepository.deleteById(reviewId);
     }
 
 }

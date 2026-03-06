@@ -16,11 +16,13 @@ export interface IStripeWebhookPayload {
 }
 
 import { BookingStatus, BookingType, AttendanceStatus } from '../types/booking.types';
+import { IWorkshopResponseDTO } from './workshop.dtos';
+import { IUserDto } from './user.dtos';
 
 export interface IBookingDto {
     id: string;
-    workshopId: string;
-    foodieId: string;
+    workshopId: string | Partial<IWorkshopResponseDTO>;
+    foodieId: string | Partial<IUserDto>;
     status: BookingStatus;
     attendanceStatus: AttendanceStatus;
     bookingType: BookingType;

@@ -42,6 +42,7 @@ export class WorkshopController implements IWorkshopController {
             const userId = req.user?.id;
             console.log('getWorkshopById controller - userId:', userId, 'workshopId:', id);
             const workshop = await this._workshopService.getWorkshopById(id, userId);
+            
             if (!workshop) throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: workshop });
         } catch (error) {
@@ -162,6 +163,8 @@ export class WorkshopController implements IWorkshopController {
             if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED)
 
             const result = await this._workshopService.getWorkshopsByChef(chefId, page, limit, search, status);
+            console.log('00workshop',result);
+
             res.status(STATUS_CODE.SUCCESS).json({
                 success: true,
                 datas: result.datas,

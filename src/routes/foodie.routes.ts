@@ -36,6 +36,8 @@ router.post('/toggle-save-recipe', verifyAccess, RecipeController.toggleSaveReci
 
 router.post("/review", verifyAccess, ReviewController.createReview.bind(ReviewController));
 router.get("/review", verifyAccess, ReviewController.getReviews.bind(ReviewController));
+router.put("/review/:reviewId", verifyAccess, ReviewController.updateReview.bind(ReviewController));
+router.delete("/review/:reviewId", verifyAccess, ReviewController.deleteReview.bind(ReviewController));
 router.put("/review/like/:reviewId", verifyAccess, ReviewController.likeReview.bind(ReviewController));
 router.put("/review/dislike/:reviewId", verifyAccess, ReviewController.dislikeReview.bind(ReviewController));
 

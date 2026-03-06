@@ -137862,3 +137862,177 @@ src/controllers/implementation/recipe.controller.ts(74,47): error TS1003: Identi
     at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
     at Module.load (node:internal/modules/cjs/loader:1318:32)
     at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-06 06:24:07] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(87,19): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(87,28): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(87,32): error TS1005: ',' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-06 06:28:46] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(300,25): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-06 06:28:50] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(301,25): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-06 06:28:57] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(301,25): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-06 06:29:01] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(299,23): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(299,29): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(299,33): error TS1005: ',' expected.
+src/services/implementation/workshop.service.ts(301,25): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-06 06:29:04] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(301,25): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-06 06:29:09] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/workshop.service.ts(301,25): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\workshop.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-06 11:34:13] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/utils/mapper/workshop.mapper.ts(11,7): error TS1005: ',' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\utils\mapper\workshop.mapper.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-06 11:34:15] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/utils/mapper/workshop.mapper.ts(11,7): error TS1005: ',' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\utils\mapper\workshop.mapper.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-06 11:34:17] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/utils/mapper/workshop.mapper.ts(11,7): error TS1005: ',' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\utils\mapper\workshop.mapper.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-06 11:34:19] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/utils/mapper/workshop.mapper.ts(11,7): error TS1005: ',' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\utils\mapper\workshop.mapper.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-06 11:34:21] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/utils/mapper/workshop.mapper.ts(11,7): error TS1005: ',' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\utils\mapper\workshop.mapper.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-06 11:34:22] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/utils/mapper/workshop.mapper.ts(11,7): error TS1005: ',' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\utils\mapper\workshop.mapper.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-4622515454673608.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)

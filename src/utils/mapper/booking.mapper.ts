@@ -1,12 +1,26 @@
 import { IBookingDto } from "../../dtos/booking.dtos";
 import { IBookingDocument } from "../../types/booking.types";
+import { IWorkshopResponseDTO } from "../../dtos/workshop.dtos";
+import { IUserDto } from "../../dtos/user.dtos";
 
 export function bookingMapper(booking: IBookingDocument): IBookingDto {
     const obj = booking.toObject ? booking.toObject() : booking;
+
+    const parseReference = <T>(ref: unknown): string | Partial<T> => {
+        if (!ref) return '';
+        if (typeof ref === 'object' && ref !== null && !(ref instanceof String)) {
+            if ('_id' in ref) return ref as Partial<T>;
+            // if it's an ObjectId and doesn't stringify to [object Object] // TypeScript check
+            const strRef = String(ref);
+            if (strRef !== '[object Object]') return strRef;
+        }
+        return String(ref);
+    };
+
     return {
-        id: (obj._id || obj.id).toString(),
-        workshopId: obj.workshopId.toString(),
-        foodieId: obj.foodieId.toString(),
+        id: (obj._id || obj.id)?.toString() || '',
+        workshopId: parseReference<IWorkshopResponseDTO>(obj.workshopId),
+        foodieId: parseReference<IUserDto>(obj.foodieId),
         status: obj.status,
         attendanceStatus: obj.attendanceStatus,
         bookingType: obj.bookingType,

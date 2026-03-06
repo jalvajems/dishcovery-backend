@@ -9,6 +9,7 @@ import { ICronService } from '../interface/ICronService';
 import { WorkshopStatus, WorkshopMode } from '../../types/workshop.types';
 import { logger } from '../../utils/logger';
 import { Role } from '../../types/user.types';
+import { IUserDto } from '../../dtos/user.dtos';
 
 @injectable()
 export class CronService implements ICronService {
@@ -87,7 +88,9 @@ export class CronService implements ICronService {
 
                     const participants = await this._bookingService.getWorkshopParticipants(workshop._id as string, chefIdString);
                     for (const participant of participants) {
-                        const foodieIdString = participant.foodieId;
+                        const foodieIdString = typeof participant.foodieId === 'object' && participant.foodieId !== null
+                            ? String((participant.foodieId as Partial<IUserDto>)._id || participant.foodieId)
+                            : String(participant.foodieId);
 
                         await this._notificationService.createNotification(
                             foodieIdString,

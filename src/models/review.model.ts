@@ -1,7 +1,7 @@
 import { Document, model, Schema } from "mongoose";
 import { IReview } from "../types/review.types";
 
-export interface IReviewDocument extends IReview, Document {}
+export interface IReviewDocument extends IReview, Document { }
 
 const reviewSchema = new Schema<IReviewDocument>({
   userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
@@ -16,5 +16,7 @@ const reviewSchema = new Schema<IReviewDocument>({
   likes: [{ type: Schema.Types.ObjectId, ref: "Foodie", default: [] }],
   dislikes: [{ type: Schema.Types.ObjectId, ref: "Foodie", default: [] }],
 }, { timestamps: true });
+
+reviewSchema.index({ userId: 1, reviewableId: 1, reviewableType: 1 }, { unique: true });
 
 export const ReviewModel = model<IReviewDocument>("Review", reviewSchema);

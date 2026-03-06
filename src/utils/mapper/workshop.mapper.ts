@@ -4,9 +4,10 @@ import { IWorkshopDocument } from "../../types/workshop.types";
 export function workshopMapper(workshop:IWorkshopDocument):IWorkshopResponseDTO{
     const obj=workshop.toObject()
      return {
-      id: obj.id,
+      _id: obj._id,
 
       title: obj.title,
+      banner:obj.banner,
       description: obj.description,
       category: obj.category,
       tags: obj.tags || [],

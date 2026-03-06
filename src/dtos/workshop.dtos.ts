@@ -1,9 +1,10 @@
 import { WorkshopMode, WorkshopStatus } from "../types/workshop.types";
 
 export interface IWorkshopResponseDTO {
-  id: string;
+  _id: string;
 
   title: string;
+  banner:string;
   description: string;
   category: string;
   tags: string[];

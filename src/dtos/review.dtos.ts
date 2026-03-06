@@ -6,8 +6,9 @@ export interface ICreateReviewDto {
 }
 
 export interface IReviewDto {
-    id: string;
-    userId: string;
+    id?: string;
+    _id?: string;
+    userId: string | { _id: string; name: string; avatar?: string;[key: string]: any };
     reviewableId: string;
     reviewableType: 'Recipe' | 'Blog' | 'Workshop' | 'FoodSpot' | 'Chef';
     rating: number;

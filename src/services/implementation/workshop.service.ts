@@ -83,8 +83,12 @@ export class WorkshopService implements IWorkshopService {
     }
 
     async getChefWorkshops(chefId: string): Promise<IWorkshopResponseDTO[]> {
+        console.log('reached')
         const workshops = await this._workshopRepository.findAll({ chefId });
-        return workshops.map(w => workshopMapper(w));
+        const res= workshops.map(w => workshopMapper(w));
+            console.log('00workshop',res);
+
+        return res
     }
 
     async getAllWorkshopsForAdmin(): Promise<IWorkshopResponseDTO[]> {
@@ -291,9 +295,11 @@ export class WorkshopService implements IWorkshopService {
     async getWorkshopsByChef(chefId: string, page: number, limit: number, search: string, status?: string): Promise<{ datas: IWorkshopResponseDTO[], totalCount: number }> {
         const skip = (page - 1) * limit;
         const res = await this._workshopRepository.findAllByChefId(chefId, skip, limit, search, status);
-        console.log('res=====?', res);
-
-        return { datas: res.datas.map(w => workshopMapper(w)), totalCount: res.totalCount };
+        
+        console.log('res=====', res);
+        const result=res.datas.map(w => workshopMapper(w))
+        console.log('res=====?', result);
+        return { datas: result, totalCount: res.totalCount };
     }
 
     async cancelWorkshop(workshopId: string, chefId: string, reason: string): Promise<IWorkshopResponseDTO> {
