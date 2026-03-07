@@ -11,6 +11,6 @@ export interface IRecipeService {
     getAllRecipes(page: number, limit: number, search: string, filter?: string): Promise<{ datas: IRecipeDto[], currentPage: number, totalPage: number }>;
     toggleSaveRecipe(id: string, recipeId: string): Promise<{ message: string, isSaved: boolean }>;
     unSaveRecipe(id: string, recipeId: string): Promise<void>;
-    getSavedRecipes(id: string): Promise<{ data: IRecipeDto[], message: string }>;
+    getSavedRecipes(id: string, page: number, limit: number): Promise<{ data: IRecipeDto[], currentPage: number, totalPages: number, message: string }>;
     getRecentRecipes(limit: number): Promise<{ data: IRecipeDto[] }>;
 }

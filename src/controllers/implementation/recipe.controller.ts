@@ -134,9 +134,12 @@ export class RecipeController implements IRecipeController {
             const userId = req.user?.id;
             if (!userId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED)
 
-            const result = await this._recipeService.getSavedRecipes(userId)
+            const page = Number(req.query.page) || 1;
+            const limit = Number(req.query.limit) || 6;
+
+            const result = await this._recipeService.getSavedRecipes(userId, page, limit)
             console.log('saved recipes========', result)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result, message: RECIPE_MESSAGES.FETCH_SAVED })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, currentPage: result.currentPage, totalPages: result.totalPages, message: RECIPE_MESSAGES.FETCH_SAVED })
         } catch (error) {
             next(error)
         }
@@ -167,7 +170,7 @@ export class RecipeController implements IRecipeController {
         try {
             const limit = Number(req.query.limit) || 3;
             const result = await this._recipeService.getRecentRecipes(limit);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message:RECIPE_MESSAGES.RECENT_FETCHED  });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: RECIPE_MESSAGES.RECENT_FETCHED });
         } catch (error) {
             next(error);
         }

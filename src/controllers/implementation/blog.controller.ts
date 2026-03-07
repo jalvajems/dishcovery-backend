@@ -6,11 +6,13 @@ import { Request, Response, NextFunction } from "express";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { AppError } from "../../utils/AppError";
 import { BLOG_MESSAGES, MESSAGES } from "../../constants/Message";
+import { ISaveRepository } from "../../repostories/interface/ISaveRepository";
 
 @injectable()
 export class BlogController implements IBlogController {
     constructor(
         @inject(TYPES.IBlogService) private _blogService: IBlogService,
+        @inject(TYPES.ISaveRepository) private _saveRepository: ISaveRepository
     ) { }
     async createBlog(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
@@ -64,8 +66,17 @@ export class BlogController implements IBlogController {
 
         try {
             const blogId = req.params.blogId;
+            const userId = req.user?.id;
+
             const result = await this._blogService.getBlog(blogId);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, message: result.message })
+
+            let isSaved = false;
+            if (userId) {
+                const user = await this._saveRepository.findById(userId);
+                isSaved = !!user?.savedBlogs?.includes(blogId);
+            }
+
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, isSaved, message: result.message })
         } catch (error) {
             next(error)
         }
@@ -79,7 +90,7 @@ export class BlogController implements IBlogController {
 
             const result = await this._blogService.getAllblogs(page, limit, search, filter);
 
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.datas, totalCount: result.totalCount, message:BLOG_MESSAGES.FETCH_SUCCESS })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.datas, totalCount: result.totalCount, message: BLOG_MESSAGES.FETCH_SUCCESS })
         } catch (error) {
             next(error)
         }
@@ -118,6 +129,35 @@ export class BlogController implements IBlogController {
             const limit = Number(req.query.limit) || 3;
             const result = await this._blogService.getRecentBlogs(limit);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.data, message: BLOG_MESSAGES.FETCH_SUCCESS });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async toggleSaveBlog(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const userId = req.user?.id;
+            const { blogId } = req.body;
+
+            if (!userId) throw new AppError(MESSAGES.USER.USERID_NOTFOUND, STATUS_CODE.UNAUTHORIZED);
+
+            const result = await this._blogService.toggleSaveBlog(userId, blogId);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: result.message, isSaved: result.isSaved });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getSavedBlogs(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const userId = req.user?.id;
+            if (!userId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
+
+            const page = Number(req.query.page) || 1;
+            const limit = Number(req.query.limit) || 6;
+
+            const result = await this._blogService.getSavedBlogs(userId, page, limit);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, currentPage: result.currentPage, totalPages: result.totalPages, message: result.message });
         } catch (error) {
             next(error);
         }

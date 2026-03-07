@@ -10,4 +10,6 @@ export interface IBlogController {
     getRelatedBlogs(req: Request, res: Response, next: NextFunction): Promise<void>;
     getBlogsByChef(req: Request, res: Response, next: NextFunction): Promise<void>;
     getRecentBlogs(req: Request, res: Response, next: NextFunction): Promise<void>;
+    toggleSaveBlog(req: Request, res: Response, next: NextFunction): Promise<void>;
+    getSavedBlogs(req: Request, res: Response, next: NextFunction): Promise<void>;
 }

@@ -26,6 +26,13 @@ const userSchema = new Schema<IUserDocument>(
                 ref: "Blog",
                 default: [],
             }
+        ],
+        savedFoodSpots: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "FoodSpot",
+                default: [],
+            }
         ]
     },
     { timestamps: true }

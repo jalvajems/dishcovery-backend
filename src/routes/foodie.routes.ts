@@ -44,6 +44,8 @@ router.put("/review/dislike/:reviewId", verifyAccess, ReviewController.dislikeRe
 router.get("/blog-listing", verifyAccess, BlogController.getAllBlogs.bind(BlogController))
       .get("/blogs/recent", verifyAccess, BlogController.getRecentBlogs.bind(BlogController))
       .get("/blog-detail/:blogId", verifyAccess, BlogController.getBlogDetails.bind(BlogController))
+      .get("/saved-blogs", verifyAccess, BlogController.getSavedBlogs.bind(BlogController))
+router.post("/toggle-save-blog", verifyAccess, BlogController.toggleSaveBlog.bind(BlogController));
 
 router.post("/profile", validate(createFoodieProfileSchema), verifyAccess, foodieController.createProfile.bind(foodieController))
 router.put("/profile", validate(updateFoodieProfileSchema), verifyAccess, foodieController.updateProfile.bind(foodieController))
@@ -56,8 +58,10 @@ router.get("/foodspot/:id", verifyAccess, FoodSpotController.getFoodSpot.bind(Fo
       .get('/nearby', verifyAccess, FoodSpotController.getNearByFoodSpots.bind(FoodSpotController))
       .get('/foodspots', verifyAccess, FoodSpotController.getAllFoodSpots.bind(FoodSpotController))
       .get('/myfoodspots', verifyAccess, FoodSpotController.getAllFoodSpotsByFoodie.bind(FoodSpotController))
-
+      .get('/saved-foodspots', verifyAccess, FoodSpotController.getSavedFoodSpots.bind(FoodSpotController))
       .get('/wallet', verifyAccess, WalletController.foodieWallet.bind(WalletController))
+
+router.post("/toggle-save-foodspot", verifyAccess, FoodSpotController.toggleSaveFoodSpot.bind(FoodSpotController));
 
 router.get('/chefs', verifyAccess, ChefController.getAllChefs.bind(ChefController))
       .get('/chef/:id', verifyAccess, ChefController.getChefDetails.bind(ChefController))

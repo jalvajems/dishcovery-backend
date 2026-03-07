@@ -8,5 +8,7 @@ export interface IFoodSpotController {
     getAllFoodSpots(req: Request, res: Response, next: NextFunction): Promise<void>;
     getAllFoodSpotsByFoodie(req: Request, res: Response, next: NextFunction): Promise<void>;
     getRecentFoodSpots(req: Request, res: Response, next: NextFunction): Promise<void>;
+    toggleSaveFoodSpot(req: Request, res: Response, next: NextFunction): Promise<void>;
+    getSavedFoodSpots(req: Request, res: Response, next: NextFunction): Promise<void>;
 }
 

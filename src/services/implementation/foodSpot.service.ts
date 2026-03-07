@@ -8,10 +8,13 @@ import { STATUS_CODE } from "../../constants/StatusCode";
 import { foodSpotResponseMapper } from "../../utils/mapper/foodSpot.mapper";
 import { allFoodSpotsMapper } from "../../utils/mapper/allFoodSpot. mapper";
 
+import { ISaveRepository } from "../../repostories/interface/ISaveRepository";
+
 @injectable()
 export class FoodSpotService implements IFoodSpotService {
     constructor(
-        @inject(TYPES.IFoodSpotRepository) private _foodSpotRepository: IFoodSpotRepository
+        @inject(TYPES.IFoodSpotRepository) private _foodSpotRepository: IFoodSpotRepository,
+        @inject(TYPES.ISaveRepository) private _saveRepository: ISaveRepository
     ) { }
     async createFoodSpot(data: object): Promise<{ data: IFoodSpotResDto; }> {
 
@@ -62,5 +65,28 @@ export class FoodSpotService implements IFoodSpotService {
         const result = await this._foodSpotRepository.findRecent(limit);
         if (!result) throw new AppError('No recent spots found', STATUS_CODE.NOT_FOUND);
         return { data: allFoodSpotsMapper(result) };
+    }
+
+    async toggleSaveFoodSpot(id: string, foodSpotId: string): Promise<{ message: string, isSaved: boolean }> {
+        const user = await this._saveRepository.findById(id);
+        const isSaved = user?.savedFoodSpots.includes(foodSpotId);
+        if (!isSaved) {
+            await this._saveRepository.saveFoodSpot(id, foodSpotId);
+            return { message: "Food Spot saved successfully", isSaved: true };
+        } else {
+            await this._saveRepository.unSaveFoodSpot(id, foodSpotId);
+            return { message: "Food Spot unsaved successfully", isSaved: false };
+        }
+    }
+
+    async getSavedFoodSpots(id: string, page: number, limit: number): Promise<{ data: IFoodSpotResDto[], currentPage: number, totalPages: number, message: string }> {
+        const skip = (page - 1) * limit;
+        const result = await this._saveRepository.getSavedFoodSpots(id, skip, limit);
+        if (!result || !result.datas) throw new AppError('spots are not found', STATUS_CODE.NOT_FOUND);
+
+        const savedFoodSpots = (result.datas as any).savedFoodSpots || [];
+        const totalPages = Math.ceil(result.totalCount / limit) || 1;
+
+        return { data: allFoodSpotsMapper(savedFoodSpots), currentPage: page, totalPages, message: "Fetched saved food spots successfully" };
     }
 }

@@ -94,12 +94,15 @@ export class RecipeService implements IRecipeService {
     async unSaveRecipe(id: string, recipeId: string): Promise<void> {
         await this._saveRepository.unSaveRecipe(id, recipeId);
     }
-    async getSavedRecipes(id: string): Promise<{ data: IRecipeDto[], message: string }> {
-        const result = await this._saveRepository.getSavedRecipes(id);
-        if (!result) throw new AppError(RECIPE_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND)
+    async getSavedRecipes(id: string, page: number, limit: number): Promise<{ data: IRecipeDto[], currentPage: number, totalPages: number, message: string }> {
+        const skip = (page - 1) * limit;
+        const result = await this._saveRepository.getSavedRecipes(id, skip, limit);
+        if (!result || !result.datas) throw new AppError(RECIPE_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND)
 
-        const savedRecipes = (result as any).savedRecipes || [];
-        return { data: allRecipesMapper(savedRecipes), message: RECIPE_MESSAGES.FETCHED }
+        const savedRecipes = (result.datas as any).savedRecipes || [];
+        const totalPages = Math.ceil(result.totalCount / limit);
+
+        return { data: allRecipesMapper(savedRecipes), currentPage: page, totalPages, message: RECIPE_MESSAGES.FETCHED }
     }
 
     async getRecentRecipes(limit: number): Promise<{ data: IRecipeDto[]; }> {

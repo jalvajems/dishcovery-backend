@@ -10,4 +10,6 @@ export interface IBlogService {
     getAllblogs(page: number, limit: number, search: string, filter?: string): Promise<{ datas: IBlogDto[], totalCount: number }>;
     getRelatedBlogs(tag: string): Promise<{ datas: IBlogDto[] }>
     getRecentBlogs(limit: number): Promise<{ data: IBlogDto[] }>;
+    toggleSaveBlog(id: string, blogId: string): Promise<{ message: string, isSaved: boolean }>;
+    getSavedBlogs(id: string, page: number, limit: number): Promise<{ data: IBlogDto[], currentPage: number, totalPages: number, message: string }>;
 }

@@ -17,6 +17,7 @@ export interface IUser {
     isBlocked: boolean;
     savedRecipes: (string | Types.ObjectId)[];
     savedBlogs: (string | Types.ObjectId)[];
+    savedFoodSpots: (string | Types.ObjectId)[];
     createdAt?: Date;
     updatedAt?: Date;
 }
