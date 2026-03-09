@@ -9,7 +9,7 @@ export function reviewMapper(review: IReviewDocument): IReviewDto {
         mappedUserId = {
             _id: (obj.userId as any)._id.toString(),
             name: (obj.userId as any).name || "User",
-            avatar: (obj.userId as any).profilePicture || ""
+            foodieProfile: (obj.userId as any).foodieProfile || ""
         };
     }
 

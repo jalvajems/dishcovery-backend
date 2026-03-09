@@ -1,42 +1,53 @@
 import { IWorkshopResponseDTO } from "../../dtos/workshop.dtos";
 import { IWorkshopDocument } from "../../types/workshop.types";
 
-export function workshopMapper(workshop:IWorkshopDocument):IWorkshopResponseDTO{
-    const obj=workshop.toObject()
-     return {
-      _id: obj._id,
+export function workshopMapper(workshop: IWorkshopDocument): IWorkshopResponseDTO {
+  const obj = workshop.toObject ? workshop.toObject() : workshop;
 
-      title: obj.title,
-      banner:obj.banner,
-      description: obj.description,
-      category: obj.category,
-      tags: obj.tags || [],
+  const parseReference = <T>(ref: unknown): string | Partial<T> => {
+    if (!ref) return '';
+    if (typeof ref === 'object' && ref !== null && !(ref instanceof String)) {
+      if ('_id' in ref) return ref as Partial<T>;
+      const strRef = String(ref);
+      if (strRef !== '[object Object]') return strRef;
+    }
+    return String(ref);
+  };
 
-      chefId: obj.chefId.toString(),
+  return {
+    _id: obj._id,
 
-      date: obj.date,
-      startTime: obj.startTime,
-      duration: obj.duration,
-      participantLimit: obj.participantLimit,
-      participantsCount: obj.participantsCount,
+    title: obj.title,
+    banner: obj.banner,
+    description: obj.description,
+    category: obj.category,
+    tags: obj.tags || [],
 
-      mode: obj.mode,
-      isFree: obj.isFree,
-      price: obj.price,
+    chefId: parseReference<any>(obj.chefId) as any,
 
-      location: obj.location
-        ? {
-            venueName: obj.location.venueName,
-            address: obj.location.address,
-            city: obj.location.city,
-          }
-        : undefined,
+    date: obj.date,
+    startTime: obj.startTime,
+    duration: obj.duration,
+    participantLimit: obj.participantLimit,
+    participantsCount: obj.participantsCount,
 
-      isLive: obj.isLive,
-      status: obj.status,
+    mode: obj.mode,
+    isFree: obj.isFree,
+    price: obj.price,
 
-      createdAt: obj.createdAt,
-      updatedAt: obj.updatedAt
-    };
-  
+    location: obj.location
+      ? {
+        venueName: obj.location.venueName,
+        address: obj.location.address,
+        city: obj.location.city,
+      }
+      : undefined,
+
+    isLive: obj.isLive,
+    status: obj.status,
+
+    createdAt: obj.createdAt,
+    updatedAt: obj.updatedAt
+  };
+
 }

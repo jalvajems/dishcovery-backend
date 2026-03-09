@@ -4,12 +4,12 @@ export interface IWorkshopResponseDTO {
   _id: string;
 
   title: string;
-  banner:string;
+  banner: string;
   description: string;
   category: string;
   tags: string[];
 
-  chefId: string;
+  chefId: string | any;
 
   date: Date;
   startTime: string;

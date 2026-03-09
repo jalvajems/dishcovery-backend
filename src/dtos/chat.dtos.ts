@@ -36,7 +36,7 @@ export interface IGetConversationsResponse {
 }
 
 export interface IMessageDto {
-    id: string;
+    _id: string;
     conversationId: string;
     senderId: string;
     senderRole: string;

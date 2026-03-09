@@ -37,5 +37,13 @@ const userSchema = new Schema<IUserDocument>(
     },
     { timestamps: true }
 );
+userSchema.set("toObject",{virtuals:true})
+userSchema.set("toJSON",{virtuals:true})
 
+userSchema.virtual("foodieProfile", {
+  ref: "Foodie",
+  localField: "_id",
+  foreignField: "userId",
+  justOne: true
+});
 export const UserModel = model<IUserDocument>('User', userSchema);

@@ -43,6 +43,7 @@ export class ReviewService implements IReviewService {
     }
     async getReviews(reviewableId: string, reviewableType: string): Promise<{ data: IReviewDto[]; }> {
         const result = await this._reviewRepository.findReview(reviewableId, reviewableType)
+        console.log('----',result?.[0].userId)
         return { data: allReviewsMapper(result) };
     }
     async toggleLike(reviewId: string, userId: string): Promise<IReviewDto> {

@@ -4,9 +4,9 @@ import { IMessage } from "../../models/message.model";
 export function messageMapper(message: IMessage): IMessageDto {
     const obj = message.toObject ? message.toObject() : message;
     return {
-        id: (obj._id || obj.id).toString(),
+        _id: (obj._id || obj.id).toString(),
         conversationId: obj.conversationId.toString(),
-        senderId: obj.senderId.toString(),
+        senderId: obj.senderId?._id ? obj.senderId._id.toString() : obj.senderId.toString(),
         senderRole: obj.senderRole,
         content: obj.content,
         fileUrl: obj.fileUrl,

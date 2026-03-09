@@ -11,6 +11,13 @@ export class ReviewRepositry extends BaseRepository<IReviewDocument> implements 
         return await ReviewModel.find({
             reviewableId: new Types.ObjectId(reviewableId),
             reviewableType,
-        }).populate("userId", "name profilePicture");
+        }).populate({
+            path:"userId",
+            select:"name",
+            populate:{
+                path:"foodieProfile",
+                select:"image"
+            }
+        });
     }
 }

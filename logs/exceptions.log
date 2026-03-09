@@ -138105,3 +138105,191 @@ src/routes/foodie.routes.ts(64,7): error TS1128: Declaration or statement expect
     at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
     at Module.load (node:internal/modules/cjs/loader:1318:32)
     at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:07:27] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/implementation/review.repository.ts(14,39): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\review.repository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:10:22] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/repostories/implementation/review.repository.ts(16,9): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\repostories\implementation\review.repository.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:14:23] [31merror[39m: ReferenceError: user is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\users.model.ts:40:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:14:24] [31merror[39m: TypeError: Cannot read properties of undefined (reading 'virtual')
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\users.model.ts:42:12)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:14:55] [31merror[39m: ReferenceError: vi is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\users.model.ts:40:28)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:14:56] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/models/users.model.ts(40,37): error TS1109: Expression expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\users.model.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:14:58] [31merror[39m: ReferenceError: t is not defined
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\models\users.model.ts:40:37)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:19:07] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/review.service.ts(47,16): error TS1005: ';' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\review.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:20:45] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/review.service.ts(46,35): error TS1003: Identifier expected.
+src/services/implementation/review.service.ts(46,36): error TS1011: An element access expression should take an argument.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\review.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:20:48] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/review.service.ts(46,35): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\review.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:20:53] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/review.service.ts(46,40): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\review.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:21:03] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/review.service.ts(46,40): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\review.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:21:07] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/review.service.ts(46,40): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\review.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:21:11] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/review.service.ts(46,47): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\review.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-07 11:24:54] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/review.service.ts(46,48): error TS1003: Identifier expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\review.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-3204201150709589.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
