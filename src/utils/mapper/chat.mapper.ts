@@ -12,8 +12,8 @@ export function messageMapper(message: IMessage): IMessageDto {
         fileUrl: obj.fileUrl,
         messageType: obj.messageType,
         status: obj.status,
-        readBy: obj.readBy?.map((id: any) => id.toString()) || [],
-        deletedFor: obj.deletedFor?.map((id: any) => id.toString()) || [],
+        readBy: (obj.readBy as unknown[])?.map((id: unknown) => typeof id === 'object' && id !== null && 'toString' in id ? id.toString() : String(id)) || [],
+        deletedFor: (obj.deletedFor as unknown[])?.map((id: unknown) => typeof id === 'object' && id !== null && 'toString' in id ? id.toString() : String(id)) || [],
         isDeletedForEveryone: obj.isDeletedForEveryone,
         createdAt: obj.createdAt,
         updatedAt: obj.updatedAt

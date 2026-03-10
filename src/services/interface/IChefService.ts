@@ -1,4 +1,5 @@
 import { IUserDto } from "../../dtos/user.dtos";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IUser } from "../../types/user.types";
 import { IReviewDocument } from "../../models/review.model";
 import { IChefProfileDto } from "../../dtos/chef.dtos";

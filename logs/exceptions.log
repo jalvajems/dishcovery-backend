@@ -138293,3 +138293,50 @@ src/services/implementation/review.service.ts(46,48): error TS1003: Identifier e
     at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
     at Module.load (node:internal/modules/cjs/loader:1318:32)
     at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-10 20:07:53] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/auth.service.ts(251,35): error TS1110: Type expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-976961910797389.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-976961910797389.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-976961910797389.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-10 20:09:36] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/auth.service.ts(252,34): error TS1110: Type expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\auth.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-976961910797389.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-976961910797389.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-976961910797389.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-10 20:30:00] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/utils/mapper/walletTransaction.mapper.ts(17,7): error TS1136: Property assignment expected.
+src/utils/mapper/walletTransaction.mapper.ts(17,18): error TS1005: ',' expected.
+src/utils/mapper/walletTransaction.mapper.ts(17,23): error TS1005: ',' expected.
+src/utils/mapper/walletTransaction.mapper.ts(21,7): error TS1136: Property assignment expected.
+src/utils/mapper/walletTransaction.mapper.ts(21,18): error TS1005: ',' expected.
+src/utils/mapper/walletTransaction.mapper.ts(21,23): error TS1005: ',' expected.
+src/utils/mapper/walletTransaction.mapper.ts(23,7): error TS1136: Property assignment expected.
+src/utils/mapper/walletTransaction.mapper.ts(23,18): error TS1005: ',' expected.
+src/utils/mapper/walletTransaction.mapper.ts(23,23): error TS1005: ',' expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\utils\mapper\walletTransaction.mapper.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-976961910797389.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-976961910797389.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-976961910797389.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)

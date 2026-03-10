@@ -4,6 +4,7 @@ import { IWorkshopSessionService } from '../interface/IWorkshopSessionService';
 import { IWorkshopSessionRepository } from '../../repostories/interface/IWorkshopSessionRepository';
 import { IWorkshopRepository } from '../../repostories/interface/IWorkshopRepository';
 import { IBookingRepository } from '../../repostories/interface/IBookingRepository';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IWorkshopSessionDocument, SessionEvent } from '../../types/workshopSession.types';
 import { WorkshopStatus, WorkshopMode } from '../../types/workshop.types';
 import { BookingStatus } from '../../types/booking.types';
