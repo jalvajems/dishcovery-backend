@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IFollowDocument } from "../../models/follow.model";
 import { IFollower, IFollowing } from "../../types/follow.types";
 import { IFoodieDto } from "../../dtos/foodie.dtos";

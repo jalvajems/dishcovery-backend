@@ -5,6 +5,7 @@ import { IChefRepository } from "../../repostories/interface/IChefRepository";
 import { AppError } from "../../utils/AppError";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { IUserRepository } from "../../repostories/interface/IUserRepository";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IUser } from "../../types/user.types";
 import { IUserDto } from "../../dtos/user.dtos";
 import { userMapper } from "../../utils/mapper/user.mapper";

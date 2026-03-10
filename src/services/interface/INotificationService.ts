@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { INotification } from "../../models/notification.model";
 import { Role } from "../../types/user.types";
 import { INotificationDto } from "../../dtos/notification.dtos";

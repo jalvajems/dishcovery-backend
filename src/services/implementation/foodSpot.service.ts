@@ -84,7 +84,7 @@ export class FoodSpotService implements IFoodSpotService {
         const result = await this._saveRepository.getSavedFoodSpots(id, skip, limit);
         if (!result || !result.datas) throw new AppError('spots are not found', STATUS_CODE.NOT_FOUND);
 
-        const savedFoodSpots = (result.datas as any).savedFoodSpots || [];
+        const savedFoodSpots = ((result.datas as unknown as Record<string, unknown>).savedFoodSpots as never[]) || [];
         const totalPages = Math.ceil(result.totalCount / limit) || 1;
 
         return { data: allFoodSpotsMapper(savedFoodSpots), currentPage: page, totalPages, message: "Fetched saved food spots successfully" };

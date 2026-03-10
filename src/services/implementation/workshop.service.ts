@@ -3,6 +3,7 @@ import { Types } from 'mongoose';
 import TYPES from '../../DI/types';
 import { IWorkshopRepository } from '../../repostories/interface/IWorkshopRepository';
 import { IWorkshopService } from '../interface/IWorkshopService';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IWorkshopDocument, WorkshopStatus, WorkshopMode } from '../../types/workshop.types';
 import { AppError } from '../../utils/AppError';
 import { STATUS_CODE } from '../../constants/StatusCode';
@@ -10,6 +11,7 @@ import { IWorkshopSessionService } from '../interface/IWorkshopSessionService';
 import { ICreateWorkshopDto, IUpdateWorkshopDto, IWorkshopResponseDTO } from '../../dtos/workshop.dtos';
 import { IWorkshopSessionResponseDTO } from '../../dtos/session.dtos';
 import { workshopMapper } from '../../utils/mapper/workshop.mapper';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { WorkshopSessionMapper } from '../../utils/mapper/session.mapper';
 import { IBookingService } from '../interface/IBookingService';
 

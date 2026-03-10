@@ -4,25 +4,25 @@ import { IReviewDocument } from "../../models/review.model";
 export function reviewMapper(review: IReviewDocument): IReviewDto {
     const obj = review.toObject ? review.toObject() : review;
 
-    let mappedUserId: any = obj.userId?.toString();
+    let mappedUserId: unknown = obj.userId?.toString();
     if (typeof obj.userId === 'object' && obj.userId !== null && '_id' in obj.userId) {
         mappedUserId = {
-            _id: (obj.userId as any)._id.toString(),
-            name: (obj.userId as any).name || "User",
-            foodieProfile: (obj.userId as any).foodieProfile || ""
+            _id: String((obj.userId as Record<string, unknown>)._id),
+            name: String((obj.userId as Record<string, unknown>).name || "User"),
+            foodieProfile: (obj.userId as Record<string, unknown>).foodieProfile || ""
         };
     }
 
     return {
         id: (obj._id || obj.id).toString(),
         _id: (obj._id || obj.id).toString(),
-        userId: mappedUserId,
+        userId: mappedUserId as never,
         reviewableId: obj.reviewableId?.toString(),
         reviewableType: obj.reviewableType,
         rating: obj.rating,
         reviewText: obj.reviewText,
-        likes: obj.likes?.map((id: any) => id.toString()) || [],
-        dislikes: obj.dislikes?.map((id: any) => id.toString()) || [],
+        likes: (obj.likes as unknown[])?.map((id: unknown) => String(id)) || [],
+        dislikes: (obj.dislikes as unknown[])?.map((id: unknown) => String(id)) || [],
         createdAt: obj.createdAt,
         updatedAt: obj.updatedAt
     };

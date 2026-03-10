@@ -1,5 +1,6 @@
 import { IWorkshopSessionResponseDTO } from '../../dtos/session.dtos';
 import { ICreateWorkshopDto, IUpdateWorkshopDto, IWorkshopResponseDTO } from '../../dtos/workshop.dtos';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IWorkshopDocument } from '../../types/workshop.types';
 
 export interface IWorkshopService {

@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IBookingDocument } from '../../types/booking.types';
 import { IBookingDto } from '../../dtos/booking.dtos';
 

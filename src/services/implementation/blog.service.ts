@@ -86,7 +86,7 @@ export class BlogService implements IBlogService {
         const result = await this._saveRepository.getSavedBlogs(id, skip, limit);
         if (!result || !result.datas) throw new AppError(BLOG_MESSAGES.BLOG_NOT_FOUND, STATUS_CODE.NOT_FOUND);
 
-        const savedBlogs = (result.datas as any).savedBlogs || [];
+        const savedBlogs = ((result.datas as unknown as Record<string, unknown>).savedBlogs as never[]) || [];
         const totalPages = Math.ceil(result.totalCount / limit) || 1;
 
         return { data: allBlogsMapper(savedBlogs), currentPage: page, totalPages, message: BLOG_MESSAGES.FETCH_SUCCESS };

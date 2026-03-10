@@ -1,4 +1,5 @@
 import { inject, injectable } from "inversify";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IFollowDocument } from "../../models/follow.model";
 import { IFollowRepository } from "../../repostories/interface/IFollowRepository";
 import { IFollowService } from "../interface/IFollowService";

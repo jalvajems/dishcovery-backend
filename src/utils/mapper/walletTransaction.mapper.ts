@@ -14,46 +14,46 @@ export function walletTransactionMapper(
   return {
     _id: obj._id.toString(),
 
-    userId: obj.userId
+    userId: (obj.userId
       ? typeof obj.userId === "object" && "_id" in obj.userId
         ? {
-          _id: (obj.userId as unknown as IUser & { _id: Types.ObjectId })._id.toString(),
-          name: (obj.userId as unknown as IUser).name
+          _id: String((obj.userId as unknown as IUser & { _id: Types.ObjectId })._id),
+          name: String((obj.userId as unknown as IUser).name)
         }
-        : obj.userId.toString()
-      : null,
+        : String(obj.userId)
+      : undefined) as never,
 
     role: obj.role,
 
-    bookingId: obj.bookingId
+    bookingId: (obj.bookingId
       ? typeof obj.bookingId === "object" && "_id" in obj.bookingId
         ? {
-          _id: (obj.bookingId as unknown as IBooking & { _id: Types.ObjectId })._id.toString(),
-          foodieId: typeof (obj.bookingId as unknown as IBooking).foodieId === "object" && "_id" in ((obj.bookingId as unknown as IBooking).foodieId as any)
+          _id: String((obj.bookingId as unknown as IBooking & { _id: Types.ObjectId })._id),
+          foodieId: typeof (obj.bookingId as unknown as IBooking).foodieId === "object" && "_id" in ((obj.bookingId as unknown as IBooking).foodieId as unknown as Record<string, unknown>)
             ? {
-              _id: ((obj.bookingId as unknown as IBooking).foodieId as any)._id.toString(),
-              name: ((obj.bookingId as unknown as IBooking).foodieId as any).name,
-              email: ((obj.bookingId as unknown as IBooking).foodieId as any).email
+              _id: String(((obj.bookingId as unknown as IBooking).foodieId as unknown as Record<string, unknown>)._id),
+              name: String(((obj.bookingId as unknown as IBooking).foodieId as unknown as Record<string, unknown>).name),
+              email: String(((obj.bookingId as unknown as IBooking).foodieId as unknown as Record<string, unknown>).email)
             }
-            : (obj.bookingId as unknown as IBooking).foodieId.toString()
+            : String((obj.bookingId as unknown as IBooking).foodieId)
         }
-        : obj.bookingId.toString()
-      : null as any,
+        : String(obj.bookingId)
+      : undefined) as never,
 
-    workshopId: obj.workshopId
+    workshopId: (obj.workshopId
       ? typeof obj.workshopId === "object" && "_id" in obj.workshopId
         ? {
-          _id: (obj.workshopId as unknown as IWorkshop & { _id: Types.ObjectId })._id.toString(),
-          title: (obj.workshopId as unknown as IWorkshop).title,
-          chefId: typeof (obj.workshopId as unknown as IWorkshop).chefId === "object" && "_id" in ((obj.workshopId as unknown as IWorkshop).chefId as any)
+          _id: String((obj.workshopId as unknown as IWorkshop & { _id: Types.ObjectId })._id),
+          title: String((obj.workshopId as unknown as IWorkshop).title),
+          chefId: typeof (obj.workshopId as unknown as IWorkshop).chefId === "object" && "_id" in ((obj.workshopId as unknown as IWorkshop).chefId as unknown as Record<string, unknown>)
             ? {
-              _id: ((obj.workshopId as unknown as IWorkshop).chefId as any)._id.toString(),
-              name: ((obj.workshopId as unknown as IWorkshop).chefId as any).name
+              _id: String(((obj.workshopId as unknown as IWorkshop).chefId as unknown as Record<string, unknown>)._id),
+              name: String(((obj.workshopId as unknown as IWorkshop).chefId as unknown as Record<string, unknown>).name)
             }
-            : (obj.workshopId as unknown as IWorkshop).chefId.toString()
+            : String((obj.workshopId as unknown as IWorkshop).chefId)
         }
-        : obj.workshopId.toString()
-      : null as any,
+        : String(obj.workshopId)
+      : undefined) as never,
 
     amount: obj.amount,
     currency: obj.currency,

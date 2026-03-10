@@ -16,6 +16,7 @@ import { MESSAGES } from '../../constants/Message';
 import { generatTokens, TokenPayload } from '../../utils/jwt';
 import { userMapper } from '../../utils/mapper/user.mapper';
 import { IUserDto } from '../../dtos/user.dtos';
+import { Role } from '../../types/user.types';
 import { env } from '../../config/env.config';
 import { IRefreshtokenRepository } from '../../repostories/interface/IRefreshtokenRepository';
 import { redisClient } from '../../config/redis.config';
@@ -247,7 +248,7 @@ export class AuthService implements IAuthService {
                     name: name || "Google User",
                     googleId,
                     profilePicture: picture,
-                    role: role as any,
+                    role: role as Role,
                     isVerified: true,
                 });
             } else if (!user.googleId) {

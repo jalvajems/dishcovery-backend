@@ -99,7 +99,7 @@ export class RecipeService implements IRecipeService {
         const result = await this._saveRepository.getSavedRecipes(id, skip, limit);
         if (!result || !result.datas) throw new AppError(RECIPE_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND)
 
-        const savedRecipes = (result.datas as any).savedRecipes || [];
+        const savedRecipes = ((result.datas as unknown as Record<string, unknown>).savedRecipes as never[]) || [];
         const totalPages = Math.ceil(result.totalCount / limit);
 
         return { data: allRecipesMapper(savedRecipes), currentPage: page, totalPages, message: RECIPE_MESSAGES.FETCHED }
