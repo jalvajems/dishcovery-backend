@@ -8,5 +8,6 @@ export interface IBaseRepository<T extends Document> {
     updateById(id: string | mongoose.Types.ObjectId, update: UpdateQuery<T>): Promise<T | null>;
     deleteById(id: string | mongoose.Types.ObjectId): Promise<void|null>;
     deleteByFilter(filter: FilterQuery<T>): Promise<mongoose.DeleteResult>;
+    countDocument(filter:object):Promise<number>;
 
 }

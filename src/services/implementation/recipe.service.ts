@@ -28,6 +28,9 @@ export class RecipeService implements IRecipeService{
     }
     async editRecipe(id: string, newDate: IRecipe): Promise<{ data: IRecipeDto; message: string; }> {
         try {
+            console.log('recidata',newDate);
+            console.log('recidata',id);
+            
             const updatedData= await this._recipeRepository.updateById(id,newDate)
              log.info('new recipe data updated!')
              if(!updatedData)throw new AppError('error in updated recipe',STATUS_CODE.INTERNAL_SERVER_ERROR);
@@ -37,10 +40,17 @@ export class RecipeService implements IRecipeService{
             throw error;   
         }
     }
-    async getAllRecipes(chefId: string): Promise<{ data: IRecipeDto[]; message: string; }> {
+    async getAllRecipes(chefId: string,page:number,limit:number): Promise<{ data: IRecipeDto[];currentPage:number; totalPages:number; message: string; }> {
         try {
-            const recipes=await this._recipeRepository.findAll({chefId})
-            return {data:allRecipesMapper(recipes),message:'all recipes got successfully!!'}
+            const skip=(page-1)*limit;
+            const recipes=await this._recipeRepository.findRecipesById(chefId,skip,limit)
+            const totalCount=await this._recipeRepository.countDocument({chefId:chefId})
+            const total=Math.ceil(totalCount/limit)
+            console.log('RECIPES:::',recipes)
+            return {data:allRecipesMapper(recipes),
+                currentPage:page,
+                totalPages:total,
+                message:'all recipes got successfully!!'}
         } catch (error) {
             throw error   
         }
@@ -52,6 +62,14 @@ export class RecipeService implements IRecipeService{
             return {data:recipeMapper(recipeData),message:'recipe data send'}
         } catch (error) {
             throw error
+        }
+    }
+    async deleteRecipe(id: string): Promise<{ message: string; }> {
+        try {
+            await this._recipeRepository.deleteById(id);
+            return {message:'Recipe deleted successfully!'};
+        } catch (error) {
+            throw error;
         }
     }
 

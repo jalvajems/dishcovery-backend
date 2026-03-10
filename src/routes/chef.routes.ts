@@ -15,5 +15,6 @@ router.get('/dashboard', verifyAccess, chefController.getChefDashboard.bind(chef
       
 router.post('/recipe-add', recipeController.addRecipe.bind(recipeController))
 router.put('/recipe-edit', recipeController.editRecipe.bind(recipeController))
+router.delete('/recipe-delete/:id',recipeController.deletRecipe.bind(recipeController))
 
 export default router

@@ -5,4 +5,5 @@ export interface IRecipeController {
     editRecipe(req:Request,res:Response,next:NextFunction):Promise<void>;
     getAllRecipes(req:Request,res:Response,next:NextFunction):Promise<void>;
     getRecipeDetail(req:Request,res:Response,next:NextFunction):Promise<void>;
+    deletRecipe(req:Request,res:Response,next:NextFunction):Promise<void>;
 }
