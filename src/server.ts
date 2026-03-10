@@ -5,6 +5,12 @@ import app from './app'
 import { redisClient } from "./config/redis.config";
 
 
+import { createServer } from "http";
+import { socketService } from "./services/implementation/socket.service";
+import container from "./DI/inversify.config";
+import TYPES from "./DI/types";
+import { ICronService } from "./services/interface/ICronService";
+
 (async () => {
     try {
 
@@ -13,9 +19,17 @@ import { redisClient } from "./config/redis.config";
 
         const port = env.PORT;
 
-        app.listen(port, () => {
-            log.info(`Server running on port ${port} in ${env.NODE_ENV} node`)
-        })
+        const httpServer = createServer(app);
+
+        socketService.init(httpServer);
+
+        const cronService = container.get<ICronService>(TYPES.ICronService);
+        cronService.init();
+
+        httpServer.listen(port, () => {
+            log.info(`Server running on port ${port} in ${env.NODE_ENV} node`);
+        });
+
     } catch (error) {
         log.error("Server starting failed:", error)
         process.exit(1)
@@ -23,3 +37,4 @@ import { redisClient } from "./config/redis.config";
 
 
 })();
+// Trigger restart

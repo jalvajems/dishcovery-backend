@@ -1,4 +1,4 @@
-import mongoose, { Document, FilterQuery, Model, Types, UpdateQuery } from "mongoose";
+import mongoose, { Document, FilterQuery, Model, UpdateQuery } from "mongoose";
 import { IBaseRepository } from "../interface/IBaseRepository";
 
 
@@ -11,6 +11,7 @@ export class BaseRepository <T extends Document> implements IBaseRepository<T>{
     }
     
     async create(data: Partial<T>): Promise<T> {
+      
         return await this.model.create(data)
     }
     async findAll(filter: FilterQuery<T>): Promise<T[]> {
@@ -36,6 +37,4 @@ export class BaseRepository <T extends Document> implements IBaseRepository<T>{
   async countDocument(filter: object): Promise<number> {
     return await this.model.countDocuments(filter);
   }
-
-
 }

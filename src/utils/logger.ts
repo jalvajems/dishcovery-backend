@@ -50,8 +50,8 @@ export const logger = createLogger({
 });
 
 export const log = {
-  info: (msg: string, ...meta: any[]) => logger.info(msg, ...meta),
-  warn: (msg: string, ...meta: any[]) => logger.warn(msg, ...meta),
-  error: (msg: string, ...meta: any[]) => logger.error(msg, ...meta),
-  debug: (msg: string, ...meta: any[]) => logger.debug(msg, ...meta),
+  info: (msg: string, ...meta: unknown[]) => logger.info(msg, ...meta),
+  warn: (msg: string, ...meta: unknown[]) => logger.warn(msg, ...meta),
+  error: (msg: string, ...meta: unknown[]) => logger.error(msg, ...meta),
+  debug: (msg: string, ...meta: unknown[]) => logger.debug(msg, ...meta),
 };

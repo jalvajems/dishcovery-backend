@@ -1,5 +1,8 @@
 export interface IRecipeDto{
-    chefId:string;
+    chefId:{
+        id:string,
+        name:string
+    };
     _id:string;
     title:string;
     cuisine:string;
@@ -11,4 +14,5 @@ export interface IRecipeDto{
     images:object;
     isDraft:boolean;
     isBlock:boolean;
+    createdAt?:Date;
 }

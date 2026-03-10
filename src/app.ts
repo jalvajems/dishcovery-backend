@@ -9,12 +9,22 @@ import authRouter from './routes/auth.routes'
 import adminRouter from './routes/admin.routes'
 import foodieRouter from './routes/foodie.routes'
 import chefRouter from './routes/chef.routes'
+import fileRouter from './routes/file.routes'
+import workshopRouter from './routes/workshop.routes'
+import bookingRouter, { webhookRouter } from './routes/booking.routes'
+import sessionRouter from './routes/session.routes'
+import followRouter from './routes/follow.routes'
+import chatRouter from './routes/chat.routes'
+import aiRouter from './routes/ai.routes'
+
 
 import { requestLogger } from './middlewares/requestLogger'
 import { errorHandler } from './middlewares/errorHandler'
 import { STATUS_CODE } from './constants/StatusCode'
 
 const app = express();
+
+app.use('/api/bookings', webhookRouter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -27,10 +37,20 @@ app.use(cors({
 app.use(requestLogger);
 
 
+import notificationRouter from './routes/notification.routes'
+
 app.use("/api/auth", authRouter)
 app.use("/api/admin", adminRouter)
 app.use("/api/foodie", foodieRouter)
 app.use("/api/chef", chefRouter)
+app.use("/api/file", fileRouter)
+app.use("/api/workshop", workshopRouter)
+app.use("/api/bookings", bookingRouter)
+app.use("/api/sessions", sessionRouter)
+app.use("/api/follow", followRouter)
+app.use("/api/notifications", notificationRouter)
+app.use("/api/chat", chatRouter)
+app.use("/api/ai", aiRouter)
 
 app.get("/check", (req, res) => {
     res.status(STATUS_CODE.SUCCESS).json({

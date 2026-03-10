@@ -3,5 +3,6 @@ export interface IPaginationDto {
   limit: number;
   search: string;
   isBlocked?: string; 
-  isVerified?:string
+  isVerified?:string;
+  isApproved?:string;
 }

@@ -1,11 +1,15 @@
-import { Schema, model } from "mongoose";
+import { Document, Schema, model } from "mongoose";
+import { IBlog } from "../types/blog.types";
+
+export interface IBlogDocument extends IBlog,Document{}
 
 const blogSchema = new Schema(
   {
     chefId: {
       type: Schema.Types.ObjectId,
-      ref: "Chef",
+      ref: "User",
       required: true,
+      index:true
     },
 
     title: {
@@ -40,22 +44,41 @@ const blogSchema = new Schema(
     isDraft: {
       type: Boolean,
       default: true,
+      index:true,
+    },
+    isBlocked: {
+      type: Boolean,
+      default: false,
+      index:true,
     },
 
     status: {
       type: String,
       enum: ["active", "blocked"],
       default: "active",
+      index:true
     },
 
-    // Optional SEO fields if needed later
+    
     slug: {
       type: String,
       unique: true,
       sparse: true,
+      index:true,
     },
+    likes: {
+      type: Number,
+      default: 0,
+    },
+
+    views: {
+      type: Number,
+      default: 0,
+    },
+
   },
   { timestamps: true }
 );
 
-export default model("Blog", blogSchema);
+
+export const BlogModel= model<IBlogDocument>("Blog", blogSchema);
