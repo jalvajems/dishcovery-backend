@@ -1,0 +1,102 @@
+import { Schema, model } from 'mongoose';
+import { IWorkshopDocument, WorkshopStatus, WorkshopMode } from '../types/workshop.types';
+
+const workshopSchema = new Schema<IWorkshopDocument>(
+    {
+        title: {
+            type: String,
+            required: true,
+            trim: true,
+            minlength: 5
+        },
+        description: {
+            type: String,
+            required: true,
+            minlength: 20
+        },
+        category: {
+            type: String,
+            required: true
+        },
+        banner: {
+            type: String
+        },
+        tags: [{
+            type: String
+        }],
+        chefId: {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
+        },
+
+
+        date: {
+            type: Date,
+            required: true
+        },
+        startTime: {
+            type: String,
+            required: true
+        },
+        duration: {
+            type: Number,
+            required: true,
+            min: 1
+        },
+        participantLimit: {
+            type: Number,
+            required: true,
+            min: 1
+        },
+
+
+        mode: {
+            type: String,
+            enum: Object.values(WorkshopMode),
+            required: true
+        },
+        isFree: {
+            type: Boolean,
+            required: true,
+            default: true
+        },
+        price: {
+            type: Number,
+            required: true,
+            default: 0
+        },
+
+
+        location: {
+            venueName: { type: String },
+            address: { type: String },
+            city: { type: String },
+            latitude: { type: Number },
+            longitude: { type: Number },
+        },
+
+        sessionRoomId: { type: String },
+        hostId: { type: Schema.Types.ObjectId, ref: 'User' },
+        isLive: { type: Boolean, default: false },
+
+        status: {
+            type: String,
+            enum: Object.values(WorkshopStatus),
+            default: WorkshopStatus.DRAFT
+        },
+        approvedAt: { type: Date },
+        approvedBy: { type: Schema.Types.ObjectId, ref: 'User' },
+        rejectionReason: { type: String },
+        cancellationReason: { type: String },
+        participantsCount: { type: Number, default: 0 }
+    },
+    {
+        timestamps: true
+    }
+);
+
+workshopSchema.index({ status: 1, date: 1 });
+workshopSchema.index({ chefId: 1 });
+
+export const WorkshopModel = model<IWorkshopDocument>('Workshop', workshopSchema);
