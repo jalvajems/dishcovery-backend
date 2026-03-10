@@ -8,7 +8,8 @@ export interface ICreateReviewDto {
 export interface IReviewDto {
     id?: string;
     _id?: string;
-    userId: string | { _id: string; name: string; avatar?: string;[key: string]: any };
+     
+    userId: string | { _id: string; name: string; avatar?: string;[key: string]: unknown };
     reviewableId: string;
     reviewableType: 'Recipe' | 'Blog' | 'Workshop' | 'FoodSpot' | 'Chef';
     rating: number;

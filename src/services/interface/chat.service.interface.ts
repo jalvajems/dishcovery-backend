@@ -1,4 +1,5 @@
 import { IPopulatedConversation, IConversationDto, IMessageDto } from "../../dtos/chat.dtos";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IMessage } from "../../models/message.model";
 import { Role } from "../../types/user.types";
 

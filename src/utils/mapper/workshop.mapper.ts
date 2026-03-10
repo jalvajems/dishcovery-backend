@@ -23,7 +23,7 @@ export function workshopMapper(workshop: IWorkshopDocument): IWorkshopResponseDT
     category: obj.category,
     tags: obj.tags || [],
 
-    chefId: parseReference<any>(obj.chefId) as any,
+    chefId: parseReference<unknown>(obj.chefId) as unknown as IWorkshopResponseDTO['chefId'],
 
     date: obj.date,
     startTime: obj.startTime,

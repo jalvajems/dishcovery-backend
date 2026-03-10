@@ -9,7 +9,8 @@ export interface IWorkshopResponseDTO {
   category: string;
   tags: string[];
 
-  chefId: string | any;
+   
+  chefId: string | unknown;
 
   date: Date;
   startTime: string;

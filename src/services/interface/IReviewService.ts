@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IReviewDocument } from "../../models/review.model";
 import { ICreateReviewDto, IReviewDto } from "../../dtos/review.dtos";
 
