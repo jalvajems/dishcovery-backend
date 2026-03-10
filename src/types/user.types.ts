@@ -8,7 +8,8 @@ export interface IUser{
     email: string;
     password: string;
     role: Role;
-    isVarified: boolean;
+    isVerified: boolean;
+    isBlocked:boolean;
     createdAt?: Date;
     updatedAt?: Date;
 }

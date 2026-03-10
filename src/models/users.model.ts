@@ -9,9 +9,10 @@ const userSchema= new Schema<IUserDocument>(
         email:{type:String, required:true, unique:true, lowercase:true},
         password:{type:String, required:true},
         role:{type:String,enum: Object.values(Role), default:Role.USER},
-        isVarified:{type:Boolean, default:false},
+        isVerified:{type:Boolean, default:false},
+        isBlocked:{type:Boolean,default:false}
     },
     {timestamps:true}
 );
 
-export const User= model<IUserDocument>('User',userSchema);
+export const UserModel= model<IUserDocument>('User',userSchema);
