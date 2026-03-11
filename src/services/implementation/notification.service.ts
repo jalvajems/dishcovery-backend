@@ -61,7 +61,7 @@ export class NotificationService implements INotificationService {
         await this._notificationRepository.markAllAsRead(recipientId);
     }
 
-    async deleteAll(recipientId: string): Promise<void> {
-        await this._notificationRepository.deleteAll(recipientId);
+    async deleteAll(recipientId: string, filter?: string): Promise<void> {
+        await this._notificationRepository.deleteAll(recipientId, filter);
     }
 }
