@@ -59,9 +59,9 @@ export class RecipeController implements IRecipeController {
             const page = Number(req.query.page) || 1;
             const limit = Number(req.query.limit) || 5;
             const search = String(req.query.search) || "";
-            const filter = String(req.query.filter) || "";
+            const category = String(req.query.filter) || "" ;
 
-            const result = await this._recipeService.getAllRecipes(page, limit, search, filter)
+            const result = await this._recipeService.getAllRecipes(page, limit, search, category)
             res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.datas, currentPage: result.currentPage, total: result.totalPage })
         } catch (error) {
             next(error)
