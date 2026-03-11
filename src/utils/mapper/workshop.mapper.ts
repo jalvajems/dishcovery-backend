@@ -30,6 +30,7 @@ export function workshopMapper(workshop: IWorkshopDocument): IWorkshopResponseDT
     duration: obj.duration,
     participantLimit: obj.participantLimit,
     participantsCount: obj.participantsCount,
+    rejectionReason:obj.rejectionReason,
 
     mode: obj.mode,
     isFree: obj.isFree,

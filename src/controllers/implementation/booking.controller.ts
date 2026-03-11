@@ -64,6 +64,7 @@ export class BookingController implements IBookingController {
             const foodieId = req.user?.id;
             const { id: bookingId } = req.params;
             if (!foodieId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
+console.log('reach1');
 
             await this._bookingService.cancelBooking(bookingId, foodieId);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message: BOOKING_MESSAGES.CANCELLED });
