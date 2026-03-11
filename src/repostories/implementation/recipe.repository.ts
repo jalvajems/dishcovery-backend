@@ -43,7 +43,9 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
         console.log('recipes in repo', recipes);
 
         const totalCount = await RecipeModel.countDocuments(query);
+        console.log('recipes in repo3', recipes);
 
+        return { datas: recipes, totalCount };
     }
 
     async findAllByPagination(search: string, skip: number, limit: number, from: string, filter?: Record<string, unknown>): Promise<{ datas: IRecipeDocument[], totalCount: number }> {

@@ -55,7 +55,7 @@ export class RecipeService implements IRecipeService {
             message: 'all recipes got successfully!!'
         }
     }
-    async getAllRecipes(page: number, limit: number, search: string, filter?: string): Promise<{ datas: IRecipeDto[]; currentPage: number; totalPage: number; }> {
+    async getAllRecipes(page: number, limit: number, search: string, filter?: Record<string, unknown>): Promise<{ datas: IRecipeDto[]; currentPage: number; totalPage: number; }> {
         const skip = (page - 1) * limit
         const result = await this._recipeRepository.findAllByPagination(search, skip, limit, Role.FOODIE, filter)
         const total = Math.ceil(result.totalCount / limit)
