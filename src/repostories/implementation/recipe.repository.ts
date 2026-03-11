@@ -67,7 +67,7 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
             const totalCount = await RecipeModel.countDocuments(query)
             return { datas: recipes, totalCount: totalCount }
         } else if (from == 'foodie') {
-            const query: FilterQuery<IRecipeDocument> = {
+            let query: FilterQuery<IRecipeDocument> = {
                 isBlock: false
             };
             if (search) {
@@ -77,8 +77,10 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
                     { tags: new RegExp(search, "i") }
                 ];
             }
+            console.log('[[[[[',filter);
+            
             if (filter) {
-                query.cuisine = filter;
+                query = filter;
             }
 
             const recipes = await RecipeModel.find(query).sort({ createdAt: -1 }).populate("chefId", "name ").skip(skip).limit(limit);
