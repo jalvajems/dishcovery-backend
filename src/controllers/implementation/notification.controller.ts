@@ -57,7 +57,7 @@ export class NotificationController implements INotificationController {
             if (!userId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
 
             await this._notificationService.markAllAsRead(userId);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, message:NOTIFICATION_MESSAGES.ALL_MARK_AS_READ });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: NOTIFICATION_MESSAGES.ALL_MARK_AS_READ });
         } catch (error) {
             next(error);
         }
@@ -68,8 +68,10 @@ export class NotificationController implements INotificationController {
             const userId = req.user?.id;
             if (!userId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
 
-            await this._notificationService.deleteAll(userId);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, message:NOTIFICATION_MESSAGES.ALL_DELETED  });
+            const filter = req.query.filter as string | undefined;
+
+            await this._notificationService.deleteAll(userId, filter);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: NOTIFICATION_MESSAGES.ALL_DELETED });
         } catch (error) {
             next(error);
         }

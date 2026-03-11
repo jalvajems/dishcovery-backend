@@ -75,6 +75,7 @@ export class WorkshopService implements IWorkshopService {
                 return match;
             });
             console.log('getWorkshopById service - found myBooking:', myBooking ? myBooking.id : 'null');
+console.log('workshop----',workshop);
 
             const isBooked = !!myBooking;
             const dto = workshopMapper(workshop);

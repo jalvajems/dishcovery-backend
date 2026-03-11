@@ -12,7 +12,7 @@ export class WorkshopRepository extends BaseRepository<IWorkshopDocument> implem
     }
 
     async findWithChef(id: string): Promise<IWorkshopDocument | null> {
-        console.log('eeeeeee',id)
+        console.log('eeeeeee', id)
         return await this.model.findById(id).populate('chefId', 'name email');
     }
 

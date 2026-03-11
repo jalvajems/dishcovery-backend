@@ -17,6 +17,7 @@ export interface IWorkshopResponseDTO {
   duration: number;
   participantLimit: number;
   participantsCount: number;
+  rejectionReason:string;
 
   mode: WorkshopMode;
   isFree: boolean;
