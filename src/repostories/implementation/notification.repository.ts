@@ -48,7 +48,15 @@ export class NotificationRepository implements INotificationRepository {
         ).exec();
     }
 
-    async deleteAll(recipientId: string): Promise<void> {
-        await NotificationModel.deleteMany({ recipientId }).exec();
+    async deleteAll(recipientId: string, filter: string = 'all'): Promise<void> {
+        const query: FilterQuery<INotification> = { recipientId };
+
+        if (filter === 'unread') {
+            query.isRead = false;
+        } else if (filter === 'read') {
+            query.isRead = true;
+        }
+
+        await NotificationModel.deleteMany(query).exec();
     }
 }

@@ -6,5 +6,5 @@ export interface INotificationRepository {
     markAsRead(notificationId: string): Promise<INotification | null>;
     countUnread(recipientId: string): Promise<number>;
     markAllAsRead(recipientId: string): Promise<void>;
-    deleteAll(recipientId: string): Promise<void>;
+    deleteAll(recipientId: string, filter?: string): Promise<void>;
 }
