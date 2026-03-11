@@ -49,7 +49,7 @@ export class NotificationRepository implements INotificationRepository {
     }
 
     async deleteAll(recipientId: string, filter: string = 'all'): Promise<void> {
-        let query: any = { recipientId };
+        const query: FilterQuery<INotification> = { recipientId };
 
         if (filter === 'unread') {
             query.isRead = false;
