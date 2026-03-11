@@ -48,9 +48,9 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
         return { datas: recipes, totalCount };
     }
 
-    async findAllByPagination(search: string, skip: number, limit: number, from: string, filter?: string): Promise<{ datas: IRecipeDocument[], totalCount: number }> {
+    async findAllByPagination(search: string, skip: number, limit: number, from: string, filter?: Record<string, unknown>): Promise<{ datas: IRecipeDocument[], totalCount: number }> {
         if (from == 'admin') {
-            const query: FilterQuery<IRecipeDocument> = {};
+            let query: FilterQuery<IRecipeDocument> = {};
             if (search) {
                 query.$or = [
                     { title: new RegExp(search, "i") },
@@ -59,14 +59,15 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
                 ];
             }
             if (filter) {
-                query.cuisine = filter;
+                query = filter;
             }
+            
             const recipes = await RecipeModel.find(query).sort({ createdAt: -1 }).populate("chefId", "name ").skip(skip).limit(limit);
 
             const totalCount = await RecipeModel.countDocuments(query)
             return { datas: recipes, totalCount: totalCount }
         } else if (from == 'foodie') {
-            const query: FilterQuery<IRecipeDocument> = {
+            let query: FilterQuery<IRecipeDocument> = {
                 isBlock: false
             };
             if (search) {
@@ -76,8 +77,10 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
                     { tags: new RegExp(search, "i") }
                 ];
             }
+            console.log('[[[[[',filter);
+            
             if (filter) {
-                query.cuisine = filter;
+                query = filter;
             }
 
             const recipes = await RecipeModel.find(query).sort({ createdAt: -1 }).populate("chefId", "name ").skip(skip).limit(limit);

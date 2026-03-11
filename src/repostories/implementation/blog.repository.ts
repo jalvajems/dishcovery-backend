@@ -31,7 +31,7 @@ export class BlogRepository extends BaseRepository<IBlogDocument> implements IBl
         const totalCount = await BlogModel.countDocuments({ chefId: chefId })
         return { datas: blogs, totalCount: totalCount }
     }
-    async getAllBlogs(search: string, skip: number, limit: number, from: string, filter?: string): Promise<{ datas: IBlogDocument[] | null, totalCount: number }> {
+    async getAllBlogs(search: string, skip: number, limit: number, from: string, filter?: string, isBlocked?: boolean): Promise<{ datas: IBlogDocument[] | null, totalCount: number }> {
         if (from == 'admin') {
             const query: FilterQuery<IBlogDocument> = {}
             if (search) {
@@ -42,6 +42,9 @@ export class BlogRepository extends BaseRepository<IBlogDocument> implements IBl
             }
             if (filter) {
                 query.tags = { $in: [new RegExp(filter, "i")] };
+            }
+            if (isBlocked !== undefined) {
+                query.isBlocked = isBlocked;
             }
             const blogs = await BlogModel.find(query).sort({ createdAt: -1 }).skip(skip).limit(limit).populate("chefId", "name")
             const totalCount = await BlogModel.countDocuments(query);
