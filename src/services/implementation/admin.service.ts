@@ -75,11 +75,11 @@ export class AdminService implements IAdminService {
                 { email: { $regex: search, $options: "i" } },
             ]
         }
-        if (isBlocked === "true") filter.isBlocked = true;
-        if (isBlocked === "false") filter.isBlocked = false;
+        if (isBlocked === "blocked") filter.isBlocked = true;
+        if (isBlocked === "active") filter.isBlocked = false;
 
-        if (isVerified === "true") filter.isVerified = true;
-        if (isVerified === "false") filter.isVerified = false;
+        if (isVerified === "verified") filter.isVerified = true;
+        if (isVerified === "unverified") filter.isVerified = false;
         const users = await this._userRepository.findByRole(filter, skip, limit)
         const totalCount = await this._userRepository.countDocuments(filter)
         return {
@@ -117,15 +117,17 @@ export class AdminService implements IAdminService {
         const filter: Record<string, unknown> = {}
         if (search) {
             filter.$or = [
-                { title: { $regex: search, $option: "i" } }
+                { title: { $regex: search, $options: "i" } }
             ]
         }
-        if (isBlocked === "true") filter.isBlocked = true;
-        if (isBlocked === "false") filter.isBlocked = false;
-
+        console.log('~~~~',isBlocked)
+        if (isBlocked === "blocked") filter.isBlock = true;
+        if (isBlocked === "active") filter.isBlock = false;
+        
+        console.log('~~~~',filter)
         const skip = (page - 1) * limit;
 
-        const recipes = await this._recipeRepository.findAllByPagination(search || "", skip, limit, Role.ADMIN)
+        const recipes = await this._recipeRepository.findAllByPagination(search || "", skip, limit, Role.ADMIN,filter)
         const totalCount = await this._recipeRepository.countDocument(filter)
         console.log('recipes=========', recipes.datas);
 
@@ -150,15 +152,16 @@ export class AdminService implements IAdminService {
         const filter: Record<string, unknown> = {}
         if (search) {
             filter.$or = [
-                { title: { $regex: search, $option: "i" } }
+                { title: { $regex: search, $options: "i" } }
             ]
         }
-        if (isBlocked === "true") filter.isBlocked = true;
-        if (isBlocked === "false") filter.isBlocked = false;
+
+        if (isBlocked === "blocked") filter.isBlocked = true;
+        if (isBlocked === "active") filter.isBlocked = false;
 
         const skip = (page - 1) * limit;
 
-        const blogs = await this._blogRepository.getAllBlogs(search, skip, limit, Role.ADMIN)
+        const blogs = await this._blogRepository.getAllBlogs(search, skip, limit, Role.ADMIN, undefined, filter.isBlocked as boolean | undefined)
         if (!blogs.datas) throw new AppError('blog data not found', STATUS_CODE.NOT_FOUND)
         const total = Math.ceil(blogs.totalCount / limit)
         return {
