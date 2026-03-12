@@ -138640,3 +138640,63 @@ src/utils/mapper/workshop.mapper.ts(35,5): error TS1005: ',' expected.
     at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
     at Module.load (node:internal/modules/cjs/loader:1318:32)
     at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-12 11:35:03] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/interface/IRecipeService.ts(6,63): error TS1131: Property or signature expected.
+src/services/interface/IRecipeService.ts(6,72): error TS1005: '>' expected.
+src/services/interface/IRecipeService.ts(6,82): error TS1109: Expression expected.
+src/services/interface/IRecipeService.ts(6,83): error TS1109: Expression expected.
+src/services/interface/IRecipeService.ts(7,29): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(7,43): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(7,58): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(7,74): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(7,83): error TS1005: ';' expected.
+src/services/interface/IRecipeService.ts(8,29): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(8,45): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(8,54): error TS1005: ';' expected.
+src/services/interface/IRecipeService.ts(9,26): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(9,35): error TS1005: ';' expected.
+src/services/interface/IRecipeService.ts(10,30): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(10,39): error TS1005: ';' expected.
+src/services/interface/IRecipeService.ts(11,23): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(11,38): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(11,54): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(11,73): error TS1109: Expression expected.
+src/services/interface/IRecipeService.ts(11,81): error TS1005: ';' expected.
+src/services/interface/IRecipeService.ts(12,24): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(12,42): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(12,51): error TS1005: ';' expected.
+src/services/interface/IRecipeService.ts(13,20): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(13,38): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(13,47): error TS1005: ';' expected.
+src/services/interface/IRecipeService.ts(14,23): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(14,37): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(14,52): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(14,61): error TS1005: ';' expected.
+src/services/interface/IRecipeService.ts(15,27): error TS1005: ',' expected.
+src/services/interface/IRecipeService.ts(15,36): error TS1005: ';' expected.
+src/services/interface/IRecipeService.ts(16,1): error TS1128: Declaration or statement expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\interface\IRecipeService.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-1978890888967284.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-1978890888967284.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-1978890888967284.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-12 11:35:20] [31merror[39m: Error: ⨯ Unable to compile TypeScript:
+src/services/implementation/recipe.service.ts(39,18): error TS1136: Property assignment expected.
+src/services/implementation/recipe.service.ts(39,19): error TS1136: Property assignment expected.
+
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\services\implementation\recipe.service.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-1978890888967284.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-1978890888967284.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-1978890888967284.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)

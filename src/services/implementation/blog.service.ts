@@ -24,10 +24,10 @@ export class BlogService implements IBlogService {
         const result = await this._blogRepositoy.create(data);
         return { data: blogMapper(result), message: BLOG_MESSAGES.CREATED }
     }
-    async updateBlog(blogId: string, data: Partial<IBlog>): Promise<{ data: IBlogDto; message: string; }> {
+    async updateBlog(blogId: string, data: Partial<IBlog>): Promise<{  message: string; }> {
         const result = await this._blogRepositoy.updateById(blogId, data);
         if (!result) throw new AppError('updated blog data is empty', STATUS_CODE.NOT_FOUND);
-        return { data: blogMapper(result), message: BLOG_MESSAGES.UPDATED }
+        return {  message: BLOG_MESSAGES.UPDATED }
     }
     async getBlog(blogId: string): Promise<{ data: IBlogDto; message: string; }> {
         const result = await this._blogRepositoy.getBlogById(blogId);
