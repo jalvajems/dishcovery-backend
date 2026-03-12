@@ -28,7 +28,7 @@ export class RecipeService implements IRecipeService {
         log.info('recipe created');
         return { message: RECIPE_MESSAGES.CREATED }
     }
-    async editRecipe(recipeId: string, newDate: IRecipe): Promise<{ data: IRecipeDto; message: string; }> {
+    async editRecipe(recipeId: string, newDate: IRecipe): Promise<{  message: string; }> {
         console.log('recidata', newDate);
         console.log('recidata', recipeId);
 
@@ -36,7 +36,7 @@ export class RecipeService implements IRecipeService {
         log.info('new recipe data updated!')
         if (!updatedData) throw new AppError('error in updated recipe', STATUS_CODE.INTERNAL_SERVER_ERROR);
 
-        return { data: recipeMapper(updatedData), message: RECIPE_MESSAGES.UPDATED }
+        return {  message: RECIPE_MESSAGES.UPDATED }
     }
     async getAllRecipesChef(chefId: string, page: number, limit: number, search: string): Promise<{ data: IRecipeDto[]; currentPage: number; totalPages: number; message: string; }> {
         const skip = (page - 1) * limit;
@@ -67,7 +67,6 @@ export class RecipeService implements IRecipeService {
 
         return { datas: allRecipesMapper(result.datas), currentPage: page, totalPage: total }
     }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async getRecipeDetail(recipeId: string, userId: string): Promise<{ data: IRecipeDto; message: string; }> {
         const recipeData = await this._recipeRepository.findByIdandPopulate(recipeId)
         if (!recipeData) throw new AppError(RECIPE_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND)
