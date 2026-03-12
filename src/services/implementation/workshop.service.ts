@@ -29,7 +29,7 @@ export class WorkshopService implements IWorkshopService {
 
     // Create a new workshop
 
-    async createWorkshop(chefId: string, data: ICreateWorkshopDto): Promise<IWorkshopResponseDTO> {
+    async createWorkshop(chefId: string, data: ICreateWorkshopDto): Promise<IWorkshopResponseDTO>{
         const workshopData = {
             ...data,
             date: new Date(data.date),
@@ -40,7 +40,7 @@ export class WorkshopService implements IWorkshopService {
         return workshopMapper(result);
     }
 
-    async updateWorkshop(workshopId: string, chefId: string, data: IUpdateWorkshopDto): Promise<IWorkshopResponseDTO> {
+    async updateWorkshop(workshopId: string, chefId: string, data: IUpdateWorkshopDto): Promise<void> {
         const workshop = await this._workshopRepository.findById(workshopId);
         if (!workshop) {
             throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
@@ -56,7 +56,7 @@ export class WorkshopService implements IWorkshopService {
 
         const updated = await this._workshopRepository.updateById(workshopId, data);
         if (!updated) throw new AppError('Failed to update workshop', STATUS_CODE.INTERNAL_SERVER_ERROR);
-        return workshopMapper(updated);
+        return ;
     }
 
     async getWorkshopById(id: string, userId?: string): Promise<IWorkshopResponseDTO | null> {

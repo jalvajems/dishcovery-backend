@@ -28,7 +28,7 @@ export class BlogController implements IBlogController {
             const blogId = req.params.id;
             const newData = req.body;
             const result = await this._blogService.updateBlog(blogId, newData)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, message: result.message });
+            res.status(STATUS_CODE.SUCCESS).json({ success: true,  message: result.message });
         } catch (error) {
             next(error)
         }

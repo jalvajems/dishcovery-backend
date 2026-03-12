@@ -34,7 +34,7 @@ export class RecipeController implements IRecipeController {
             console.log('data', recipeData);
 
             const result = await this._recipeService.editRecipe(recipeId, recipeData)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, message: result.message })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true,  message: result.message })
         } catch (error) {
             next(error);
         }

@@ -3,7 +3,7 @@ import { IRecipe } from "../../types/recipe.types";
 
 export interface IRecipeService {
     createRecipe(recipeData: IRecipe): Promise<{ message: string }>;
-    editRecipe(recipeId: string, newDate: IRecipe): Promise<{ data: IRecipeDto, message: string }>;
+    editRecipe(recipeId: string, newDate: IRecipe): Promise<{  message: string }>;
     getAllRecipesChef(chefId: string, page: number, limit: number, search: string): Promise<{ data: IRecipeDto[], currentPage: number; totalPages: number; message: string }>;
     getRecipeDetail(recipeId: string, userId: string): Promise<{ data: IRecipeDto, message: string }>
     deleteRecipe(recipeId: string): Promise<{ message: string }>;

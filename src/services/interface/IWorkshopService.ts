@@ -5,7 +5,7 @@ import { IWorkshopDocument } from '../../types/workshop.types';
 
 export interface IWorkshopService {
     createWorkshop(chefId: string, data: ICreateWorkshopDto): Promise<IWorkshopResponseDTO>;
-    updateWorkshop(workshopId: string, chefId: string, data: IUpdateWorkshopDto): Promise<IWorkshopResponseDTO>;
+    updateWorkshop(workshopId: string, chefId: string, data: IUpdateWorkshopDto): Promise<void>;
     getWorkshopById(id: string, userId?: string): Promise<IWorkshopResponseDTO | null>;
     getChefWorkshops(chefId: string): Promise<IWorkshopResponseDTO[]>;
     getAllWorkshopsForAdmin(): Promise<IWorkshopResponseDTO[]>;
