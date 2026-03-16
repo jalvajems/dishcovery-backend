@@ -74,7 +74,7 @@ export class FoodieController implements IFoodieController {
             const userId = req.user?.id;
             if (!userId) throw new AppError("user not authorized", STATUS_CODE.UNAUTHORIZED)
             const result = await this._foodieService.updateProfile(userId, req.body);
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result, message: FOODIE_MESSAGES.PROFILE_UPDATED })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: FOODIE_MESSAGES.PROFILE_UPDATED })
         } catch (error) {
             next(error);
         }

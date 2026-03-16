@@ -1,0 +1,5 @@
+node_modules
+dist
+.env
+eslint_report.json
+logs
