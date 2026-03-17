@@ -14,7 +14,7 @@ export class AdminController implements IAdminController {
     async getAllFoodies(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const page = Number(req.query.page) || 1;
-            const limit = Number(req.query.limit) || 10;
+            const limit = Number(req.query.limit) ||                   10;
             const search = (req.query.search as string) || "";
             const isBlocked = req.query.isBlocked as string;
 
@@ -167,7 +167,7 @@ export class AdminController implements IAdminController {
         try {
             const spotId = req.params.id;
             await this._adminService.blockSpot(spotId)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, message:MESSAGES.BLOCK_UPDATED })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: MESSAGES.BLOCK_UPDATED })
         } catch (error) {
             next(error)
         }
@@ -176,7 +176,7 @@ export class AdminController implements IAdminController {
         try {
             const spotId = req.params.id;
             await this._adminService.unblockSpot(spotId)
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, message:MESSAGES.BLOCK_UPDATED })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: MESSAGES.BLOCK_UPDATED })
         } catch (error) {
             next(error)
         }
