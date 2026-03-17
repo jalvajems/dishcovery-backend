@@ -4,7 +4,7 @@ import { inject, injectable } from "inversify";
 import TYPES from "../../DI/types";
 import { IAuthService } from "../../services/interface/IAuthService";
 import { STATUS_CODE } from "../../constants/StatusCode";
-import { signupSchema, loginSchema } from "../../validations/authValidation";
+import { signupSchema, loginSchema, forgetPassSchema } from "../../validations/authValidation";
 import { env } from "../../config/env.config";
 import { MESSAGES } from "../../constants/Message";
 
@@ -53,7 +53,7 @@ export class AuthController implements IAuthController {
     async forgetPass(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
 
-            const { email } = req.body;
+            const { email } = forgetPassSchema.parse(req.body);
             await this._authService.forgetPass(email);
             res.status(STATUS_CODE.SUCCESS).json({ success: true })
 
