@@ -72,13 +72,7 @@ export class BookingService implements IBookingService {
         ];
 
         if (existingBooking && !retryableStatuses.includes(existingBooking.status)) {
-            // allow booking again if existing booking is cancelled ? No existing logic seems to prevent multiple bookings if not caught by index, 
-            // but we have unique index on workshopId + foodieId.
-            // Requirement is just "select upto 5 slots". Assuming this means per booking or total? 
-            // "if the session is offline the foodie can select upto 5 slots"
-            // If they already have a booking, we should probably block or update? 
-            // The current unique index prevents multiple documents. 
-            // We'll stick to blocking if already booked as per existing logic.
+
             throw new AppError('You have already booked this workshop', STATUS_CODE.CONFLICT);
         }
 
@@ -157,6 +151,7 @@ export class BookingService implements IBookingService {
                 status: BookingStatus.PENDING,
                 bookingType: BookingType.PAID,
                 ticketCount: ticketCount,
+                isbooking:true,
                 amount: totalAmount,
                 bookedAt: new Date()
             };

@@ -1,0 +1,45 @@
+
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - "4001:4000"
+    depends_on:
+      - mongodb
+      - redis
+    env_file:
+      - .env
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/dishcovery
+      - REDIS_URL=redis://redis:6379
+      - NODE_ENV=production
+    networks:
+      - dishcovery-network
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - dishcovery-network
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - dishcovery-network
+
+volumes:
+  mongodb_data:
+  redis_data:
+
+networks:
+  dishcovery-network:
+    name: dishcovery-network
+    driver: bridge
