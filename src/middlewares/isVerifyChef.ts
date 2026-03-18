@@ -21,7 +21,7 @@ export const isVerifyChef=async(req: Request, res: Response, next: NextFunction)
     res.status(STATUS_CODE.NOT_FOUND).json({message:CHEF_MESSAGES.NOT_VERIFIED})
     throw new AppError(
       CHEF_MESSAGES.NOT_VERIFIED,
-      STATUS_CODE.NOT_FOUND
+      STATUS_CODE.FORBIDDEN
     );
   }
 

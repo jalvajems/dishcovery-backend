@@ -20,8 +20,8 @@ const combinedRotateTransport = new DailyRotateFile({
   filename: 'logs/combined-%DATE%.log',
   datePattern: 'YYYY-MM-DD',
   zippedArchive: true,
-  maxSize: '20m',
-  maxFiles: '14d',
+  maxSize: '10m',
+  maxFiles: process.env.MAX_FILE_COMBINEDROTATETRANSPORT,
 });
 
 const errorRotateTransport = new DailyRotateFile({
@@ -29,8 +29,8 @@ const errorRotateTransport = new DailyRotateFile({
   filename: 'logs/error-%DATE%.log',
   datePattern: 'YYYY-MM-DD',
   zippedArchive: true,
-  maxSize: '20m',
-  maxFiles: '30d',
+  maxSize: '10m',
+  maxFiles: process.env.MAX_FILE_ERRORROTATETRANSPORT,
 });
 
 export const logger = createLogger({
