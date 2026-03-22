@@ -100,11 +100,15 @@ jobs:
               sudo usermod -aG docker $USER
             fi
 
+            # Start and enable Docker
+            sudo systemctl start docker
+            sudo systemctl enable docker
+
             # Create app directory
             mkdir -p /home/ubuntu/dishcovery-server
 
             # Write docker-compose.yml (always overwrite with latest)
-            cat > /home/ubuntu/dishcovery-server/docker-compose.yml << 'EOF'
+            sudo cat > /home/ubuntu/dishcovery-server/docker-compose.yml << 'EOF'
             services:
               server:
                 image: ${{ secrets.DOCKERHUB_USERNAME }}/dishcovery-server:latest
@@ -155,12 +159,17 @@ jobs:
 
             cd /home/ubuntu/dishcovery-server
 
+            # Create a dummy .env if it doesn't exist (to prevent compose failure)
+            if [ ! -f .env ]; then
+              echo "# Add your environment variables here" > .env
+            fi
+
             # Pull latest image and restart
-            docker compose pull server
-            docker compose up -d --remove-orphans
+            sudo docker compose pull server
+            sudo docker compose up -d --remove-orphans
 
             # Clean up old unused images
-            docker image prune -f
+            sudo docker image prune -f
 
             echo "✅ Deployment complete!"
-            docker compose ps
+            sudo docker compose ps
