@@ -120,7 +120,8 @@ export class AuthService implements IAuthService {
             sendMail(email, 'Dishcovery: otp for reset password', otp);
             return
 
-        } catch {
+        } catch (error) {
+            if (error instanceof AppError) throw error;
             throw Error(MESSAGES.USER.NOT_FOUND)
         }
     }
