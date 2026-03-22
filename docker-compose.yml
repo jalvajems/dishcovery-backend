@@ -1,8 +1,8 @@
 
 services:
   server:
-    build:
-      context: .
+    # Image built & pushed by CD pipeline - pulled from Docker Hub on deploy
+    image: ${DOCKERHUB_USERNAME}/dishcovery-server:latest
     ports:
       - "4001:4000"
     depends_on:
@@ -14,6 +14,7 @@ services:
       - MONGO_URI=mongodb://mongodb:27017/dishcovery
       - REDIS_URL=redis://redis:6379
       - NODE_ENV=production
+    restart: always
     networks:
       - dishcovery-network
 
@@ -23,6 +24,7 @@ services:
       - "27018:27017"
     volumes:
       - mongodb_data:/data/db
+    restart: always
     networks:
       - dishcovery-network
 
@@ -32,6 +34,7 @@ services:
       - "6380:6379"
     volumes:
       - redis_data:/data
+    restart: always
     networks:
       - dishcovery-network
 
