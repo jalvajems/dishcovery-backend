@@ -3,7 +3,6 @@ name: Server CD Pipeline
 on:
   push:
     branches: [main, dev]
-
 jobs:
   ci:
     name: Server CI
