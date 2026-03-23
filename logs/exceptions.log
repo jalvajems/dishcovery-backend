@@ -138739,3 +138739,9 @@ src/middlewares/isVerifyChef.ts(25,5): error TS1003: Identifier expected.
     at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
     at Module.load (node:internal/modules/cjs/loader:1318:32)
     at Function._load (node:internal/modules/cjs/loader:1128:12)
+[2026-03-23 14:26:44] [31merror[39m: Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1907:16)
+    at listenInCluster (node:net:1964:12)
+    at Server.listen (node:net:2066:7)
+    at D:\brototype\Dishcovery\server\src\server.ts:29:20
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
