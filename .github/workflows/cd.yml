@@ -122,8 +122,6 @@ jobs:
                 env_file:
                   - .env
                 environment:
-                  - MONGO_URI=mongodb://mongodb:27017/dishcovery
-                  - REDIS_URL=redis://redis:6379
                   - NODE_ENV=production
                 restart: always
                 networks:
