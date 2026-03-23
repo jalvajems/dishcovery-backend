@@ -3,7 +3,6 @@ name: Server CD Pipeline
 on:
   push:
     branches: [main, dev]
-
 jobs:
   ci:
     name: Server CI
@@ -171,41 +170,8 @@ jobs:
             sudo docker compose pull server
             sudo docker compose up -d --remove-orphans
 
-            # --- Nginx & SSL Configuration ---
-            
-            # Write Nginx config for api subdomain
-            sudo cat > /etc/nginx/sites-available/dishcovery << 'EOF'
-            server {
-                listen 80;
-                server_name api.dishcovery.jalva.online;
-
-                location / {
-                    proxy_pass http://localhost:4001;
-                    proxy_http_version 1.1;
-                    proxy_set_header Upgrade $http_upgrade;
-                    proxy_set_header Connection 'upgrade';
-                    proxy_set_header Host $host;
-                    proxy_cache_bypass $http_upgrade;
-                }
-            }
-            EOF
-
-            # Enable the site and restart Nginx
-            sudo ln -sf /etc/nginx/sites-available/dishcovery /etc/nginx/sites-enabled/
-            sudo rm -f /etc/nginx/sites-enabled/default
-            sudo nginx -t && sudo systemctl restart nginx
-
-            # Run Certbot (only if a certificate doesn't already exist for this domain)
-            if [ ! -d "/etc/letsencrypt/live/api.dishcovery.jalva.online" ]; then
-              echo "Generating SSL certificate for api.dishcovery.jalva.online..."
-              sudo certbot --nginx -d api.dishcovery.jalva.online --non-interactive --agree-tos --email jalvajams@gmail.com
-            else
-              echo "SSL certificate already exists. Skipping generation."
-            fi
-
             # Clean up old unused images
             sudo docker image prune -f
 
-            echo "✅ Deployment and SSL configuration complete!"
+            echo "✅ Deployment complete!"
             sudo docker compose ps
-            sudo systemctl status nginx --no-pager
