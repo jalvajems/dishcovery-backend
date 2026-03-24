@@ -13,7 +13,6 @@ import { MESSAGES } from "../../constants/Message";
 export class AuthController implements IAuthController {
     constructor(@inject(TYPES.IAuthService) private _authService: IAuthService) { }
 
-
     async signup(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const userData = signupSchema.parse(req.body)
