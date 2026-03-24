@@ -19,6 +19,7 @@ RUN npm run build
 FROM node:18-alpine
 
 WORKDIR /usr/src/app
+ENV TZ=Asia/Kolkata
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
