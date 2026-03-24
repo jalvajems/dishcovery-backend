@@ -12,6 +12,14 @@ const envSchema = z.object({
     OPENROUTER_API_KEY: z.string().optional(),
     GOOGLE_CLIENT_ID: z.string().optional(),
     REDIS_URL: z.string().optional(),
+}).refine((data) => {
+    if (data.NODE_ENV === "production" && !data.GOOGLE_CLIENT_ID) {
+        return false;
+    }
+    return true;
+}, {
+    message: "GOOGLE_CLIENT_ID is required in production",
+    path: ["GOOGLE_CLIENT_ID"]
 });
 
 const parsed = envSchema.safeParse(process.env)
