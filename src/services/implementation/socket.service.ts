@@ -5,7 +5,7 @@ import { Role } from "../../types/user.types";
 
 interface IWebrtcSignalPayload {
     to: string;
-    signal: any; // Signal data from simple-peer
+    signal: any;
 }
 
 interface IChefControlPayload {
@@ -33,8 +33,8 @@ export class SocketService {
         });
 
         this.io.on("connection", (socket: Socket) => {
-            const userId = (socket.handshake.auth.token ? (socket.handshake.auth.user?.id || socket.handshake.query.userId) : null) as string | null;
-            const role = (socket.handshake.auth.user?.role || socket.handshake.query.role) as string | undefined;
+            const userId = socket.handshake.auth.token ? (socket.handshake.auth.user?.id || socket.handshake.query.userId) : null;
+            const role = socket.handshake.auth.user?.role || socket.handshake.query.role;
 
             if (!userId) {
                 log.warn(`Unknown user tried to connect: ${socket.id}`);
@@ -51,8 +51,8 @@ export class SocketService {
                 // Get all users currently in the room to send to the new joiner
                 const sockets = await this.io?.in(workshopId).fetchSockets();
                 const usersInRoom = sockets?.map(s => ({
-                    userId: (s.handshake.auth.user?.id || s.handshake.query.userId) as string,
-                    role: (s.handshake.auth.user?.role || s.handshake.query.role) as string
+                    userId: s.handshake.auth.user?.id || s.handshake.query.userId,
+                    role: s.handshake.auth.user?.role || s.handshake.query.role
                 })).filter(u => u.userId !== userId) || [];
 
                 log.info(`Sending ${usersInRoom.length} existing users to joiner ${userId}`);
@@ -60,9 +60,9 @@ export class SocketService {
 
                 // Notify others in the room
                 socket.to(workshopId).emit("participant-joined", {
-                    userId: userId as string,
+                    userId,
                     socketId: socket.id,
-                    role: role as string
+                    role
                 });
             });
 
