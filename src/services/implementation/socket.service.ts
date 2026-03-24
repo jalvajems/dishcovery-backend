@@ -1,6 +1,6 @@
 import { Server as SocketIOServer, Socket } from "socket.io";
 import { Server as HttpServer } from "http";
-import log from "../../utils/logger";
+import { log } from "../../utils/logger";
 import { Role } from "../../types/user.types";
 
 interface IWebrtcSignalPayload {
@@ -44,14 +44,25 @@ export class SocketService {
             this.userSocketMap.set(userId as string, socket.id);
             log.info(`User connected: ${userId} (Socket: ${socket.id}, Role: ${role})`);
 
-            socket.on("join-session", (workshopId: string) => {
+            socket.on("join-session", async (workshopId: string) => {
                 socket.join(workshopId);
                 log.info(`User ${userId} joined workshop session: ${workshopId}`);
                 
+                // Get all users currently in the room to send to the new joiner
+                const sockets = await this.io?.in(workshopId).fetchSockets();
+                const usersInRoom = sockets?.map(s => ({
+                    userId: s.handshake.auth.user?.id || s.handshake.query.userId,
+                    role: s.handshake.auth.user?.role || s.handshake.query.role
+                })).filter(u => u.userId !== userId) || [];
+
+                log.info(`Sending ${usersInRoom.length} existing users to joiner ${userId}`);
+                socket.emit("all-users", usersInRoom);
+
                 // Notify others in the room
                 socket.to(workshopId).emit("participant-joined", {
                     userId,
-                    socketId: socket.id
+                    socketId: socket.id,
+                    role
                 });
             });
 
@@ -84,8 +95,12 @@ export class SocketService {
                     }
                     this.io?.to(data.workshopId).emit("participant-removed", { userId: data.targetId });
                 } else if (data.action === 'end') {
+                    log.info(`Chef ${userId} is ending session: ${data.workshopId}`);
                     this.io?.to(data.workshopId).emit("session-ended");
-                    this.io?.in(data.workshopId).socketsLeave(data.workshopId);
+                    // Delay leaving to ensure broadcast reaches everyone
+                    setTimeout(() => {
+                        this.io?.in(data.workshopId).socketsLeave(data.workshopId);
+                    }, 1000);
                 }
             });
 
