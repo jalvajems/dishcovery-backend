@@ -222,12 +222,19 @@ console.log('workshop----',workshop);
         const [hours, minutes] = workshop.startTime.split(':').map(Number);
         workshopDate.setHours(hours, minutes, 0, 0);
 
-        if (new Date() < workshopDate) {
+        const now = new Date();
+        const bufferTime = 10 * 60 * 1000; // 10 minutes buffer for early start
+        const earliestStartTime = new Date(workshopDate.getTime() - bufferTime);
+
+        console.log(`[Workshop Session Start] Current Time: ${now.toISOString()}, Scheduled Time: ${workshopDate.toISOString()}, Earliest Start (with buffer): ${earliestStartTime.toISOString()}`);
+
+        if (now < earliestStartTime) {
             throw new AppError('Workshop cannot be started before scheduled time', STATUS_CODE.BAD_REQUEST);
         }
 
         const oneHourAfterStart = new Date(workshopDate.getTime() + 60 * 60 * 1000);
-        if (new Date() > oneHourAfterStart) {
+        if (now > oneHourAfterStart) {
+            console.log(`[Workshop Session Start] Session Expired. Now: ${now.toISOString()}, Expiry (1hr after): ${oneHourAfterStart.toISOString()}`);
             throw new AppError('Workshop session has expired and cannot be started', STATUS_CODE.BAD_REQUEST);
         }
 

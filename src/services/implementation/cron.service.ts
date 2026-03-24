@@ -50,11 +50,13 @@ export class CronService implements ICronService {
 
                 if (workshop.mode === WorkshopMode.ONLINE) {
                     const oneHourAfterStart = new Date(workshopDate.getTime() + 60 * 60 * 1000);
+                    logger.info(`[Cron Expiry Check] Workshop ${workshop._id} (ONLINE). Now: ${now.toISOString()}, Expiry (1hr after): ${oneHourAfterStart.toISOString()}`);
                     if (now > oneHourAfterStart) {
                         isExpired = true;
                     }
                 } else if (workshop.mode === WorkshopMode.OFFLINE) {
                     const oneDayAfterStart = new Date(workshopDate.getTime() + 24 * 60 * 60 * 1000);
+                    logger.info(`[Cron Expiry Check] Workshop ${workshop._id} (OFFLINE). Now: ${now.toISOString()}, Expiry (24hrs after): ${oneDayAfterStart.toISOString()}`);
                     if (now > oneDayAfterStart) {
                         isExpired = true;
                     }
