@@ -21,7 +21,7 @@ import { ICronService } from "./services/interface/ICronService";
 
         const httpServer = createServer(app);
 
-        socketService.init(httpServer);
+        socketService.initialize(httpServer);
 
         const cronService = container.get<ICronService>(TYPES.ICronService);
         cronService.init();
