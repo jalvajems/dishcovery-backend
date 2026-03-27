@@ -39,9 +39,27 @@ services:
     networks:
       - dishcovery-network
 
+  vault:
+    image: hashicorp/vault:latest
+    container_name: dishcovery-vault
+    ports:
+      - "8200:8200"
+    environment:
+      - VAULT_KMS_TYPE=none
+    volumes:
+      - vault_data:/vault/file
+      - ./vault/config:/vault/local-config
+    command: server -config=/vault/local-config/vault.hcl
+    cap_add:
+      - IPC_LOCK
+    restart: always
+    networks:
+      - dishcovery-network
+
 volumes:
   mongodb_data:
   redis_data:
+  vault_data:
 
 networks:
   dishcovery-network:
