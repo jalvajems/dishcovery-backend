@@ -13,4 +13,5 @@ export interface IRecipeController {
     getSavedRecipes(req: Request, res: Response, next: NextFunction): Promise<void>;
     getRecipesByChef(req: Request, res: Response, next: NextFunction): Promise<void>;
     getRecentRecipes(req: Request, res: Response, next: NextFunction): Promise<void>;
+    getRecommendedRecipes(req: Request, res: Response, next: NextFunction): Promise<void>;
 }

@@ -8,7 +8,10 @@ export interface IFoodie {
         coordinates: [number, number]; // [longitude, latitude]
     };
     address: string;
-    preferences: string[];
+    preferences: {
+        recipeCategory: string[];
+        blogTags: string[];
+    };
     bio: string;
     image: string;
     status: string;

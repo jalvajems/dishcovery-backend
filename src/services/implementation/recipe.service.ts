@@ -3,6 +3,7 @@ import { IRecipe } from "../../types/recipe.types";
 import { IRecipeService } from "../interface/IRecipeService";
 import TYPES from "../../DI/types";
 import { IRecipeRepository } from "../../repostories/interface/IRecipeRepository";
+import { IFoodieRepository } from "../../repostories/interface/IFoodieRepository";
 import { log } from "../../utils/logger";
 import { IRecipeDto } from "../../dtos/recipe.dtos";
 import { recipeMapper } from "../../utils/mapper/recipe.mapper";
@@ -18,6 +19,7 @@ export class RecipeService implements IRecipeService {
     constructor(
         @inject(TYPES.IRecipeRepository) private _recipeRepository: IRecipeRepository,
         @inject(TYPES.ISaveRepository) private _saveRepository: ISaveRepository,
+        @inject(TYPES.IFoodieRepository) private _foodieRepository: IFoodieRepository,
     ) { }
 
 
@@ -112,5 +114,21 @@ export class RecipeService implements IRecipeService {
     async getRecentRecipes(limit: number): Promise<{ data: IRecipeDto[]; }> {
         const result = await this._recipeRepository.findRecent(limit);
         return { data: allRecipesMapper(result) }
+    }
+
+    async getRecommendedRecipes(userId: string): Promise<{ datas: IRecipeDto[]; message: string; }> {
+        const profile = await this._foodieRepository.getByUserId(userId);
+        if (!profile || !profile.preferences || !profile.preferences.recipeCategory || profile.preferences.recipeCategory.length === 0) {
+            // If no preferences, return recent recipes as fallback
+            const recent = await this._recipeRepository.findRecent(5);
+            return { datas: allRecipesMapper(recent), message: "Showing recent recipes as no preferences set." }
+        }
+
+        const categories = profile.preferences.recipeCategory;
+        const result = await this._recipeRepository.findAllByPagination("", 0, 10, Role.FOODIE, {
+            cuisine: { $in: categories.map(c => new RegExp(c, "i")) }
+        });
+
+        return { datas: allRecipesMapper(result.datas), message: RECIPE_MESSAGES.FETCHED }
     }
 }

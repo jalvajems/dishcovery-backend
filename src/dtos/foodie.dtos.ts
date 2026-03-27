@@ -15,7 +15,10 @@ export interface IFoodieDto {
         coordinates: [number, number];
     };
     address: string;
-    preferences: string[];
+    preferences: {
+        recipeCategory: string[];
+        blogTags: string[];
+    };
     bio: string;
     image: string;
     status: string;
@@ -30,7 +33,10 @@ export interface IFoodieProfileDto {
         coordinates: [number, number];
     };
     address?: string;
-    preferences?: string[];
+    preferences?: {
+        recipeCategory: string[];
+        blogTags: string[];
+    };
     bio?: string;
     image?: string;
 }

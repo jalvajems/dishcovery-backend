@@ -12,8 +12,9 @@ export const createFoodieProfileSchema = z.object({
   }),
   address: z.string().min(2, "Address is required"),
 
-  preferences: z.array(z.string(), {
-    error: "Preferences must be an array of strings",
+  preferences: z.object({
+    recipeCategory: z.array(z.string()).default([]),
+    blogTags: z.array(z.string()).default([])
   }).optional(),
 
   bio: z
@@ -37,8 +38,9 @@ export const updateFoodieProfileSchema = z.object({
   }),
   address: z.string().min(2, "Address is required"),
 
-  preferences: z.array(z.string(), {
-    error: "Preferences must be an array of strings",
+  preferences: z.object({
+    recipeCategory: z.array(z.string()).default([]),
+    blogTags: z.array(z.string()).default([])
   }).optional(),
   bio: z
     .string()

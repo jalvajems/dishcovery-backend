@@ -13,4 +13,5 @@ export interface IRecipeService {
     unSaveRecipe(id: string, recipeId: string): Promise<void>;
     getSavedRecipes(id: string, page: number, limit: number): Promise<{ data: IRecipeDto[], currentPage: number, totalPages: number, message: string }>;
     getRecentRecipes(limit: number): Promise<{ data: IRecipeDto[] }>;
+    getRecommendedRecipes(userId: string): Promise<{ datas: IRecipeDto[], message: string }>;
 }

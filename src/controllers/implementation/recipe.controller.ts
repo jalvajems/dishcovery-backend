@@ -175,4 +175,14 @@ export class RecipeController implements IRecipeController {
             next(error);
         }
     }
+    async getRecommendedRecipes(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const userId = req.user?.id;
+            if (!userId) throw new AppError(MESSAGES.USER.USERID_NOTFOUND, STATUS_CODE.UNAUTHORIZED);
+            const result = await this._recipeService.getRecommendedRecipes(userId);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, datas: result.datas, message: result.message });
+        } catch (error) {
+            next(error);
+        }
+    }
 }
