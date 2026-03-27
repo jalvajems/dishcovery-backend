@@ -31,13 +31,13 @@ export class FoodSpotRepository extends BaseRepository<IFoodSpotDocument> implem
         })
             .populate("foodieId", "name email ")
     }
-    async findAllFoodSpots(search: string, skip: number, limit: number, filter?: string): Promise<{ datas: IFoodSpotDocument[] | null; totalCount: number; }> {
+    async findAllFoodSpots(search: string, skip: number, limit: number, filter?: string, coordinates?: [number, number]): Promise<{ datas: IFoodSpotDocument[] | null; totalCount: number; }> {
 
         const query: FilterQuery<IFoodSpotDocument> = {
             isBlocked: false,
             isApproved: true
-
         }
+
         if (search) {
             query.$or = [
                 { name: new RegExp(search, "i") },
@@ -47,12 +47,40 @@ export class FoodSpotRepository extends BaseRepository<IFoodSpotDocument> implem
         if (filter) {
             query.tags = { $in: [new RegExp(filter, "i")] };
         }
+
+        // If coordinates are provided, use $geoNear aggregation
+        if (coordinates && coordinates.length === 2) {
+            const pipeline: any[] = [
+                {
+                    $geoNear: {
+                        near: { type: "Point", coordinates },
+                        distanceField: "distance",
+                        spherical: true,
+                        query: query
+                    }
+                },
+                { $skip: skip },
+                { $limit: limit },
+                {
+                    $lookup: {
+                        from: "users",
+                        localField: "foodieId",
+                        foreignField: "_id",
+                        as: "foodieId"
+                    }
+                },
+                { $unwind: "$foodieId" }
+            ];
+
+            const spots = await FoodSpotModel.aggregate(pipeline);
+            const totalCount = await FoodSpotModel.countDocuments(query);
+            return { datas: spots as any, totalCount };
+        }
+
+        // Default sorting by proximity to recent
         const spots = await FoodSpotModel.find(query).sort({ createdAt: -1 }).skip(skip).limit(limit).populate('foodieId', 'name')
         const totalCount = await FoodSpotModel.countDocuments(query)
         return { datas: spots, totalCount }
-
-
-
     }
     async findAllFoodSpotsAdmin(filter: object, skip: number, limit: number): Promise<{ datas: IFoodSpotDocument[] | null; totalCount: number; }> {
         const spots = await FoodSpotModel.find(filter).sort({ createdAt: -1 }).skip(skip).limit(limit).populate('foodieId', 'name')

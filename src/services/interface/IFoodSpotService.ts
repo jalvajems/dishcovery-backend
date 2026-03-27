@@ -5,7 +5,7 @@ export interface IFoodSpotService {
     getFoodSpot(id: string): Promise<{ data: IFoodSpotResDto }>
     updateFoodSpot(id: string, data: object): Promise<void>
     getNearByFoodSpot(lat: number, lng: number, distance: number): Promise<{ data: IFoodSpotResDto[] }>
-    getAllFoodSpots(page: number, limit: number, search: string, filter?: string): Promise<{ data: IFoodSpotResDto[], totalCount: number }>
+    getAllFoodSpots(page: number, limit: number, search: string, filter?: string, sortBy?: string, userId?: string): Promise<{ data: IFoodSpotResDto[], totalCount: number }>
     getAllFoodSpotsByFoodie(id: string, page: number, limit: number, search: string): Promise<{ data: IFoodSpotResDto[], totalCount: number }>
     getRecentFoodSpots(limit: number): Promise<{ data: IFoodSpotResDto[] }>;
     toggleSaveFoodSpot(id: string, foodSpotId: string): Promise<{ message: string, isSaved: boolean }>;

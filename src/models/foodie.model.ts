@@ -10,7 +10,18 @@ const foodieSchema=new Schema<IFoodieDocument>({
         unique:true,
     },
     phone:{type:String,trim:true},
-    location:{type:String,required:true},
+    location: {
+        type: {
+            type: String,
+            enum: ["Point"],
+            required: true,
+        },
+        coordinates: {
+            type: [Number],
+            required: true,
+        },
+    },
+    address: { type: String, required: true },
     preferences:{type:[String],trim:true},
     bio: {type: String,trim: true},
     image: {type: String},
@@ -18,5 +29,7 @@ const foodieSchema=new Schema<IFoodieDocument>({
   },
   { timestamps: true }
 );
+
+foodieSchema.index({ location: "2dsphere" });
 
 export const FoodieModel= model<IFoodieDocument>("Foodie",foodieSchema)

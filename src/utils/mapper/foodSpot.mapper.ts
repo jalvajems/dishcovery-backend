@@ -1,8 +1,8 @@
 import { IFoodSpotResDto } from "../../dtos/foodSpot.dtos";
 import { IFoodSpotDocument } from "../../models/foodSpot.model";
 
-export function foodSpotResponseMapper(foodSpot: IFoodSpotDocument): IFoodSpotResDto {
-  const obj = foodSpot.toObject();
+export function foodSpotResponseMapper(foodSpot: any): IFoodSpotResDto {
+  const obj = typeof foodSpot.toObject === 'function' ? foodSpot.toObject() : foodSpot;
 
   return {
     _id: obj._id.toString(),

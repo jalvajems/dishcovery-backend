@@ -8,13 +8,15 @@ import { STATUS_CODE } from "../../constants/StatusCode";
 import { foodSpotResponseMapper } from "../../utils/mapper/foodSpot.mapper";
 import { allFoodSpotsMapper } from "../../utils/mapper/allFoodSpot. mapper";
 
+import { IFoodieRepository } from "../../repostories/interface/IFoodieRepository";
 import { ISaveRepository } from "../../repostories/interface/ISaveRepository";
 
 @injectable()
 export class FoodSpotService implements IFoodSpotService {
     constructor(
         @inject(TYPES.IFoodSpotRepository) private _foodSpotRepository: IFoodSpotRepository,
-        @inject(TYPES.ISaveRepository) private _saveRepository: ISaveRepository
+        @inject(TYPES.ISaveRepository) private _saveRepository: ISaveRepository,
+        @inject(TYPES.IFoodieRepository) private _foodieRepository: IFoodieRepository
     ) { }
     async createFoodSpot(data: object): Promise<{ data: IFoodSpotResDto; }> {
 
@@ -41,9 +43,19 @@ export class FoodSpotService implements IFoodSpotService {
 
         return { data: allFoodSpotsMapper(spots) }
     }
-    async getAllFoodSpots(page: number, limit: number, search: string, filter?: string): Promise<{ data: IFoodSpotResDto[], totalCount: number }> {
+    async getAllFoodSpots(page: number, limit: number, search: string, filter?: string, sortBy?: string, userId?: string): Promise<{ data: IFoodSpotResDto[], totalCount: number }> {
         const skip = (page - 1) * limit;
-        const spots = await this._foodSpotRepository.findAllFoodSpots(search, skip, limit, filter)
+
+        let coordinates: [number, number] | undefined;
+
+        if (sortBy === 'distance' && userId) {
+            const profile = await this._foodieRepository.getByUserId(userId);
+            if (profile && profile.location?.coordinates) {
+                coordinates = profile.location.coordinates as [number, number];
+            }
+        }
+
+        const spots = await this._foodSpotRepository.findAllFoodSpots(search, skip, limit, filter, coordinates)
         console.log('00000000000', spots);
 
         if (!spots.datas) throw new AppError('spots are not found', STATUS_CODE.NOT_FOUND)
