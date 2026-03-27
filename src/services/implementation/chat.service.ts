@@ -22,8 +22,34 @@ export class ChatService implements IChatService {
         userId2: string,
         role1: Role,
         role2: Role
-    ): Promise<IPopulatedConversation> {
-        return await this.conversationRepository.findOrCreateConversation(userId1, userId2, role1, role2);
+    ): Promise<IConversationDto> {
+        const conv = await this.conversationRepository.findOrCreateConversation(userId1, userId2, role1, role2);
+
+        const participants = conv.participants as unknown as IPopulatedParticipant[];
+        // Filter out any potential nulls from deleted users
+        const validParticipants = participants.filter(p => p != null);
+        const otherParticipant = validParticipants.find(
+            (p) => p._id.toString() !== userId1
+        ) || validParticipants[0]; // fallback to first valid if not found
+
+        const otherParticipantDetails = conv.participantDetails.find(
+            (pd) => pd.userId.toString() !== userId1
+        );
+
+        return {
+            _id: conv._id as Types.ObjectId,
+            otherParticipant: {
+                _id: otherParticipant?._id || new Types.ObjectId(),
+                name: otherParticipant?.name || 'Unknown User',
+                email: otherParticipant?.email || '',
+                role: otherParticipantDetails?.role || Role.FOODIE
+            },
+            lastMessage: conv.lastMessage as unknown as IMessage | undefined,
+            lastMessageAt: conv.lastMessageAt,
+            unreadCount: conv.unreadCount.get(userId1) || 0,
+            createdAt: conv.createdAt,
+            updatedAt: conv.updatedAt
+        };
     }
 
     async getUserConversations(userId: string, page: number, limit: number): Promise<{ conversations: IConversationDto[], total: number }> {
@@ -31,9 +57,10 @@ export class ChatService implements IChatService {
 
         const formattedConversations: IConversationDto[] = conversations.map(conv => {
             const participants = conv.participants as unknown as IPopulatedParticipant[];
-            const otherParticipant = participants.find(
+            const validParticipants = participants.filter(p => p != null);
+            const otherParticipant = validParticipants.find(
                 (p) => p._id.toString() !== userId
-            )!;
+            ) || validParticipants[0];
 
             const otherParticipantDetails = conv.participantDetails.find(
                 (pd) => pd.userId.toString() !== userId
@@ -42,9 +69,9 @@ export class ChatService implements IChatService {
             return {
                 _id: conv._id as Types.ObjectId,
                 otherParticipant: {
-                    _id: otherParticipant._id,
-                    name: otherParticipant.name,
-                    email: otherParticipant.email,
+                    _id: otherParticipant?._id || new Types.ObjectId(),
+                    name: otherParticipant?.name || 'Unknown User',
+                    email: otherParticipant?.email || '',
                     role: otherParticipantDetails?.role || Role.FOODIE
                 },
                 lastMessage: conv.lastMessage as unknown as IMessage | undefined,
