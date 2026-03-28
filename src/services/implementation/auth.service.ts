@@ -305,4 +305,31 @@ export class AuthService implements IAuthService {
         }
     }
 
-}
+    async changePassword(userId: string, currentPass: string, newPass: string): Promise<void> {
+        try {
+            const user = await this._userRepository.findById(userId);
+            if (!user) {
+                throw new AppError(MESSAGES.USER.NOT_FOUND, STATUS_CODE.NOT_FOUND);
+            }
+
+            if (!user.password) {
+                throw new AppError("This account is linked with Google. You cannot change password here.", STATUS_CODE.BAD_REQUEST);
+            }
+
+            const isMatch = await bcrypt.compare(currentPass, user.password);
+            if (!isMatch) {
+                throw new AppError("Current password is incorrect", STATUS_CODE.UNAUTHORIZED);
+            }
+
+            const hashedPass = await bcrypt.hash(newPass, 10);
+            await this._userRepository.updatePasswordByEmail(user.email, hashedPass);
+            logger.info('Password updated successfully!!');
+
+        } catch (error) {
+            if (error instanceof AppError) throw error;
+            log.error(MESSAGES.ERROR.INTERNAL_SERVER_ERROR, error);
+            throw new Error('Error in changing password');
+        }
+    }
+
+}

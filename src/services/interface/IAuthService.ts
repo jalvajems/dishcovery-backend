@@ -13,5 +13,5 @@ export interface IAuthService {
     refreshToken(existingRefreshToken: string): Promise<{ accessToken: string, refreshToken: string, role: string, user: IUserDto }>;
     logout(refreshToken: string): Promise<{ message: string }>;
     googleAuth(token: string, role: string): Promise<{ user: IUserDto, accessToken: string, refreshToken: string }>;
-
+    changePassword(userId: string, currentPass: string, newPass: string): Promise<void>;
 }

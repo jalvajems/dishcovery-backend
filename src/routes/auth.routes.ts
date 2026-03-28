@@ -5,6 +5,8 @@ import TYPES from "../DI/types";
 import { blockGuard } from "../middlewares/blockGuard";
 
 
+import { verifyAccess } from "../middlewares/verifyAccess";
+
 const router = Router();
 
 
@@ -21,5 +23,6 @@ router.post('/signup', authController.signup.bind(authController))
     .post('/logout', authController.logout.bind(authController))
     .post('/resend-otp', authController.resendOtp.bind(authController))
     .post('/google-auth', authController.googleAuth.bind(authController))
+    .post('/change-password', verifyAccess, authController.changePassword.bind(authController))
 
 export default router;
