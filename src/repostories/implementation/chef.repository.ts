@@ -28,7 +28,7 @@ export class ChefRepository extends BaseRepository<IChefDocument> implements ICh
     }
 
     async findAllChefs(skip: number, limit: number, search: string, filter?: string): Promise<{ datas: IChefDocument[]; totalCount: number }> {
-        const query: FilterQuery<IChefDocument> = { isVerified: true, status: 'active' };
+        const query: FilterQuery<IChefDocument> = { isVerified: true };
 
         if (search) {
             const searchRegex = new RegExp(search, "i");
@@ -50,6 +50,7 @@ export class ChefRepository extends BaseRepository<IChefDocument> implements ICh
             .populate("chefId", "name email image")
             .skip(skip)
             .limit(limit);
+console.log('----------------0',chefs);
 
         const totalCount = await ChefModel.countDocuments(query);
         return { datas: chefs, totalCount };
