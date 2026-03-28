@@ -69,7 +69,7 @@ export class RecipeService implements IRecipeService {
 
         return { datas: allRecipesMapper(result.datas), currentPage: page, totalPage: total }
     }
-    async getRecipeDetail(recipeId: string, userId: string): Promise<{ data: IRecipeDto; message: string; }> {
+    async getRecipeDetail(recipeId: string, _userId: string): Promise<{ data: IRecipeDto; message: string; }> {
         const recipeData = await this._recipeRepository.findByIdandPopulate(recipeId)
         if (!recipeData) throw new AppError(RECIPE_MESSAGES.NOT_FOUND, STATUS_CODE.NOT_FOUND)
         console.log('recipedetail in service==========', recipeData);

@@ -29,7 +29,7 @@ export class WorkshopController implements IWorkshopController {
             const chefId = req.user?.id;
             const { id } = req.params;
             if (!chefId) throw new AppError(MESSAGES.AUTH.UNAUTHORIZED, STATUS_CODE.UNAUTHORIZED);
-            const workshop = await this._workshopService.updateWorkshop(id, chefId, req.body);
+            await this._workshopService.updateWorkshop(id, chefId, req.body);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message: WORKSHOP_MESSAGES.UPDATED });
         } catch (error) {
             next(error);

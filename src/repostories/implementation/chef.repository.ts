@@ -3,6 +3,7 @@ import { ChefModel, IChefDocument } from "../../models/chef.model";
 import { IChef } from "../../types/chef.types";
 import { IChefRepository } from "../interface/IChefRepository";
 import { BaseRepository } from "./base.repository";
+import { UserModel } from "../../models/users.model";
 
 export class ChefRepository extends BaseRepository<IChefDocument> implements IChefRepository {
     constructor() {
@@ -27,11 +28,16 @@ export class ChefRepository extends BaseRepository<IChefDocument> implements ICh
     }
 
     async findAllChefs(skip: number, limit: number, search: string, filter?: string): Promise<{ datas: IChefDocument[]; totalCount: number }> {
-        const query: FilterQuery<IChefDocument> = { isVerified: true, status: 'active' };
+        const query: FilterQuery<IChefDocument> = { isVerified: true };
 
         if (search) {
+            const searchRegex = new RegExp(search, "i");
+            const matchingUsers = await UserModel.find({ name: searchRegex }).select('_id');
+            const matchingUserIds = matchingUsers.map(user => user._id);
+
             query.$or = [
-                { specialities: { $in: [new RegExp(search, "i")] } }
+                { specialities: { $in: [searchRegex] } },
+                { chefId: { $in: matchingUserIds } }
             ];
         }
 
@@ -44,6 +50,7 @@ export class ChefRepository extends BaseRepository<IChefDocument> implements ICh
             .populate("chefId", "name email image")
             .skip(skip)
             .limit(limit);
+console.log('----------------0',chefs);
 
         const totalCount = await ChefModel.countDocuments(query);
         return { datas: chefs, totalCount };

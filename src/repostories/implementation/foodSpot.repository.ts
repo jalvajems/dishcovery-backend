@@ -1,4 +1,4 @@
-import { Types, FilterQuery } from "mongoose";
+import { Types, FilterQuery, PipelineStage } from "mongoose";
 import { FoodSpotModel, IFoodSpotDocument } from "../../models/foodSpot.model";
 import { IFoodSpotRepository } from "../interface/IFoodSportRepository";
 import { BaseRepository } from "./base.repository";
@@ -50,7 +50,7 @@ export class FoodSpotRepository extends BaseRepository<IFoodSpotDocument> implem
 
         // If coordinates are provided, use $geoNear aggregation
         if (coordinates && coordinates.length === 2) {
-            const pipeline: any[] = [
+            const pipeline: PipelineStage[] = [
                 {
                     $geoNear: {
                         near: { type: "Point", coordinates },
@@ -74,7 +74,7 @@ export class FoodSpotRepository extends BaseRepository<IFoodSpotDocument> implem
 
             const spots = await FoodSpotModel.aggregate(pipeline);
             const totalCount = await FoodSpotModel.countDocuments(query);
-            return { datas: spots as any, totalCount };
+            return { datas: spots as unknown as IFoodSpotDocument[], totalCount };
         }
 
         // Default sorting by proximity to recent
