@@ -11,6 +11,7 @@ services:
     depends_on:
       - mongodb
       - redis
+      - vault
     env_file:
       - .env
     environment:
@@ -18,6 +19,7 @@ services:
       - TZ=Asia/Kolkata
       - NODE_ENV=production
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - VAULT_ADDR=http://vault:8200
     restart: always
     networks:
       - dishcovery-network
