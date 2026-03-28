@@ -152,7 +152,7 @@ export class AuthController implements IAuthController {
     async changePassword(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             const { currentPassword, newPassword } = changePasswordSchema.parse(req.body);
-            const userId = (req.user as any).id;
+            const userId = (req.user as { id: string }).id;
             await this._authService.changePassword(userId, currentPassword, newPassword);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, message: "Password changed successfully" });
         } catch (error) {

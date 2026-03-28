@@ -51,7 +51,7 @@ export class AuthService implements IAuthService {
 
             await sendMail(userData.email, 'Dishcovery: otp for signup', otp);
 
-            return { userData: { name: userData.name, email: userData.email, role: userData.role } as any, otp: otp }
+            return { userData: { name: userData.name, email: userData.email, role: userData.role } as IUserDto, otp: otp }
         } catch (error: unknown) {
             if (error instanceof AppError) {
                 throw error;
@@ -108,7 +108,7 @@ export class AuthService implements IAuthService {
             }
 
             const userData = JSON.parse(userDataJson);
-            const createdUser = await this._userRepository.create({
+            await this._userRepository.create({
                 ...userData,
                 isVerified: true
             });
