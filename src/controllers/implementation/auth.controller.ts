@@ -4,7 +4,7 @@ import { inject, injectable } from "inversify";
 import TYPES from "../../DI/types";
 import { IAuthService } from "../../services/interface/IAuthService";
 import { STATUS_CODE } from "../../constants/StatusCode";
-import { signupSchema, loginSchema, forgetPassSchema } from "../../validations/authValidation";
+import { signupSchema, loginSchema, forgetPassSchema, changePasswordSchema } from "../../validations/authValidation";
 import { env } from "../../config/env.config";
 import { MESSAGES } from "../../constants/Message";
 
@@ -145,6 +145,16 @@ export class AuthController implements IAuthController {
             });
 
             res.status(STATUS_CODE.SUCCESS).json({ success: true, user, accessToken });
+        } catch (error) {
+            next(error);
+        }
+    }
+    async changePassword(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            const { currentPassword, newPassword } = changePasswordSchema.parse(req.body);
+            const userId = (req.user as any).id;
+            await this._authService.changePassword(userId, currentPassword, newPassword);
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, message: "Password changed successfully" });
         } catch (error) {
             next(error);
         }

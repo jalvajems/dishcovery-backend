@@ -15,3 +15,12 @@ export const loginSchema = z.object({
 export const forgetPassSchema = z.object({
   email: z.string().email('Invalid email address')
 });
+
+export const changePasswordSchema = z.object({
+  currentPassword: z.string().min(8, 'Current password must be at least 8 characters long'),
+  newPassword: z.string().min(8, 'New password must be at least 8 characters long'),
+  confirmPassword: z.string().min(8, 'Confirm password must be at least 8 characters long'),
+}).refine((data) => data.newPassword === data.confirmPassword, {
+  message: "Passwords don't match",
+  path: ["confirmPassword"],
+});
