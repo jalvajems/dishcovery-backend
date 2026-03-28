@@ -59,7 +59,7 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
                 ];
             }
             if (filter) {
-                query = filter;
+                Object.assign(query, filter);
             }
             
             const recipes = await RecipeModel.find(query).sort({ createdAt: -1 }).populate("chefId", "name ").skip(skip).limit(limit);
@@ -80,7 +80,7 @@ export class RecipeRepository extends BaseRepository<IRecipeDocument> implements
             console.log('[[[[[',filter);
             
             if (filter) {
-                query = filter;
+                Object.assign(query, filter);
             }
 
             const recipes = await RecipeModel.find(query).sort({ createdAt: -1 }).populate("chefId", "name ").skip(skip).limit(limit);

@@ -3,6 +3,7 @@ import { ChefModel, IChefDocument } from "../../models/chef.model";
 import { IChef } from "../../types/chef.types";
 import { IChefRepository } from "../interface/IChefRepository";
 import { BaseRepository } from "./base.repository";
+import { UserModel } from "../../models/users.model";
 
 export class ChefRepository extends BaseRepository<IChefDocument> implements IChefRepository {
     constructor() {
@@ -30,8 +31,13 @@ export class ChefRepository extends BaseRepository<IChefDocument> implements ICh
         const query: FilterQuery<IChefDocument> = { isVerified: true, status: 'active' };
 
         if (search) {
+            const searchRegex = new RegExp(search, "i");
+            const matchingUsers = await UserModel.find({ name: searchRegex }).select('_id');
+            const matchingUserIds = matchingUsers.map(user => user._id);
+
             query.$or = [
-                { specialities: { $in: [new RegExp(search, "i")] } }
+                { specialities: { $in: [searchRegex] } },
+                { chefId: { $in: matchingUserIds } }
             ];
         }
 
