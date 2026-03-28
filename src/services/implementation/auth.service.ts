@@ -40,20 +40,18 @@ export class AuthService implements IAuthService {
             const hashPassword = await bcrypt.hash(userData.password, 10)
             const otp = generateOTP(4)
 
-            const key = `otp:${userData.email}`
-            await redisClient.setEx(key, Number(process.env.OTP_EXP), otp)
+            const otpKey = `otp:${userData.email}`
+            const userDataKey = `signup:${userData.email}`
 
-            const redisOtp = await redisClient.get(key)
-
-
-            const createdUser = await this._userRepository.create({
+            await redisClient.setEx(otpKey, Number(process.env.OTP_EXP), otp)
+            await redisClient.setEx(userDataKey, Number(process.env.OTP_EXP), JSON.stringify({
                 ...userData,
-                password: hashPassword,
-            });
+                password: hashPassword
+            }))
 
             await sendMail(userData.email, 'Dishcovery: otp for signup', otp);
 
-            return { userData: userMapper(createdUser), otp: redisOtp }
+            return { userData: { name: userData.name, email: userData.email, role: userData.role } as any, otp: otp }
         } catch (error: unknown) {
             if (error instanceof AppError) {
                 throw error;
@@ -67,6 +65,10 @@ export class AuthService implements IAuthService {
 
         const user = await this._userRepository.findByEmail(loginData.email)
         if (!user) throw new AppError(MESSAGES.AUTH.INVALID_MAIL_PASS, STATUS_CODE.UNAUTHORIZED);
+
+        if (!user.isVerified) {
+            throw new AppError("Email not verified. Please verify your email first.", STATUS_CODE.UNAUTHORIZED);
+        }
 
         if (!user.password) {
             throw new AppError("This email is connected with a Google account. Please use Google Login.", STATUS_CODE.UNAUTHORIZED);
@@ -93,13 +95,26 @@ export class AuthService implements IAuthService {
         const { otp, email } = OtpVerifyData;
 
 
-        const key = `otp:${email}`
-        const redisOtp = await redisClient.get(key);
+        const otpKey = `otp:${email}`
+        const userDataKey = `signup:${email}`
+        const redisOtp = await redisClient.get(otpKey);
 
         if (!redisOtp || redisOtp != otp) {
-            throw new AppError(MESSAGES.AUTH.INVALID_OTP, STATUS_CODE.UNAUTHORIZED);
+            throw new AppError(MESSAGES.AUTH.INVALID_OTP, STATUS_CODE.BAD_REQUEST);
         } else {
-            await redisClient.del(key);
+            const userDataJson = await redisClient.get(userDataKey);
+            if (!userDataJson) {
+                throw new AppError("Signup session expired. Please sign up again.", STATUS_CODE.BAD_REQUEST);
+            }
+
+            const userData = JSON.parse(userDataJson);
+            const createdUser = await this._userRepository.create({
+                ...userData,
+                isVerified: true
+            });
+
+            await redisClient.del(otpKey);
+            await redisClient.del(userDataKey);
             return { msg: MESSAGES.AUTH.OTP_VERIFIED, user: OtpVerifyData }
         }
     }
@@ -149,11 +164,21 @@ export class AuthService implements IAuthService {
         }
     }
     async resendOtp(email: string): Promise<object> {
-        console.log("hi1")
-        const otp = generateOTP(4)
+        console.log("resendOtp for:", email)
+        const userDataKey = `signup:${email}`
+        const userData = await redisClient.get(userDataKey);
 
-        const key = `otp:${email}`
-        await redisClient.set(key, otp, { EX: Number(process.env.OTP_EXP) })
+        if (!userData) {
+            throw new AppError("Signup session expired or never started. Please sign up again.", STATUS_CODE.BAD_REQUEST);
+        }
+
+        const otp = generateOTP(4)
+        const otpKey = `otp:${email}`
+
+        // Reset TTL for both OTP and user data
+        await redisClient.setEx(otpKey, Number(process.env.OTP_EXP), otp)
+        await redisClient.expire(userDataKey, Number(process.env.OTP_EXP))
+
         await sendMail(email, 'Your Resend OTP is:', otp);
         return { message: MESSAGES.AUTH.OTP_RESENT }
     }
