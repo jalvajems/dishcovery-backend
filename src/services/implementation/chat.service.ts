@@ -5,7 +5,7 @@ import { IMessageRepository } from "../../repostories/interface/message.reposito
 import { IMessage } from "../../models/message.model";
 import { socketService } from "./socket.service";
 import { Role } from "../../types/user.types";
-import { IPopulatedConversation, IConversationDto, IPopulatedParticipant, IMessageDto } from "../../dtos/chat.dtos";
+import { IConversationDto, IPopulatedParticipant, IMessageDto } from "../../dtos/chat.dtos";
 import { messageMapper, allMessagesMapper } from "../../utils/mapper/chat.mapper";
 import { Types } from "mongoose";
 

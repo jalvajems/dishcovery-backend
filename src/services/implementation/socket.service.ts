@@ -5,7 +5,7 @@ import { Role } from "../../types/user.types";
 
 interface IWebrtcSignalPayload {
     to: string;
-    signal: any;
+    signal: Record<string, unknown>;
 }
 
 interface IChefControlPayload {
