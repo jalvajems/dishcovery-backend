@@ -27,6 +27,7 @@ export default function foodieMapper(foodie: IFoodie & Document): IFoodieDto {
         } : user?.toString(),
         phone: obj.phone,
         location: obj.location,
+        address: obj.address,
         preferences: obj.preferences,
         bio: obj.bio,
         image: obj.image,

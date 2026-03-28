@@ -28,6 +28,7 @@ console.log('reached router');
 router.get('/dashboard', verifyAccess, foodieController.getFoodieDashboard.bind(foodieController))
       .get('/recipe-listing', verifyAccess, RecipeController.getAllRecipes.bind(RecipeController))
       .get('/recipes/recent', verifyAccess, RecipeController.getRecentRecipes.bind(RecipeController))
+      .get('/recipes/recommended', verifyAccess, RecipeController.getRecommendedRecipes.bind(RecipeController))
       .get('/recipe-detail/:id', verifyAccess, foodieController.getRecipeDetail.bind(foodieController))
       .get('/related-recipes/:cuisine', verifyAccess, RecipeController.getRelatedRecipes.bind(RecipeController))
       .get('/saved-recipes', verifyAccess, RecipeController.getSavedRecipes.bind(RecipeController))
@@ -43,6 +44,7 @@ router.put("/review/dislike/:reviewId", verifyAccess, ReviewController.dislikeRe
 
 router.get("/blog-listing", verifyAccess, BlogController.getAllBlogs.bind(BlogController))
       .get("/blogs/recent", verifyAccess, BlogController.getRecentBlogs.bind(BlogController))
+      .get("/blogs/recommended", verifyAccess, BlogController.getRecommendedBlogs.bind(BlogController))
       .get("/blog-detail/:blogId", verifyAccess, BlogController.getBlogDetails.bind(BlogController))
       .get("/saved-blogs", verifyAccess, BlogController.getSavedBlogs.bind(BlogController))
 router.post("/toggle-save-blog", verifyAccess, BlogController.toggleSaveBlog.bind(BlogController));

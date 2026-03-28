@@ -1,0 +1,145 @@
+[
+  {
+    "_id": "69856f74e8ff4915ede02be5",
+    "participants": [
+      "69424d058f20d4ac7715b6a3",
+      "6971a31a5490979ec3ac71d2"
+    ],
+    "participantDetails": [
+      {
+        "userId": "6971a31a5490979ec3ac71d2",
+        "role": "foodie",
+        "_id": "69856f74e8ff4915ede02be6"
+      },
+      {
+        "userId": "69424d058f20d4ac7715b6a3",
+        "role": "chef",
+        "_id": "69856f74e8ff4915ede02be7"
+      }
+    ],
+    "unreadCount": {
+      "6971a31a5490979ec3ac71d2": 0,
+      "69424d058f20d4ac7715b6a3": 0
+    },
+    "lastMessageAt": "2026-02-06T04:35:24.146Z",
+    "createdAt": "2026-02-06T04:35:01.000Z",
+    "updatedAt": "2026-02-06T04:35:24.231Z",
+    "__v": 0,
+    "lastMessage": "69856f8ce8ff4915ede02c7a"
+  },
+  {
+    "_id": "6985a31a017650f3036221eb",
+    "participants": [
+      "6940e2b4c8eda6f643612e8c",
+      "6941211c9b4b4609e48552bc"
+    ],
+    "participantDetails": [
+      {
+        "userId": "6941211c9b4b4609e48552bc",
+        "role": "foodie",
+        "_id": "6985a31a017650f3036221ec"
+      },
+      {
+        "userId": "6940e2b4c8eda6f643612e8c",
+        "role": "chef",
+        "_id": "6985a31a017650f3036221ed"
+      }
+    ],
+    "unreadCount": {
+      "6941211c9b4b4609e48552bc": 0,
+      "6940e2b4c8eda6f643612e8c": 0,
+      "6940170db75355dd8505ce66": 0
+    },
+    "lastMessageAt": "2026-03-11T09:10:38.615Z",
+    "createdAt": "2026-02-06T08:15:22.267Z",
+    "updatedAt": "2026-03-13T07:07:57.822Z",
+    "__v": 0,
+    "lastMessage": "69b1318efc7fa3fb232cb92b"
+  },
+  {
+    "_id": "6985b8c6bf0e8fed8dd2dd0a",
+    "participants": [
+      "6940170db75355dd8505ce66",
+      "6940e2b4c8eda6f643612e8c"
+    ],
+    "participantDetails": [
+      {
+        "userId": "6940170db75355dd8505ce66",
+        "role": "foodie",
+        "_id": "6985b8c6bf0e8fed8dd2dd0b"
+      },
+      {
+        "userId": "6940e2b4c8eda6f643612e8c",
+        "role": "chef",
+        "_id": "6985b8c6bf0e8fed8dd2dd0c"
+      }
+    ],
+    "unreadCount": {
+      "6940170db75355dd8505ce66": 0,
+      "6940e2b4c8eda6f643612e8c": 0,
+      "69419c0049492eff431f13b7": 0
+    },
+    "lastMessageAt": "2026-03-09T04:00:32.388Z",
+    "createdAt": "2026-02-06T09:47:50.840Z",
+    "updatedAt": "2026-03-09T04:00:32.525Z",
+    "__v": 0,
+    "lastMessage": "69ae45e0f8baa197dd20fc5a"
+  },
+  {
+    "_id": "698c2c8c5fd78edde62a85da",
+    "participants": [
+      "6940170db75355dd8505ce66",
+      "69419c0049492eff431f13b7"
+    ],
+    "participantDetails": [
+      {
+        "userId": "6940170db75355dd8505ce66",
+        "role": "foodie",
+        "_id": "698c2c8c5fd78edde62a85db"
+      },
+      {
+        "userId": "69419c0049492eff431f13b7",
+        "role": "chef",
+        "_id": "698c2c8c5fd78edde62a85dc"
+      }
+    ],
+    "unreadCount": {
+      "6940170db75355dd8505ce66": 0,
+      "69419c0049492eff431f13b7": 1,
+      "6941211c9b4b4609e48552bc": 0
+    },
+    "lastMessageAt": "2026-03-09T03:59:20.195Z",
+    "createdAt": "2026-02-11T07:15:24.195Z",
+    "updatedAt": "2026-03-09T03:59:20.206Z",
+    "__v": 0,
+    "lastMessage": "69ae4598f8baa197dd20fb28"
+  },
+  {
+    "_id": "698c31905fd78edde62a8c06",
+    "participants": [
+      "6941211c9b4b4609e48552bc",
+      "69419c0049492eff431f13b7"
+    ],
+    "participantDetails": [
+      {
+        "userId": "6941211c9b4b4609e48552bc",
+        "role": "foodie",
+        "_id": "698c31905fd78edde62a8c07"
+      },
+      {
+        "userId": "69419c0049492eff431f13b7",
+        "role": "chef",
+        "_id": "698c31905fd78edde62a8c08"
+      }
+    ],
+    "unreadCount": {
+      "6941211c9b4b4609e48552bc": 0,
+      "69419c0049492eff431f13b7": 1
+    },
+    "lastMessageAt": "2026-02-19T12:27:00.598Z",
+    "createdAt": "2026-02-11T07:36:48.678Z",
+    "updatedAt": "2026-02-19T12:27:00.635Z",
+    "__v": 0,
+    "lastMessage": "69970194d8571cc5264ab5c1"
+  }
+]

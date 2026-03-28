@@ -62,13 +62,13 @@ export class FoodieService implements IFoodieService {
         return { data: foodieMapper(result) }
     }
     async updateProfile(userId: string, data: IFoodieProfileDto): Promise<{ data: IFoodieDto; }> {
-        const { name, phone, location, preferences, bio, image } = data;
+        const { name, phone, location, address, preferences, bio, image } = data;
 
         if (name) {
             await this._userRepository.findByIdAndUpdate(userId, { name })
         }
 
-        const updateData: Partial<IFoodieDocument> = { phone, location, preferences, bio };
+        const updateData: Partial<IFoodieDocument> = { phone, location, address, preferences, bio };
         if (image) updateData.image = image;
 
         const result = await this._foodieRepository.findOneUpdateFoodie(userId, updateData)

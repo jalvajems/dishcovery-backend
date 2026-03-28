@@ -12,4 +12,5 @@ export interface IBlogService {
     getRecentBlogs(limit: number): Promise<{ data: IBlogDto[] }>;
     toggleSaveBlog(id: string, blogId: string): Promise<{ message: string, isSaved: boolean }>;
     getSavedBlogs(id: string, page: number, limit: number): Promise<{ data: IBlogDto[], currentPage: number, totalPages: number, message: string }>;
+    getRecommendedBlogs(userId: string): Promise<{ datas: IBlogDto[], message: string }>;
 }
