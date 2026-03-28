@@ -25,7 +25,7 @@ import { ICronService } from "./services/interface/ICronService";
         cronService.init();
 
         httpServer.listen(port, () => {
-            log.info(`Server running on port ${port} in ${env.NODE_ENV} node (Vault configured securely)`);
+            log.info(`Server running on port ${port} in ${env.NODE_ENV} node`);
         });
 
     } catch (error) {
