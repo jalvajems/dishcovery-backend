@@ -6,6 +6,7 @@ import { IBlogDto } from "../../dtos/blog.dto";
 import { IBlog } from "../../types/blog.types";
 import { blogMapper } from "../../utils/mapper/blog.mapper";
 import { IBlogRepository } from "../../repostories/interface/IBlogRepository";
+import { IFoodieRepository } from "../../repostories/interface/IFoodieRepository";
 import { AppError } from "../../utils/AppError";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { allBlogsMapper } from "../../utils/mapper/allBlogs.mapper";
@@ -17,7 +18,8 @@ import { ISaveRepository } from "../../repostories/interface/ISaveRepository";
 export class BlogService implements IBlogService {
     constructor(
         @inject(TYPES.IBlogRepository) private _blogRepositoy: IBlogRepository,
-        @inject(TYPES.ISaveRepository) private _saveRepository: ISaveRepository
+        @inject(TYPES.ISaveRepository) private _saveRepository: ISaveRepository,
+        @inject(TYPES.IFoodieRepository) private _foodieRepository: IFoodieRepository
     ) { }
 
     async createBlog(data: IBlog): Promise<{ data: IBlogDto; message: string; }> {
@@ -90,5 +92,18 @@ export class BlogService implements IBlogService {
         const totalPages = Math.ceil(result.totalCount / limit) || 1;
 
         return { data: allBlogsMapper(savedBlogs), currentPage: page, totalPages, message: BLOG_MESSAGES.FETCH_SUCCESS };
+    }
+
+    async getRecommendedBlogs(userId: string): Promise<{ datas: IBlogDto[]; message: string; }> {
+        const profile = await this._foodieRepository.getByUserId(userId);
+        if (!profile || !profile.preferences || !profile.preferences.blogTags || profile.preferences.blogTags.length === 0) {
+            // Find recent blogs as fallback
+            const recent = await this._blogRepositoy.findRecent(5);
+            return { datas: allBlogsMapper(recent), message: "Showing recent blogs as no preferences set." };
+        }
+
+        const tags = profile.preferences.blogTags;
+        const result = await this._blogRepositoy.getAllBlogs("", 0, 10, Role.FOODIE, tags);
+        return { datas: result.datas ? allBlogsMapper(result.datas) : [], message: BLOG_MESSAGES.FETCH_SUCCESS };
     }
 }

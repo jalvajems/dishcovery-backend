@@ -138745,3 +138745,311 @@ src/middlewares/isVerifyChef.ts(25,5): error TS1003: Identifier expected.
     at Server.listen (node:net:2066:7)
     at D:\brototype\Dishcovery\server\src\server.ts:29:20
     at processTicksAndRejections (node:internal/process/task_queues:105:5)
+[2026-03-27 21:44:56] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:45:18] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:45:26] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:45:29] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:45:32] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:45:35] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:45:42] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:45:48] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:45:54] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:46:00] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:46:10] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:46:13] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:46:20] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:46:22] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:46:26] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:46:33] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:46:47] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:46:49] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:46:52] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:47:33] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9395263155646472.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:55:04] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-00914261528222493.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-00914261528222493.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-00914261528222493.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 21:57:52] [31merror[39m: Error: Neither apiKey nor config.authenticator provided
+    at Stripe._setAuthenticator (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:158:23)
+    at new Stripe (D:\brototype\Dishcovery\server\node_modules\stripe\cjs\stripe.core.js:96:14)
+    at Object.<anonymous> (D:\brototype\Dishcovery\server\src\config\stripe.config.ts:3:22)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1546:14)
+    at Module._compile (D:\brototype\Dishcovery\server\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9186820670819449.js:69:33)
+    at node:internal/modules/cjs/loader:1689:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9186820670819449.js:114:20)
+    at require.extensions.<computed> (C:\Users\JALVAJ~1\AppData\Local\Temp\ts-node-dev-hook-9186820670819449.js:71:20)
+    at Object.nodeDevHook [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node-dev\lib\hook.js:63:13)
+[2026-03-27 22:00:38] [31merror[39m: TSError: ⨯ Unable to compile TypeScript:
+[96msrc/controllers/implementation/foodie.controller.ts[0m:[93m20[0m:[93m40[0m - [91merror[0m[90m TS2339: [0mProperty 'id' does not exist on type 'User'.
+
+[7m20[0m             const foodieId = req.user?.id;
+[7m  [0m [91m                                       ~~[0m
+[96msrc/controllers/implementation/foodie.controller.ts[0m:[93m46[0m:[93m38[0m - [91merror[0m[90m TS2339: [0mProperty 'id' does not exist on type 'User'.
+
+[7m46[0m             const userId = req.user?.id;
+[7m  [0m [91m                                     ~~[0m
+[96msrc/controllers/implementation/foodie.controller.ts[0m:[93m63[0m:[93m38[0m - [91merror[0m[90m TS2339: [0mProperty 'id' does not exist on type 'User'.
+
+[7m63[0m             const userId = req.user?.id
+[7m  [0m [91m                                     ~~[0m
+[96msrc/controllers/implementation/foodie.controller.ts[0m:[93m74[0m:[93m38[0m - [91merror[0m[90m TS2339: [0mProperty 'id' does not exist on type 'User'.
+
+[7m74[0m             const userId = req.user?.id;
+[7m  [0m [91m                                     ~~[0m
+[96msrc/controllers/implementation/foodie.controller.ts[0m:[93m84[0m:[93m38[0m - [91merror[0m[90m TS2339: [0mProperty 'id' does not exist on type 'User'.
+
+[7m84[0m             const userId = req.user?.id
+[7m  [0m [91m                                     ~~[0m
+
+    at createTSError (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:1617:30)
+    at node:internal/modules/cjs/loader:1689:10
+    at Object.require.extensions.<computed> [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+[2026-03-27 22:01:20] [31merror[39m: TSError: ⨯ Unable to compile TypeScript:
+src/controllers/implementation/foodie.controller.ts(20,40): error TS2339: Property 'id' does not exist on type 'User'.
+src/controllers/implementation/foodie.controller.ts(46,38): error TS2339: Property 'id' does not exist on type 'User'.
+src/controllers/implementation/foodie.controller.ts(63,38): error TS2339: Property 'id' does not exist on type 'User'.
+src/controllers/implementation/foodie.controller.ts(74,38): error TS2339: Property 'id' does not exist on type 'User'.
+src/controllers/implementation/foodie.controller.ts(84,38): error TS2339: Property 'id' does not exist on type 'User'.
+
+    at createTSError (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:1617:30)
+    at node:internal/modules/cjs/loader:1689:10
+    at Object.require.extensions.<computed> [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+[2026-03-27 22:02:10] [31merror[39m: TSError: ⨯ Unable to compile TypeScript:
+src/controllers/implementation/foodie.controller.ts(20,40): error TS2339: Property 'id' does not exist on type 'User'.
+src/controllers/implementation/foodie.controller.ts(46,38): error TS2339: Property 'id' does not exist on type 'User'.
+src/controllers/implementation/foodie.controller.ts(63,38): error TS2339: Property 'id' does not exist on type 'User'.
+src/controllers/implementation/foodie.controller.ts(74,38): error TS2339: Property 'id' does not exist on type 'User'.
+src/controllers/implementation/foodie.controller.ts(84,38): error TS2339: Property 'id' does not exist on type 'User'.
+
+    at createTSError (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:863:19)
+    at getOutput (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:1077:36)
+    at Object.compile (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:1617:30)
+    at node:internal/modules/cjs/loader:1689:10
+    at Object.require.extensions.<computed> [as .ts] (D:\brototype\Dishcovery\server\node_modules\ts-node\src\index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)

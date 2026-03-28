@@ -60,7 +60,11 @@ export class BlogRepository extends BaseRepository<IBlogDocument> implements IBl
                 ]
             }
             if (filter) {
-                query.tags = { $in: [new RegExp(filter, "i")] };
+                if (Array.isArray(filter)) {
+                    query.tags = { $in: filter.map(tag => new RegExp(tag, "i")) };
+                } else {
+                    query.tags = { $in: [new RegExp(filter, "i")] };
+                }
             }
 
             const blogs = await BlogModel.find(query).sort({ createdAt: -1 }).skip(skip).limit(limit).populate("chefId", "name")

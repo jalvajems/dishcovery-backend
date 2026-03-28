@@ -80,8 +80,10 @@ export class FoodSpotController implements IFoodSpotController {
             const limit = Number(req.query.limit) || 5;
             const search = String(req.query.search) || "";
             const filter = String(req.query.filter) || "";
+            const sortBy = String(req.query.sortBy) || "";
+            const userId = req.user?.id;
 
-            const result = await this._foodSpotService.getAllFoodSpots(page, limit, search, filter);
+            const result = await this._foodSpotService.getAllFoodSpots(page, limit, search, filter, sortBy, userId);
             console.log('result--------', result.data);
 
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, totalCount: result.totalCount, message: FOODSPOT_MESSAGES.FETCHED_ALL });

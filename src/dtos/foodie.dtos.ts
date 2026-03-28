@@ -10,8 +10,15 @@ export interface IFoodieDto {
         isBlocked: boolean;
     } | string | Types.ObjectId;
     phone: string;
-    location: string;
-    preferences: string[];
+    location: {
+        type: "Point";
+        coordinates: [number, number];
+    };
+    address: string;
+    preferences: {
+        recipeCategory: string[];
+        blogTags: string[];
+    };
     bio: string;
     image: string;
     status: string;
@@ -21,8 +28,15 @@ export interface IFoodieProfileDto {
     userId?: string;
     name?: string;
     phone?: string;
-    location?: string;
-    preferences?: string[];
+    location?: {
+        type: "Point";
+        coordinates: [number, number];
+    };
+    address?: string;
+    preferences?: {
+        recipeCategory: string[];
+        blogTags: string[];
+    };
     bio?: string;
     image?: string;
 }

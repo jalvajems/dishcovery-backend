@@ -1,40 +1,17 @@
-import { env } from "./config/env.config";
-import { connectDB } from './config/db.config';
-import { log } from './utils/logger';
-import app from './app'
-import { redisClient } from "./config/redis.config";
-
-
-import { createServer } from "http";
-import { socketService } from "./services/implementation/socket.service";
-import container from "./DI/inversify.config";
-import TYPES from "./DI/types";
-import { ICronService } from "./services/interface/ICronService";
+import { loadVaultSecrets } from "./config/env.config";
 
 (async () => {
     try {
+        // 1. Wait for Vault to finish injecting into process.env & the env object
+        await loadVaultSecrets();
 
-        await connectDB();
-        await redisClient.connect()
-
-        const port = env.PORT;
-
-        const httpServer = createServer(app);
-
-        socketService.initialize(httpServer);
-
-        const cronService = container.get<ICronService>(TYPES.ICronService);
-        cronService.init();
-
-        httpServer.listen(port, () => {
-            log.info(`Server running on port ${port} in ${env.NODE_ENV} node`);
-        });
+        // 2. NOW we dynamically import the rest of the application!
+        // This ensures synchronous imports in dependencies (like Stripe, AWS SDK) 
+        // will receive the completed 'env' payload rather than crashing as 'undefined'.
+        await import('./bootstrap');
 
     } catch (error) {
-        log.error("Server starting failed:", error)
-        process.exit(1)
+        console.error("Fatal Application Startup Error:", error);
+        process.exit(1);
     }
-
-
 })();
-// Trigger restart
