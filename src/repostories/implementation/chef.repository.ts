@@ -24,7 +24,7 @@ export class ChefRepository extends BaseRepository<IChefDocument> implements ICh
         return await ChefModel.findOneAndUpdate({ chefId: chefId }, { $set: { isVerified: true } }, { new: true })
     }
     async unVerifyById(chefId: string): Promise<(IChef & Document) | null> {
-        return ChefModel.findByIdAndUpdate({ chefId: chefId }, { $set: { isVerified: false } }, { new: true })
+        return ChefModel.findOneAndUpdate({ chefId: chefId }, { $set: { isVerified: false } }, { new: true })
     }
 
     async findAllChefs(skip: number, limit: number, search: string, filter?: string): Promise<{ datas: IChefDocument[]; totalCount: number }> {
