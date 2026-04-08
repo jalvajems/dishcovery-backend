@@ -168,8 +168,13 @@ export class AuthService implements IAuthService {
         const userDataKey = `signup:${email}`
         const userData = await redisClient.get(userDataKey);
 
-        if (!userData) {
-            throw new AppError("Signup session expired or never started. Please sign up again.", STATUS_CODE.BAD_REQUEST);
+        const isSignupFlow = !!userData;
+
+        if (!isSignupFlow) {
+            const user = await this._userRepository.findByEmail(email);
+            if (!user) {
+                throw new AppError("Signup session expired or never started. Please sign up again.", STATUS_CODE.BAD_REQUEST);
+            }
         }
 
         const otp = generateOTP(4)
@@ -177,7 +182,10 @@ export class AuthService implements IAuthService {
 
         // Reset TTL for both OTP and user data
         await redisClient.setEx(otpKey, Number(process.env.OTP_EXP), otp)
-        await redisClient.expire(userDataKey, Number(process.env.OTP_EXP))
+        
+        if (isSignupFlow) {
+            await redisClient.expire(userDataKey, Number(process.env.OTP_EXP))
+        }
 
         await sendMail(email, 'Your Resend OTP is:', otp);
         return { message: MESSAGES.AUTH.OTP_RESENT }
