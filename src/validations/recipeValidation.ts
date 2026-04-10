@@ -37,7 +37,7 @@ images: z.preprocess(
       if (typeof val === "string") return [val];
       return val;
     },
-    z.array(z.string().url("Invalid image URL")).optional()
+    z.array(z.string()).optional()
   ),
 
   isDraft: z.boolean().optional(),
@@ -65,7 +65,7 @@ export const updateRecipeSchema = z.object({
       if (typeof val === "string") return [val];
       return val;
     },
-    z.array(z.string().url("Invalid image URL")).optional()
+    z.array(z.string()).optional()
   ),
 
   isDraft: z.boolean().optional(),
