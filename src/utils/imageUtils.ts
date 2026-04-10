@@ -1,12 +1,3 @@
-import { env } from "../config/env.config";
-
-/**
- * Expands a stored image path into a full URL if it's not already one.
- * Supports both legacy full URLs and new S3 keys.
- * 
- * @param path The image path or full URL stored in the database
- * @returns The full URL to the image
- */
 export const expandImageUrl = (path: string | string[] | undefined | null): any => {
   if (!path) return path;
 
@@ -21,14 +12,13 @@ export const expandImageUrl = (path: string | string[] | undefined | null): any 
   
   // Otherwise, treat it as an S3 key and expand it to our local secure proxy
   try {
-    // For local development, use localhost. For production, ideally use an env variable.
-    // NOTE: This can be moved to env.config.ts later for better centralization.
-    const apiHost = env.NODE_ENV === "production" 
+    const isProduction = process.env.NODE_ENV === "production";
+    const apiHost = isProduction 
       ? "https://api.dishcovery.jalva.online" 
       : "http://localhost";
       
-    const port = env.PORT || 4000;
-    const baseUrl = env.NODE_ENV === "production" ? apiHost : `${apiHost}:${port}`;
+    const port = process.env.PORT || 4000;
+    const baseUrl = isProduction ? apiHost : `${apiHost}:${port}`;
       
     // Ensure path doesn't have duplicate slashes
     const cleanPath = path.replace(/^\/+/, '');
