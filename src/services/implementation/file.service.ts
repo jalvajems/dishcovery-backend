@@ -1,4 +1,4 @@
-import { generateUploadSignedUrl } from "../../config/s3aws.config";
+import { generateUploadSignedUrl, generateReadSignedUrl } from "../../config/s3aws.config";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { SignedUrlResponseDto } from "../../dtos/signedUrl.dtos";
 import { AppError } from "../../utils/AppError";
@@ -10,5 +10,11 @@ export class FileService implements IFileService {
         if (!fileName || !fileType) throw new AppError('no filetype or filename found', STATUS_CODE.NOT_FOUND);
         const result = await generateUploadSignedUrl(fileName, fileType);
         return result
+    }
+
+    async getReadSignedUrl(key: string): Promise<string> {
+        if (!key) throw new AppError('No key found', STATUS_CODE.NOT_FOUND);
+        const result = await generateReadSignedUrl(key);
+        return result;
     }
 }
