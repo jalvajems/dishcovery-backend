@@ -1,0 +1,36 @@
+﻿
+> server@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 12:29:16 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+[dotenv@17.2.3] injecting env (26) from .env -- tip: Γ£à audit secrets and track compliance: https://dotenvx.com/ops
+reached router
+reach router
+[2026-04-10 12:29:20] [32minfo[39m: 	MongoDB is connected successfully
+[2026-04-10 12:29:20] [31merror[39m: AggregateError: 
+    at internalConnectMultiple (node:net:1121:18)
+    at afterConnectMultiple (node:net:1688:7)
+[2026-04-10 12:29:20] [31merror[39m: AggregateError: 
+    at internalConnectMultiple (node:net:1121:18)
+    at afterConnectMultiple (node:net:1688:7)
+[2026-04-10 12:29:21] [31merror[39m: AggregateError: 
+    at internalConnectMultiple (node:net:1121:18)
+    at afterConnectMultiple (node:net:1688:7)
+[2026-04-10 12:29:21] [31merror[39m: AggregateError: 
+    at internalConnectMultiple (node:net:1121:18)
+    at afterConnectMultiple (node:net:1688:7)
+[2026-04-10 12:29:22] [31merror[39m: AggregateError: 
+    at internalConnectMultiple (node:net:1121:18)
+    at afterConnectMultiple (node:net:1688:7)
+[2026-04-10 12:29:23] [31merror[39m: AggregateError: 
+    at internalConnectMultiple (node:net:1121:18)
+    at afterConnectMultiple (node:net:1688:7)
+[2026-04-10 12:29:24] [31merror[39m: AggregateError: 
+    at internalConnectMultiple (node:net:1121:18)
+    at afterConnectMultiple (node:net:1688:7)
+[2026-04-10 12:29:27] [31merror[39m: AggregateError: 
+    at internalConnectMultiple (node:net:1121:18)
+    at afterConnectMultiple (node:net:1688:7)
+[2026-04-10 12:29:29] [31merror[39m: AggregateError: 
+    at internalConnectMultiple (node:net:1121:18)
+    at afterConnectMultiple (node:net:1688:7)
