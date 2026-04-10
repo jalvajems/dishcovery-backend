@@ -27,8 +27,9 @@ export class FileController implements IFileController {
 
     async serveImage(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            // Extract the key which might contain slashes. The route uses :key(*)
-            const key = req.params.key;
+            // Extract the key which might contain slashes. The route uses regex capture.
+            // We must decode it because Express regex captures often provide the raw encoded string.
+            const key = decodeURIComponent(req.params.key);
             if (!key) {
                 res.status(400).send("Image key is required");
                 return;
