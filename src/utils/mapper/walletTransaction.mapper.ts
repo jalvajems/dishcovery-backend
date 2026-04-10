@@ -15,7 +15,7 @@ export function walletTransactionMapper(
     _id: obj._id.toString(),
 
     userId: (obj.userId
-      ? typeof obj.userId === "object" && "_id" in obj.userId
+      ? typeof obj.userId === "object" && obj.userId !== null && "_id" in obj.userId
         ? {
           _id: String((obj.userId as unknown as IUser & { _id: Types.ObjectId })._id),
           name: String((obj.userId as unknown as IUser).name)
@@ -26,10 +26,10 @@ export function walletTransactionMapper(
     role: obj.role,
 
     bookingId: (obj.bookingId
-      ? typeof obj.bookingId === "object" && "_id" in obj.bookingId
+      ? typeof obj.bookingId === "object" && obj.bookingId !== null && "_id" in obj.bookingId
         ? {
           _id: String((obj.bookingId as unknown as IBooking & { _id: Types.ObjectId })._id),
-          foodieId: typeof (obj.bookingId as unknown as IBooking).foodieId === "object" && "_id" in ((obj.bookingId as unknown as IBooking).foodieId as unknown as Record<string, unknown>)
+          foodieId: typeof (obj.bookingId as unknown as IBooking).foodieId === "object" && (obj.bookingId as unknown as IBooking).foodieId !== null && "_id" in ((obj.bookingId as unknown as IBooking).foodieId as unknown as Record<string, unknown>)
             ? {
               _id: String(((obj.bookingId as unknown as IBooking).foodieId as unknown as Record<string, unknown>)._id),
               name: String(((obj.bookingId as unknown as IBooking).foodieId as unknown as Record<string, unknown>).name),
@@ -41,11 +41,11 @@ export function walletTransactionMapper(
       : undefined) as never,
 
     workshopId: (obj.workshopId
-      ? typeof obj.workshopId === "object" && "_id" in obj.workshopId
+      ? typeof obj.workshopId === "object" && obj.workshopId !== null && "_id" in obj.workshopId
         ? {
           _id: String((obj.workshopId as unknown as IWorkshop & { _id: Types.ObjectId })._id),
           title: String((obj.workshopId as unknown as IWorkshop).title),
-          chefId: typeof (obj.workshopId as unknown as IWorkshop).chefId === "object" && "_id" in ((obj.workshopId as unknown as IWorkshop).chefId as unknown as Record<string, unknown>)
+          chefId: typeof (obj.workshopId as unknown as IWorkshop).chefId === "object" && (obj.workshopId as unknown as IWorkshop).chefId !== null && "_id" in ((obj.workshopId as unknown as IWorkshop).chefId as unknown as Record<string, unknown>)
             ? {
               _id: String(((obj.workshopId as unknown as IWorkshop).chefId as unknown as Record<string, unknown>)._id),
               name: String(((obj.workshopId as unknown as IWorkshop).chefId as unknown as Record<string, unknown>).name)
