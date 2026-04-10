@@ -72,9 +72,8 @@ export const generateReadSignedUrl = async (key: string): Promise<string> => {
   });
 
   try {
-    // 60-second signature for rapid redirection
-    const signedUrl = await getSignedUrl(s3, command, { expiresIn: 60 });
-    return signedUrl;
+    const url = await getSignedUrl(s3, command, { expiresIn: 60 }); // 1 minute
+    return url;
   } catch (error) {
     console.error("S3 Generate Read Signed URL failed:", error);
     throw error;

@@ -13,7 +13,7 @@ export class FileService implements IFileService {
     }
 
     async getReadSignedUrl(key: string): Promise<string> {
-        if (!key) throw new AppError('No key found', STATUS_CODE.NOT_FOUND);
+        if (!key) throw new AppError('no key found', STATUS_CODE.NOT_FOUND);
         const result = await generateReadSignedUrl(key);
         return result;
     }
