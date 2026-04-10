@@ -19,9 +19,27 @@ export class FileController implements IFileController {
             const result = await this._fileServie.getSignedUrl(fileName, fileType);
             console.log('result', result);
 
-            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result, message:S3_MESSAGES.S3URL_SEND  })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result, message: S3_MESSAGES.S3URL_SEND })
         } catch (error) {
             next(error)
+        }
+    }
+
+    async serveImage(req: Request, res: Response, next: NextFunction): Promise<void> {
+        try {
+            // Extracts everything after /image/ in the route
+            const key = req.params[0];
+            if (!key) {
+                res.status(STATUS_CODE.NOT_FOUND).send('Image key is missing');
+                return;
+            }
+
+            const signedUrl = await this._fileServie.getReadSignedUrl(key);
+            
+            // Redirect the browser to the pre-signed S3 URL
+            res.redirect(signedUrl);
+        } catch (error) {
+            next(error);
         }
     }
 }

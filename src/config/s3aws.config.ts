@@ -1,4 +1,4 @@
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client, PutObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { SignedUrlResponseDto } from "../dtos/signedUrl.dtos";
 
@@ -56,4 +56,27 @@ export const getFileUrl = (key: string): string => {
   const bucketName = process.env.AWS_BUCKET_NAME;
   const region = process.env.AWS_REGION;
   return `https://${bucketName}.s3.${region}.amazonaws.com/${key}`;
+};
+
+export const generateReadSignedUrl = async (key: string): Promise<string> => {
+  const s3 = getS3Client();
+  const bucketName = process.env.AWS_BUCKET_NAME;
+
+  if (!bucketName) {
+    throw new Error("AWS_BUCKET_NAME is not set.");
+  }
+
+  const command = new GetObjectCommand({
+    Bucket: bucketName,
+    Key: key,
+  });
+
+  try {
+    // 60-second signature for rapid redirection
+    const signedUrl = await getSignedUrl(s3, command, { expiresIn: 60 });
+    return signedUrl;
+  } catch (error) {
+    console.error("S3 Generate Read Signed URL failed:", error);
+    throw error;
+  }
 };
