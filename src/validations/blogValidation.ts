@@ -16,7 +16,6 @@ export const createBlogSchema = z.object({
 
   coverImage: z
     .string()
-    .url("Cover image must be a valid URL")
     .optional(),
 
   tags: z

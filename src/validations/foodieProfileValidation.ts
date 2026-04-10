@@ -22,7 +22,7 @@ export const createFoodieProfileSchema = z.object({
     .max(300, "Bio should not exceed 300 characters")
     .optional(),
 
-  image: z.string().url("Image must be a valid URL").optional(),
+  image: z.string().optional(),
 });
 
 export const updateFoodieProfileSchema = z.object({
@@ -47,7 +47,7 @@ export const updateFoodieProfileSchema = z.object({
     .max(300, "Bio should not exceed 300 characters")
     .optional(),
 
-  image: z.string().url("Image must be a valid URL").optional(),
+  image: z.string().optional(),
 });
 
 export type CreateFoodieProfileDto = z.infer<typeof createFoodieProfileSchema>;
