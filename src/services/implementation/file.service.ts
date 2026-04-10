@@ -1,11 +1,9 @@
-import { generateReadSignedUrl, generateUploadSignedUrl } from "../../config/s3aws.config";
+import { generateUploadSignedUrl, generateReadSignedUrl } from "../../config/s3aws.config";
 import { STATUS_CODE } from "../../constants/StatusCode";
 import { SignedUrlResponseDto } from "../../dtos/signedUrl.dtos";
 import { AppError } from "../../utils/AppError";
 import { IFileService } from "../interface/IFileService";
-import { injectable } from "inversify";
 
-@injectable()
 export class FileService implements IFileService {
     constructor() { }
     async getSignedUrl(fileName: string, fileType: string): Promise<SignedUrlResponseDto> {
@@ -15,7 +13,8 @@ export class FileService implements IFileService {
     }
 
     async getReadSignedUrl(key: string): Promise<string> {
-        if (!key) throw new AppError('Key is required', STATUS_CODE.BAD_REQUEST);
-        return await generateReadSignedUrl(key);
+        if (!key) throw new AppError('no key found', STATUS_CODE.NOT_FOUND);
+        const result = await generateReadSignedUrl(key);
+        return result;
     }
 }
