@@ -56,18 +56,24 @@ export const generateReadSignedUrl = async (key: string): Promise<string> => {
   const s3 = getS3Client();
   const bucketName = process.env.AWS_BUCKET_NAME;
 
+  if (!bucketName) {
+    throw new Error("AWS_BUCKET_NAME is not set.");
+  }
+
   const command = new GetObjectCommand({
     Bucket: bucketName,
     Key: key,
   });
 
   try {
-    return await getSignedUrl(s3, command, { expiresIn: 60 }); // Expires in 60 seconds
+    // 60 seconds expiration for the read URL
+    return await getSignedUrl(s3, command, { expiresIn: 60 });
   } catch (error) {
     console.error("S3 Generate Read Signed URL failed:", error);
     throw error;
   }
 };
+
 
 export const getFileUrl = (key: string): string => {
   const bucketName = process.env.AWS_BUCKET_NAME;

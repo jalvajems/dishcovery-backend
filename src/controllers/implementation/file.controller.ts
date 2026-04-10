@@ -27,16 +27,20 @@ export class FileController implements IFileController {
 
     async serveImage(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
+            // Extract the key which might contain slashes. The route will be /image/*
             const key = req.params[0];
             if (!key) {
-                res.status(STATUS_CODE.BAD_REQUEST).json({ success: false, message: "No key provided" });
+                res.status(400).send("Image key is required");
                 return;
             }
 
             const signedUrl = await this._fileServie.getReadSignedUrl(key);
-            res.redirect(signedUrl);
+            
+            // Redirect the client to the actual S3 pre-signed URL
+            res.redirect(302, signedUrl);
         } catch (error) {
-            next(error);
+            console.error("Error serving image proxy:", error);
+            res.status(404).send("Image not found");
         }
     }
 }
