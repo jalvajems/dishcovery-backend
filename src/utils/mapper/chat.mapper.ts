@@ -1,5 +1,6 @@
 import { IMessageDto } from "../../dtos/chat.dtos";
 import { IMessage } from "../../models/message.model";
+import { expandImageUrl } from "../imageUtils";
 
 export function messageMapper(message: IMessage): IMessageDto {
     const obj = message.toObject ? message.toObject() : message;
@@ -9,7 +10,7 @@ export function messageMapper(message: IMessage): IMessageDto {
         senderId: obj.senderId?._id ? obj.senderId._id.toString() : obj.senderId.toString(),
         senderRole: obj.senderRole,
         content: obj.content,
-        fileUrl: obj.fileUrl,
+        fileUrl: expandImageUrl(obj.fileUrl),
         messageType: obj.messageType,
         status: obj.status,
         readBy: (obj.readBy as unknown[])?.map((id: unknown) => typeof id === 'object' && id !== null && 'toString' in id ? id.toString() : String(id)) || [],

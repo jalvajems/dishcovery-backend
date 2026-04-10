@@ -1,6 +1,7 @@
 import { Document } from "mongoose";
 import { IRecipe } from "../../types/recipe.types";
 import { IRecipeDto } from "../../dtos/recipe.dtos";
+import { expandImageUrl } from "../imageUtils";
 
 export function recipeMapper(recipe:IRecipe&Document ):IRecipeDto{
     const obj=recipe.toObject()
@@ -18,7 +19,7 @@ export function recipeMapper(recipe:IRecipe&Document ):IRecipeDto{
         dietType:obj.dietType,
         ingredients:obj.ingredients,
         steps:obj.steps,
-        images:obj.images,
+        images:expandImageUrl(obj.images),
         isDraft:obj.isDraft,
         isBlock:obj.isBlock,
         createdAt:obj.createdAt,

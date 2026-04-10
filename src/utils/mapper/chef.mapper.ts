@@ -1,6 +1,7 @@
 import { Document, Types } from "mongoose";
 import { IChef } from "../../types/chef.types";
 import { IUser } from "../../types/user.types";
+import { expandImageUrl } from "../imageUtils";
 
 export function chefMapper(chef: IChef & Document): IChef {
     const obj = chef.toObject();
@@ -20,7 +21,7 @@ export function chefMapper(chef: IChef & Document): IChef {
         location: obj.location,
         specialities: obj.specialities,
         bio: obj.bio,
-        image: obj.image,
+        image: expandImageUrl(obj.image),
         status: obj.status,
         isVerified: obj.isVerified,
         certificates: obj.certificates,

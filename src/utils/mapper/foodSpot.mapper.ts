@@ -1,5 +1,6 @@
 import { IFoodSpotResDto } from "../../dtos/foodSpot.dtos";
 import { IFoodSpotDocument } from "../../models/foodSpot.model";
+import { expandImageUrl } from "../imageUtils";
 
 export function foodSpotResponseMapper(foodSpot: IFoodSpotDocument): IFoodSpotResDto {
   const obj = typeof foodSpot.toObject === 'function' ? foodSpot.toObject() : foodSpot;
@@ -8,11 +9,14 @@ export function foodSpotResponseMapper(foodSpot: IFoodSpotDocument): IFoodSpotRe
     _id: obj._id.toString(),
     name: obj.name,
     description: obj.description,
-    coverImage: obj.coverImage,
+    coverImage: expandImageUrl(obj.coverImage),
 
     location: obj.location,
     address: obj.address,
-    exploredFoods: obj.exploredFoods,
+    exploredFoods: obj.exploredFoods?.map((f: any) => ({
+      ...f,
+      image: expandImageUrl(f.image)
+    })),
 
     speciality: obj.speciality,
     tags: obj.tags,

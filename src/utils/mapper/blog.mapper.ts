@@ -1,6 +1,7 @@
 import { Document } from "mongoose";
 import { IBlog } from "../../types/blog.types";
 import { IBlogDto } from "../../dtos/blog.dto";
+import { expandImageUrl } from "../imageUtils";
 
 export function blogMapper(blog:IBlog&Document):IBlogDto{
     const obj=blog.toObject()
@@ -13,7 +14,7 @@ export function blogMapper(blog:IBlog&Document):IBlogDto{
         title:obj.title,
         shortDescription:obj.shortDescription,
         content:obj.content,
-        coverImage:obj.coverImage,
+        coverImage:expandImageUrl(obj.coverImage),
         tags:obj.tags,
         isDraft:obj.isDraft,
         isBlocked:obj.isBlocked,
