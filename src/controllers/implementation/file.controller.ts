@@ -9,16 +9,12 @@ import { S3_MESSAGES } from "../../constants/Message";
 @injectable()
 export class FileController implements IFileController {
     constructor(
-        @inject(TYPES.IFileService) private _fileServie: FileService,
+        @inject(TYPES.IFileService) private _fileService: FileService,
     ) { }
     async signedUrl(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            console.log('asd', req.body);
-
             const { fileName, fileType } = req.body;
-            const result = await this._fileServie.getSignedUrl(fileName, fileType);
-            console.log('result', result);
-
+            const result = await this._fileService.getSignedUrl(fileName, fileType);
             res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result, message: S3_MESSAGES.S3URL_SEND })
         } catch (error) {
             next(error)
@@ -27,16 +23,13 @@ export class FileController implements IFileController {
 
     async serveImage(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
-            // Extracts everything after /image/ in the route
-            const key = req.params[0];
+            const key = (req.params as any)[0]; // Extract the full path after /image/
             if (!key) {
-                res.status(STATUS_CODE.NOT_FOUND).send('Image key is missing');
+                res.status(STATUS_CODE.NOT_FOUND).json({ success: false, message: "Image not found" });
                 return;
             }
 
-            const signedUrl = await this._fileServie.getReadSignedUrl(key);
-            
-            // Redirect the browser to the pre-signed S3 URL
+            const signedUrl = await this._fileService.getReadSignedUrl(key);
             res.redirect(signedUrl);
         } catch (error) {
             next(error);
