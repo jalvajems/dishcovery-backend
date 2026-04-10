@@ -22,12 +22,16 @@ export const expandImageUrl = (path: string | string[] | undefined | null): any 
   // Otherwise, treat it as an S3 key and expand it to our local secure proxy
   try {
     // For local development, use localhost. For production, ideally use an env variable.
-    const baseUrl = env.NODE_ENV === "production" 
+    // NOTE: This can be moved to env.config.ts later for better centralization.
+    const apiHost = env.NODE_ENV === "production" 
       ? "https://api.dishcovery.jalva.online" 
-      : `http://localhost:${env.PORT || 4000}`;
+      : "http://localhost";
       
-    // Remove leading slash from path if present
-    const cleanPath = path.startsWith("/") ? path.substring(1) : path;
+    const port = env.PORT || 4000;
+    const baseUrl = env.NODE_ENV === "production" ? apiHost : `${apiHost}:${port}`;
+      
+    // Ensure path doesn't have duplicate slashes
+    const cleanPath = path.replace(/^\/+/, '');
     return `${baseUrl}/api/file/image/${cleanPath}`;
   } catch (error) {
     console.error("Error expanding image URL for path:", path, error);
