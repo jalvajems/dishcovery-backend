@@ -1,11 +1,11 @@
-import { getFileUrl } from "../config/s3aws.config";
+import { env } from "../config/env.config";
 
 /**
  * Expands a stored image path into a full URL if it's not already one.
- * Supports both legacy full URLs and new S3 keys.
+ * Supports both legacy full URLs and new S3 keys using a local secure proxy.
  * 
  * @param path The image path or full URL stored in the database
- * @returns The full URL to the image
+ * @returns The full URL to the image via the backend proxy
  */
 export const expandImageUrl = (path: string | string[] | undefined | null): any => {
   if (!path) return path;
@@ -19,9 +19,10 @@ export const expandImageUrl = (path: string | string[] | undefined | null): any 
     return path;
   }
   
-  // Otherwise, treat it as an S3 key and expand it
+  // Otherwise, treat it as an S3 key and expand it using our secure redirect proxy
   try {
-    return getFileUrl(path);
+    const baseUrl = env.BASE_URL || "http://localhost:4000";
+    return `${baseUrl}/api/file/image/${path}`;
   } catch (error) {
     console.error("Error expanding image URL for path:", path, error);
     return path; // Fallback to original path
