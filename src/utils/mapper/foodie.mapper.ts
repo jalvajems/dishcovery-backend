@@ -2,6 +2,7 @@ import { Document, Types } from "mongoose";
 import { IFoodieDto } from "../../dtos/foodie.dtos";
 import { IFoodie } from "../../types/foodie.types";
 import { IUser } from "../../types/user.types";
+import { expandImageUrl } from "../imageUtils";
 
 export default function foodieMapper(foodie: IFoodie & Document): IFoodieDto {
     const obj = foodie.toObject();
@@ -30,7 +31,7 @@ export default function foodieMapper(foodie: IFoodie & Document): IFoodieDto {
         address: obj.address,
         preferences: obj.preferences,
         bio: obj.bio,
-        image: obj.image,
+        image: expandImageUrl(obj.image),
         status: obj.status
     };
 }

@@ -1,5 +1,6 @@
 import { IWorkshopResponseDTO } from "../../dtos/workshop.dtos";
 import { IWorkshopDocument } from "../../types/workshop.types";
+import { expandImageUrl } from "../imageUtils";
 
 export function workshopMapper(workshop: IWorkshopDocument): IWorkshopResponseDTO {
   const obj = workshop.toObject ? workshop.toObject() : workshop;
@@ -18,7 +19,7 @@ export function workshopMapper(workshop: IWorkshopDocument): IWorkshopResponseDT
     _id: obj._id,
 
     title: obj.title,
-    banner: obj.banner,
+    banner: expandImageUrl(obj.banner),
     description: obj.description,
     category: obj.category,
     tags: obj.tags || [],

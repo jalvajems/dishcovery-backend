@@ -45,9 +45,15 @@ export const generateUploadSignedUrl = async (
     const uploadUrl = await getSignedUrl(s3, command, { expiresIn: 300 });
     const fileUrl = `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`;
 
-    return { uploadUrl, fileUrl };
+    return { uploadUrl, fileUrl, key };
   } catch (error) {
     console.error("S3 Generate Signed URL failed:", error);
     throw error; 
   }
+};
+
+export const getFileUrl = (key: string): string => {
+  const bucketName = process.env.AWS_BUCKET_NAME;
+  const region = process.env.AWS_REGION;
+  return `https://${bucketName}.s3.${region}.amazonaws.com/${key}`;
 };
