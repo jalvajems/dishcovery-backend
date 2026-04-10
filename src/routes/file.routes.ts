@@ -9,7 +9,7 @@ const router=Router();
 const FileController=container.get<IFileController>(TYPES.IFileController);
 
 router.post('/file-upload',FileController.signedUrl.bind(FileController));
-router.get('/image/*', verifyAccess, FileController.serveImage.bind(FileController));
+router.get(/\/image\/(.*)/, verifyAccess, FileController.serveImage.bind(FileController));
 
 
 export default router;
