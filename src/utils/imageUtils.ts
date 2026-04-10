@@ -1,4 +1,5 @@
 import { getFileUrl } from "../config/s3aws.config";
+import { env } from "../config/env.config";
 
 /**
  * Expands a stored image path into a full URL if it's not already one.
@@ -21,13 +22,10 @@ export const expandImageUrl = (path: string | string[] | undefined | null): any 
   
   // Otherwise, treat it as an S3 key and expand it to point to our secure proxy
   try {
-    const baseUrl = process.env.NODE_ENV === 'production' 
+    const baseUrl = env.BASE_URL || (env.NODE_ENV === 'production' 
       ? 'https://api.dishcovery.jalva.online' 
-      : `http://localhost:${process.env.PORT || 4000}`;
+      : `http://localhost:${env.PORT || 4000}`);
       
-    // The route we created is /api/file/image/* but wait! The main API prefix might be /api or just /
-    // Let's assume it mounts to /api/file (based on standard conventions, let's look closely at app.ts if needed, but normally it's '/api/file')
-    // Actually, I should check how the file router is mounted just to be safe.
     return `${baseUrl}/api/file/image/${path}`;
   } catch (error) {
     console.error("Error expanding image URL for path:", path, error);

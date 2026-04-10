@@ -19,6 +19,7 @@ const envSchema = z.object({
     VITE_MAPBOX_TOKEN: z.string().optional(),
     STRIPE_WEBHOOK_SECRET: z.string().optional(),
     STRIPE_SECRET_KEY: z.string().optional(),
+    BASE_URL: z.string().optional(),
 }).refine((data) => {
     if (data.NODE_ENV === "production" && !data.GOOGLE_CLIENT_ID) {
         return false;
@@ -56,6 +57,7 @@ export const env = {
     VITE_MAPBOX_TOKEN: parsed.data.VITE_MAPBOX_TOKEN,
     STRIPE_WEBHOOK_SECRET: parsed.data.STRIPE_WEBHOOK_SECRET,
     STRIPE_SECRET_KEY: parsed.data.STRIPE_SECRET_KEY,
+    BASE_URL: parsed.data.BASE_URL,
 };
 
 export type Env = typeof env;
