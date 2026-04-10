@@ -13,12 +13,14 @@ export const expandImageUrl = (path: string | string[] | undefined | null): any 
   // Otherwise, treat it as an S3 key and expand it to our local secure proxy
   try {
     const isProduction = process.env.NODE_ENV === "production";
-    const apiHost = isProduction 
+    
+    // Prioritize BASE_URL from environment if available
+    const apiHost = process.env.BASE_URL || (isProduction 
       ? "https://api.dishcovery.jalva.online" 
-      : "http://localhost";
+      : "http://localhost");
       
     const port = process.env.PORT || 4000;
-    const baseUrl = isProduction ? apiHost : `${apiHost}:${port}`;
+    const baseUrl = (process.env.BASE_URL || isProduction) ? apiHost : `${apiHost}:${port}`;
       
     // Ensure path doesn't have duplicate slashes
     const cleanPath = path.replace(/^\/+/, '');
