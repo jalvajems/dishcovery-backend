@@ -29,11 +29,17 @@ export class FileController implements IFileController {
         try {
             // Extract the key which might contain slashes. We try both named parameter and positional capture.
             const rawKey = req.params.key || (req.params as any)[0];
+            
+            if (!rawKey) {
+                res.status(400).send("Image key is required");
+                return;
+            }
+
             const key = decodeURIComponent(rawKey);
             
             console.log("Serving image for key:", key, " (raw:", rawKey, ")");
 
-            if (!key || key === 'undefined') {
+            if (key === 'undefined') {
                 res.status(400).send("Image key is required");
                 return;
             }
