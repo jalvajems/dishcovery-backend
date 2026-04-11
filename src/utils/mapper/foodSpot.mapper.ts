@@ -38,4 +38,6 @@ export function foodSpotResponseMapper(foodSpot: IFoodSpotDocument): IFoodSpotRe
     createdAt: obj.createdAt,
     updatedAt: obj.updatedAt,
   };
+
+  //jalva
 }
