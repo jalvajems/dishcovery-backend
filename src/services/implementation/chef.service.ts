@@ -18,6 +18,7 @@ import { IChefDocument } from "../../models/chef.model";
 import { IReviewDocument } from "../../models/review.model";
 import { chefMapper } from "../../utils/mapper/chef.mapper";
 import { IChef } from "../../types/chef.types";
+import { chefsMapper } from "../../utils/mapper/allChef.mapper";
 
 @injectable()
 export class ChefService implements IChefService {
@@ -70,10 +71,10 @@ export class ChefService implements IChefService {
         return { data: userMapper(user) }
     }
 
-    async getAllChefs(page: number, limit: number, search: string, filter?: string): Promise<{ datas: IChefDocument[]; totalCount: number }> {
+    async getAllChefs(page: number, limit: number, search: string, filter?: string): Promise<{ datas: IChef[]; totalCount: number }> {
         const skip = (page - 1) * limit;
         const result = await this._chefRepository.findAllChefs(skip, limit, search, filter);
-        return { datas: result.datas, totalCount: result.totalCount };
+        return { datas: chefsMapper(result.datas), totalCount: result.totalCount };
     }
 
     async getChefDetails(chefId: string): Promise<{ data: IChef }> {

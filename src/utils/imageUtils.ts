@@ -1,4 +1,3 @@
-import { getFileUrl } from "../config/s3aws.config";
 import { env } from "../config/env.config";
 
 /**
