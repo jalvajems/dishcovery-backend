@@ -28,10 +28,10 @@ export class FileController implements IFileController {
     async serveImage(req: Request, res: Response, next: NextFunction): Promise<void> {
         try {
             // Extract the key which might contain slashes. We try both named parameter and positional capture.
-            const rawKey = req.params.key || (req.params as any)[0];
+            const rawKey = req.params.key || req.params['0'];
             
             if (!rawKey) {
-                res.status(400).send("Image key is required");
+                res.status(STATUS_CODE.BAD_REQUEST).send("Image key is required");
                 return;
             }
 
@@ -40,7 +40,7 @@ export class FileController implements IFileController {
             console.log("Serving image for key:", key, " (raw:", rawKey, ")");
 
             if (key === 'undefined') {
-                res.status(400).send("Image key is required");
+                res.status(STATUS_CODE.BAD_REQUEST).send("Image key is required");
                 return;
             }
 
@@ -50,7 +50,7 @@ export class FileController implements IFileController {
             res.redirect(302, signedUrl);
         } catch (error) {
             console.error("Error serving image proxy:", error);
-            res.status(404).send("Image not found");
+            res.status(STATUS_CODE.NOT_FOUND).send("Image not found");
         }
     }
 }

@@ -207,7 +207,7 @@ export class AuthService implements IAuthService {
     }
 
     async refreshToken(cookieToken: string): Promise<{ accessToken: string, refreshToken: string, role: string, user: IUserDto }> {
-        if (!cookieToken) throw new AppError('token is not exist in cookies', 401);
+        if (!cookieToken) throw new AppError('token is not exist in cookies', STATUS_CODE.UNAUTHORIZED);
         try {
             const decoded = jwt.verify(cookieToken, env.JWT_REFRESH_SECRET) as TokenPayload
             // const storedToken = await this._refreshTokenRepository.findByUserId(decoded.id)
@@ -340,4 +340,4 @@ export class AuthService implements IAuthService {
         }
     }
 
-}
+}

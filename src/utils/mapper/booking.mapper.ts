@@ -10,7 +10,6 @@ export function bookingMapper(booking: IBookingDocument): IBookingDto {
         if (!ref) return '';
         if (typeof ref === 'object' && ref !== null && !(ref instanceof String)) {
             if ('_id' in ref) return ref as Partial<T>;
-            // if it's an ObjectId and doesn't stringify to [object Object] // TypeScript check
             const strRef = String(ref);
             if (strRef !== '[object Object]') return strRef;
         }

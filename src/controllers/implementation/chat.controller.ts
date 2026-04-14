@@ -3,6 +3,7 @@ import { inject, injectable } from "inversify";
 import { Role } from '../../types/user.types';
 import { IChatService } from "../../services/interface/chat.service.interface";
 import { CHAT_MESSAGES } from "../../constants/Message";
+import { STATUS_CODE } from "../../constants/StatusCode";
 
 interface AuthenticatedRequest extends Request {
     user: {
@@ -26,7 +27,7 @@ export class ChatController {
             const userRole = user.role;
 
             if (!otherUserId || !otherUserRole) {
-                res.status(400).json({ message:CHAT_MESSAGES.OTHERID_REQUIRED  });
+                res.status(STATUS_CODE.BAD_REQUEST).json({ message:CHAT_MESSAGES.OTHERID_REQUIRED  });
                 return;
             }
 
@@ -39,14 +40,14 @@ export class ChatController {
                 otherUserRole
             );
 
-            res.status(200).json({
+            res.status(STATUS_CODE.SUCCESS).json({
                 success: true,
                 conversation
             });
         } catch (error: unknown) {
             console.error('Error in createOrGetConversation:', error);
             const message = error instanceof Error ? error.message : CHAT_MESSAGES.CREATE_CONVERSATION_FAILED;
-            res.status(500).json({
+            res.status(STATUS_CODE.INTERNAL_SERVER_ERROR).json({
                 success: false,
                 message
             });
@@ -62,7 +63,7 @@ export class ChatController {
 
             const { conversations, total } = await this.chatService.getUserConversations(userId, page, limit);
 
-            res.status(200).json({
+            res.status(STATUS_CODE.SUCCESS).json({
                 success: true,
                 conversations,
                 pagination: {
@@ -74,7 +75,7 @@ export class ChatController {
             });
         } catch (error: unknown) {
             const message = error instanceof Error ? error.message :CHAT_MESSAGES.FAILED_FETCH_CONVERSATION;
-            res.status(500).json({
+            res.status(STATUS_CODE.NOT_FOUND).json({
                 success: false,
                 message
             });
@@ -90,7 +91,7 @@ export class ChatController {
             const senderRole = user.role;
 
             if (!conversationId || (!content && !fileUrl)) {
-                res.status(400).json({ message: CHAT_MESSAGES.CONVERSATIONID_AND_CONTENT_REQUIRED });
+                res.status(STATUS_CODE.BAD_REQUEST).json({ message: CHAT_MESSAGES.CONVERSATIONID_AND_CONTENT_REQUIRED });
                 return;
             }
 
@@ -98,13 +99,13 @@ export class ChatController {
 
             const message = await this.chatService.sendMessage(senderId, mappedSenderRole, conversationId, content, fileUrl, messageType);
 
-            res.status(201).json({
+            res.status(STATUS_CODE.CREATED).json({
                 success: true,
                 message
             });
         } catch (error: unknown) {
             const message = error instanceof Error ? error.message : CHAT_MESSAGES.FAILED_SEND_MESSAGE ;
-            res.status(500).json({
+            res.status(STATUS_CODE.INTERNAL_SERVER_ERROR).json({
                 success: false,
                 message
             });
@@ -121,7 +122,7 @@ export class ChatController {
 
             const { messages, total } = await this.chatService.getMessages(conversationId, userId, page, limit);
 
-            res.status(200).json({
+            res.status(STATUS_CODE.SUCCESS).json({
                 success: true,
                 messages,
                 pagination: {
@@ -133,7 +134,7 @@ export class ChatController {
             });
         } catch (error: unknown) {
             const message = error instanceof Error ? error.message : CHAT_MESSAGES.FAILED_FETCH_MESSAGE;
-            res.status(500).json({
+            res.status(STATUS_CODE.INTERNAL_SERVER_ERROR).json({
                 success: false,
                 message
             });
@@ -148,13 +149,13 @@ export class ChatController {
 
             await this.chatService.markAsRead(conversationId, userId);
 
-            res.status(200).json({
+            res.status(STATUS_CODE.SUCCESS).json({
                 success: true,
                 message: CHAT_MESSAGES.MARKED_AS_READ
             });
         } catch (error: unknown) {
             const message = error instanceof Error ? error.message :CHAT_MESSAGES.FAILED_MARKED_AS_READ ;
-            res.status(500).json({
+            res.status(STATUS_CODE.INTERNAL_SERVER_ERROR).json({
                 success: false,
                 message
             });
@@ -171,18 +172,18 @@ export class ChatController {
             const updatedMessage = await this.chatService.deleteMessage(messageId, userId, forEveryone);
 
             if (!updatedMessage) {
-                res.status(404).json({ message: CHAT_MESSAGES.MESSAGE_NOT_FOUND });
+                res.status(STATUS_CODE.NOT_FOUND).json({ message: CHAT_MESSAGES.MESSAGE_NOT_FOUND });
                 return;
             }
 
-            res.status(200).json({
+            res.status(STATUS_CODE.SUCCESS).json({
                 success: true,
                 message:CHAT_MESSAGES.MESSAGE_DELETED ,
                 data: updatedMessage
             });
         } catch (error: unknown) {
             const message = error instanceof Error ? error.message : CHAT_MESSAGES.FAILED_MESSAGE_DELETED;
-            res.status(500).json({
+            res.status(STATUS_CODE.INTERNAL_SERVER_ERROR).json({
                 success: false,
                 message
             });
