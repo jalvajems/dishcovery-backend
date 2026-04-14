@@ -13,6 +13,7 @@ import { Types } from 'mongoose';
 import { v4 as uuidv4 } from 'uuid';
 import { WorkshopSessionMapper } from '../../utils/mapper/session.mapper';
 import { IWorkshopSessionResponseDTO } from '../../dtos/session.dtos';
+import { STATUS_CODE } from '../../constants/StatusCode';
 
 @injectable()
 export class WorkshopSessionService implements IWorkshopSessionService {
@@ -27,12 +28,12 @@ export class WorkshopSessionService implements IWorkshopSessionService {
 
         const workshop = await this.workshopRepository.findById(workshopId);
 
-        if (!workshop) throw new AppError('Workshop not found', 404);
-        if (workshop.chefId.toString() !== chefId) throw new AppError('Unauthorized', 403);
-        if (workshop.mode !== WorkshopMode.ONLINE) throw new AppError('Only online workshops can have live sessions', 400);
+        if (!workshop) throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
+        if (workshop.chefId.toString() !== chefId) throw new AppError('Unauthorized', STATUS_CODE.FORBIDDEN);
+        if (workshop.mode !== WorkshopMode.ONLINE) throw new AppError('Only online workshops can have live sessions', STATUS_CODE.BAD_REQUEST);
 
         if (workshop.status !== WorkshopStatus.APPROVED && workshop.status !== WorkshopStatus.UPCOMING) {
-            throw new AppError(`Cannot start session from status: ${workshop.status}`, 400);
+            throw new AppError(`Cannot start session from status: ${workshop.status}`, STATUS_CODE.BAD_REQUEST);
         }
 
         const existingSession = await this.sessionRepository.findByWorkshopId(workshopId);
@@ -66,11 +67,11 @@ export class WorkshopSessionService implements IWorkshopSessionService {
         console.log('reached end sesion workshop');
 
         const workshop = await this.workshopRepository.findById(workshopId);
-        if (!workshop) throw new AppError('Workshop not found', 404);
-        if (workshop.chefId.toString() !== chefId) throw new AppError('Unauthorized', 403);
+        if (!workshop) throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
+        if (workshop.chefId.toString() !== chefId) throw new AppError('Unauthorized', STATUS_CODE.FORBIDDEN);
 
         const session = await this.sessionRepository.findByWorkshopId(workshopId);
-        if (!session) throw new AppError('No active session found', 404);
+        if (!session) throw new AppError('No active session found', STATUS_CODE.NOT_FOUND);
 
         await this.sessionRepository.endSession(session._id as string);
         await this.sessionRepository.addLog(session._id as string, {
@@ -85,16 +86,16 @@ export class WorkshopSessionService implements IWorkshopSessionService {
 
     async joinSession(workshopId: string, foodieId: string): Promise<{ session: IWorkshopSessionResponseDTO, role: string }> {
         const workshop = await this.workshopRepository.findById(workshopId);
-        if (!workshop) throw new AppError('Workshop not found', 404);
-        if (workshop.status !== WorkshopStatus.LIVE) throw new AppError('Workshop is not live', 400);
+        if (!workshop) throw new AppError('Workshop not found', STATUS_CODE.NOT_FOUND);
+        if (workshop.status !== WorkshopStatus.LIVE) throw new AppError('Workshop is not live', STATUS_CODE.BAD_REQUEST);
 
         const booking = await this.bookingRepository.findByWorkshopAndFoodie(workshopId, foodieId);
         if (!booking || booking.status !== BookingStatus.CONFIRMED) {
-            throw new AppError('You must have a confirmed booking to join this workshop', 403);
+            throw new AppError('You must have a confirmed booking to join this workshop', STATUS_CODE.FORBIDDEN);
         }
 
         const session = await this.sessionRepository.findByWorkshopId(workshopId);
-        if (!session) throw new AppError('No active session found', 404);
+        if (!session) throw new AppError('No active session found', STATUS_CODE.NOT_FOUND);
 
         const alreadyJoined = session.participants.find(p => p.foodieId.toString() === foodieId && !p.leftAt);
         if (!alreadyJoined) {
@@ -115,7 +116,7 @@ export class WorkshopSessionService implements IWorkshopSessionService {
 
     async leaveSession(workshopId: string, foodieId: string): Promise<void> {
         const session = await this.sessionRepository.findByWorkshopId(workshopId);
-        if (!session) throw new AppError('No active session found', 404);
+        if (!session) throw new AppError('No active session found', STATUS_CODE.NOT_FOUND);
 
         await this.sessionRepository.removeParticipant(session._id as string, foodieId);
         await this.sessionRepository.addLog(session._id as string, {

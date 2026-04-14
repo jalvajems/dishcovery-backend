@@ -13,7 +13,7 @@ export function foodSpotResponseMapper(foodSpot: IFoodSpotDocument): IFoodSpotRe
 
     location: obj.location,
     address: obj.address,
-    exploredFoods: obj.exploredFoods?.map((f: any) => ({
+    exploredFoods: obj.exploredFoods?.map((f: { name: string; price?: number; image?: string; _id?: unknown }) => ({
       ...f,
       image: expandImageUrl(f.image)
     })),
@@ -39,5 +39,4 @@ export function foodSpotResponseMapper(foodSpot: IFoodSpotDocument): IFoodSpotRe
     updatedAt: obj.updatedAt,
   };
 
-  //jalva
 }

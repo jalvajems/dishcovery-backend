@@ -7,11 +7,15 @@ import { env } from "../config/env.config";
  * @param path The image path or full URL stored in the database
  * @returns The full URL to the image
  */
-export const expandImageUrl = (path: string | string[] | undefined | null): any => {
+export function expandImageUrl(path: string): string;
+export function expandImageUrl(path: string[]): string[];
+export function expandImageUrl(path: undefined | null): undefined | null;
+export function expandImageUrl(path: string | undefined | null): string | undefined | null;
+export function expandImageUrl(path: string | string[] | undefined | null): string | string[] | undefined | null {
   if (!path) return path;
 
   if (Array.isArray(path)) {
-    return path.map(p => expandImageUrl(p));
+    return path.map(p => expandImageUrl(p) as string);
   }
   
   // If it's already a full URL, return it as is
@@ -30,4 +34,4 @@ export const expandImageUrl = (path: string | string[] | undefined | null): any 
     console.error("Error expanding image URL for path:", path, error);
     return path; // Fallback to original path
   }
-};
+}

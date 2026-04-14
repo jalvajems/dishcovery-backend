@@ -69,7 +69,7 @@ export class FoodSpotController implements IFoodSpotController {
             }
             const result = await this._foodSpotService.getNearByFoodSpot(Number(lat), Number(lng), Number(distance));
 
-            res.status(200).json({ success: true, data: result.data, message: FOODSPOT_MESSAGES.NEAR_SPOT_FETCHED })
+            res.status(STATUS_CODE.SUCCESS).json({ success: true, data: result.data, message: FOODSPOT_MESSAGES.NEAR_SPOT_FETCHED })
         } catch (error) {
             next(error)
         }
