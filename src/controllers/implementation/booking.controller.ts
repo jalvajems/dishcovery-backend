@@ -80,7 +80,7 @@ console.log('reach1');
 
             if (!sig) {
                 logger.error('Missing stripe signature');
-                throw new AppError('Missing stripe signature', 400);
+                throw new AppError('Missing stripe signature', STATUS_CODE.BAD_REQUEST);
             }
 
             await this._bookingService.handleStripeWebhook(req.body, sig as string);
@@ -89,7 +89,7 @@ console.log('reach1');
         } catch (error) {
             logger.error(`Webhook Error: ${error instanceof Error ? error.message : MESSAGES.ERROR.UNKNOWN_ERROR}`, { stack: error instanceof Error ? error.stack : undefined });
             console.error('Webhook Error:', error);
-            res.status(400).send(`Webhook Error: ${error instanceof Error ? error.message : MESSAGES.ERROR.UNKNOWN_ERROR}`);
+            res.status(STATUS_CODE.BAD_REQUEST).send(`Webhook Error: ${error instanceof Error ? error.message : MESSAGES.ERROR.UNKNOWN_ERROR}`);
         }
     }
 

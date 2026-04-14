@@ -359,7 +359,7 @@ export class BookingService implements IBookingService {
 
             } catch (error: unknown) {
                 const errorMessage = error instanceof Error ? error.message : 'Unknown error during refund';
-                throw new AppError(`Refund failed: ${errorMessage}`, 500);
+                throw new AppError(`Refund failed: ${errorMessage}`, STATUS_CODE.INTERNAL_SERVER_ERROR);
             }
         }
     }
@@ -408,7 +408,7 @@ export class BookingService implements IBookingService {
 
 
         const updatedBooking = await this.bookingRepository.updateAttendance(bookingId, status);
-        if (!updatedBooking) throw new AppError('Failed to update attendance', 500);
+        if (!updatedBooking) throw new AppError('Failed to update attendance', STATUS_CODE.INTERNAL_SERVER_ERROR);
         return bookingMapper(updatedBooking);
     }
 }
