@@ -19,7 +19,7 @@ export function recipeMapper(recipe:IRecipe&Document ):IRecipeDto{
         dietType:obj.dietType,
         ingredients:obj.ingredients,
         steps:obj.steps,
-        images:expandImageUrl(obj.images),
+        images:expandImageUrl(obj.images as string[]),
         isDraft:obj.isDraft,
         isBlock:obj.isBlock,
         createdAt:obj.createdAt,
