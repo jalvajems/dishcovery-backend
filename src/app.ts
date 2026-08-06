@@ -30,7 +30,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
 app.use(cors({
-    origin: ['http://localhost:5173','https://dishcovery-app.jalva.online'],
+    origin: [
+        'http://localhost:5173',
+        'https://dishcovery-app.jalva.online',
+        'https://dishcovery.app.jalva.online',
+        'https://dishcovery.jalva.online',
+        'https://jalva.online'
+    ],
     credentials: true
 }));
 
