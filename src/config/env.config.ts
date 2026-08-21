@@ -43,7 +43,7 @@ if (!parsed.success) {
 
 export const env = {
     NODE_ENV: parsed.data.NODE_ENV,
-    PORT: Number(parsed.data.PORT),
+    PORT: Number(parsed.data.PORT) || 4000,
     MONGO_URI: parsed.data.MONGO_URI,
     JWT_ACCESS_SECRET: parsed.data.JWT_ACCESS_SECRET || "",
     JWT_REFRESH_SECRET: parsed.data.JWT_REFRESH_SECRET || "",

@@ -3,9 +3,6 @@ services:
   server:
     # Image built & pushed by CD pipeline - pulled from Docker Hub on deploy
     image: ${DOCKERHUB_USERNAME}/dishcovery-server:latest
-    build:
-      context: .
-      dockerfile: Dockerfile # Assuming there is a Dockerfile in the server root
     ports:
       - "4001:4000"
     depends_on:
