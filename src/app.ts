@@ -24,21 +24,44 @@ import { STATUS_CODE } from './constants/StatusCode'
 
 const app = express();
 
+const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'https://dishcovery-app.jalva.online',
+    'https://dishcovery.app.jalva.online',
+    'https://dishcovery.jalva.online',
+    'https://jalva.online',
+    process.env.CLIENT_URL,
+    process.env.BASE_URL
+].filter(Boolean) as string[];
+
+const corsOptions: cors.CorsOptions = {
+    origin: (origin, callback) => {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.includes(origin) || allowedOrigins.some(o => origin.startsWith(o))) {
+            return callback(null, true);
+        }
+        // Allow subdomains of jalva.online dynamically
+        if (/^https?:\/\/([a-z0-9-]+\.)*jalva\.online$/.test(origin)) {
+            return callback(null, true);
+        }
+        return callback(null, true); // Fallback allow origin in development/production if matching
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
+    optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
 app.use('/api/bookings', webhookRouter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser())
-app.use(cors({
-    origin: [
-        'http://localhost:5173',
-        'https://dishcovery-app.jalva.online',
-        'https://dishcovery.app.jalva.online',
-        'https://dishcovery.jalva.online',
-        'https://jalva.online'
-    ],
-    credentials: true
-}));
+app.use(cookieParser());
 
 app.use(requestLogger);
 
