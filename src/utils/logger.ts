@@ -34,6 +34,7 @@ const errorRotateTransport = new DailyRotateFile({
 });
 
 export const logger = createLogger({
+  exitOnError: false,
   level: env.NODE_ENV === "development" ? "debug" : "info",
   format: env.NODE_ENV === "development" ? devFormat : profFormat,
   transports: [

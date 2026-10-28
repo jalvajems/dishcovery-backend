@@ -106,34 +106,36 @@ jobs:
             sudo systemctl start docker
             sudo systemctl enable docker
 
-            # Create app directory
-            mkdir -p /home/ubuntu/dishcovery-server
+            # Determine app directory (support dishcovery-backend or dishcovery-server)
+            if [ -d "/home/ubuntu/dishcovery-backend" ]; then
+              APP_DIR="/home/ubuntu/dishcovery-backend"
+            else
+              APP_DIR="/home/ubuntu/dishcovery-server"
+            fi
+            mkdir -p "$APP_DIR"
 
             # Write docker-compose.yml (always overwrite with latest)
-            sudo cat > /home/ubuntu/dishcovery-server/docker-compose.yml << 'EOF'
+            sudo cat > "$APP_DIR/docker-compose.yml" << 'EOF'
             services:
               server:
                 image: ${{ secrets.DOCKERHUB_USERNAME }}/dishcovery-server:latest
                 ports:
                   - "4001:4000"
                 depends_on:
-                  - mongodb
                   - redis
                 env_file:
                   - .env
                 environment:
+                  - REDIS_URL=redis://redis:6379
+                  - TZ=Asia/Kolkata
                   - NODE_ENV=production
+                  - NODE_OPTIONS=--max-old-space-size=384
                 restart: always
-                networks:
-                  - dishcovery-network
-
-              mongodb:
-                image: mongo:latest
-                ports:
-                  - "27018:27017"
-                volumes:
-                  - mongodb_data:/data/db
-                restart: always
+                logging:
+                  driver: "json-file"
+                  options:
+                    max-size: "20m"
+                    max-file: "3"
                 networks:
                   - dishcovery-network
 
@@ -144,11 +146,15 @@ jobs:
                 volumes:
                   - redis_data:/data
                 restart: always
+                logging:
+                  driver: "json-file"
+                  options:
+                    max-size: "10m"
+                    max-file: "3"
                 networks:
                   - dishcovery-network
 
             volumes:
-              mongodb_data:
               redis_data:
 
             networks:
@@ -157,7 +163,7 @@ jobs:
                 driver: bridge
             EOF
 
-            cd /home/ubuntu/dishcovery-server
+            cd "$APP_DIR"
 
             # Create a dummy .env if it doesn't exist (to prevent compose failure)
             if [ ! -f .env ]; then
